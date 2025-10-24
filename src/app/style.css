@@ -22,3 +22,7 @@ input[id^='react-select-'] {
 .container {
   max-width: 1420px !important;
 }
+
+* {
+  @apply !font-mona;
+}

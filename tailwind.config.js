@@ -34,7 +34,7 @@ module.exports = {
       },
       colors: {
         portal: {
-          primaryLiving: '#25793A',
+          primaryLiving: '#982220',
           primaryMainAdmin: '#25793A',
           primaryButtonAdmin: '#FFD14B',
           textColorAdmin: '#575757',
@@ -61,12 +61,14 @@ module.exports = {
             2: '#FCF4DD',
           },
           gray: {
-            DEFAULT: '#696969',
+            DEFAULT: '#F5F5F5',
             1: '#F2F4F8',
             2: '#DEE3ED',
-            3: '#E8E8E8',
+            3: '#D4D4D4',
             4: '#696969',
             5: '#6E7987',
+            6: '#555555',
+            7: '#444444',
           },
           purple: {
             1: '#D8BFD8',
@@ -86,6 +88,7 @@ module.exports = {
             DEFAULT: '#A80707',
             1: '#FCE4E4',
             2: '#EB5757',
+            3: '#A01D25',
             4: '#961212',
           },
           amenityIn: '#C7C3E5',
@@ -188,6 +191,9 @@ module.exports = {
         6: '1.5rem',      // 24px
         7: '1.75rem',     // 28px
         8: '2rem',        // 32px
+      },
+      spacing: {
+        15: '3.75rem', // = 60px
       },
     },
   },

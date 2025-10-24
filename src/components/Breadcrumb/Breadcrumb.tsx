@@ -18,23 +18,25 @@ export interface BreadCrumbProps {
 
 const Breadcrumb: FC<BreadCrumbProps> = ({ className, items }) => {
   return (
-    <nav className={`flex items-center gap-2 text-sm ${className ?? ''}`}>
-      {items.map((item, index) => {
-        const isLast = index === items.length - 1;
+    <nav className={`p-[13px] ${className ?? ''}`}>
+      <div className='container p-0 flex items-center gap-2'>
+        {items.map((item, index) => {
+          const isLast = index === items.length - 1;
 
-        return (
-          <span key={index} className="flex items-center gap-2">
-            {!isLast ? (
-              <a href={item.path} className="text-[#9a9a9a] text-base leading-tight hover:underline">
-                {item.title}
-              </a>
-            ) : (
-              <span className="text-[#444444] text-base leading-tight">{item.title}</span>
-            )}
-            {!isLast && <span className="text-[#9A9A9A] text-base leading-tight">&gt;</span>}
-          </span>
-        );
-      })}
+          return (
+            <span key={index} className="flex items-center gap-2">
+              {!isLast ? (
+                <a href={item.path} className="text-[#9a9a9a] text-base leading-tight hover:underline">
+                  {item.title}
+                </a>
+              ) : (
+                <span className="text-[#444444] text-base leading-tight">{item.title}</span>
+              )}
+              {!isLast && <span className="text-[#9A9A9A] text-base leading-tight">&gt;</span>}
+            </span>
+          );
+        })}
+      </div>
     </nav>
   );
 };
