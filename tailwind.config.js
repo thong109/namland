@@ -29,6 +29,9 @@ module.exports = {
     },
 
     extend: {
+      fontFamily: {
+        mona: ['"Mona Sans"', 'sans-serif'],
+      },
       colors: {
         portal: {
           primaryLiving: '#25793A',
@@ -164,7 +167,28 @@ module.exports = {
       screens: {
         'desktop': '768px',
         'mobile': {min: '767.98px'}
-      }
+      },
+      fontSize: {
+        sm: '0.875rem',   // 14px
+        base: '1rem',     // 16px
+        lg: '1.125rem',   // 18px
+        xl: '1.25rem',    // 20px
+        '2xl': '1.5rem',  // 24px
+      },
+      lineHeight: {
+        none: '1',
+        tight: '1.25',
+        snug: '1.375',
+        normal: '1.5',
+        relaxed: '1.625',
+        loose: '2',
+        3: '.75rem',      // 12px
+        4: '1rem',        // 16px
+        5: '1.25rem',     // 20px
+        6: '1.5rem',      // 24px
+        7: '1.75rem',     // 28px
+        8: '2rem',        // 32px
+      },
     },
   },
   variants: {

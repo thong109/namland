@@ -3,7 +3,8 @@ import CoreButton from '@/_components/CoreButton/CoreButton';
 import IconClock from '@/assets/icon/icon-clock-us.svg';
 import IconLocation from '@/assets/icon/icon-location-us.svg';
 import IconPhone from '@/assets/icon/icon-phone-us.svg';
-import GoogleMapComponent from '@/components/GoogleMap';
+import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
+// import GoogleMapComponent from '@/components/GoogleMap';
 import { postEcomEcomContactContactUs } from '@/ecom-sadec-api-client';
 import useKeywordBanned from '@/hooks/useKeywordBaned';
 import { checkValidText } from '@/libs/appconst';
@@ -108,6 +109,7 @@ function PageContactUs() {
   const submitForm = async () => {
     handleSubmit();
   };
+
   const handleSubmit = async () => {
     try {
       setBtnLoading(true);
@@ -148,7 +150,14 @@ function PageContactUs() {
     }
   };
   return (
-    <div className="container px-3 pb-20 pt-5 xl:px-0">
+    <div className="container px-3 pb-20 xl:px-0">
+      <Breadcrumb
+        className="mb-4"
+        items={[
+          { path: '/', title: 'Trang chủ' },
+          { path: '', title: 'Liên hệ' }, 
+        ]}
+      />
       <Typography className="text-center text-3xl font-bold text-portal-primaryLiving">
         {t(`EcomContactUsPageDetailPageWe'reAlwaysEagerToHearFromYou!`)}
       </Typography>
@@ -191,13 +200,13 @@ function PageContactUs() {
           })}
         </div>
 
-        <div className="col-span-12 h-[380px] w-full lg:col-span-8 lg:h-[570px]">
+        {/* <div className="col-span-12 h-[380px] w-full lg:col-span-8 lg:h-[570px]">
           <GoogleMapComponent
             initCenter={PMHCenter}
             isMarker
             listMarker={[PMHCenter]}
           ></GoogleMapComponent>
-        </div>
+        </div> */}
 
         <div className="col-span-12 w-full lg:col-span-4">
           <div className="mt-[20px] flex w-full flex-col lg:mb-[70px]">

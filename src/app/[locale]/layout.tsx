@@ -89,8 +89,21 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
 
   return (
     <html lang={locale}>
-      <body className="text-[#444] font-['Mona Sans'] text-[16px] font-[400] leading-[calc(29/16)] tap-highlight-transparent">
+      <body className="font-mona text-[#444] text-[16px] font-[400] leading-[calc(29/16)] tap-highlight-transparent">
         <link rel="preconnect" href={preconnectUrl} />
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400;500;700&display=swap"
+          rel="stylesheet"
+        />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ConfigProvider
             locale={currentLocaleObj}
