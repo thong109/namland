@@ -1,0 +1,30 @@
+.cusstom-tag {
+  .tag-hover-effect {
+    position: 'relative';
+  }
+
+  .tag-hover-effect:hover {
+    background-color: #f7e5e5;
+    /* Change the background color on hover */
+  }
+
+  .tag-hover-effect:hover .ant-tag-close-icon {
+    visibility: visible;
+    /* Show the close icon on hover */
+  }
+
+  .ant-tag .ant-tag-close-icon {
+    visibility: hidden;
+    /* Show the close icon on hover */
+    font-size: 12px;
+  }
+
+  .tag-hover-effect:hover .anticon-close-circle {
+    visibility: visible;
+  }
+
+  .anticon-close-circle {
+    visibility: hidden;
+    font-size: 12px;
+  }
+}

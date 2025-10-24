@@ -1,0 +1,20 @@
+.message-box {
+    .ant-list-item {
+        align-items: start;
+        border-block-end: none;
+    }
+
+
+}
+
+.scrollbar-hidden {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Edge */
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari */
+}

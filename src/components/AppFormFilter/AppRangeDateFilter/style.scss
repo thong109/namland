@@ -1,0 +1,11 @@
+.custom-form-filter {
+  margin-bottom: 10px !important;
+  .custom-select-filter {
+    .ant-select-selector {
+      border: none !important;
+      background: transparent !important;
+      outline: none !important;
+      box-shadow: none !important;
+    }
+  }
+}

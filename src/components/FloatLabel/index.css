@@ -1,0 +1,18 @@
+.float-label-custom {
+  position: relative;
+}
+
+.label-custom {
+  font-size: 14px !important;
+  font-weight: normal !important;
+  position: absolute !important;
+  pointer-events: none !important;
+  left: 0px;
+  top: 5px;
+  transition: 0.2s ease all !important;
+}
+
+.label-float {
+  top: -10px;
+  font-size: 11px !important;
+}

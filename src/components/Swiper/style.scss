@@ -1,0 +1,46 @@
+.swiperComponent {
+  width: 100%;
+  position: relative;
+  .swiper-button-prev {
+    background: #ffffff;
+    color: #0d263b;
+    font-size: 10px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #cfcfcf;
+    &::after {
+      font-size: 14px !important;
+    }
+    &:hover {
+      background: #cfcfcf;
+    }
+  }
+  .swiper-button-next {
+    background: #ffffff;
+    color: #0d263b;
+    font-size: 10px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #cfcfcf;
+    &::after {
+      font-size: 14px !important;
+    }
+    &:hover {
+      background: #cfcfcf;
+    }
+  }
+  .swiper-slide {
+    overflow: hidden;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: start;
+  }
+  .swiper-slide .imgCustom {
+    width: 100% !important;
+  }
+}

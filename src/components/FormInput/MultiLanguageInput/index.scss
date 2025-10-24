@@ -1,0 +1,30 @@
+.formLang {
+  .ant-tabs-top > .ant-tabs-nav,
+  .ant-tabs-bottom > .ant-tabs-nav,
+  .ant-tabs-top > div > .ant-tabs-nav,
+  .ant-tabs-bottom > div > .ant-tabs-nav {
+    margin: 0 0 4px 0;
+  }
+
+  .ant-input-affix-wrapper-disabled .ant-input[disabled] {
+    background: #fff !important;
+    border-radius: 4px;
+  }
+  .ant-input-disabled,
+  .ant-input[disabled] {
+    color: #000 !important;
+  }
+
+  .ant-input-affix-wrapper:focus,
+  .ant-input-affix-wrapper:focus-within {
+    border-color: #2c2c2c !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  .ant-input-affix-wrapper:hover,
+  .ant-input-affix-wrapper:focus-within {
+    border-color: #2c2c2c !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+}

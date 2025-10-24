@@ -1,0 +1,36 @@
+export default interface AccountModel {
+  id: string;
+  userName?: string;
+  firstName: string;
+  lastName: string;
+  fullName?: string;
+  nickName?: string;
+  phone?: string;
+  gender?: string;
+  birthday?: string;
+  province?: string;
+  district?: string;
+  email: string;
+  type?: string;
+  refId?: string;
+  address?: string;
+  contactAddress?: string;
+  permanentAddress?: string;
+  nationality?: string;
+  identityCard?: string;
+  icDateOfIssue?: Date;
+  icPlaceOfIssue?: null;
+  isActive: boolean;
+  avatarUrl?: string;
+  lang: 'vi';
+  accesses?: string[];
+  approveStatus?: string;
+  approvedAt?: Date;
+  rejectAt?: Date;
+  rejectNote?: string;
+  accountType?: string;
+  showOnHome: boolean;
+  aboutMe?: string;
+  isLinkApple?: boolean;
+  isLinkGoogle?: boolean;
+}

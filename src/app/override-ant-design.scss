@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[id^='react-select-'] {
+  @apply focus:border-transparent focus:outline-none focus:ring-0;
+}
+
+/* PAGINATION */
+.ant-pagination {
+  display: flex;
+
+  .ant-pagination-total-text {
+    margin-right: auto;
+  }
+
+  .ant-pagination-item:hover {
+    border-radius: 100px;
+  }
+
+  .ant-pagination-item-active {
+    a {
+      color: white;
+    }
+
+    font-weight: 400;
+    background-color: #25793a;
+    border-radius: 100px;
+    border: none;
+  }
+
+  .ant-pagination-item-active:hover {
+    a {
+      color: white;
+    }
+
+    font-size: 15px;
+    border: none;
+  }
+}
+
+.ant-select .ant-select-selection-search-input {
+  box-shadow: none !important;
+}
+
+::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+
+.no-raidus-selector {
+  .ant-select-selector {
+    border-radius: 0px !important;
+  }
+}

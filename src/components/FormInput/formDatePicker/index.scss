@@ -1,0 +1,29 @@
+.formDatePicker {
+  .ant-picker-focused .ant-picker {
+    border-color: #2c2c2c !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  .ant-picker:hover {
+    border-color: #2c2c2c !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  .ant-picker:focus {
+    border-color: #2c2c2c !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  .ant-picker-outlined.ant-picker-disabled,
+  .ant-picker-outlined[disabled] {
+    color: #000 !important;
+    background-color: white !important;
+  }
+  .ant-picker .ant-picker-input > input[disabled] {
+    color: #000 !important;
+  }
+  .ant-form-item {
+    margin-bottom: 15px;
+  }
+}

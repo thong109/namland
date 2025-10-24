@@ -1,0 +1,23 @@
+.ant-modal-content {
+  .ant-modal-footer {
+    .ant-btn-primary {
+      background-color: #ffd14be1;
+    }
+
+    .ant-btn-primary:hover {
+      background-color: #ffd14b;
+      border: 1px solid rgba(212, 202, 202, 0.671);
+    }
+  }
+}
+
+.ant-popconfirm-buttons {
+  .ant-btn-primary {
+    background-color: #ffd14be1;
+  }
+
+  .ant-btn-primary:hover {
+    background-color: #ffd14b;
+    border: 1px solid rgba(212, 202, 202, 0.671);
+  }
+}

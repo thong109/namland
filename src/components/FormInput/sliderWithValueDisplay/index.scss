@@ -1,0 +1,38 @@
+.default-slide {
+  div.slider-mark {
+    margin-top: -3rem;
+    padding: 1px 8px;
+    white-space: nowrap;
+    font-size: smaller;
+
+    &.shift-left {
+      margin-left: -35%;
+      width: fit-content;
+    }
+
+    &.shift-right {
+      margin-left: 35%;
+      min-width: 2.5rem;
+      width: fit-content;
+    }
+  }
+
+  div.slider-mark:before {
+    content: ' ';
+    position: absolute;
+    left: 50%;
+    bottom: 1rem;
+    transform: translateX(-50%);
+
+    border: 7px solid transparent;
+    border-top-color: #ffd14b;
+  }
+
+  .ant-slider-handle.ant-slider-handle-dragging {
+    z-index: 20;
+  }
+
+  .ant-slider-horizontal.ant-slider-with-marks {
+    margin-bottom: 11px;
+  }
+}

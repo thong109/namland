@@ -1,0 +1,23 @@
+.tags-input {
+  .ant-input-outlined:focus,
+  .ant-input-outlined:focus-within {
+    border-color: #2c2c2c !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  .ant-tag .ant-tag-close-icon {
+    margin-left: 5px;
+    border: 1px white solid;
+    border-radius: 9999px;
+    padding: 2px;
+    color: white;
+    font-size: 8px;
+  }
+
+  .ant-input-outlined.ant-input-disabled,
+  .ant-input-outlined[disabled] {
+    color: #000 !important;
+    background: #fff !important;
+  }
+}

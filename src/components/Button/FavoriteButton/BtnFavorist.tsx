@@ -1,0 +1,88 @@
+'use client';
+
+import favoriteApiService from '@/apiServices/externalApiServices/favoriteApiService';
+import { ModalLoginOpen } from '@/components/Header/ultil/ModalLoginOpen';
+import { useSession } from 'next-auth/react';
+import { FC, useState } from 'react';
+export interface BtnFavoristProps {
+  className?: string;
+  colorClass?: string;
+  isLiked?: boolean;
+  id: string;
+  fillColor?: string;
+  changeFavoric?: (number: number) => void;
+}
+
+const BtnFavorist: FC<BtnFavoristProps> = ({
+  className = '',
+  id,
+  isLiked = false,
+  fillColor,
+  changeFavoric,
+}) => {
+  const { status } = useSession();
+  const [likedState, setLikedState] = useState<boolean>(isLiked);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isModalOpen, setIsModalOpen] = ModalLoginOpen();
+  const likeFunction = async (e: any) => {
+    e.stopPropagation();
+    if (!isLoading) {
+      if (status == 'unauthenticated') {
+        setIsModalOpen(true);
+      } else {
+        setIsLoading(true);
+        await favoriteApiService
+          .activeOrDeActiveFavorite(id, !likedState)
+          .then((response) => {
+            if (response.data) {
+              if (likedState) {
+                changeFavoric && changeFavoric(-1);
+              } else {
+                changeFavoric && changeFavoric(+1);
+              }
+              setLikedState(!likedState);
+            }
+          })
+          .finally(() => {
+            setIsLoading(false);
+          })
+          .catch((e) => {
+            setIsLoading(false);
+          });
+      }
+    }
+  };
+  return (
+    <div
+      className={`nc-BtnLikeIcon flex h-8 w-8 cursor-pointer items-center justify-center rounded-full ${
+        likedState ? 'nc-BtnLikeIcon--liked' : ''
+      } ${className}`}
+      data-nc-id="BtnLikeIcon"
+      title="Save"
+      onClick={(e) => {
+        likeFunction(e);
+      }}
+    >
+      <svg
+        width="35"
+        height="35"
+        viewBox="0 0 35 35"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          width="35"
+          height="35"
+          rx="17.5"
+          fill={likedState ? '#FFD14B' : fillColor || '#F6F8F9'}
+        />
+        <path
+          d="M23.7574 13.3652C22.1262 11.813 19.4711 11.813 17.8393 13.3649L17.5 13.6872L17.1611 13.365C15.5292 11.8129 12.8744 11.8131 11.2425 13.365C10.4412 14.1272 10 15.1381 10 16.2112C10 17.2847 10.4412 18.2954 11.2426 19.0579L17.1377 24.6545C17.2391 24.751 17.3697 24.7991 17.5 24.7991C17.6303 24.7991 17.7607 24.7508 17.8623 24.6543L23.7574 19.0579C24.5586 18.2956 25 17.2847 25 16.2114C25 15.1381 24.5586 14.1273 23.7574 13.3652ZM23.0321 18.2947L17.5 23.547L11.9681 18.2949C11.3777 17.7335 11.0526 16.9935 11.0526 16.2114C11.0526 15.4293 11.3777 14.6893 11.9681 14.1279C12.5839 13.5419 13.3926 13.2491 14.2016 13.2491C15.0107 13.2491 15.8198 13.5422 16.4356 14.1282L17.1374 14.7947C17.3405 14.9879 17.6593 14.9879 17.8625 14.7947L18.5644 14.1279C19.7961 12.9561 21.8002 12.9561 23.0319 14.1279C23.6221 14.6893 23.9474 15.4293 23.9474 16.2114C23.9474 16.9935 23.6221 17.7333 23.0321 18.2947Z"
+          fill={likedState ? '#ffffff' : '#696969'}
+        />
+      </svg>
+    </div>
+  );
+};
+
+export default BtnFavorist;

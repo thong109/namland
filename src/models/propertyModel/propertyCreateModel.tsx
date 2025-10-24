@@ -1,0 +1,48 @@
+import { ILanguageValue } from '@/libs/appconst';
+
+export interface PropertyCreateModel {
+  infoTranslation: any[];
+  title: ILanguageValue[];
+  description: ILanguageValue[];
+  typeId: string;
+  projectId: string;
+  projectUnitCode: string;
+  showProjectUnitCode: boolean;
+  projectStatusId: string;
+  bathrooms: number;
+  bedrooms: number;
+  carPackingSlot?: string;
+  carParkingLot?: string;
+  homeArea: number;
+  viewIds: string[];
+  viewsIds: string[];
+  viewBalconyIds: string[];
+  legalStatus: string;
+  handoverStatus: string;
+  province: number;
+  priceUsd: number;
+  priceUsdM2: number;
+  placeId: string;
+  expectedPublishingDate?: Date;
+  handOverStatus?: string;
+  address?: string;
+  lattitude?: number;
+  longitude?: number;
+  city: string;
+  district: string;
+  ward: string;
+  priorityStatus: boolean;
+  imageThumbnail: File;
+  gallery: File[];
+  imageIds: string[];
+  saleContract: File[];
+  certificateOfTitle: File[];
+  attachments: string[];
+  videoLink?: string;
+  virtualTour?: string;
+  imageIdsDelete?: string[];
+  amenitiesIds: string[];
+  location: any;
+  isReSubmit: boolean;
+  status?: number;
+}

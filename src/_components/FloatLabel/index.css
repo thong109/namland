@@ -1,0 +1,24 @@
+.float-label-custom {
+  position: relative;
+}
+
+.label-custom {
+  font-size: 14px !important;
+  font-weight: normal !important;
+  position: absolute !important;
+  pointer-events: none !important;
+  left: 8px;
+  top: 12px;
+  transition: 0.2s ease all !important;
+}
+
+.label-float {
+  top: 0;
+  transform: unset;
+  font-size: 11px !important;
+}
+
+.float-label-custom .ant-select-selection-item {
+  align-self: self-end !important;
+  padding-bottom: 4px !important;
+}

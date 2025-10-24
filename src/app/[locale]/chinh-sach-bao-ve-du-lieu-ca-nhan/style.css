@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+}
+h1 {
+  color: black;
+
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 16pt;
+}
+h2 {
+  color: black;
+
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 12pt;
+}
+.p,
+p {
+  color: black;
+
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 12pt;
+  margin: 0pt;
+}
+.a {
+  color: black;
+
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: underline;
+  font-size: 12pt;
+}
+.s2 {
+  color: black;
+
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 12pt;
+}
+li {
+  display: block;
+}
+#l1 {
+  padding-left: 0pt;
+  counter-reset: c1 1;
+}
+#l1 > li > *:first-child:before {
+  counter-increment: c1;
+  content: counter(c1, decimal) '. ';
+  color: black;
+
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 12pt;
+}
+#l1 > li:first-child > *:first-child:before {
+  counter-increment: c1 0;
+}
+#l2 {
+  padding-left: 0pt;
+  counter-reset: c2 1;
+}
+#l2 > li > *:first-child:before {
+  counter-increment: c2;
+  content: counter(c1, decimal) '.' counter(c2, decimal) ' ';
+  color: black;
+
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 12pt;
+}
+#l2 > li:first-child > *:first-child:before {
+  counter-increment: c2 0;
+}
+#l3 {
+  padding-left: 0pt;
+}
+#l3 > li > *:first-child:before {
+  content: ' ';
+  color: black;
+  font-family: Symbol, serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 12pt;
+}
+#l4 {
+  padding-left: 0pt;
+  counter-reset: c2 1;
+}
+#l4 > li > *:first-child:before {
+  counter-increment: c2;
+  content: counter(c1, decimal) '.' counter(c2, decimal) ' ';
+  color: black;
+
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 12pt;
+}
+#l4 > li:first-child > *:first-child:before {
+  counter-increment: c2 0;
+}
+#l5 {
+  padding-left: 0pt;
+}
+#l5 > li > *:first-child:before {
+  content: ' ';
+  color: black;
+  font-family: Symbol, serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 12pt;
+}
+#l6 {
+  padding-left: 0pt;
+}
+#l6 > li > *:first-child:before {
+  content: ' ';
+  color: black;
+  font-family: Symbol, serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 12pt;
+}
+#l7 {
+  padding-left: 0pt;
+  counter-reset: d1 1;
+}
+#l7 > li > *:first-child:before {
+  counter-increment: d1;
+  content: counter(d1, lower-latin) '. ';
+  color: black;
+
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 12pt;
+}
+#l7 > li:first-child > *:first-child:before {
+  counter-increment: d1 0;
+}

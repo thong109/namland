@@ -1,0 +1,22 @@
+.wrap-page-footer {
+  z-index: 4;
+  position: fixed;
+  bottom: 12px;
+  width: calc(100vw - 316px) !important;
+  height: 60px;
+  margin-top: 10px;
+  .ant-card {
+    background: rgba(110, 186, 196, 0.16);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    .ant-card-body {
+      padding: 12px 18px;
+    }
+  }
+}
+
+/* Text align */
+.text-right {
+  text-align: right !important;
+  margin-bottom: 5px;
+}

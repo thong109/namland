@@ -1,0 +1,35 @@
+.customCarousel {
+  :global {
+    .slick-arrow {
+      top: unset;
+      bottom: 5%;
+      @apply flex size-10 items-center justify-center rounded-full border-0 bg-neutral-100;
+    }
+
+    .slick-arrow::after {
+      @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform border-l-2 border-t-2 border-solid border-neutral-800;
+    }
+
+    .slick-arrow.slick-next::after {
+      @apply rotate-[135deg] transform;
+    }
+
+    .slick-arrow.slick-prev::after {
+      @apply -rotate-45 transform;
+    }
+
+    .slick-arrow.slick-next {
+      @apply right-2 shadow-lg drop-shadow-md;
+    }
+
+    .slick-arrow.slick-prev {
+      inset-inline-start: unset;
+
+      @apply right-14 shadow-lg drop-shadow-md;
+    }
+
+    .slick-slide > div {
+      height: 100%;
+    }
+  }
+}

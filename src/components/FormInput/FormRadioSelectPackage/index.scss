@@ -1,0 +1,30 @@
+.formRadio {
+  .ant-radio-button-wrapper:not(:first-child)::before {
+    width: 0px !important;
+  }
+
+  .ant-radio-button-wrapper {
+    border-radius: 12px !important;
+  }
+
+  .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+    color: #ffffff;
+    border-color: #ffd14b;
+    background-color: #ffd14b;
+    border-radius: 12px !important;
+  }
+
+  .ant-radio-button-wrapper-disabled.ant-radio-button-wrapper-checked {
+    color: #ffffff;
+    border-color: #ffd14b;
+    background-color: #ffd14b;
+    border-radius: 12px !important;
+  }
+
+  .ant-radio-button-wrapper-disabled {
+    color: #575757;
+    border: 1px solid #d1d4d6;
+    background-color: #ffffff;
+    border-radius: 12px !important;
+  }
+}

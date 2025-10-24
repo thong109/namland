@@ -1,0 +1,41 @@
+.formInput {
+  .ant-input-affix-wrapper-disabled .ant-input[disabled] {
+    background: #fff !important;
+  }
+  .ant-input-disabled,
+  .ant-input[disabled] {
+    color: #000 !important;
+  }
+
+  .ant-input-affix-wrapper-disabled,
+  .ant-input-affix-wrapper[disabled] {
+    background: #fff !important;
+  }
+
+  .ant-input-number-disabled,
+  .ant-input-number[disabled] {
+    color: #000 !important;
+    background: #fff !important;
+  }
+
+  .ant-input-affix-wrapper-disabled,
+  .ant-input-affix-wrapper[disabled] {
+    background-color: #fff !important;
+  }
+
+  .ant-input-affix-wrapper:focus,
+  .ant-input-affix-wrapper:focus-within {
+    border-color: #2c2c2c !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  .ant-input-affix-wrapper:hover {
+    border-color: #2c2c2c !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  .ant-form-item {
+    margin-bottom: 15px;
+  }
+}

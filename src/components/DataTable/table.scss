@@ -1,0 +1,19 @@
+.ant-table.ant-table-middle .ant-table-tbody > tr:not(.ant-table-measure-row) > td {
+  padding: 12px 16px !important;
+}
+.ant-table {
+  border: 1px solid #dee3ed;
+}
+
+.table-padding-2 {
+  .ant-table.ant-table-middle .ant-table-tbody > tr:not(.ant-table-measure-row) > td {
+    padding: 6px 6px !important;
+  }
+}
+
+.ant-table-wrapper .ant-spin-nested-loading .ant-spin-container {
+  width: fit-content;
+  @media (min-width: 640px) {
+    width: unset;
+  }
+}

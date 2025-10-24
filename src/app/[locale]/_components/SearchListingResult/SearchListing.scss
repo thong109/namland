@@ -1,0 +1,11 @@
+.search-form {
+  .ant-form-item-label {
+    font-weight: bold;
+  }
+
+  .ant-form-item {
+    .ant-form-item-control-input {
+      min-height: 10px !important;
+    }
+  }
+}

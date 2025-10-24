@@ -1,0 +1,13 @@
+.home-real-estate-search-form {
+  :global {
+    .search-form {
+      .ant-form-item-label {
+        font-weight: bold;
+      }
+    }
+
+    .scrollbar-hidden::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

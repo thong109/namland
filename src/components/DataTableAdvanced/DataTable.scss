@@ -1,0 +1,41 @@
+.ant-table.ant-table-middle .ant-table-thead > tr > th {
+  padding: 8px !important;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #25793a;
+}
+.ant-table.ant-table-middle .ant-table-tbody > tr:not(.ant-table-measure-row) > td {
+  padding: 10px 10px !important;
+}
+.ant-table {
+  border: 1px solid #dee3ed;
+}
+
+.table-padding-2 {
+  .ant-table.ant-table-middle .ant-table-tbody > tr:not(.ant-table-measure-row) > td {
+    padding: 6px 6px !important;
+  }
+}
+
+.ant-table-wrapper .ant-spin-nested-loading .ant-spin-container {
+  width: fit-content;
+  @media (min-width: 640px) {
+    width: unset;
+  }
+}
+
+.ant-table-wrapper
+  .ant-table-thead
+  > tr
+  > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not(
+    [colspan]
+  )::before,
+:where(.css-52ldik).ant-table-wrapper
+  .ant-table-thead
+  > tr
+  > td:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not(
+    [colspan]
+  )::before {
+  background-color: transparent;
+}

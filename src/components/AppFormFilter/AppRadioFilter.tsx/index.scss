@@ -1,0 +1,11 @@
+.appRadio {
+  .ant-radio-button-wrapper:not(:first-child)::before {
+    width: 0px !important;
+  }
+
+  .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+    color: #ffffff;
+    border-color: #25793a;
+    background-color: #25793a !important;
+  }
+}

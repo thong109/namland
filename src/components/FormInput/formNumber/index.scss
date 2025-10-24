@@ -1,0 +1,28 @@
+.formNumber {
+  .ant-input-number-disabled,
+  .ant-input-number[disabled] {
+    color: #000000 !important;
+    background: #ffffff !important;
+  }
+  .ant-input-number-input-wrap {
+    .ant-input-number-input {
+      border-radius: 0px;
+      box-shadow: none;
+    }
+  }
+  .ant-input-number:focus,
+  .ant-input-number:focus-within {
+    border-color: #2c2c2c !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  .ant-input-number:hover,
+  .ant-input-number:focus-within {
+    border-color: #2c2c2c !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  .ant-form-item {
+    margin-bottom: 15px;
+  }
+}

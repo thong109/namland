@@ -1,0 +1,5 @@
+.Modal-Login .ant-modal-content {
+  padding: 0 !important;
+  border-radius: 3px !important;
+  overflow: hidden;
+}

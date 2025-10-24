@@ -1,0 +1,53 @@
+//tab not select
+.ant-tabs-card.ant-tabs-top > .ant-tabs-nav .ant-tabs-tab + .ant-tabs-tab,
+.ant-tabs-card.ant-tabs-bottom > .ant-tabs-nav .ant-tabs-tab + .ant-tabs-tab,
+.ant-tabs-card.ant-tabs-top > div > .ant-tabs-nav .ant-tabs-tab + .ant-tabs-tab,
+.ant-tabs-card.ant-tabs-bottom > div > .ant-tabs-nav .ant-tabs-tab + .ant-tabs-tab {
+  border-radius: 20px;
+}
+
+// tab select
+.ant-tabs-card.ant-tabs-top > .ant-tabs-nav .ant-tabs-tab-active,
+.ant-tabs-card.ant-tabs-top > div > .ant-tabs-nav .ant-tabs-tab-active {
+  border-radius: 20px;
+  background-color: #25793a;
+}
+
+//text tab select
+.ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #ffffff;
+}
+
+.ant-tabs-card.ant-tabs-top > .ant-tabs-nav .ant-tabs-tab,
+.ant-tabs-card.ant-tabs-top > div > .ant-tabs-nav .ant-tabs-tab {
+  border-radius: 20px;
+}
+
+.background-admin {
+  background-image: url('../../../assets/images/bg-admin.png');
+}
+.ant-table-body {
+  scrollbar-width: auto;
+  scrollbar-color: auto;
+}
+
+.ant-table-body::-webkit-scrollbar {
+  width: 3px;
+}
+
+.ant-table-body::-webkit-scrollbar-track {
+  background-color: #e1e6e6;
+}
+
+.ant-table-body::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: #25793a;
+}
+
+.ant-switch.ant-switch-checked {
+  background: #25793a;
+}
+
+.ant-table-wrapper .ant-table-cell-scrollbar:not([rowspan]) {
+  box-shadow: 0 0px 0 0px #fafafa;
+}

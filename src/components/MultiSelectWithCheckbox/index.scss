@@ -1,0 +1,17 @@
+    .ant-select-dropdown .ant-select-item-option-state {
+        display: none !important;
+
+    }
+
+    .ant-select-selection-overflow-item {
+        .ant-checkbox {
+            display: none;
+        }
+    }
+
+
+
+    .ant-select-selection-overflow-item:not(:first-child):not(:last-child)::before {
+        content: ", ";
+        margin-right: 3px;
+    }

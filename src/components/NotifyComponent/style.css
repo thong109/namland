@@ -1,0 +1,15 @@
+/* Tuỳ chỉnh thanh scroll nhỏ lại */
+.custom-scrollbar::-webkit-scrollbar {
+    height: 2px;
+    /* nhỏ hơn bình thường */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    /* màu thanh cuộn */
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}

@@ -1,0 +1,56 @@
+.swiper-iamowner {
+  .slick-prev,
+  .slick-next {
+    width: 45px;
+    height: 45px;
+    color: white;
+    background: #ffd14b;
+    border-radius: 50%;
+  }
+
+  .slick-prev::after {
+    top: 37%;
+    left: 42%;
+  }
+
+  .slick-next::after {
+    top: 37%;
+    left: 34%;
+  }
+
+  .slick-prev {
+    left: -30px;
+  }
+
+  .slick-next {
+    right: -30px;
+  }
+
+  .slick-dots-bottom {
+    bottom: -12px;
+  }
+
+  .slick-dots li button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    color: #000;
+    opacity: 1;
+    background: white;
+    border: 2px solid #ffd14b;
+    content: ' ';
+  }
+
+  .slick-dots li.slick-active button {
+    color: #fff;
+    background: #ffd14b;
+    border-radius: 16px;
+    width: 20px;
+  }
+}
+
+.hiden-arrow {
+  .slick-arrow {
+    display: none !important;
+  }
+}

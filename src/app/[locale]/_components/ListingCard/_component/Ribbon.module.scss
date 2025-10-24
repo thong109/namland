@@ -1,0 +1,10 @@
+/* HTML: <div class="ribbon">Your text content</div> */
+.ribbon {
+  --r: 0.8em; /* control the cutout */
+
+  padding-right: calc(var(--r) + 2em);
+  line-height: 1.8;
+  clip-path: polygon(-100vw 0, 100% 0, calc(100% - var(--r)) 50%, 100% 100%, -100vw 100%);
+  // border-image: conic-gradient(#ff6b6b 0 0) fill 0;
+  width: fit-content;
+}
