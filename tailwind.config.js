@@ -161,6 +161,10 @@ module.exports = {
         primaryColor: '#0D263B',
         danger: '#EF4444',
       },
+      screens: {
+        'desktop': '768px',
+        'mobile': {min: '767.98px'}
+      }
     },
   },
   variants: {

@@ -1,0 +1,39 @@
+.header-common {
+  @apply relative z-[10000];
+}
+
+.header-common__notification {
+  @apply min-h-[50px] px-[50px] py-[5px] flex justify-center items-center gap-[15px] relative bg-[#982220];
+}
+
+.header-common__notification-label {
+  @apply text-[#fff];
+}
+
+.header-common__notification-button {
+  @apply w-[153px] min-h-[35px] px-[10px] py-[3px] bg-[#fff] rounded-[4px] flex justify-center items-center font-[600] text-[#982220];
+}
+
+.header-common__wrapper {
+  @apply min-h-[50px] px-[50px] pt-[10px] pb-[11px] bg-[#fefefe] border-t-[1px] border-b-[#e2e2e2] flex justify-between items-center;
+}
+
+.header-common__logo {
+  @apply desktop:w-[317px] mr-[95px] block;
+}
+
+.header-common__logo img {
+  @apply w-[100%] h-[auto];
+}
+
+.header-common__navigation {
+  @apply text-[#982220] font-[600];
+}
+
+.header-common__navigation-wrapper {
+  @apply flex items-center gap-[50px];
+}
+
+.header-common__burger {
+  @apply w-[57px] h-[51px];
+}

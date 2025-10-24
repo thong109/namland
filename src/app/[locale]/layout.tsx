@@ -89,7 +89,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
 
   return (
     <html lang={locale}>
-      <body className="bg-[#FAFAFA] text-base text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200">
+      <body className="text-[#444] font-['Mona Sans'] text-[16px] font-[400] leading-[calc(29/16)] tap-highlight-transparent">
         <link rel="preconnect" href={preconnectUrl} />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ConfigProvider
