@@ -5,6 +5,7 @@ import moment from 'moment';
 import 'moment/locale/ko';
 import 'moment/locale/vi';
 import "./Breadcrumb.css";
+import Link from 'next/link';
 
 export interface BreadCrumbItem {
   path: string;
@@ -26,9 +27,9 @@ const Breadcrumb: FC<BreadCrumbProps> = ({ className, items }) => {
           return (
             <span key={index} className="flex items-center gap-2">
               {!isLast ? (
-                <a href={item.path} className="text-[#9a9a9a] text-base leading-tight hover:underline">
+                <Link href={item.path} className="text-[#9a9a9a] text-base leading-tight hover:underline">
                   {item.title}
-                </a>
+                </Link>
               ) : (
                 <span className="text-[#444444] text-base leading-tight">{item.title}</span>
               )}
