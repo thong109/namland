@@ -40,43 +40,41 @@ export default function ContactUs() {
         ]}
       />
 
-      <div className="container desktop:pt-12 desktop:pb-[70px] xl:px-0">
-        <Typography className="text-center uppercase text-2xl font-semibold text-portal-primaryLiving desktop:mb-[70px]">
+      <div className="container pt-12 pb-[70px]">
+        <Typography className="text-center uppercase text-lg md:text-2xl font-semibold text-portal-primaryLiving mb-6 md:mb-[70px]">
           {t(`EcomContactUsPageDetailPageWe'reAlwaysEagerToHearFromYou!`)}
         </Typography>
 
-        <div className="grid grid-cols-12 gap-8">
-          {/* Info section */}
-          <div className="col-span-12 grid grid-cols-1 gap-3 lg:grid-cols-3 desktop:mb-[12px]">
-            {info.map((item, index) => (
-              <div className="flex items-center justify-start" key={index}>
-                <div>
-                  <div className="flex items-center mb-[5px]">
-                    <Image
-                      alt=""
-                      src={item.icon}
-                      className="h-[25px] w-[25px] lg:h-[28px] lg:w-[28px]"
-                      loading="eager"
-                    />
-                    <Typography className="ml-[2px] relative top-[3px] text-lg font-semibold text-primaryColor uppercase">
-                      {t(item.title)}
-                    </Typography>
-                  </div>
-                  {item.desc.map((item2, index2) => (
-                    <div className="text-lg" key={index2}>
-                      {t(item2.name)}
-                    </div>
-                  ))}
+        {/* Info section */}
+        <div className="col-span-1 grid grid-cols-1 gap-5 lg:gap-3 lg:grid-cols-3 mb-6 md:mb-12">
+          {info.map((item, index) => (
+            <div className="flex items-center justify-start md:pr-3" key={index}>
+              <div>
+                <div className="flex items-center mb-[5px]">
+                  <Image
+                    alt=""
+                    src={item.icon}
+                    className="h-[25px] w-[25px] lg:h-[28px] lg:w-[28px]"
+                    loading="eager"
+                  />
+                  <Typography className="ml-[2px] relative top-[3px] text-base md:text-lg font-semibold text-primaryColor uppercase">
+                    {t(item.title)}
+                  </Typography>
                 </div>
+                {item.desc.map((item2, index2) => (
+                  <div className="text-sm md:text-lg" key={index2}>
+                    {t(item2.name)}
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-
-          <div className="col-span-12 h-[380px] w-full lg:h-[466px]">
-            <GoogleMapComponent initCenter={PMHCenter} isMarker listMarker={[PMHCenter]} />
-          </div>
-
+            </div>
+          ))}
         </div>
+
+        <div className="col-span-1 h-[380px] w-full lg:h-[464px]">
+          <GoogleMapComponent initCenter={PMHCenter} isMarker listMarker={[PMHCenter]} />
+        </div>
+
       </div>
       <FormContact />
     </>

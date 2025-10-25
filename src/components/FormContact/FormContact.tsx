@@ -15,7 +15,7 @@ export default function FormContact() {
   const t = useTranslations('webLabel');
   const success = useTranslations('successNotifi');
   const messageError = useTranslations('Message_Required');
-  const errorMessage = useTranslations('Error');
+  const errorMessage = useTranslations('errorNotifi');
   const { keyword } = useKeywordBanned();
   const { userInfo } = useGlobalStore();
   const locale = useLocale();
@@ -75,16 +75,16 @@ export default function FormContact() {
   return (
     <div className="bg-portal-gray/60">
       <div className="container">
-        <div className="flex w-full flex-col desktop:pt-12 desktop:pb-16">
-          <Typography className="text-center text-[20px] font-bold text-portal-red-3 lg:text-[35px] mb-3 uppercase">
+        <div className="flex w-full flex-col pt-[57px] pb-16">
+          <Typography className="text-center text-3xl font-bold text-portal-red-3 md:text-[35px] mb-[21px] uppercase leading-tight">
             {t('EcomContactUsPageDetailPageSendUsAnEmail')}
           </Typography>
-          <Typography className="text-center text-lg font-normal text-portal-portal-6 desktop:max-w-[1172px] mx-auto">
+          <Typography className="text-center text-sm md:text-lg font-normal text-portal-portal-6 desktop:max-w-[1172px] mx-auto leading-[25px]">
             {t('EcomContactUsPageDetailPageNote')}
           </Typography>
 
           <Form
-            className="w-full grid grid-cols-1 lg:grid-cols-2 gap-x-[30px] desktop:max-w-[1084px] mx-auto mt-[10px]"
+            className="w-full md:grid md:grid-cols-2 gap-x-[30px] desktop:max-w-[1084px] mx-auto mt-[10px]"
             autoComplete="off"
             layout="vertical"
             form={formSubmit}
@@ -141,7 +141,7 @@ export default function FormContact() {
               <Input placeholder={t('EcomPropertyDetailPageTicketMessage')} className='text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
             </Form.Item>
 
-            <div className="col-span-1 lg:col-span-2 flex justify-center mt-[45px]">
+            <div className="col-span-2 flex justify-center mt-[46px]">
               <Spin spinning={btnLoading}>
                 <CoreButton
                   className="bg-portal-primaryLiving mx-auto min-w-auto !rounded-[4px] w-[136px] !min-w-auto min-h-[35px] text-white text-base !p-[3px_10px]"
