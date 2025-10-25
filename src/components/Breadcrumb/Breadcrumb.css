@@ -1,0 +1,11 @@
+.breadcrumb-common {
+  @apply bg-[#f5f5f5];
+}
+
+.breadcrumb-common__wrapper {
+  @apply min-h-[49px] py-[10px] flex items-center gap-[5px_17px] flex-wrap;
+}
+
+.breadcrumb-common__item-link {
+  @apply pr-[25px] text-[#9a9a9a] bg-[length:8px_auto] bg-[position:100%_50%] bg-no-repeat;
+}

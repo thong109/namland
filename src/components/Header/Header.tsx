@@ -1,7 +1,6 @@
-
 import Image from 'next/image';
 import { assetsImages } from '../../assets/images/package';
-import './style.css';
+import './Header.css';
 import { useState } from 'react';
 
 const Header = () => {

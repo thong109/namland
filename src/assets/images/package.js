@@ -1,4 +1,5 @@
 import commonIconArrow from './common/icon_arrow_01.svg';
+import commonIconArrow2 from './common/icon_arrow_02.svg';
 import commonIconBurger from './common/icon_burger_01.svg';
 import commonIconClose from './common/icon_close_01.svg';
 import commonIconUser from './common/icon_user_01.svg';
@@ -9,6 +10,7 @@ import commonBannerContact from "./common/banner_contact_01.png";
 
 export const assetsImages = {
   commonIconArrow,
+  commonIconArrow2,
   commonIconBurger,
   commonIconClose,
   commonIconUser,

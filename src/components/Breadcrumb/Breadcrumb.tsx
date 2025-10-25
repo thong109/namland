@@ -1,12 +1,9 @@
 'use client';
 import React, { FC } from 'react';
-import { languageConst } from '@/libs/appconst';
-import moment from 'moment';
-import 'moment/locale/ko';
-import 'moment/locale/vi';
-import "./Breadcrumb.css";
 import Link from 'next/link';
-import { assetsImages } from '@/assets/images/package';
+import Image from 'next/image';
+import { assetsImages } from '../../assets/images/package';
+import './Breadcrumb.css';
 
 export interface BreadCrumbItem {
   path: string;
@@ -15,40 +12,32 @@ export interface BreadCrumbItem {
 }
 
 export interface BreadCrumbProps {
-  className?: string;
-  items: BreadCrumbItem[];
+  additionalClass?: string;
+  breadcrumbItems: BreadCrumbItem[];
   hasBanner?: boolean;
 }
 
-const Breadcrumb: FC<BreadCrumbProps> = ({ className, items, hasBanner = false }) => {
+const Breadcrumb: FC<BreadCrumbProps> = ({ additionalClass, breadcrumbItems, hasBanner = false }) => {
   return (
-    <div>
-      <nav className={`p-[13px] w-full ${className ?? ''}`}>
-        <div className='container p-0 flex items-center gap-2'>
-          {items.map((item, index) => {
-            const isLast = index === items.length - 1;
+    <nav className={`breadcrumb-common ${hasBanner ? `has-banner` : ``})`}>
+      <div className='container'>
+        <ol className='breadcrumb-common__wrapper'>
+          {breadcrumbItems.map((breadcrumbItem, index) => {
+            const isItemLast = index === breadcrumbItems.length - 1;
 
             return (
-              <span key={index} className="flex items-center gap-2">
-                {!isLast ? (
-                  <Link href={item.path} className="text-[#9a9a9a] text-base leading-tight hover:underline">
-                    {item.title}
-                  </Link>
+              <li key={index} className='breadcrumb-common__item'>
+                {!isItemLast ? (
+                  <Link className='breadcrumb-common__item-link' href={breadcrumbItem.path} style={{ backgroundImage: `url(${assetsImages.commonIconArrow2.src})` }}>{breadcrumbItem.title}</Link>
                 ) : (
-                  <span className="text-[#444444] text-base leading-tight">{item.title}</span>
+                  <span className='breadcrumb-common__item-label'>{breadcrumbItem.title}</span>
                 )}
-                {!isLast && <span className="text-[#9A9A9A] text-base leading-tight">&gt;</span>}
-              </span>
+              </li>
             );
           })}
-        </div>
-      </nav>
-      {hasBanner && (
-        <div className="" style={{ backgroundImage: `url(${assetsImages.commonBannerContact.src})` }}>
-          <h1 className="">Tư vấn cùng Nam Long O2O</h1>
-        </div>
-      )}
-    </div>
+        </ol>
+      </div>
+    </nav>
   );
 };
 

@@ -33,8 +33,8 @@ export default function ContactUs() {
   return (
     <>
       <Breadcrumb
-        className="bg-[#F5F5F5]"
-        items={[
+        addtionalClass="bg-[#F5F5F5]"
+        breadcrumbItems={[
           { path: '/', title: 'Trang chủ' },
           { path: '', title: 'Liên hệ' },
         ]}
