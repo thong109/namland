@@ -2,53 +2,94 @@
 import Image from 'next/image';
 import { assetsImages } from '../../assets/images/package';
 import './style.css';
+import { useState } from 'react';
 
 const Header = () => {
+  const [open, setOpen] = useState(false)
+
   return (
     <header className='header-common'>
-      <div className='header-common__notification'>
-        <div className='header-common__notification-label'>Cơ hội đầu tư Giai đoạn 1 Hồng Hạc City (Hà Nội) từ chính CĐT</div>
-        <a className='header-common__notification-link' href='#'>Đăng ký ngay</a>
-        <button className='header-common__notification-toggle' style={{ backgroundImage: `url(${assetsImages.commonIconClose.src})` }} type='button'></button>
+      <div className='notification-header'>
+        <div className='notification-header__label'>Cơ hội đầu tư Giai đoạn 1 Hồng Hạc City (Hà Nội) từ chính CĐT</div>
+        <a className='notification-header__link' href='#'>Đăng ký ngay</a>
+        <button className='notification-header__toggle' style={{ backgroundImage: `url(${assetsImages.commonIconClose.src})` }} type='button'></button>
       </div>
       <div className='header-common__wrapper'>
-        <a className='header-common__logo' href='#'>
+        <a className='logo-header' href='#'>
           <Image className='' src={assetsImages.commonLogoPrinmary} width={317} height={48} alt='Logo' />
         </a>
-        <div className='header-common__navigation'>
-          <div className='header-common__navigation-wrapper'>
-            <div className='header-common__navigation-item'>
+        <div className='navigation-header-outside'>
+          <ul className='navigation-header-outside__wrapper'>
+            <li className='navigation-header-outside__item'>
               <a className='header-common__item-label' href='#'>BÁN</a>
-            </div>
-            <div className='header-common__navigation-item'>
+            </li>
+            <li className='navigation-header-outside__item'>
               <a className='header-common__item-label' href='#'>CHO THUÊ</a>
-            </div>
-            <div className='header-common__navigation-item'>
+            </li>
+            <li className='navigation-header-outside__item'>
               <a className='header-common__item-label' href='#'>DỰ ÁN</a>
-            </div>
-            <div className='header-common__navigation-item'>
+            </li>
+            <li className='navigation-header-outside__item'>
               <a className='header-common__item-label' href='#'>DỰ ÁN MỚI</a>
-            </div>
-            <div className='header-common__navigation-item'>
+            </li>
+            <li className='navigation-header-outside__item'>
               <a className='header-common__item-label' href='#'>TƯ VẤN HỖ TRỢ</a>
-            </div>
-            <div className='header-common__navigation-item'>
+            </li>
+            <li className='navigation-header-outside__item'>
               <a className='header-common__item-label' href='#'>DỊCH VỤ NHÀ Ở</a>
-            </div>
-            <div className='header-common__navigation-item'>
+            </li>
+            <li className='navigation-header-outside__item'>
               <a className='header-common__item-label' href='#'>DỊCH VỤ VÀ SẢN PHẨM</a>
-            </div>
-            <div className='header-common__navigation-item'>
+            </li>
+            <li className='navigation-header-outside__item'>
               <a className='header-common__item-label' href='#'>LIÊN HỆ</a>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
-        <button className='header-common__burger' style={{ backgroundImage: `url(${assetsImages.commonIconBurger.src})` }} type='button'></button>
-        <select className='header-common__language' style={{ backgroundImage: `url(${assetsImages.commonIconLanguage.src}), url(${assetsImages.commonIconArrow.src})` }}>
+        <button onClick={() => setOpen(true)} className='button-header-burger' style={{ backgroundImage: `url(${assetsImages.commonIconBurger.src})` }} type='button'></button>
+        <select className='select-header-language' style={{ backgroundImage: `url(${assetsImages.commonIconLanguage.src}), url(${assetsImages.commonIconArrow.src})` }}>
           <option value='VN' selected>VN</option>
           <option value='VN'>EN</option>
         </select>
-        <button className='header-common__user' style={{ backgroundImage: `url(${assetsImages.commonIconUser.src})` }} type='button'></button>
+        <button className='button-header-user' style={{ backgroundImage: `url(${assetsImages.commonIconUser.src})` }} type='button'></button>
+      </div>
+      <div className={`lightbox-header ${open ? 'show' : 'hide'}`}>
+        <button className='lightbox-header__toggle' onClick={() => setOpen(false)} style={{ backgroundImage: `url(${assetsImages.commonIconClose.src})` }} type='button'></button>
+        <div className='lightbox-header__viewport'>
+          <div className='lightbox-header__wrapper'>
+            <a className='lightbox-header__logo' href='#'>
+              <Image className='' src={assetsImages.commonLogoPrinmaryWhite} width={565} height={86} alt='Logo' />
+            </a>
+            <div className='navigation-header-inside'>
+              <ul className='navigation-header-inside__wrapper'>
+                <li className='navigation-header-inside__item'>
+                  <a className='navigation-header-inside__item-label' href='#'>BÁN</a>
+                </li>
+                <li className='navigation-header-inside__item'>
+                  <a className='navigation-header-inside__item-label' href='#'>CHO THUÊ</a>
+                </li>
+                <li className='navigation-header-inside__item'>
+                  <a className='navigation-header-inside__item-label' href='#'>DỰ ÁN</a>
+                </li>
+                <li className='navigation-header-inside__item'>
+                  <a className='navigation-header-inside__item-label' href='#'>DỰ ÁN MỚI</a>
+                </li>
+                <li className='navigation-header-inside__item'>
+                  <a className='navigation-header-inside__item-label' href='#'>TƯ VẤN HỖ TRỢ</a>
+                </li>
+                <li className='navigation-header-inside__item'>
+                  <a className='navigation-header-inside__item-label' href='#'>DỊCH VỤ NHÀ Ở</a>
+                </li>
+                <li className='navigation-header-inside__item'>
+                  <a className='navigation-header-inside__item-label' href='#'>DỊCH VỤ VÀ SẢN PHẨM</a>
+                </li>
+                <li className='navigation-header-inside__item'>
+                  <a className='navigation-header-inside__item-label' href='#'>LIÊN HỆ</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
   );

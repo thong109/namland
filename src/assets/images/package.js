@@ -4,6 +4,7 @@ import commonIconClose from './common/icon_close_01.svg';
 import commonIconUser from './common/icon_user_01.svg';
 import commonIconLanguage from './common/icon_language_01.svg';
 import commonLogoPrinmary from './common/logo_primary_01.svg';
+import commonLogoPrinmaryWhite from './common/logo_primary_01_white.svg';
 
 export const assetsImages = {
   commonIconArrow,
@@ -11,5 +12,6 @@ export const assetsImages = {
   commonIconClose,
   commonIconUser,
   commonIconLanguage,
-  commonLogoPrinmary
+  commonLogoPrinmary,
+  commonLogoPrinmaryWhite
 }

@@ -172,7 +172,8 @@ module.exports = {
         'laptop-lg': {min: '768px', max: '1899.98px'},
         'laptop-md': {min: '768px', max: '1619.98px'},
         'laptop-sm': {min: '768px', max: '1439.98px'},
-        'tablet': {min: '768px', max: '1365.98px'},
+        'tablet-lg': {min: '768px', max: '1365.98px'},
+        'tablet-md': {min: '768px', max: '1079.98px'},
         'mobile': {max: '767.98px'}
       },
       fontSize: {
