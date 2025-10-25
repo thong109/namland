@@ -8,7 +8,8 @@ const Header = () => {
     <header className='header-common'>
       <div className='header-common__notification'>
         <div className='header-common__notification-label'>Cơ hội đầu tư Giai đoạn 1 Hồng Hạc City (Hà Nội) từ chính CĐT</div>
-        <a className='header-common__notification-button' href='#'>Đăng ký ngay</a>
+        <a className='header-common__notification-link' href='#'>Đăng ký ngay</a>
+        <button className='header-common__notification-toggle' style={{ backgroundImage: `url(${assetsImages.commonIconClose.src})` }} type='button'></button>
       </div>
       <div className='header-common__wrapper'>
         <a className='header-common__logo' href='#'>
@@ -43,6 +44,11 @@ const Header = () => {
           </div>
         </div>
         <button className='header-common__burger' style={{ backgroundImage: `url(${assetsImages.commonIconBurger.src})` }} type='button'></button>
+        <select className='header-common__language' style={{ backgroundImage: `url(${assetsImages.commonIconLanguage.src}), url(${assetsImages.commonIconArrow.src})` }}>
+          <option value='VN' selected>VN</option>
+          <option value='VN'>EN</option>
+        </select>
+        <button className='header-common__user' style={{ backgroundImage: `url(${assetsImages.commonIconUser.src})` }} type='button'></button>
       </div>
     </header>
   );

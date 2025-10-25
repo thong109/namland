@@ -89,7 +89,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
 
   return (
     <html lang={locale}>
-      <body className="font-mona text-[#444] text-[16px] font-[400] leading-[calc(29/16)] tap-highlight-transparent">
+      <body>
         <link rel="preconnect" href={preconnectUrl} />
         <link
           rel="preconnect"

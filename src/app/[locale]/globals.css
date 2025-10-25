@@ -1,6 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body,
+header,
+main,
+footer {
+  @apply font-mona text-[#444] text-[16px] font-[400] leading-[calc(29/16)];
+  @apply mobile:text-[14px] mobile:leading-[calc(24/14)];
+}
+
 input[id^='react-select-'] {
   @apply focus:border-transparent focus:outline-none focus:ring-0;
+}
+
+.container {
+  max-width: 1420px !important;
 }
