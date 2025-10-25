@@ -38,6 +38,7 @@ export default function ContactUs() {
           { path: '/', title: 'Trang chủ' },
           { path: '', title: 'Liên hệ' },
         ]}
+        hasBanner={false}
       />
 
       <div className="container pt-12 pb-[70px]">

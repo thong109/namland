@@ -1,9 +1,10 @@
 'use client';
 import contactAnonymousService from '@/apiServices/externalApiServices/apiAnonymousContact';
 import BG1FindHome from '@/assets/images/bg-1-find-home.webp';
+import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
 import { ModalLoginOpen } from '@/components/Header/ultil/ModalLoginOpen';
 import { useAuthStore } from '@/stores/useAuthStore';
-import { Breadcrumb, Button, Checkbox, Form, Input } from 'antd';
+import { Button, Checkbox, Form, Input } from 'antd';
 import { useLocale, useTranslations } from 'next-intl';
 import React, { useTransition } from 'react';
 import { TypeOptions, toast } from 'react-toastify';
@@ -58,12 +59,13 @@ const PageClient = () => {
   return (
     <>
       <Breadcrumb
-        className="bg-[#F5F5F5]"
+        className="bg-transparent"
         items={[
           { path: '/', title: 'Trang chủ' },
           { path: '/nhu-cau-cua-toi', title: 'Tìm môi giới' },
           { path: '', title: 'Tìm nhà' },
         ]}
+        hasBanner={true}
       />
       <div className="flex">
         <div
