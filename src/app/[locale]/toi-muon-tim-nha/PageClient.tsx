@@ -3,7 +3,7 @@ import contactAnonymousService from '@/apiServices/externalApiServices/apiAnonym
 import BG1FindHome from '@/assets/images/bg-1-find-home.webp';
 import { ModalLoginOpen } from '@/components/Header/ultil/ModalLoginOpen';
 import { useAuthStore } from '@/stores/useAuthStore';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Breadcrumb, Button, Checkbox, Form, Input } from 'antd';
 import { useLocale, useTranslations } from 'next-intl';
 import React, { useTransition } from 'react';
 import { TypeOptions, toast } from 'react-toastify';
@@ -56,17 +56,26 @@ const PageClient = () => {
   };
 
   return (
-    <div className="flex">
-      <div
-        style={{ backgroundImage: `url(${BG1FindHome.src})` }}
-        className="bg-cover bg-center bg-no-repeat lg:w-[360px]"
+    <>
+      <Breadcrumb
+        className="bg-[#F5F5F5]"
+        items={[
+          { path: '/', title: 'Trang chủ' },
+          { path: '/nhu-cau-cua-toi', title: 'Tìm môi giới' },
+          { path: '', title: 'Tìm nhà' },
+        ]}
       />
-      <div className="grid h-fit w-full grid-flow-col grid-rows-7 gap-4 lg:grid-rows-4">
-        <div className="row-span-1 flex flex-col items-center justify-center">
-          <span className="mb-2 font-semibold">{t('FindHomeTitle')}</span>
-          <span className="px-2 text-center">{t('FindHomecontent')}</span>
-        </div>
-        <div className="row-span-6 bg-[#EAEBEE] p-[3%] lg:row-span-3 lg:p-[3vw]">
+      <div className="flex">
+        <div
+          style={{ backgroundImage: `url(${BG1FindHome.src})` }}
+          className="bg-cover bg-center bg-no-repeat lg:w-[360px]"
+        />
+        <div className="grid h-fit w-full grid-flow-col grid-rows-7 gap-4 lg:grid-rows-4">
+          <div className="row-span-1 flex flex-col items-center justify-center">
+            <span className="mb-2 font-semibold">{t('FindHomeTitle')}</span>
+            <span className="px-2 text-center">{t('FindHomecontent')}</span>
+          </div>
+          {/* <div className="row-span-6 bg-[#EAEBEE] p-[3%] lg:row-span-3 lg:p-[3vw]">
           <Form
             form={formInquiry}
             layout="vertical"
@@ -181,9 +190,10 @@ const PageClient = () => {
               </div>
             </div>
           </Form>
+        </div> */}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
