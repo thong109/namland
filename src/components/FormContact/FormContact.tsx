@@ -100,7 +100,7 @@ export default function FormContact() {
                 { validator: validatorCustom, message: messageError('validText') },
               ]}
             >
-              <Input placeholder={t('EcomPropertyDetailPageTicketName')} className='text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+              <Input placeholder={t('EcomPropertyDetailPageTicketName')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
             </Form.Item>
 
             <Form.Item
@@ -114,7 +114,7 @@ export default function FormContact() {
                 },
               ]}
             >
-              <Input placeholder={t('EcomPropertyDetailPageTicketPhone')} className='text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+              <Input placeholder={t('EcomPropertyDetailPageTicketPhone')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
             </Form.Item>
 
             <Form.Item
@@ -126,7 +126,7 @@ export default function FormContact() {
                 { max: 256, message: `${messageError('maxlength', { number: 256 })}` },
               ]}
             >
-              <Input placeholder={t('EcomPropertyDetailPageTicketEmail')} className='text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+              <Input placeholder={t('EcomPropertyDetailPageTicketEmail')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
             </Form.Item>
 
             <Form.Item
@@ -138,7 +138,7 @@ export default function FormContact() {
                 { validator: validatorCustom, message: messageError('validText') },
               ]}
             >
-              <Input placeholder={t('EcomPropertyDetailPageTicketMessage')} className='text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+              <Input placeholder={t('EcomPropertyDetailPageTicketMessage')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
             </Form.Item>
 
             <div className="col-span-2 flex justify-center mt-[46px]">

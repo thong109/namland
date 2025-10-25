@@ -57,7 +57,7 @@ export default function ContactUs() {
                     className="h-[25px] w-[25px] lg:h-[28px] lg:w-[28px]"
                     loading="eager"
                   />
-                  <Typography className="ml-[2px] relative top-[3px] text-base md:text-lg font-semibold text-primaryColor uppercase">
+                  <Typography className="ml-[2px] text-base md:text-lg font-semibold text-primaryColor uppercase">
                     {t(item.title)}
                   </Typography>
                 </div>
