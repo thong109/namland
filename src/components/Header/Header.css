@@ -107,7 +107,7 @@
 .select-header-language {
   @apply w-[77px] h-[51px] ml-[41px] pr-[15px] pl-[26.6px] flex-grow-0 flex-shrink-0 font-[600] bg-[length:24.2px_auto,12px_auto] bg-[position:0%_50%,100%_50%] bg-no-repeat appearance-none;
   @apply laptop-lg:w-[70px] laptop-lg:h-[40px] laptop-lg:ml-[20px] laptop-lg:pl-[25px] laptop-lg:bg-[length:20px_auto,10px_auto];
-  @apply mobile:w-[50px] mobile:h-[30px] mobile:ml-[10px] mobile:pr-[0px] laptop-lg:pl-[25px] bg-[length:20px_auto,0px_0px];
+  @apply mobile:w-[50px] mobile:h-[30px] mobile:ml-[10px] mobile:pr-[0px] mobile:pl-[25px] mobile:bg-[length:20px_auto,0px_0px];
 }
 
 .button-header-user {
