@@ -101,7 +101,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400;500;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
         <NextIntlClientProvider locale={locale} messages={messages}>

@@ -22,7 +22,7 @@ const Footer = () => {
                   <Link className='list-footer-address__entry-description' href='mailto:info@namlongvn.com'>info@namlongvn.com</Link>
                 </li>
                 <li className='list-footer-address__entry'>
-                  <span className='list-footer-address__entry-title'><span className='list-footer-address__title-icon' style={{ maskImage: `url(${assetsImages.commonIconLocation.src})` }}></span>HOTLINE</span>
+                  <span className='list-footer-address__entry-title'><span className='list-footer-address__title-icon' style={{ maskImage: `url(${assetsImages.commonIconPhone.src})` }}></span>HOTLINE</span>
                   <Link className='list-footer-address__entry-description' href='tel:19002698'>1900 2698</Link>
                 </li>
               </ul>
@@ -30,13 +30,13 @@ const Footer = () => {
                 <span className='list-footer-sns__label'>THEO DÕI NAM LONG O2O</span>
                 <ul className='list-footer-sns__wrapper'>
                   <li className='list-footer-sns__entry'>
-                    <span className='list-footer-sns__entry-title'><span className='list-footer-sns__title-icon' style={{ maskImage: `url(${assetsImages.commonIconSNS.src})` }}></span>ĐỊA CHỈ</span>
+                    <Link className='list-footer-sns__entry-link' href='#' style={{ backgroundImage: `url(${assetsImages.commonIconSNS.src})` }}></Link>
                   </li>
                   <li className='list-footer-sns__entry'>
-                    <span className='list-footer-sns__entry-title'><span className='list-footer-sns__title-icon' style={{ maskImage: `url(${assetsImages.commonIconSNS2.src})` }}></span>CHĂM SÓC KHÁCH HÀNG</span>
+                    <Link className='list-footer-sns__entry-link' href='#' style={{ backgroundImage: `url(${assetsImages.commonIconSNS2.src})` }}></Link>
                   </li>
                   <li className='list-footer-sns__entry'>
-                    <span className='list-footer-sns__entry-title'><span className='list-footer-sns__title-icon' style={{ maskImage: `url(${assetsImages.commonIconSNS3.src})` }}></span>HOTLINE</span>
+                    <Link className='list-footer-sns__entry-link' href='#' style={{ backgroundImage: `url(${assetsImages.commonIconSNS3.src})` }}></Link>
                   </li>
                 </ul>
               </div>
