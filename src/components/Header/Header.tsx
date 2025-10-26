@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { assetsImages } from '../../assets/images/package';
 import './Header.css';
@@ -10,48 +11,48 @@ const Header = () => {
     <header className='header-common'>
       <div className='notification-header'>
         <div className='notification-header__label'>Cơ hội đầu tư Giai đoạn 1 Hồng Hạc City (Hà Nội) từ chính CĐT</div>
-        <a className='notification-header__link' href='#'>Đăng ký ngay</a>
+        <Link className='notification-header__link' href='#'>Đăng ký ngay</Link>
         <button className='notification-header__toggle' style={{ backgroundImage: `url(${assetsImages.commonIconClose.src})` }} type='button'></button>
       </div>
       <div className='header-common__wrapper'>
-        <a className='logo-header' href='#'>
+        <Link className='logo-header' href='#'>
           <Image className='' src={assetsImages.commonLogoPrinmary} width={317} height={48} alt='Logo' />
-        </a>
+        </Link>
         <div className='navigation-header-outside'>
           <ul className='navigation-header-outside__wrapper'>
             <li className='navigation-header-outside__item'>
-              <a className='navigation-header-outside__item-label' href='#'>BÁN</a>
+              <Link className='navigation-header-outside__item-label' href='#'>BÁN</Link>
             </li>
             <li className='navigation-header-outside__item'>
-              <a className='navigation-header-outside__item-label' href='#'>CHO THUÊ</a>
+              <Link className='navigation-header-outside__item-label' href='#'>CHO THUÊ</Link>
             </li>
             <li className='navigation-header-outside__item'>
-              <a className='navigation-header-outside__item-label' href='#'>DỰ ÁN</a>
+              <Link className='navigation-header-outside__item-label' href='#'>DỰ ÁN</Link>
             </li>
             <li className='navigation-header-outside__item'>
-              <a className='navigation-header-outside__item-label' href='#'>DỰ ÁN MỚI</a>
+              <Link className='navigation-header-outside__item-label' href='#'>DỰ ÁN MỚI</Link>
             </li>
             <li className='navigation-header-outside__item'>
-              <a className='navigation-header-outside__item-label' href='#'>TƯ VẤN HỖ TRỢ</a>
+              <Link className='navigation-header-outside__item-label' href='#'>TƯ VẤN HỖ TRỢ</Link>
               <div className='menu-header'>
                 <ul className='menu-header__wrapper'>
                   <li className='menu-header__entry'>
-                    <a className='menu-header__entry-label' href='#'>Tìm nhà</a>
+                    <Link className='menu-header__entry-label' href='#'>Tìm nhà</Link>
                   </li>
                   <li className='menu-header__entry'>
-                    <a className='menu-header__entry-label' href='#'>Bán/ Cho thuê nhà của tôi</a>
+                    <Link className='menu-header__entry-label' href='#'>Bán/ Cho thuê nhà của tôi</Link>
                   </li>
                 </ul>
               </div>
             </li>
             <li className='navigation-header-outside__item'>
-              <a className='navigation-header-outside__item-label' href='#'>DỊCH VỤ NHÀ Ở</a>
+              <Link className='navigation-header-outside__item-label' href='#'>DỊCH VỤ NHÀ Ở</Link>
             </li>
             <li className='navigation-header-outside__item'>
-              <a className='navigation-header-outside__item-label' href='#'>DỊCH VỤ VÀ SẢN PHẨM</a>
+              <Link className='navigation-header-outside__item-label' href='#'>DỊCH VỤ VÀ SẢN PHẨM</Link>
             </li>
             <li className='navigation-header-outside__item'>
-              <a className='navigation-header-outside__item-label' href='#'>LIÊN HỆ</a>
+              <Link className='navigation-header-outside__item-label' href='#'>LIÊN HỆ</Link>
             </li>
           </ul>
         </div>
@@ -66,34 +67,34 @@ const Header = () => {
         <button className='lightbox-header__toggle' onClick={() => toggleNavigation(false)} style={{ backgroundImage: `url(${assetsImages.commonIconClose.src})` }} type='button'></button>
         <div className='lightbox-header__viewport'>
           <div className='lightbox-header__wrapper'>
-            <a className='lightbox-header__logo' href='#'>
-              <Image className='' src={assetsImages.commonLogoPrinmaryWhite} width={565} height={86} alt='Logo' />
-            </a>
+            <Link className='lightbox-header__logo' href='#'>
+              <Image src={assetsImages.commonLogoPrinmaryWhite} width={565} height={86} alt='Logo' />
+            </Link>
             <div className='navigation-header-inside'>
               <ul className='navigation-header-inside__wrapper'>
                 <li className='navigation-header-inside__item'>
-                  <a className='navigation-header-inside__item-label' href='#'>BÁN</a>
+                  <Link className='navigation-header-inside__item-label' href='#'>BÁN</Link>
                 </li>
                 <li className='navigation-header-inside__item'>
-                  <a className='navigation-header-inside__item-label' href='#'>CHO THUÊ</a>
+                  <Link className='navigation-header-inside__item-label' href='#'>CHO THUÊ</Link>
                 </li>
                 <li className='navigation-header-inside__item'>
-                  <a className='navigation-header-inside__item-label' href='#'>DỰ ÁN</a>
+                  <Link className='navigation-header-inside__item-label' href='#'>DỰ ÁN</Link>
                 </li>
                 <li className='navigation-header-inside__item'>
-                  <a className='navigation-header-inside__item-label' href='#'>DỰ ÁN MỚI</a>
+                  <Link className='navigation-header-inside__item-label' href='#'>DỰ ÁN MỚI</Link>
                 </li>
                 <li className='navigation-header-inside__item'>
-                  <a className='navigation-header-inside__item-label' href='#'>TƯ VẤN HỖ TRỢ</a>
+                  <Link className='navigation-header-inside__item-label' href='#'>TƯ VẤN HỖ TRỢ</Link>
                 </li>
                 <li className='navigation-header-inside__item'>
-                  <a className='navigation-header-inside__item-label' href='#'>DỊCH VỤ NHÀ Ở</a>
+                  <Link className='navigation-header-inside__item-label' href='#'>DỊCH VỤ NHÀ Ở</Link>
                 </li>
                 <li className='navigation-header-inside__item'>
-                  <a className='navigation-header-inside__item-label' href='#'>DỊCH VỤ VÀ SẢN PHẨM</a>
+                  <Link className='navigation-header-inside__item-label' href='#'>DỊCH VỤ VÀ SẢN PHẨM</Link>
                 </li>
                 <li className='navigation-header-inside__item'>
-                  <a className='navigation-header-inside__item-label' href='#'>LIÊN HỆ</a>
+                  <Link className='navigation-header-inside__item-label' href='#'>LIÊN HỆ</Link>
                 </li>
               </ul>
             </div>

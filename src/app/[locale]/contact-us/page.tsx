@@ -5,7 +5,7 @@ import Image from 'next/image';
 import LocaltionConstant from '@/libs/constants/locationConstant';
 import { Typography } from 'antd';
 import { useTranslations } from 'next-intl';
-import { assetsIcon } from '../../../assets/icon/package';
+import { assetsImages } from '../../../assets/images/package';
 import FormContact from '@/components/FormContact/FormContact';
 
 export default function ContactUs() {
@@ -16,17 +16,17 @@ export default function ContactUs() {
     {
       title: 'EcomContactUsPageDetailPageAddress',
       desc: [{ name: 'EcomContactUsPageDetailAddressLocation', type: 'translate' }],
-      icon: assetsIcon.IconLocation,
+      icon: assetsImages.commonIconLocation,
     },
     {
       title: 'FooterCustomerSupport',
       desc: [{ name: 'MAIL_CONTACT', type: 'email' }],
-      icon: assetsIcon.IconLetter,
+      icon: assetsImages.commonIconLetter,
     },
     {
       title: 'Hotline',
       desc: [{ name: 'EcomContactUsPageDetailPagePhone', type: 'translate' }],
-      icon: assetsIcon.IconPhone,
+      icon: assetsImages.commonIconPhone,
     },
   ];
 
