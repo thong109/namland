@@ -1,4 +1,4 @@
-import LangDropdownFlag from '@/components/Header/LangDropdownFlag';
+import LangDropdownFlag from '@/components/Header/SelectLanguageMenu';
 import React, { InputHTMLAttributes, useState } from 'react';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {

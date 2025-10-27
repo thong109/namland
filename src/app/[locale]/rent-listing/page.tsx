@@ -17,7 +17,7 @@ import {
   ShortHomeRealEstateSearchModel,
 } from '@/models/homeRealEstateSearchModel/homeRealEstateSearchModel';
 import FooterContactForm from '../_components/FooterContactForm/FooterContactForm';
-import ListingResult from '../_components/SearchListingResult/ListingResult';
+import BlockListing from '../_components/SearchBlockListing/BlockListing';
 interface PageRentListingProps {
   searchParams: ShortHomeRealEstateSearchModel;
 }
@@ -61,7 +61,7 @@ const PageRentListing: React.FC<PageRentListingProps> = async ({ searchParams })
 
   return (
     <>
-      <ListingResult
+      <BlockListing
         allPropertyCoordinates={allPropertyCoordinates}
         paramsString={paramsString}
         totalResult={totalResult}

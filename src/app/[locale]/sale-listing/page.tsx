@@ -16,8 +16,10 @@ import {
   convertTypeOfShortFilterListingParams,
   ShortHomeRealEstateSearchModel,
 } from '@/models/homeRealEstateSearchModel/homeRealEstateSearchModel';
-import FooterContactForm from '../_components/FooterContactForm/FooterContactForm';
-import ListingResult from '../_components/SearchListingResult/ListingResult';
+import './style.css';
+import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
+import BlockListing from '../_components/BlockListing/BlockListing';
+import SectionContact from '@/components/SectionContact/SectionContact';
 interface PageSaleListingProps {
   searchParams: ShortHomeRealEstateSearchModel;
 }
@@ -63,24 +65,36 @@ const PageSaleListing: React.FC<PageSaleListingProps> = async ({ searchParams })
 
   return (
     <>
-      <ListingResult
-        allPropertyCoordinates={allPropertyCoordinates}
-        totalResult={totalResult}
-        paramsString={paramsString}
-        currentPage={curentPage}
-        pageSize={size}
-        searchParams={paramsvalue}
-        type={listingType.sale}
-        listing={listing}
-        properties={saleCategories}
-        projects={projects}
-        provinces={provinces}
-        views={views}
-        inAmenities={inAmenities}
-        outAmenities={outAmenities}
-        funitureStatus={funitureStatus}
+      <Breadcrumb
+        breadcrumbItems={[
+          { path: '/', title: 'Trang chủ' },
+          { path: '', title: 'Bán' },
+        ]}
+        hasBanner={false}
       />
-      <FooterContactForm />
+      <div className='section-ban'>
+        <div className='container'>
+          <h1 className='section-ban__title'>Gửi bán Bất động sản Nam Long<br /><strong>Nhanh chóng, Bảo mật & Uy tín</strong></h1>
+          <BlockListing
+            allPropertyCoordinates={allPropertyCoordinates}
+            totalResult={totalResult}
+            paramsString={paramsString}
+            currentPage={curentPage}
+            pageSize={size}
+            searchParams={paramsvalue}
+            type={listingType.sale}
+            listing={listing}
+            properties={saleCategories}
+            projects={projects}
+            provinces={provinces}
+            views={views}
+            inAmenities={inAmenities}
+            outAmenities={outAmenities}
+            funitureStatus={funitureStatus}
+          />
+        </div>
+      </div>
+      <SectionContact />
     </>
   );
 };

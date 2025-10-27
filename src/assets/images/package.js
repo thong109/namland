@@ -1,5 +1,6 @@
 import commonIconArrow from './common/icon_arrow_01.svg';
 import commonIconArrow2 from './common/icon_arrow_02.svg';
+import commonIconSearch from './common/icon_search_01.svg';
 import commonIconBurger from './common/icon_burger_01.svg';
 import commonIconClose from './common/icon_close_01.svg';
 import commonIconUser from './common/icon_user_01.svg';
@@ -17,10 +18,10 @@ import commonStampVerify from "./common/stamp_verify_01.png";
 import commonImageContact from "./common/contact_img_01.jpg";
 import commonIconSearch from "./common/icon_search.svg";
 
-
 export const assetsImages = {
   commonIconArrow,
   commonIconArrow2,
+  commonIconSearch,
   commonIconBurger,
   commonIconClose,
   commonIconUser,

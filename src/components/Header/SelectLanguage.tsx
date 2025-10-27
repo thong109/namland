@@ -7,7 +7,6 @@ import { assetsImages } from '@/assets/images/package';
 import usePropertyType from '@/hooks/usePropertyType';
 import useGlobalStore from '@/stores/useGlobalStore';
 import { Popover, Transition } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/24/solid';
 import Cookies from 'js-cookie';
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next-intl/client';
@@ -16,7 +15,7 @@ import * as NProgress from 'nprogress';
 import React, { FC, Fragment, useRef, useState, useTransition } from 'react';
 import useOnClickOutside from 'use-onclickoutside';
 
-export const headerLanguage = [
+export const selectLanguageData = [
   {
     id: 'English',
     name: 'English',
@@ -43,17 +42,16 @@ export const headerLanguage = [
   },
 ];
 
-interface LangDropdownProps {
+interface SelectLanguageProps {
   panelClassName?: string;
   isHiddenIcon?: boolean;
 }
 const timeoutDuration = 60;
-const LangDropdown: FC<LangDropdownProps> = ({
+const SelectLanguage: FC<SelectLanguageProps> = ({
   panelClassName = 'z-10 w-max max-w-[280px] px-4 mt-4 right-0 sm:px-0 lg:w-screen',
   isHiddenIcon = false,
 }) => {
   const t = useTranslations('Language');
-
   const { refreshPropertyType } = usePropertyType();
   const { userInfo } = useGlobalStore();
   const locale = useLocale();
@@ -69,14 +67,12 @@ const LangDropdown: FC<LangDropdownProps> = ({
     clearTimeout(timeOutRef.current);
     !isOpen && triggerRefLang.current?.click();
   };
-
   const handleLeave = (isOpen) => {
     timeOutRef.current = setTimeout(() => {
       isOpen && triggerRefLang.current?.click();
       setOpen(false);
     }, timeoutDuration);
   };
-
   useOnClickOutside(refOutSideLang, () => {
     open && triggerRefLang.current?.click();
     setOpen(false);
@@ -86,12 +82,9 @@ const LangDropdown: FC<LangDropdownProps> = ({
     if (value == locale) {
       return;
     }
-
     Cookies.set('NEXT_LOCALE', value);
-
     if (userInfo) {
       const response = await authApiService.updateLang(value);
-
       if (response.success) {
         startTransition(() => {
           // Replace the current route with the new locale in options
@@ -113,49 +106,26 @@ const LangDropdown: FC<LangDropdownProps> = ({
     }, 1500);
   };
   return (
-    <div className="LangDropdown">
-      <Popover className="relative">
+    <div className="select-header-language">
+      <Popover className="select-header-language__wrapper">
         {({ open, close }) => (
           <>
-            <Popover.Button
-              ref={triggerRefLang}
-              onClick={() => {
-                setOpen(!open);
-              }}
-              className={` ${open ? '' : 'text-opacity-80'} select-header-language group inline-flex items-center rounded-full py-1.5 text-sm font-medium text-gray-700 hover:text-opacity-100 focus:outline-none dark:text-neutral-300`}
-              style={{ backgroundImage: `url(${assetsImages.commonIconLanguage.src})` }}
-            >
-              {headerLanguage.map((item) => {
+            <Popover.Button className={`select-header-language__toggle`} style={{ backgroundImage: `url(${assetsImages.commonIconLanguage.src})` }} onClick={() => { setOpen(!open); }} ref={triggerRefLang}>
+              {selectLanguageData.map((item) => {
                 return (
-                  <div
-                    className={`${locale != item.value ? 'hidden' : ''} mx-1 self-center`}
-                    key={item.id}
-                  >
-                    <span>{item.title}</span>
-                  </div>
+                  <div className={`select-header-language__label ${locale != item.value ? 'hidden' : ''}`} key={item.id}>{item.title}</div>
                 );
               })}
               {isHiddenIcon ? null : (
-                <ChevronDownIcon
-                  className={`${open ? '-rotate-180' : 'text-opacity-70'} hidden md:block md:ml-2 h-4 w-4 transition duration-150 ease-in-out group-hover:text-opacity-80 flex-[0_0_auto]`}
-                  aria-hidden="true"
-                />
+                <span className={`select-header-language__arrow ${open ? 'is-state-active' : 'is-state-inactive'}`} style={{ backgroundImage: `url(${assetsImages.commonIconArrow.src})` }} aria-hidden='true'></span>
               )}
             </Popover.Button>
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-200"
-              enterFrom="opacity-0 translate-y-1"
-              enterTo="opacity-100 translate-y-0"
-              leave="transition ease-in duration-150"
-              leaveFrom="opacity-100 translate-y-0"
-              leaveTo="opacity-0 translate-y-1"
-            >
+            <Transition as={Fragment} enter="transition ease-out duration-200" enterFrom="opacity-0 translate-y-1" enterTo="opacity-100 translate-y-0" leave="transition ease-in duration-150" leaveFrom="opacity-100 translate-y-0" leaveTo="opacity-0 translate-y-1">
               <div onMouseEnter={() => handleEnter(open)} onMouseLeave={() => handleLeave(open)}>
                 <Popover.Panel ref={refOutSideLang} className={`absolute ${panelClassName}`}>
                   <div className="w-max overflow-hidden rounded-2xl shadow-lg ring-1 ring-black ring-opacity-5 lg:w-full">
                     <div className="relative grid gap-7 bg-white p-7 lg:grid-cols-1">
-                      {headerLanguage.map((item, index) => (
+                      {selectLanguageData.map((item, index) => (
                         <a
                           key={index + item.id}
                           // href={item.value}
@@ -194,4 +164,4 @@ const LangDropdown: FC<LangDropdownProps> = ({
     </div>
   );
 };
-export default LangDropdown;
+export default SelectLanguage;

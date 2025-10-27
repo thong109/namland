@@ -20,16 +20,13 @@ export default function SectionContact() {
   const { keyword } = useKeywordBanned();
   const { userInfo } = useGlobalStore();
   const locale = useLocale();
-
   const [formSubmit] = Form.useForm();
-  const [btnLoading, setBtnLoading] = useState(false);
+  const [buttonLoading, setButtonLoading] = useState(false);
 
   const notify = React.useCallback((type: TypeOptions, message: any) => {
     toast[type](String(message));
   }, []);
-
   const formatPhone = (str: string) => str.replace(/^84/, '0');
-
   useEffect(() => {
     if (userInfo?.id) {
       formSubmit.setFieldsValue({
@@ -42,7 +39,6 @@ export default function SectionContact() {
       formSubmit.resetFields();
     }
   }, [userInfo]);
-
   const validatorCustom = async (_: any, value: string) => {
     if (value) {
       const stringValid = checkValidText(value, keyword);
@@ -52,10 +48,9 @@ export default function SectionContact() {
     }
     return Promise.resolve();
   };
-
   const handleSubmit = async () => {
     try {
-      setBtnLoading(true);
+      setButtonLoading(true);
       const formData = formSubmit.getFieldsValue();
       const response = await postEcomEcomContactContactUs({ requestBody: { ...formData } });
 
@@ -69,24 +64,16 @@ export default function SectionContact() {
     } catch (err) {
       notify('error', errorMessage('createAPI'));
     } finally {
-      setBtnLoading(false);
+      setButtonLoading(false);
     }
   };
-
   return (
     <div className="section-common-contact">
       <div className="container">
         <div className="section-common-contact__wrapper">
           <Typography className="section-common-contact__title">{t('EcomContactUsPageDetailPageSendUsAnEmail')}</Typography>
           <Typography className="section-common-contact__detail">{t('EcomContactUsPageDetailPageNote')}</Typography>
-          <Form
-            className="form-common-contact"
-            autoComplete="off"
-            layout="vertical"
-            form={formSubmit}
-            size="large"
-            onFinish={handleSubmit}
-          >
+          <Form className="form-common-contact" autoComplete="off" layout="vertical" form={formSubmit} size="large" onFinish={handleSubmit}>
             <div className="form-common-contact__wrapper">
               <Form.Item
                 className="input-common-contact"
@@ -136,12 +123,8 @@ export default function SectionContact() {
               </Form.Item>
             </div>
             <div className="form-common-contact__controller">
-              <Spin spinning={btnLoading}>
-                <CoreButton
-                  className="form-common-contact__controller-submit"
-                  type="submit"
-                  label={t('HomePageContactUsPageSubmit')}
-                />
+              <Spin spinning={buttonLoading}>
+                <CoreButton className="form-common-contact__controller-submit" type="submit" label={t('HomePageContactUsPageSubmit')} />
               </Spin>
             </div>
           </Form>

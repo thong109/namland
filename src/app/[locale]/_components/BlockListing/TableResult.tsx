@@ -1,12 +1,12 @@
 import { ListPropertyStatusEnum } from '@/libs/enums/ListPropertyStatusEnum';
 import { FC } from 'react';
-import ListingCard from '../../ListingCard/ListingCard';
+import ListingCard from '../ListingCard/ListingCard';
 
 export interface IProps {
   listings: any;
 }
 
-const ListingResultData: FC<IProps> = ({ listings }) => {
+const TableResult: FC<IProps> = ({ listings }) => {
   const getVariant = (type) => {
     if (type === ListPropertyStatusEnum.Platinum) {
       return 'platinum';
@@ -65,4 +65,4 @@ const ListingResultData: FC<IProps> = ({ listings }) => {
   );
 };
 
-export default ListingResultData;
+export default TableResult;
