@@ -8,7 +8,7 @@ import { useTranslations } from 'next-intl';
 import { assetsImages } from '../../../assets/images/package';
 import SectionContact from '@/components/SectionContact/SectionContact';
 
-export default function ContactUs() {
+export default function PageContactUs() {
   const t = useTranslations('webLabel');
   const PMHCenter = LocaltionConstant.PMHCoordinate;
 

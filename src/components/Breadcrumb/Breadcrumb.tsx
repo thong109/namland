@@ -1,7 +1,6 @@
 'use client';
 import React, { FC } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { assetsImages } from '../../assets/images/package';
 import './Breadcrumb.css';
 
