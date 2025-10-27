@@ -149,7 +149,7 @@ const Header = ({ className, navType }: { className: string; navType: string }) 
               <ul className='navigation-header-inside__wrapper'>
                 {dataMenu.map((item) => (
                   <li className='navigation-header-inside__item'>
-                    <span className='navigation-header-inside__item-label uppercase' onClick={() => { toggleNavigation(false); push(item.href) }}>{t(item.name)}</span>
+                    <span className='navigation-header-inside__item-label' onClick={() => { toggleNavigation(false); push(item.href) }}>{t(item.name)}</span>
                   </li>
                 ))}
               </ul>

@@ -65,7 +65,7 @@
 }
 
 .navigation-header-inside {
-  @apply w-[100%] max-w-[430px] text-[30px] leading-[calc(44/30)] font-[600] text-[#fff];
+  @apply w-[100%] max-w-[430px] text-[30px] leading-[calc(44/30)] font-[600] text-[#fff] uppercase;
   @apply tablet-lg:w-[auto] tablet-lg:max-w-[50%] tablet-lg:text-[24px] tablet-lg:leading-[calc(36/24)];
   @apply tablet-md:text-[20px] tablet-md:leading-[calc(32/20)];
   @apply mobile:text-[20px] mobile:leading-[calc(32/20)];
@@ -74,6 +74,10 @@
 .navigation-header-inside__wrapper {
   @apply flex flex-col items-start gap-[40px];
   @apply mobile:gap-[30px];
+}
+
+.navigation-header-inside__item-label {
+  @apply cursor-pointer;
 }
 
 .menu-header {
@@ -176,7 +180,7 @@ html:has(.lightbox-header.lightbox-header.is-state-active) {
 }
 
 .lightbox-header__logo {
-  @apply w-[565px] flex-grow-0 flex-shrink-0 block;
+  @apply w-[565px] flex-grow-0 flex-shrink-0 block cursor-pointer;
   @apply tablet-lg:w-[360px];
   @apply tablet-md:w-[320px];
   @apply mobile:hidden;
