@@ -13,12 +13,14 @@ import AvatarDropdown from './AvatarDropdown';
 import { ModalLoginOpen } from './ultil/ModalLoginOpen';
 import LoginModal from '../LoginModal/LoginModal';
 import NotifyDropdown from './NotifyDropdown';
+import { useRouter } from 'next-intl/client';
 
 const Header = ({ className, navType }: { className: string; navType: string }) => {
   const [stateNavigation, toggleNavigation] = useState(false);
   const t = useTranslations('webLabel');
   const { userInfo } = useGlobalStore();
   const [isModalOpen, setIsModalOpen] = ModalLoginOpen();
+  const { push } = useRouter();
 
   const dataMenu = [
     {
@@ -57,10 +59,10 @@ const Header = ({ className, navType }: { className: string; navType: string }) 
       subMenu: (
         <ul className='menu-header__wrapper'>
           <li className='menu-header__entry'>
-            <Link className='menu-header__entry-label' href={NAVIGATION.findHouse.href}>{t('FIND_A_HOUSE')}</Link>
+            <span className='menu-header__entry-label cursor-pointer' onClick={() => push(NAVIGATION.findHouse.href)}>{t('FIND_A_HOUSE')}</span>
           </li>
           <li className='menu-header__entry'>
-            <Link className='menu-header__entry-label' href={NAVIGATION.findAgent.href}>{t('SELL_RENT_MY_HOUSE')}</Link>
+            <span className='menu-header__entry-label cursor-pointer' onClick={() => push(NAVIGATION.findAgent.href)}>{t('SELL_RENT_MY_HOUSE')}</span>
           </li>
         </ul>
       ),
@@ -106,14 +108,14 @@ const Header = ({ className, navType }: { className: string; navType: string }) 
         <button className='notification-header__toggle' style={{ backgroundImage: `url(${assetsImages.commonIconClose.src})` }} type='button'></button>
       </div>
       <div className='header-common__wrapper'>
-        <Link className='logo-header' href={NAVIGATION.home.href}>
+        <span className='logo-header cursor-pointer' onClick={() => push(NAVIGATION.home.href)}>
           <Image className='' src={assetsImages.commonLogoPrinmary} width={317} height={48} alt='Logo' />
-        </Link>
+        </span>
         <div className='navigation-header-outside'>
           <ul className='navigation-header-outside__wrapper'>
             {dataMenu.map((item) => (
               <li key={item.id} className='navigation-header-outside__item'>
-                <Link className='navigation-header-outside__item-label uppercase' href={item.href}>{t(item.name)}</Link>
+                <span className='navigation-header-outside__item-label uppercase cursor-pointer' onClick={() => push(item.href)}>{t(item.name)}</span>
                 {item.subMenu && <div className='menu-header'>{item.subMenu}</div>}
               </li>
             ))}
@@ -125,7 +127,7 @@ const Header = ({ className, navType }: { className: string; navType: string }) 
         {userInfo ? (
           <AvatarDropdown className="mx-[10px]" />
         ) : (
-          <div className="!mx-[10px] flex h-10 w-10 items-center justify-center self-center sm:h-12 sm:w-12">
+          <div className="flex items-center justify-center self-center">
             <button
               onClick={handleOpenModal}
               className="button-header-user-wrapper"
@@ -141,35 +143,16 @@ const Header = ({ className, navType }: { className: string; navType: string }) 
         <button className='lightbox-header__toggle' onClick={() => toggleNavigation(false)} style={{ backgroundImage: `url(${assetsImages.commonIconClose.src})` }} type='button'></button>
         <div className='lightbox-header__viewport'>
           <div className='lightbox-header__wrapper'>
-            <Link className='lightbox-header__logo' href='#'>
+            <span className='lightbox-header__logo' onClick={() => { toggleNavigation(false); push(NAVIGATION.home.href) }}>
               <Image src={assetsImages.commonLogoPrinmaryWhite} width={565} height={86} alt='Logo' />
-            </Link>
+            </span>
             <div className='navigation-header-inside'>
               <ul className='navigation-header-inside__wrapper'>
-                <li className='navigation-header-inside__item'>
-                  <Link className='navigation-header-inside__item-label' href='#'>BÁN</Link>
-                </li>
-                <li className='navigation-header-inside__item'>
-                  <Link className='navigation-header-inside__item-label' href='#'>CHO THUÊ</Link>
-                </li>
-                <li className='navigation-header-inside__item'>
-                  <Link className='navigation-header-inside__item-label' href='#'>DỰ ÁN</Link>
-                </li>
-                <li className='navigation-header-inside__item'>
-                  <Link className='navigation-header-inside__item-label' href='#'>DỰ ÁN MỚI</Link>
-                </li>
-                <li className='navigation-header-inside__item'>
-                  <Link className='navigation-header-inside__item-label' href='#'>TƯ VẤN HỖ TRỢ</Link>
-                </li>
-                <li className='navigation-header-inside__item'>
-                  <Link className='navigation-header-inside__item-label' href='#'>DỊCH VỤ NHÀ Ở</Link>
-                </li>
-                <li className='navigation-header-inside__item'>
-                  <Link className='navigation-header-inside__item-label' href='#'>DỊCH VỤ VÀ SẢN PHẨM</Link>
-                </li>
-                <li className='navigation-header-inside__item'>
-                  <Link className='navigation-header-inside__item-label' href='#'>LIÊN HỆ</Link>
-                </li>
+                {dataMenu.map((item) => (
+                  <li className='navigation-header-inside__item'>
+                    <span className='navigation-header-inside__item-label uppercase' onClick={() => { toggleNavigation(false); push(item.href) }}>{t(item.name)}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

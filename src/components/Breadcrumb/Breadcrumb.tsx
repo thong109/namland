@@ -1,8 +1,8 @@
 'use client';
 import React, { FC } from 'react';
-import Link from 'next/link';
 import { assetsImages } from '../../assets/images/package';
 import './Breadcrumb.css';
+import { useRouter } from 'next-intl/client';
 
 export interface BreadCrumbItem {
   path: string;
@@ -16,8 +16,10 @@ export interface BreadCrumbProps {
 }
 
 const Breadcrumb: FC<BreadCrumbProps> = ({ additionalClass, breadcrumbItems, hasBanner = false }) => {
+  const { push } = useRouter();
+  
   return (
-    <nav className={`breadcrumb-common ${hasBanner ? `has-banner` : ``})`}>
+    <nav className={`breadcrumb-common ${additionalClass} ${hasBanner ? 'has-banner' : ''}`}>
       <div className='container'>
         <ol className='breadcrumb-common__wrapper'>
           {breadcrumbItems.map((breadcrumbItem, index) => {
@@ -26,7 +28,7 @@ const Breadcrumb: FC<BreadCrumbProps> = ({ additionalClass, breadcrumbItems, has
             return (
               <li key={index} className='breadcrumb-common__item'>
                 {!isItemLast ? (
-                  <Link className='breadcrumb-common__item-link' href={breadcrumbItem.path} style={{ backgroundImage: `url(${assetsImages.commonIconArrow2.src})` }}>{breadcrumbItem.title}</Link>
+                  <span className='breadcrumb-common__item-link cursor-pointer' onClick={() => push(breadcrumbItem.path)} style={{ backgroundImage: `url(${assetsImages.commonIconArrow2.src})` }}>{breadcrumbItem.title}</span>
                 ) : (
                   <span className='breadcrumb-common__item-label'>{breadcrumbItem.title}</span>
                 )}

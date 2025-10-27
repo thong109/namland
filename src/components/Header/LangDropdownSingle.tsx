@@ -137,7 +137,7 @@ const LangDropdown: FC<LangDropdownProps> = ({
               })}
               {isHiddenIcon ? null : (
                 <ChevronDownIcon
-                  className={`${open ? '-rotate-180' : 'text-opacity-70'} ml-2 h-4 w-4 transition duration-150 ease-in-out group-hover:text-opacity-80 flex-[0_0_auto]`}
+                  className={`${open ? '-rotate-180' : 'text-opacity-70'} hidden md:block md:ml-2 h-4 w-4 transition duration-150 ease-in-out group-hover:text-opacity-80 flex-[0_0_auto]`}
                   aria-hidden="true"
                 />
               )}
