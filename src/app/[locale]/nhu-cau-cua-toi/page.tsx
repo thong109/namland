@@ -12,7 +12,7 @@ const MyRequestHome: FC<IProps> = async ({ params: { locale } }) => {
 
   return (
     <div
-      className="relative flex h-[70vh] w-[100vw] flex-col items-center justify-center bg-cover"
+      className="relative flex h-[70vh] w-full flex-col items-center justify-center bg-cover"
       style={{ backgroundImage: `url(${FindHomeBg.src})` }}
     >
       <Link legacyBehavior href={'/toi-muon-tim-nha'}>

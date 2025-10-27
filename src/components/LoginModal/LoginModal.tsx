@@ -347,14 +347,14 @@ const LoginModal: React.FC<LoginModalProps> = ({ isVisible, closeModal, handleOk
       styles={{
         wrapper: {
           background: 'none',
-          zIndex: 2000,
+          zIndex: 9999999,
         },
         content: {
           background: 'none',
           boxShadow: 'none',
         },
         mask: {
-          zIndex: 2000,
+          zIndex: 999999,
         },
       }}
       open={isVisible}

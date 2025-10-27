@@ -1,6 +1,7 @@
 import { NavItemType } from '@/shared/Navigation/NavigationItem';
 
 type NavType = {
+  home: NavItemType;
   listingDetail: NavItemType;
   projectList: NavItemType;
   saleListing: NavItemType;
@@ -13,9 +14,17 @@ type NavType = {
   posterDetail: NavItemType;
   newHomePage: NavItemType;
   newHomeDetail: NavItemType;
+  findHouse: NavItemType;
+  findAgent: NavItemType;
+  housingServices: NavItemType;
+  serviceAndProduct: NavItemType;
 };
 
 export const NAVIGATION: NavType = {
+  home: {
+    id: 'home',
+    href: '/',
+  },
   listingDetail: {
     id: 'listingDetail',
     href: '/property/:id',
@@ -54,7 +63,7 @@ export const NAVIGATION: NavType = {
   },
 
   entrust: {
-    id: 'findAgent',
+    id: 'entrust',
     href: '/nhu-cau-cua-toi',
   },
 
@@ -69,5 +78,21 @@ export const NAVIGATION: NavType = {
   newHomeDetail: {
     id: 'newHomePage',
     href: '/du-an-mo-ban/:id',
+  },
+  findHouse: {
+    id: 'findHouse',
+    href: '/toi-muon-tim-nha',
+  },
+  findAgent: {
+    id: 'findAgent',
+    href: '/find-agent',
+  },
+  housingServices: {
+    id: 'service',
+    href: '#',
+  },
+  serviceAndProduct: {
+    id: 'serviceAndProduct',
+    href: '#',
   },
 };

@@ -3,6 +3,7 @@ import authApiService from '@/apiServices/externalApiServices/authApiService';
 import EnglishIcon from '@/assets/icon/english-header.svg';
 import KoreaIcon from '@/assets/icon/korea-header.svg';
 import VietNameIcon from '@/assets/icon/vietnam-header.svg';
+import { assetsImages } from '@/assets/images/package';
 import usePropertyType from '@/hooks/usePropertyType';
 import useGlobalStore from '@/stores/useGlobalStore';
 import { Popover, Transition } from '@headlessui/react';
@@ -19,6 +20,7 @@ export const headerLanguage = [
   {
     id: 'English',
     name: 'English',
+    title: 'EN',
     description: 'United State',
     value: 'en',
     icon: EnglishIcon,
@@ -26,6 +28,7 @@ export const headerLanguage = [
   {
     id: 'Vietnamese',
     name: 'Vietnamese',
+    title: 'VN',
     description: 'Vietnamese',
     value: 'vi',
     icon: VietNameIcon,
@@ -33,6 +36,7 @@ export const headerLanguage = [
   {
     id: 'Korea',
     name: 'Korea',
+    title: 'KR',
     description: 'Korea',
     value: 'ko',
     icon: KoreaIcon,
@@ -118,7 +122,8 @@ const LangDropdown: FC<LangDropdownProps> = ({
               onClick={() => {
                 setOpen(!open);
               }}
-              className={` ${open ? '' : 'text-opacity-80'} group inline-flex items-center rounded-full py-1.5 text-sm font-medium text-gray-700 hover:text-opacity-100 focus:outline-none dark:text-neutral-300`}
+              className={` ${open ? '' : 'text-opacity-80'} select-header-language group inline-flex items-center rounded-full py-1.5 text-sm font-medium text-gray-700 hover:text-opacity-100 focus:outline-none dark:text-neutral-300`}
+              style={{ backgroundImage: `url(${assetsImages.commonIconLanguage.src})` }}
             >
               {headerLanguage.map((item) => {
                 return (
@@ -126,17 +131,13 @@ const LangDropdown: FC<LangDropdownProps> = ({
                     className={`${locale != item.value ? 'hidden' : ''} mx-1 self-center`}
                     key={item.id}
                   >
-                    <Image
-                      src={item.icon}
-                      alt={item.description}
-                      className="size-9 object-contain"
-                    />
+                    <span>{item.title}</span>
                   </div>
                 );
               })}
               {isHiddenIcon ? null : (
                 <ChevronDownIcon
-                  className={`${open ? '-rotate-180' : 'text-opacity-70'} ml-2 h-4 w-4 transition duration-150 ease-in-out group-hover:text-opacity-80`}
+                  className={`${open ? '-rotate-180' : 'text-opacity-70'} ml-2 h-4 w-4 transition duration-150 ease-in-out group-hover:text-opacity-80 flex-[0_0_auto]`}
                   aria-hidden="true"
                 />
               )}
