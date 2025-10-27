@@ -1,5 +1,5 @@
 .section-common-contact {
-  @apply pt-[53px] pb-[65px] bg-[#f5f5f5];
+  @apply pt-[53px] pb-[65px] bg-[#f5f5f5] font-mona;
   @apply tablet-lg:pt-[30px] tablet-lg:pb-[50px];
   @apply mobile:py-[60px];
 }

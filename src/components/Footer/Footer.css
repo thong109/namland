@@ -1,3 +1,7 @@
+.footer-common {
+  @apply font-mona;
+}
+
 .navigation-footer {
   @apply bg-[#982220] text-[#fff];
 }

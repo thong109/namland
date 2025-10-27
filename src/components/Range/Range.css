@@ -1,3 +1,44 @@
 .range-common {
-    
+  @apply !h-[3px] !m-[11px_7.5px] !p-[0px] font-mona;
+}
+
+.range-common .ant-slider-rail {
+  @apply !h-[3px] !top-[0px];
+}
+
+.range-common .ant-slider-handle {
+  @apply !w-[15px] !h-[15px] !top-[-6px] !bg-transparent !z-[2];
+}
+
+.range-common .ant-slider-handle::before,
+.range-common .ant-slider-handle::after {
+  @apply !w-[15px] !h-[5px] !absolute !top-[50%] !left-[50%] !bg-[#982220] !rounded-[0px] !translate-x-[-50%] !translate-y-[-50%];
+}
+
+.range-common .ant-slider-track {
+  @apply !h-[3px] !top-[0] !bg-[#982220] !rounded-[3px] !z-[1];
+}
+
+.range-common .ant-slider-step {
+  @apply !h-[3px] !top-[0] !bg-[#d9d9d9] !rounded-[3px] !z-0;
+}
+
+.range-common .ant-slider-mark {
+  @apply !w-[100%] !top-[6px] !right-0 !left-0;
+}
+
+.range-common .ant-slider-mark:has(.range-common__value--end) {
+  /* @apply !right-0; */
+}
+
+.range-common__value {
+  @apply w-[15px] !absolute !top-0 !right-[-7.5px] !left-[-7.5px] flex !text-[16px] !leading-[calc(19/16)] !font-[700] !text-[#444];
+}
+
+.range-common__value--start {
+  @apply !justify-center;
+}
+
+.range-common__value--end {
+  @apply !justify-end;
 }

@@ -1,3 +1,3 @@
 .selector-common-chip {
-  @apply flex flex-wrap flex-grow-0 gap-[8px];
+  @apply flex flex-wrap flex-grow-0 gap-[8px] font-mona;
 }
