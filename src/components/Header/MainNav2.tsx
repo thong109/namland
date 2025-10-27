@@ -17,7 +17,7 @@ import * as NProgress from 'nprogress';
 import { FC, useEffect, useState } from 'react';
 import LoginModal from '../LoginModal/LoginModal';
 import AvatarDropdown from './AvatarDropdown';
-import LangDropdownSingle from './LangDropdownSingle';
+import LangDropdownSingle from './SelectLanguage';
 import MenuBar from './MenuBar';
 import NotifyDropdown from './NotifyDropdown';
 import { ModalLoginOpen } from './ultil/ModalLoginOpen';

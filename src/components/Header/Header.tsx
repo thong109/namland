@@ -7,7 +7,7 @@ import { NAVIGATION } from '@/data/navigation';
 import ncNanoId from '@/utils/ncNanoId';
 import * as _ from 'lodash';
 import { useTranslations } from 'next-intl';
-import LangDropdownSingle from "./LangDropdownSingle"
+import LangDropdownSingle from "./SelectLanguage"
 import useGlobalStore from '@/stores/useGlobalStore';
 import AvatarDropdown from './AvatarDropdown';
 import { ModalLoginOpen } from './ultil/ModalLoginOpen';
@@ -115,7 +115,7 @@ const Header = ({ className, navType }: { className: string; navType: string }) 
           <ul className='navigation-header-outside__wrapper'>
             {dataMenu.map((item) => (
               <li key={item.id} className='navigation-header-outside__item'>
-                <span className='navigation-header-outside__item-label uppercase cursor-pointer' onClick={() => push(item.href)}>{t(item.name)}</span>
+                <span className='navigation-header-outside__item-label' onClick={() => push(item.href)}>{t(item.name)}</span>
                 {item.subMenu && <div className='menu-header'>{item.subMenu}</div>}
               </li>
             ))}
@@ -123,16 +123,15 @@ const Header = ({ className, navType }: { className: string; navType: string }) 
         </div>
         <button onClick={() => toggleNavigation(true)} className='button-header-burger' style={{ backgroundImage: `url(${assetsImages.commonIconBurger.src})` }} type='button'></button>
         <LangDropdownSingle isHiddenIcon={false} />
-
         {userInfo ? (
           <AvatarDropdown className="mx-[10px]" />
         ) : (
-          <div className="flex items-center justify-center self-center">
+          <div className="button-header-user">
             <button
               onClick={handleOpenModal}
-              className="button-header-user-wrapper"
+              className="button-header-user__wrapper"
             >
-              <div className='button-header-user' style={{ backgroundImage: `url(${assetsImages.commonIconUser.src})` }}></div>
+              <div className='button-header-user__link' style={{ backgroundImage: `url(${assetsImages.commonIconUser.src})` }}></div>
             </button>
           </div>
         )}

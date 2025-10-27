@@ -53,7 +53,6 @@ const LangDropdown: FC<LangDropdownProps> = ({
   isHiddenIcon = false,
 }) => {
   const t = useTranslations('Language');
-
   const { refreshPropertyType } = usePropertyType();
   const { userInfo } = useGlobalStore();
   const locale = useLocale();
@@ -86,12 +85,9 @@ const LangDropdown: FC<LangDropdownProps> = ({
     if (value == locale) {
       return;
     }
-
     Cookies.set('NEXT_LOCALE', value);
-
     if (userInfo) {
       const response = await authApiService.updateLang(value);
-
       if (response.success) {
         startTransition(() => {
           // Replace the current route with the new locale in options
@@ -113,33 +109,25 @@ const LangDropdown: FC<LangDropdownProps> = ({
     }, 1500);
   };
   return (
-    <div className="LangDropdown">
-      <Popover className="relative">
+    <div className="select-header-language">
+      <Popover className="select-header-language__wrapper">
         {({ open, close }) => (
           <>
             <Popover.Button
-              ref={triggerRefLang}
+              className={`select-header-language__toggle`}
+              style={{ backgroundImage: `url(${assetsImages.commonIconLanguage.src})` }}
               onClick={() => {
                 setOpen(!open);
               }}
-              className={` ${open ? '' : 'text-opacity-80'} select-header-language group inline-flex items-center rounded-full py-1.5 text-sm font-medium text-gray-700 hover:text-opacity-100 focus:outline-none dark:text-neutral-300`}
-              style={{ backgroundImage: `url(${assetsImages.commonIconLanguage.src})` }}
+              ref={triggerRefLang}
             >
               {headerLanguage.map((item) => {
                 return (
-                  <div
-                    className={`${locale != item.value ? 'hidden' : ''} mx-1 self-center`}
-                    key={item.id}
-                  >
-                    <span>{item.title}</span>
-                  </div>
+                  <div className={`select-header-language__label ${locale != item.value ? 'hidden' : ''}`} key={item.id}>{item.title}</div>
                 );
               })}
               {isHiddenIcon ? null : (
-                <ChevronDownIcon
-                  className={`${open ? '-rotate-180' : 'text-opacity-70'} hidden md:block md:ml-2 h-4 w-4 transition duration-150 ease-in-out group-hover:text-opacity-80 flex-[0_0_auto]`}
-                  aria-hidden="true"
-                />
+                <span className={`select-header-language__arrow ${open ? 'is-state-active' : 'is-state-inactive'}`} style={{ backgroundImage: `url(${assetsImages.commonIconArrow.src})` }} aria-hidden='true'></span>
               )}
             </Popover.Button>
             <Transition
