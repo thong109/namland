@@ -4,9 +4,10 @@ import { OptionModel } from '@/models/optionModel/optionModel';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 import React, { useCallback } from 'react';
-import ChipButton from '../ChipButton/ChipButton';
+import ButtonChip from '../ButtonChip/ButtonChip';
+import './SelectorChip.css';
 
-interface ChipSelectionFieldProps {
+interface SelectorChipProps {
   className?: string;
   value?: any;
   onChange?: (values: any) => void;
@@ -17,7 +18,7 @@ interface ChipSelectionFieldProps {
   tidyItem?: boolean;
 }
 
-const ChipSelectionField: React.FC<ChipSelectionFieldProps> = ({
+const SelectorChip: React.FC<SelectorChipProps> = ({
   className,
   multiple = false,
   value = null,
@@ -52,9 +53,9 @@ const ChipSelectionField: React.FC<ChipSelectionFieldProps> = ({
   );
 
   return (
-    <div className={clsx('flex flex-wrap gap-2', className, tidyItem ? 'flex-wrap' : 'flex-row')}>
+    <div className={`selector-common-chip ${clsx(className ? className : '')}`}>
       {hasAny && (
-        <ChipButton
+        <ButtonChip
           key={'any'}
           onClick={() => handleClick(null)}
           selected={value === undefined || value === null}
@@ -63,7 +64,7 @@ const ChipSelectionField: React.FC<ChipSelectionFieldProps> = ({
         />
       )}
       {options.map((o, index) => (
-        <ChipButton
+        <ButtonChip
           key={index}
           onClick={() => handleClick(o.id)}
           selected={multiple ? value?.includes(o.id) : value === o.id}
@@ -75,4 +76,4 @@ const ChipSelectionField: React.FC<ChipSelectionFieldProps> = ({
   );
 };
 
-export default ChipSelectionField;
+export default SelectorChip;

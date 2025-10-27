@@ -3,7 +3,7 @@
 import React, { useCallback } from 'react';
 import ChipItemButton from './ChipItemButton';
 
-interface ChipSelectionFieldProps {
+interface SelectorChipProps {
   value?: string[];
   onChange?: (values: string[]) => void;
   multiple?: boolean;
@@ -11,7 +11,7 @@ interface ChipSelectionFieldProps {
   disabled?: boolean;
 }
 
-const ChipSelectComponents: React.FC<ChipSelectionFieldProps> = ({
+const ChipSelectComponents: React.FC<SelectorChipProps> = ({
   value = [],
   onChange = () => {},
   multiple = false,

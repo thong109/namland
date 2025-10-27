@@ -1,6 +1,6 @@
 'use client';
 
-import ChipSelectionField from '@/_components/ChipSelectionField/ChipSelectionField';
+import SelectorChip from '@/components/SelectorChip/SelectorChip';
 import ListingCardHomePage from '@/app/[locale]/_components/ListingCard/ListingCard.HomePage';
 import { NAVIGATION } from '@/data/navigation';
 import {
@@ -166,7 +166,7 @@ const SectionHomePageListing: FC<SectionHomePageListingProps> = ({
           <div className="rever grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-0">
             <div className="order-2 col-span-1 flex items-center justify-start lg:order-1">
               <div className="overflow-x-auto">
-                <ChipSelectionField
+                <SelectorChip
                   className={clsx(
                     '[&_button.chip-button-selected]:text-pmh-text',
                     '[&_button.chip-button-selected]:!border-portal-primaryButtonAdmin',

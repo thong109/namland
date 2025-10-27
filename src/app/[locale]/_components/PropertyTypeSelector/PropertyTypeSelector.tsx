@@ -1,4 +1,4 @@
-import ChipSelectionField from '@/_components/ChipSelectionField/ChipSelectionField';
+import SelectorChip from '@/components/SelectorChip/SelectorChip';
 import { ListingTypeEnum } from '@/ecom-sadec-api-client';
 import _ from 'lodash';
 import React, { useEffect, useState } from 'react';
@@ -35,7 +35,7 @@ const PropertyTypeSelector: React.FC<PropertyTypeSelectorProps> = ({
 
   return (
     <div className="overflow-x-auto">
-      <ChipSelectionField
+      <SelectorChip
         multiple={multiple}
         allowClear={false}
         options={_.uniq(propertyTypes?.filter((item) => item.type === type))}

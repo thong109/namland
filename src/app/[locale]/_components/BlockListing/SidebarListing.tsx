@@ -1,7 +1,7 @@
 'use client';
-import ChipSelectionField from '@/_components/ChipSelectionField/ChipSelectionField';
+import SelectorChip from '@/components/SelectorChip/SelectorChip';
 import CoreButton from '@/_components/CoreButton/CoreButton';
-import SliderRange from '@/components/FormInput/sliderRange';
+import Range from '@/components/Range/Range';
 import { NAVIGATION } from '@/data/navigation';
 import { getEcomEcomPlaceGetDistrict, getEcomEcomPlaceGetWard } from '@/ecom-sadec-api-client';
 import {
@@ -153,8 +153,7 @@ const SidebarListing: FC<IProps> = ({
             </Select>
           </Form.Item>
           <Form.Item className='form-common-listing__item form-common-listing__item--nextto' label={t('HomeRealEstateSearchFormBedroom')} name='br'>
-            <ChipSelectionField
-              className='selector-common-listing'
+            <SelectorChip
               multiple
               options={[
                 { name: '1', id: 1 },
@@ -167,8 +166,7 @@ const SidebarListing: FC<IProps> = ({
             />
           </Form.Item>
           <Form.Item className='form-common-listing__item form-common-listing__item--nextto' label={t('HomeRealEstateSearchFormBathroom')} name='bathr'>
-            <ChipSelectionField
-              className='selector-common-listing'
+            <SelectorChip
               multiple
               options={[
                 { name: '1', id: 1 },
@@ -182,8 +180,7 @@ const SidebarListing: FC<IProps> = ({
           </Form.Item>
           {type === listingType.rent && (
             <Form.Item className='form-common-listing__item form-common-listing__item--nextto' label={t('HomeRealEstateSearchFormLeaseTerm')} name='lt'>
-              <ChipSelectionField
-                className='selector-common-listing'
+              <SelectorChip
                 tidyItem
                 options={listingRentLeaseTerm.map((item) => ({
                   id: item.id,
@@ -193,10 +190,10 @@ const SidebarListing: FC<IProps> = ({
             </Form.Item>
           )}
           <Form.Item className='form-common-listing__item form-common-listing__item--nextto-spanning' label={t('HomeRealEstateSearchFormPrice')} name='rp'>
-            <SliderRange className='range-common-listing' min={0} max={type === listingType.rent ? 100000000 : 20000000000} />
+            <Range min={0} max={type === listingType.rent ? 100000000 : 20000000000} />
           </Form.Item>
           <Form.Item className='form-common-listing__item form-common-listing__item--nextto-spanning' label={t('HomeRealEstateSearchFormSize')} name='sz'>
-            <SliderRange className='range-common-listing' min={0} max={500} />
+            <Range min={0} max={500} />
           </Form.Item>
           <Form.Item className='form-common-listing__item' label={t('HomeRealEstateSearchFormLocation')} name='p'>
             <Select
@@ -267,14 +264,14 @@ const SidebarListing: FC<IProps> = ({
             </div>
           )}
           <Form.Item className='form-common-listing__item' label={t('HomeRealEstateSearchFormView')} name='v'>
-            <ChipSelectionField tidyItem hasAny multiple options={views ?? []} />
+            <SelectorChip tidyItem hasAny multiple options={views ?? []} />
           </Form.Item>
           {isShowMore && (
             <>
               {type === listingType.sale && (
                 <>
                   <Form.Item className='form-common-listing__item' label={t('HomeRealEstateSearchFormLegalStatus')} name='lS'>
-                    <ChipSelectionField
+                    <SelectorChip
                       hasAny
                       tidyItem
                       multiple
@@ -285,7 +282,7 @@ const SidebarListing: FC<IProps> = ({
                     />
                   </Form.Item>
                   <Form.Item className='form-common-listing__item' label={t('HomeRealEstateSearchFormHandoverStatus')} name='hS' >
-                    <ChipSelectionField
+                    <SelectorChip
                       hasAny
                       tidyItem
                       options={handOverStatuses.map((item) => ({
@@ -298,7 +295,7 @@ const SidebarListing: FC<IProps> = ({
               )}
               <>
                 <Form.Item className='form-common-listing__item' label={t('HomeRealEstateSearchFormFurnitureStatus')} name='i'>
-                  <ChipSelectionField
+                  <SelectorChip
                     hasAny
                     multiple
                     tidyItem
@@ -309,7 +306,7 @@ const SidebarListing: FC<IProps> = ({
                   />
                 </Form.Item>
                 <Form.Item className='form-common-listing__item' label={t('HomeRealEstateSearchFormPetAllowance')} name='iPA'>
-                  <ChipSelectionField
+                  <SelectorChip
                     hasAny
                     tidyItem
                     options={[

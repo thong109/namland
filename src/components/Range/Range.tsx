@@ -1,5 +1,7 @@
 import NumberTrim from '@/components/NumberTrim/NumberTrim';
 import { Slider } from 'antd';
+import './Range.css';
+
 export interface InputProps {
   min?: number;
   max?: number;
@@ -7,18 +9,18 @@ export interface InputProps {
   onChange?: (value: [number, number]) => void;
 }
 
-const SliderRange = ({ min = 0, max = 20000000000, value = [min, max], onChange }: InputProps) => {
+const Range = ({ min = 0, max = 20000000000, value = [min, max], onChange }: InputProps) => {
   const marks = {
     [value[0]]: {
       label: (
-        <div className="font-semibold">
+        <div className='range-common__value range-common__value--start'>
           <NumberTrim value={value[0]} />
         </div>
       ),
     },
     [value[1]]: {
       label: (
-        <div className="absolute -right-3 top-[-33px] font-semibold">
+        <div className='range-common__value range-common__value--end'>
           <NumberTrim value={value[1]} />
         </div>
       ),
@@ -28,6 +30,7 @@ const SliderRange = ({ min = 0, max = 20000000000, value = [min, max], onChange 
   return (
     <>
       <Slider
+        className='range-common'
         range
         marks={marks}
         onChange={onChange}
@@ -40,4 +43,4 @@ const SliderRange = ({ min = 0, max = 20000000000, value = [min, max], onChange 
   );
 };
 
-export default SliderRange;
+export default Range;

@@ -1,13 +1,13 @@
 import clsx from 'clsx';
 import React from 'react';
 
-interface ChipButtonProps {
+interface ButtonChipProps {
   onClick?: () => void;
   selected: boolean;
   label: string;
 }
 
-const ChipItemButton: React.FC<ChipButtonProps> = ({ onClick, selected, label }) => {
+const ChipItemButton: React.FC<ButtonChipProps> = ({ onClick, selected, label }) => {
   return (
     <button
       onClick={onClick}

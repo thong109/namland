@@ -1,4 +1,4 @@
-import ChipSelectionField from '@/_components/ChipSelectionField/ChipSelectionField';
+import SelectorChip from '@/components/SelectorChip/SelectorChip';
 import CoreButton from '@/_components/CoreButton/CoreButton';
 import {
   amenityType,
@@ -67,12 +67,12 @@ const AdvanceSearchListing = ({
         layout="vertical"
       >
         <Form.Item label={t('HomeRealEstateSearchFormView')} name="v">
-          <ChipSelectionField hasAny multiple options={views ?? []} />
+          <SelectorChip hasAny multiple options={views ?? []} />
         </Form.Item>
         {filterBy === listingType.sale ? (
           <>
             <Form.Item label={t('HomeRealEstateSearchFormLegalStatus')} name="lS">
-              <ChipSelectionField
+              <SelectorChip
                 hasAny
                 multiple
                 options={legalStatuses.map((item) => ({
@@ -82,7 +82,7 @@ const AdvanceSearchListing = ({
               />
             </Form.Item>
             <Form.Item label={t('HomeRealEstateSearchFormFurnitureStatus')} name="i">
-              <ChipSelectionField
+              <SelectorChip
                 hasAny
                 multiple
                 options={funitureStatus?.map((item) => ({
@@ -92,7 +92,7 @@ const AdvanceSearchListing = ({
               />
             </Form.Item>
             <Form.Item label={t('HomeRealEstateSearchFormHandoverStatus')} name="hS">
-              <ChipSelectionField
+              <SelectorChip
                 hasAny
                 multiple
                 options={handOverStatuses.map((item) => ({
@@ -105,7 +105,7 @@ const AdvanceSearchListing = ({
         ) : (
           <>
             <Form.Item label={t('HomeRealEstateSearchFormLeaseTerm')} name="lt">
-              <ChipSelectionField
+              <SelectorChip
                 hasAny
                 options={listingRentLeaseTerm.map((item) => ({
                   id: item.id,
@@ -114,7 +114,7 @@ const AdvanceSearchListing = ({
               />
             </Form.Item>
             <Form.Item label={t('HomeRealEstateSearchFormFurnitureStatus')} name="i">
-              <ChipSelectionField
+              <SelectorChip
                 hasAny
                 multiple
                 options={funitureStatus?.map((item) => ({
@@ -124,7 +124,7 @@ const AdvanceSearchListing = ({
               />
             </Form.Item>
             <Form.Item label={t('HomeRealEstateSearchFormPetAllowance')} name="iPA">
-              <ChipSelectionField
+              <SelectorChip
                 hasAny
                 options={[
                   { id: true, name: 'Yes' },
