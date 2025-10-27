@@ -115,135 +115,165 @@ const SidebarListing: FC<IProps> = ({
     <div className={`sidebar-common-listing ${className}`}>
       <div className='sidebar-common-listing__wrapper'>
         <Form className='form-common-listing' form={formRef} size='large' layout='vertical' onFinish={onSubmit}>
-          <Form.Item className='form-common-listing__item' name='k'>
-            <Input
-              className='input-common-listing input-common-listing--search'
-              placeholder={t('ListingSearchPlaceholderKeyword')}
-              style={{ backgroundImage: `url(${assetsImages.commonIconSearch.src})` }}
-              allowClear
-            />
-          </Form.Item>
-          <Form.Item className='form-common-listing__item' name='c'>
-            <Select
-              className='select-common-listing'
-              mode='multiple'
-              allowClear
-              placeholder={t('ListingSearchPlaceholderCategories')}
-            >
-              {properties?.map((property) => (
-                <Select.Option key={property.id} value={property.id}>
-                  {property.name}
-                </Select.Option>
-              ))}
-            </Select>
-          </Form.Item>
-          <Form.Item className='form-common-listing__item' name='prjs'>
-            <Select
-              className='select-common-listing'
-              mode='multiple'
-              allowClear
-              filterOption={filterOptionsRemoveVietnameseTones}
-              placeholder={t('EcomHomePageMenuProjects')}
-            >
-              {projects?.map((project) => (
-                <Select.Option key={project.id} value={project.id}>
-                  {project.name}
-                </Select.Option>
-              ))}
-            </Select>
-          </Form.Item>
-          <Form.Item className='form-common-listing__item form-common-listing__item--nextto' label={t('HomeRealEstateSearchFormBedroom')} name='br'>
-            <SelectorChip
-              multiple
-              options={[
-                { name: '1', id: 1 },
-                { name: '2', id: 2 },
-                { name: '3', id: 3 },
-                { name: '4', id: 4 },
-                { name: '5', id: 5 },
-                { name: '6+', id: 6 },
-              ]}
-            />
-          </Form.Item>
-          <Form.Item className='form-common-listing__item form-common-listing__item--nextto' label={t('HomeRealEstateSearchFormBathroom')} name='bathr'>
-            <SelectorChip
-              multiple
-              options={[
-                { name: '1', id: 1 },
-                { name: '2', id: 2 },
-                { name: '3', id: 3 },
-                { name: '4', id: 4 },
-                { name: '5', id: 5 },
-                { name: '6+', id: 6 },
-              ]}
-            />
-          </Form.Item>
+          <div className='form-common-listing__entry form-common-listing__entry--basic'>
+            <div className='form-common-listing__entry-wrapper form-common-listing__entry-wrapper--width-full'>
+              <Form.Item className='form-common-listing__entry-item' name='k'>
+                <Input
+                  className='input-common-listing input-common-listing--search'
+                  placeholder={t('ListingSearchPlaceholderKeyword')}
+                  style={{ backgroundImage: `url(${assetsImages.commonIconSearch.src})` }}
+                  allowClear
+                />
+              </Form.Item>
+              <Form.Item className='form-common-listing__entry-item' name='c'>
+                <Select
+                  className='select-common-listing'
+                  mode='multiple'
+                  allowClear
+                  placeholder={t('ListingSearchPlaceholderCategories')}
+                >
+                  {properties?.map((property) => (
+                    <Select.Option key={property.id} value={property.id}>
+                      {property.name}
+                    </Select.Option>
+                  ))}
+                </Select>
+              </Form.Item>
+              <Form.Item className='form-common-listing__entry-item' name='prjs'>
+                <Select
+                  className='select-common-listing'
+                  mode='multiple'
+                  allowClear
+                  filterOption={filterOptionsRemoveVietnameseTones}
+                  placeholder={t('EcomHomePageMenuProjects')}
+                >
+                  {projects?.map((project) => (
+                    <Select.Option key={project.id} value={project.id}>
+                      {project.name}
+                    </Select.Option>
+                  ))}
+                </Select>
+              </Form.Item>
+            </div>
+          </div>
+          <div className='form-common-listing__entry form-common-listing__entry--selectorchip'>
+            <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormBedroom')}</span>
+            <div className='form-common-listing__entry-wrapper'>
+              <Form.Item className='form-common-listing__entry-item' name='br'>
+                <SelectorChip
+                  multiple
+                  options={[
+                    { name: '1', id: 1 },
+                    { name: '2', id: 2 },
+                    { name: '3', id: 3 },
+                    { name: '4', id: 4 },
+                    { name: '5', id: 5 },
+                    { name: '6+', id: 6 },
+                  ]}
+                />
+              </Form.Item>
+            </div>
+          </div>
+          <div className='form-common-listing__entry form-common-listing__entry--selectorchip'>
+            <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormBathroom')}</span>
+            <div className='form-common-listing__entry-wrapper'>
+              <Form.Item className='form-common-listing__entry-item' name='bathr'>
+                <SelectorChip
+                  multiple
+                  options={[
+                    { name: '1', id: 1 },
+                    { name: '2', id: 2 },
+                    { name: '3', id: 3 },
+                    { name: '4', id: 4 },
+                    { name: '5', id: 5 },
+                    { name: '6+', id: 6 },
+                  ]}
+                />
+              </Form.Item>
+            </div>
+          </div>
           {type === listingType.rent && (
-            <Form.Item className='form-common-listing__item form-common-listing__item--nextto' label={t('HomeRealEstateSearchFormLeaseTerm')} name='lt'>
-              <SelectorChip
-                tidyItem
-                options={listingRentLeaseTerm.map((item) => ({
-                  id: item.id,
-                  name: comm(item.name),
-                }))}
-              />
-            </Form.Item>
+            <div className='form-common-listing__entry form-common-listing__entry--selectorchip'>
+              <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormLeaseTerm')}</span>
+              <div className='form-common-listing__entry-wrapper'>
+                <Form.Item className='form-common-listing__entry-item' name='lt'>
+                  <SelectorChip
+                    tidyItem
+                    options={listingRentLeaseTerm.map((item) => ({
+                      id: item.id,
+                      name: comm(item.name),
+                    }))}
+                  />
+                </Form.Item>
+              </div>
+            </div>
           )}
-          <Form.Item className='form-common-listing__item form-common-listing__item--nextto-spanning' label={t('HomeRealEstateSearchFormPrice')} name='rp'>
-            <Range min={0} max={type === listingType.rent ? 100000000 : 20000000000} />
-          </Form.Item>
-          <Form.Item className='form-common-listing__item form-common-listing__item--nextto-spanning' label={t('HomeRealEstateSearchFormSize')} name='sz'>
-            <Range min={0} max={500} />
-          </Form.Item>
-          <Form.Item className='form-common-listing__item' label={t('HomeRealEstateSearchFormLocation')} name='p'>
-            <Select
-              className='select-common-listing'
-              placeholder={t('ListingSearchPlaceholderProvince')}
-              showSearch
-              filterOption={filterOptionsRemoveVietnameseTones}
-              allowClear
-              onChange={getDistricts}
-              options={provinces?.map((province) => ({
-                value: province.provinceID,
-                label: province.listProvinceName,
-                id: province.provinceID,
-              }))}
-            />
-          </Form.Item>
-          <Form.Item className='form-common-listing__item' name='d'>
-            <Select
-              placeholder={t('ListingSearchPlaceholderDistrict')}
-              className='select-common-listing'
-              showSearch
-              filterOption={filterOptionsRemoveVietnameseTones}
-              allowClear
-              onChange={getWards}
-              options={districts?.map((district) => ({
-                value: district.listDistrictID,
-                label: district.nameDisplay,
-                id: district.listDistrictID,
-              }))}
-            />
-          </Form.Item>
-          <Form.Item className='form-common-listing__item' name='w'>
-            <Select
-              placeholder={t('ListingSearchPlaceholderWard')}
-              className='select-common-listing'
-              showSearch
-              filterOption={filterOptionsRemoveVietnameseTones}
-              allowClear
-              options={wards?.map((ward) => ({
-                value: ward.listWardID,
-                label: ward.nameDisplay,
-                id: ward.listWardID,
-              }))}
-            />
-          </Form.Item>
+          <div className='form-common-listing__entry form-common-listing__entry--range'>
+            <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormPrice')}</span>
+            <div className='form-common-listing__entry-wrapper'>
+              <Range min={0} max={type === listingType.rent ? 100000000 : 20000000000} />
+            </div>
+          </div>
+          <div className='form-common-listing__entry form-common-listing__entry--range'>
+            <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormSize')}</span>
+            <div className='form-common-listing__entry-wrapper'>
+              <Range min={0} max={500} />
+            </div>
+          </div>
+          <div className='form-common-listing__entry form-common-listing__entry--stacked'>
+            <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormLocation')}</span>
+            <div className='form-common-listing__entry-wrapper'>
+              <Form.Item className='form-common-listing__entry-item' name='p'>
+                <Select
+                  className='select-common-listing'
+                  placeholder={t('ListingSearchPlaceholderProvince')}
+                  showSearch
+                  filterOption={filterOptionsRemoveVietnameseTones}
+                  allowClear
+                  onChange={getDistricts}
+                  options={provinces?.map((province) => ({
+                    value: province.provinceID,
+                    label: province.listProvinceName,
+                    id: province.provinceID,
+                  }))}
+                />
+              </Form.Item>
+              <Form.Item className='form-common-listing__entry-item' name='d'>
+                <Select
+                  className='select-common-listing'
+                  placeholder={t('ListingSearchPlaceholderDistrict')}
+                  showSearch
+                  filterOption={filterOptionsRemoveVietnameseTones}
+                  allowClear
+                  onChange={getWards}
+                  options={districts?.map((district) => ({
+                    value: district.listDistrictID,
+                    label: district.nameDisplay,
+                    id: district.listDistrictID,
+                  }))}
+                />
+              </Form.Item>
+              <Form.Item className='form-common-listing__entry-item' name='w'>
+                <Select
+                  className='select-common-listing'
+                  placeholder={t('ListingSearchPlaceholderWard')}
+                  showSearch
+                  filterOption={filterOptionsRemoveVietnameseTones}
+                  allowClear
+                  options={wards?.map((ward) => ({
+                    value: ward.listWardID,
+                    label: ward.nameDisplay,
+                    id: ward.listWardID,
+                  }))}
+                />
+              </Form.Item>
+            </div>
+          </div>
           {type === listingType.rent && (
             <div className='flex flex-col gap-2 border-t border-neutral-500 pt-1'>
               <label className='font-bold'>{t('HomeRealEstateSearchFormCanMoveInDate')}</label>
               <div className='w-full lg:flex lg:items-center lg:gap-3'>
-                <Form.Item className='form-common-listing__item' name={'fmd'}>
+                <Form.Item className='form-common-listing__entry' name={'fmd'}>
                   <DatePicker
                     className='w-full !rounded-none'
                     placeholder={comm('SelectDate')}
@@ -252,7 +282,7 @@ const SidebarListing: FC<IProps> = ({
                   />
                 </Form.Item>
                 <label className='mb-3 font-semibold'>{comm('To')}</label>
-                <Form.Item className='form-common-listing__item' name={'tmd'}>
+                <Form.Item className='form-common-listing__entry' name={'tmd'}>
                   <DatePicker
                     className='w-full !rounded-none'
                     placeholder={comm('SelectDate')}
@@ -263,14 +293,14 @@ const SidebarListing: FC<IProps> = ({
               </div>
             </div>
           )}
-          <Form.Item className='form-common-listing__item' label={t('HomeRealEstateSearchFormView')} name='v'>
+          <Form.Item className='form-common-listing__entry' label={t('HomeRealEstateSearchFormView')} name='v'>
             <SelectorChip tidyItem hasAny multiple options={views ?? []} />
           </Form.Item>
           {isShowMore && (
             <>
               {type === listingType.sale && (
                 <>
-                  <Form.Item className='form-common-listing__item' label={t('HomeRealEstateSearchFormLegalStatus')} name='lS'>
+                  <Form.Item className='form-common-listing__entry' label={t('HomeRealEstateSearchFormLegalStatus')} name='lS'>
                     <SelectorChip
                       hasAny
                       tidyItem
@@ -281,7 +311,7 @@ const SidebarListing: FC<IProps> = ({
                       }))}
                     />
                   </Form.Item>
-                  <Form.Item className='form-common-listing__item' label={t('HomeRealEstateSearchFormHandoverStatus')} name='hS' >
+                  <Form.Item className='form-common-listing__entry' label={t('HomeRealEstateSearchFormHandoverStatus')} name='hS' >
                     <SelectorChip
                       hasAny
                       tidyItem
@@ -294,7 +324,7 @@ const SidebarListing: FC<IProps> = ({
                 </>
               )}
               <>
-                <Form.Item className='form-common-listing__item' label={t('HomeRealEstateSearchFormFurnitureStatus')} name='i'>
+                <Form.Item className='form-common-listing__entry' label={t('HomeRealEstateSearchFormFurnitureStatus')} name='i'>
                   <SelectorChip
                     hasAny
                     multiple
@@ -305,7 +335,7 @@ const SidebarListing: FC<IProps> = ({
                     }))}
                   />
                 </Form.Item>
-                <Form.Item className='form-common-listing__item' label={t('HomeRealEstateSearchFormPetAllowance')} name='iPA'>
+                <Form.Item className='form-common-listing__entry' label={t('HomeRealEstateSearchFormPetAllowance')} name='iPA'>
                   <SelectorChip
                     hasAny
                     tidyItem
@@ -319,13 +349,13 @@ const SidebarListing: FC<IProps> = ({
                   />
                 </Form.Item>
               </>
-              <Form.Item className='form-common-listing__item' name='odb' label={t('ListingSearchFormCreateTime')}>
+              <Form.Item className='form-common-listing__entry' name='odb' label={t('ListingSearchFormCreateTime')}>
                 <Radio.Group className='grid w-full grid-cols-2 gap-x-1 gap-y-2'>
                   <Radio value={false}>{comm('NewestFirst')}</Radio>
                   <Radio value={true}>{comm('OldestFirst')}</Radio>
                 </Radio.Group>
               </Form.Item>
-              <Form.Item className='form-common-listing__item' label={t('inDoorAmenities')} name='inA' valuePropName='checked'>
+              <Form.Item className='form-common-listing__entry' label={t('inDoorAmenities')} name='inA' valuePropName='checked'>
                 <Checkbox.Group
                   defaultValue={searchParams.inA}
                   className='grid w-full grid-cols-2 gap-x-1 gap-y-2'
@@ -335,7 +365,7 @@ const SidebarListing: FC<IProps> = ({
                   }))}
                 />
               </Form.Item>
-              <Form.Item className='form-common-listing__item' label={t('outDoorAmenities')} name='outA' valuePropName='checked'>
+              <Form.Item className='form-common-listing__entry' label={t('outDoorAmenities')} name='outA' valuePropName='checked'>
                 <Checkbox.Group
                   defaultValue={searchParams.outA}
                   className='grid w-full grid-cols-2 gap-x-1 gap-y-2'
@@ -345,7 +375,7 @@ const SidebarListing: FC<IProps> = ({
                   }))}
                 />
               </Form.Item>
-              <Form.Item className='form-common-listing__item' label={t('ListingSearchContentLanguage')} name='lan' valuePropName='checked'>
+              <Form.Item className='form-common-listing__entry' label={t('ListingSearchContentLanguage')} name='lan' valuePropName='checked'>
                 <Checkbox.Group
                   defaultValue={searchParams.lan}
                   className='grid w-full grid-cols-2 gap-x-1 gap-y-2'

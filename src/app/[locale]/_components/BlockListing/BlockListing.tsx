@@ -57,11 +57,9 @@ const BlockListing: FC<IProps> = ({
   const t = useTranslations('webLabel');
   const [showFiltter, setIsShowFiltter] = useState(false);
   const [showingMap, setShowingMap] = useState<boolean>(false);
-
   useEffect(() => {
     setIsShowFiltter(false);
   }, []);
-
   const getPropertyLink = (property) => {
     if (property) {
       let stringNotUniCode = removeDiacritics(property.title);
@@ -70,14 +68,12 @@ const BlockListing: FC<IProps> = ({
       return `/property/${string + '-' + property.id}`;
     }
   };
-
   const handleMarkerClick = async (marker: CoordinateModel & { id?: string }) => {
     let property = properties.find((x) => x.id === marker.id);
     // let property = properties[0];
     if (!property && marker.id) {
       property = (await propertyApiService.getSimpleProperty(marker.id))?.data as any;
     }
-
     return property
       ? Componentutil.GetGoogleMapPopupContentString(
           getPropertyLink(property),
@@ -90,11 +86,9 @@ const BlockListing: FC<IProps> = ({
         )
       : '';
   };
-
   const changeViewMode = (e) => {
     setShowingMap(e);
   };
-
   const renderMaps = () => {
     return (
       <GoogleMap
@@ -107,7 +101,6 @@ const BlockListing: FC<IProps> = ({
       />
     );
   };
-
   return (
     <div className='block-common-listing'>
       <SidebarListing
@@ -142,7 +135,6 @@ const BlockListing: FC<IProps> = ({
             />
           </div>
         </div>
-
         <div className={`${showingMap ? 'h-[800px]' : 'h-[0px]'} relative mt-4 w-full`}>
           {renderMaps()}
         </div>

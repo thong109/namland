@@ -27,10 +27,6 @@
   @apply !w-[100%] !top-[6px] !right-0 !left-0;
 }
 
-.range-common .ant-slider-mark:has(.range-common__value--end) {
-  /* @apply !right-0; */
-}
-
 .range-common__value {
   @apply w-[15px] !absolute !top-0 !right-[-7.5px] !left-[-7.5px] flex !text-[16px] !leading-[calc(19/16)] !font-[700] !text-[#444];
 }

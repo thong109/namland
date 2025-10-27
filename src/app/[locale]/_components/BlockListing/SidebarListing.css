@@ -2,42 +2,80 @@
   @apply w-[calc(452/1420*100%)] p-[22px_26px_25px] bg-[#fff] rounded-[10px] flex-grow-0 flex-shrink-0;
 }
 
-.form-common-listing__item {
+.form-common-listing {
+  @apply flex flex-col gap-[15px];
+}
+
+.form-common-listing__entry {
+  @apply min-h-[40px] pb-[15px] border-b-[1px] border-b-[#555];
+}
+
+.form-common-listing__entry--basic {
+  @apply py-[0] border-b-[0px];
+}
+
+.form-common-listing__entry--basic .form-common-listing__entry-wrapper {
+  @apply w-[100%] flex flex-col gap-[15px];
+}
+
+.form-common-listing__entry--stacked .form-common-listing__entry-wrapper {
+  @apply w-[100%] flex flex-col gap-[10px];
+}
+
+.form-common-listing__entry--selectorchip,
+.form-common-listing__entry--range {
+  @apply flex flex-row gap-[10px] justify-between items-center;
+}
+
+.form-common-listing__entry--selectorchip .form-common-listing__entry-label,
+.form-common-listing__entry--range .form-common-listing__entry-label{
+  @apply w-[30%] m-[0] flex-grow-0 flex-shrink-0;
+}
+
+.form-common-listing__entry--range .form-common-listing__entry-wrapper {
+  @apply max-w-[240px] flex-1;
+}
+
+.form-common-listing__entry-label {
+  @apply mb-[3px] block text-[16px] leading-[calc(25/16)] font-[600];
+}
+
+.form-common-listing__entry-item {
   @apply m-[0px];
 }
 
-.form-common-listing__item--nextto,
-.form-common-listing__item--nextto-spanning {
-  @apply min-h-[48px] py-[6px] border-b-[1px] border-b-[#555] flex items-center;
+.form-common-listing__entry-item .ant-form-item-control-input {
+  @apply !min-h-[auto];
 }
 
-.form-common-listing__item--nextto .ant-row.ant-form-item-row,
-.form-common-listing__item--nextto-spanning .ant-row.ant-form-item-row {
+/*
+.form-common-listing__entry-item--selectorchip .ant-row.ant-form-item-row,
+.form-common-listing__entry-item--selectorchip-spanning .ant-row.ant-form-item-row {
   @apply w-[100%] flex !flex-row !flex-nowrap gap-[1px_10px] justify-between items-start;
 }
 
-.form-common-listing__item--nextto .ant-col.ant-form-item-label,
-.form-common-listing__item--nextto-spanning .ant-col.ant-form-item-label {
+.form-common-listing__entry-item--selectorchip .ant-col.ant-form-item-label,
+.form-common-listing__entry-item--selectorchip-spanning .ant-col.ant-form-item-label {
   @apply w-[30%] !p-[0] flex-grow-0 flex-shrink-0 text-[16px] leading-[calc(25/16)] font-[600];
 }
 
-.form-common-listing__item--nextto .ant-col.ant-form-item-control,
-.form-common-listing__item--nextto-spanning .ant-col.ant-form-item-control {
+.form-common-listing__entry-item--selectorchip .ant-col.ant-form-item-control,
+.form-common-listing__entry-item--selectorchip-spanning .ant-col.ant-form-item-control {
   @apply !w-[auto];
 }
 
-.form-common-listing__item--nextto .ant-col.ant-form-item-control .ant-form-item-control-input,
-.form-common-listing__item--nextto-spanning .ant-col.ant-form-item-control .ant-form-item-control-input {
+.form-common-listing__entry-item--selectorchip .ant-col.ant-form-item-control .ant-form-item-control-input,
+.form-common-listing__entry-item--selectorchip-spanning .ant-col.ant-form-item-control .ant-form-item-control-input {
   @apply min-h-[auto] !flex !flex-row !justify-end;
 }
 
-.form-common-listing__item--nextto .ant-form-item-control-input-content {
+.form-common-listing__entry-item--selectorchip .ant-form-item-control-input-content {
   @apply !w-[auto] !flex-grow-0;
 } 
 
-.form-common-listing__item--nextto-spanning .ant-form-item-control-input-content {
+.form-common-listing__entry-item--selectorchip-spanning .ant-form-item-control-input-content {
   @apply !w-[auto] max-w-[240px];
-} 
+}  */
 
 .input-common-listing {
   @apply w-[100%] h-[40px] p-[4.5px_13px_4.5px_19px] border-[1px] border-[#d9d9d9] rounded-[5px];
