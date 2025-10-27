@@ -7,7 +7,7 @@ import { NAVIGATION } from '@/data/navigation';
 import ncNanoId from '@/utils/ncNanoId';
 import * as _ from 'lodash';
 import { useTranslations } from 'next-intl';
-import LangDropdownSingle from "./SelectLanguage"
+import SelectLanguage from "./SelectLanguage"
 import useGlobalStore from '@/stores/useGlobalStore';
 import AvatarDropdown from './AvatarDropdown';
 import { ModalLoginOpen } from './ultil/ModalLoginOpen';
@@ -21,8 +21,7 @@ const Header = ({ className, navType }: { className: string; navType: string }) 
   const { userInfo } = useGlobalStore();
   const [isModalOpen, setIsModalOpen] = ModalLoginOpen();
   const { push } = useRouter();
-
-  const dataMenu = [
+  const navigationHeaderData = [
     {
       id: ncNanoId(),
       href: `${NAVIGATION.saleListing.href}?p=518C73F1-2621-40B8-8373-50458BBEF950&d=88B34FC2-F199-4772-B1E7-96E232A84F9C`, //Default HCM, Quận 7
@@ -89,17 +88,14 @@ const Header = ({ className, navType }: { className: string; navType: string }) 
       subMenu: null,
     },
   ];
-
   const handleOpenModal = () => {
     if (!userInfo) {
       setIsModalOpen(true);
     }
   };
-
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
-
   return (
     <header className='header-common'>
       <div className='notification-header'>
@@ -113,7 +109,7 @@ const Header = ({ className, navType }: { className: string; navType: string }) 
         </span>
         <div className='navigation-header-outside'>
           <ul className='navigation-header-outside__wrapper'>
-            {dataMenu.map((item) => (
+            {navigationHeaderData.map((item) => (
               <li key={item.id} className='navigation-header-outside__item'>
                 <span className='navigation-header-outside__item-label' onClick={() => push(item.href)}>{t(item.name)}</span>
                 {item.subMenu && <div className='menu-header'>{item.subMenu}</div>}
@@ -122,21 +118,13 @@ const Header = ({ className, navType }: { className: string; navType: string }) 
           </ul>
         </div>
         <button onClick={() => toggleNavigation(true)} className='button-header-burger' style={{ backgroundImage: `url(${assetsImages.commonIconBurger.src})` }} type='button'></button>
-        <LangDropdownSingle isHiddenIcon={false} />
+        <SelectLanguage isHiddenIcon={false} />
         {userInfo ? (
           <AvatarDropdown className="mx-[10px]" />
         ) : (
-          <div className="button-header-user">
-            <button
-              onClick={handleOpenModal}
-              className="button-header-user__wrapper"
-            >
-              <div className='button-header-user__link' style={{ backgroundImage: `url(${assetsImages.commonIconUser.src})` }}></div>
-            </button>
-          </div>
+          <div className="button-header-user"><button onClick={handleOpenModal} className="button-header-user__wrapper"><div className='button-header-user__link' style={{ backgroundImage: `url(${assetsImages.commonIconUser.src})` }}></div></button></div>
         )}
         {userInfo && <NotifyDropdown />}
-
       </div>
       <div className={`lightbox-header ${stateNavigation ? 'is-state-active' : 'is-state-hidden'}`}>
         <button className='lightbox-header__toggle' onClick={() => toggleNavigation(false)} style={{ backgroundImage: `url(${assetsImages.commonIconClose.src})` }} type='button'></button>
@@ -147,7 +135,7 @@ const Header = ({ className, navType }: { className: string; navType: string }) 
             </span>
             <div className='navigation-header-inside'>
               <ul className='navigation-header-inside__wrapper'>
-                {dataMenu.map((item) => (
+                {navigationHeaderData.map((item) => (
                   <li className='navigation-header-inside__item'>
                     <span className='navigation-header-inside__item-label' onClick={() => { toggleNavigation(false); push(item.href) }}>{t(item.name)}</span>
                   </li>

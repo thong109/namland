@@ -17,14 +17,12 @@ export interface BreadCrumbProps {
 
 const Breadcrumb: FC<BreadCrumbProps> = ({ additionalClass, breadcrumbItems, hasBanner = false }) => {
   const { push } = useRouter();
-  
   return (
     <nav className={`breadcrumb-common ${additionalClass} ${hasBanner ? 'has-banner' : ''}`}>
       <div className='container'>
         <ol className='breadcrumb-common__wrapper'>
           {breadcrumbItems.map((breadcrumbItem, index) => {
             const isItemLast = index === breadcrumbItems.length - 1;
-
             return (
               <li key={index} className='breadcrumb-common__item'>
                 {!isItemLast ? (

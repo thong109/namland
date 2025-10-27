@@ -121,25 +121,19 @@ const SidebarListing: FC<IProps> = ({
   };
 
   return (
-    <div className={`${className} p-2`}>
-      <Form
-        form={formRef}
-        size="large"
-        className="search-form flex w-full flex-col overflow-hidden pt-10 lg:border lg:border-neutral-500 lg:px-3 lg:pb-3 lg:pt-5"
-        layout="vertical"
-        onFinish={onSubmit}
-      >
-        <Form.Item name="k">
+    <div className={`sidebar-common-listing ${className}`}>
+      <Form className='form-common-listing' form={formRef} size='large' layout='vertical' onFinish={onSubmit}>
+        <Form.Item name='k'>
           <Input
             allowClear
             placeholder={t('ListingSearchPlaceholderKeyword')}
-            className="!rounded-none"
+            className='!rounded-none'
           />
         </Form.Item>
-        <Form.Item name="c">
+        <Form.Item name='c'>
           <Select
-            className="none-border-select !rounded-none"
-            mode="multiple"
+            className='none-border-select !rounded-none'
+            mode='multiple'
             allowClear
             placeholder={t('ListingSearchPlaceholderCategories')}
           >
@@ -150,10 +144,10 @@ const SidebarListing: FC<IProps> = ({
             ))}
           </Select>
         </Form.Item>
-        <Form.Item name="prjs">
+        <Form.Item name='prjs'>
           <Select
-            className="none-border-select !rounded-none"
-            mode="multiple"
+            className='none-border-select !rounded-none'
+            mode='multiple'
             allowClear
             filterOption={filterOptionsRemoveVietnameseTones}
             placeholder={t('EcomHomePageMenuProjects')}
@@ -165,7 +159,7 @@ const SidebarListing: FC<IProps> = ({
             ))}
           </Select>
         </Form.Item>
-        <Form.Item label={t('HomeRealEstateSearchFormBedroom')} name="br">
+        <Form.Item label={t('HomeRealEstateSearchFormBedroom')} name='br'>
           <ChipSelectionField
             hasAny
             multiple
@@ -180,8 +174,8 @@ const SidebarListing: FC<IProps> = ({
         </Form.Item>
         <Form.Item
           label={t('HomeRealEstateSearchFormBathroom')}
-          className="border-t border-neutral-500 pt-1"
-          name="bathr"
+          className='border-t border-neutral-500 pt-1'
+          name='bathr'
         >
           <ChipSelectionField
             hasAny
@@ -198,8 +192,8 @@ const SidebarListing: FC<IProps> = ({
         {type === listingType.rent && (
           <Form.Item
             label={t('HomeRealEstateSearchFormLeaseTerm')}
-            className="border-t border-neutral-500 pt-1"
-            name="lt"
+            className='border-t border-neutral-500 pt-1'
+            name='lt'
           >
             <ChipSelectionField
               hasAny
@@ -213,27 +207,27 @@ const SidebarListing: FC<IProps> = ({
         )}
         <Form.Item
           label={t('HomeRealEstateSearchFormPrice')}
-          className="border-t border-neutral-500 pt-1"
-          name="rp"
+          className='border-t border-neutral-500 pt-1'
+          name='rp'
         >
           <SliderRange min={0} max={type === listingType.rent ? 100000000 : 20000000000} />
         </Form.Item>
         <Form.Item
           label={t('HomeRealEstateSearchFormSize')}
-          name="sz"
-          className="border-t border-neutral-500 pt-1"
+          name='sz'
+          className='border-t border-neutral-500 pt-1'
         >
           <SliderRange min={0} max={500} />
         </Form.Item>
         <Form.Item
           label={t('HomeRealEstateSearchFormLocation')}
-          name="p"
-          className="border-t border-neutral-500 pt-1"
+          name='p'
+          className='border-t border-neutral-500 pt-1'
         >
           <Select
             placeholder={t('ListingSearchPlaceholderProvince')}
             showSearch
-            className="none-border-select !rounded-none"
+            className='none-border-select !rounded-none'
             filterOption={filterOptionsRemoveVietnameseTones}
             allowClear
             onChange={getDistricts}
@@ -244,10 +238,10 @@ const SidebarListing: FC<IProps> = ({
             }))}
           />
         </Form.Item>
-        <Form.Item name="d">
+        <Form.Item name='d'>
           <Select
             placeholder={t('ListingSearchPlaceholderDistrict')}
-            className="none-border-select !rounded-none"
+            className='none-border-select !rounded-none'
             showSearch
             filterOption={filterOptionsRemoveVietnameseTones}
             allowClear
@@ -259,10 +253,10 @@ const SidebarListing: FC<IProps> = ({
             }))}
           />
         </Form.Item>
-        <Form.Item name="w">
+        <Form.Item name='w'>
           <Select
             placeholder={t('ListingSearchPlaceholderWard')}
-            className="none-border-select !rounded-none"
+            className='none-border-select !rounded-none'
             showSearch
             filterOption={filterOptionsRemoveVietnameseTones}
             allowClear
@@ -274,21 +268,21 @@ const SidebarListing: FC<IProps> = ({
           />
         </Form.Item>
         {type === listingType.rent && (
-          <div className="flex flex-col gap-2 border-t border-neutral-500 pt-1">
-            <label className="font-bold">{t('HomeRealEstateSearchFormCanMoveInDate')}</label>
-            <div className="w-full lg:flex lg:items-center lg:gap-3">
+          <div className='flex flex-col gap-2 border-t border-neutral-500 pt-1'>
+            <label className='font-bold'>{t('HomeRealEstateSearchFormCanMoveInDate')}</label>
+            <div className='w-full lg:flex lg:items-center lg:gap-3'>
               <Form.Item name={'fmd'}>
                 <DatePicker
-                  className="w-full !rounded-none"
+                  className='w-full !rounded-none'
                   placeholder={comm('SelectDate')}
                   format={formatDate}
                   allowClear={true}
                 />
               </Form.Item>
-              <label className="mb-3 font-semibold">{comm('To')}</label>
+              <label className='mb-3 font-semibold'>{comm('To')}</label>
               <Form.Item name={'tmd'}>
                 <DatePicker
-                  className="w-full !rounded-none"
+                  className='w-full !rounded-none'
                   placeholder={comm('SelectDate')}
                   format={formatDate}
                   allowClear={true}
@@ -299,8 +293,8 @@ const SidebarListing: FC<IProps> = ({
         )}
         <Form.Item
           label={t('HomeRealEstateSearchFormView')}
-          name="v"
-          className="border-t border-neutral-500 pt-1"
+          name='v'
+          className='border-t border-neutral-500 pt-1'
         >
           <ChipSelectionField tidyItem hasAny multiple options={views ?? []} />
         </Form.Item>
@@ -310,8 +304,8 @@ const SidebarListing: FC<IProps> = ({
               <>
                 <Form.Item
                   label={t('HomeRealEstateSearchFormLegalStatus')}
-                  name="lS"
-                  className="border-t border-neutral-500 pt-1"
+                  name='lS'
+                  className='border-t border-neutral-500 pt-1'
                 >
                   <ChipSelectionField
                     hasAny
@@ -325,8 +319,8 @@ const SidebarListing: FC<IProps> = ({
                 </Form.Item>
                 <Form.Item
                   label={t('HomeRealEstateSearchFormHandoverStatus')}
-                  name="hS"
-                  className="border-t border-neutral-500 pt-1"
+                  name='hS'
+                  className='border-t border-neutral-500 pt-1'
                 >
                   <ChipSelectionField
                     hasAny
@@ -343,8 +337,8 @@ const SidebarListing: FC<IProps> = ({
             <>
               <Form.Item
                 label={t('HomeRealEstateSearchFormFurnitureStatus')}
-                name="i"
-                className="border-t border-neutral-500 pt-1"
+                name='i'
+                className='border-t border-neutral-500 pt-1'
               >
                 <ChipSelectionField
                   hasAny
@@ -358,8 +352,8 @@ const SidebarListing: FC<IProps> = ({
               </Form.Item>
               <Form.Item
                 label={t('HomeRealEstateSearchFormPetAllowance')}
-                name="iPA"
-                className="border-t border-neutral-500 pt-1"
+                name='iPA'
+                className='border-t border-neutral-500 pt-1'
               >
                 <ChipSelectionField
                   hasAny
@@ -376,11 +370,11 @@ const SidebarListing: FC<IProps> = ({
             </>
 
             <Form.Item
-              name="odb"
+              name='odb'
               label={t('ListingSearchFormCreateTime')}
-              className="border-t border-neutral-500 pt-1"
+              className='border-t border-neutral-500 pt-1'
             >
-              <Radio.Group className="grid w-full grid-cols-2 gap-x-1 gap-y-2">
+              <Radio.Group className='grid w-full grid-cols-2 gap-x-1 gap-y-2'>
                 <Radio value={false}>{comm('NewestFirst')}</Radio>
                 <Radio value={true}>{comm('OldestFirst')}</Radio>
               </Radio.Group>
@@ -388,13 +382,13 @@ const SidebarListing: FC<IProps> = ({
 
             <Form.Item
               label={t('inDoorAmenities')}
-              name="inA"
-              valuePropName="checked"
-              className="border-t border-neutral-500 pt-1"
+              name='inA'
+              valuePropName='checked'
+              className='border-t border-neutral-500 pt-1'
             >
               <Checkbox.Group
                 defaultValue={searchParams.inA}
-                className="grid w-full grid-cols-2 gap-x-1 gap-y-2"
+                className='grid w-full grid-cols-2 gap-x-1 gap-y-2'
                 options={inAmenities.map((amenity) => ({
                   value: amenity.id,
                   label: amenity.name,
@@ -404,13 +398,13 @@ const SidebarListing: FC<IProps> = ({
 
             <Form.Item
               label={t('outDoorAmenities')}
-              name="outA"
-              valuePropName="checked"
-              className="border-t border-neutral-500 pt-1"
+              name='outA'
+              valuePropName='checked'
+              className='border-t border-neutral-500 pt-1'
             >
               <Checkbox.Group
                 defaultValue={searchParams.outA}
-                className="grid w-full grid-cols-2 gap-x-1 gap-y-2"
+                className='grid w-full grid-cols-2 gap-x-1 gap-y-2'
                 options={outAmenities.map((amenity) => ({
                   value: amenity.id,
                   label: amenity.name,
@@ -420,13 +414,13 @@ const SidebarListing: FC<IProps> = ({
 
             <Form.Item
               label={t('ListingSearchContentLanguage')}
-              name="lan"
-              valuePropName="checked"
-              className="border-t border-neutral-500 pt-1"
+              name='lan'
+              valuePropName='checked'
+              className='border-t border-neutral-500 pt-1'
             >
               <Checkbox.Group
                 defaultValue={searchParams.lan}
-                className="grid w-full grid-cols-2 gap-x-1 gap-y-2"
+                className='grid w-full grid-cols-2 gap-x-1 gap-y-2'
                 options={listLangue.map((lan) => ({
                   value: lan.name,
                   label: lan.displayName,
@@ -435,23 +429,23 @@ const SidebarListing: FC<IProps> = ({
             </Form.Item>
           </>
         )}
-        <div className="flex w-full justify-center">
+        <div className='flex w-full justify-center'>
           <Button
-            className="w-fit underline underline-offset-2"
-            size="small"
-            type="text"
+            className='w-fit underline underline-offset-2'
+            size='small'
+            type='text'
             onClick={() => setIsShowMore(!isShowMore)}
           >
             {isShowMore ? comm('viewLess') : comm('viewMore')}
           </Button>
         </div>
-        <div className="mt-3 flex justify-center gap-2">
+        <div className='mt-3 flex justify-center gap-2'>
           <CoreButton
             onClick={resetFilter}
-            preset="neutral"
+            preset='neutral'
             label={t('HomeRealEstateSearchFormClearFilter')}
           />
-          <CoreButton type="submit" label={t('HomeRealEstateSearchFormSearch')} />
+          <CoreButton type='submit' label={t('HomeRealEstateSearchFormSearch')} />
         </div>
       </Form>
     </div>
