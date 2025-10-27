@@ -15,6 +15,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next-intl/link';
 import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
+import './BlockListing.css';
 import TableResult from './TableResult';
 import SidebarListing from './SidebarListing';
 
@@ -115,7 +116,7 @@ const BlockListing: FC<IProps> = ({
         funitureStatus={funitureStatus}
         className={''}
       />
-      <div className="pt-2 lg:w-[73%]">
+      <div className="block-common-listing__wrapper">
         <div className="mb-8 flex items-center justify-between">
           <div className="flex w-full flex-col items-center justify-center">
             <Typography className="text-3xl font-bold">{t('SearchResult')}</Typography>

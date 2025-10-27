@@ -1,9 +1,13 @@
 .selector-common-chip {
   @apply flex flex-wrap flex-grow-0 gap-[8px] font-mona;
+  @apply tablet-lg:gap-[5px];
+  @apply mobile:gap-[5px];
 }
 
 .selector-common-chip--blocky {
   @apply gap-[8px];
+  @apply tablet-lg:gap-[5px];
+  @apply mobile:gap-[5px];
 }
 
 .selector-common-chip--blocky .button-common-chip {

@@ -1,0 +1,10 @@
+.block-common-listing {
+  @apply flex gap-[31px];
+  @apply tablet-lg:gap-[20px_30px];
+  @apply tablet-md:flex-col;
+  @apply mobile:flex-col mobile:gap-[20px_30px];
+}
+
+.block-common-listing__wrapper {
+  @apply flex-1;
+}
