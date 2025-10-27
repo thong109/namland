@@ -1,0 +1,30 @@
+.contact__banner {
+  @apply min-h-[474px] bg-[left_-200px_center] md:bg-center bg-no-repeat bg-cover rounded-[10px] flex items-center justify-end text-white my-12 md:mt-[60px] md:mb-[56px] p-4 md:p-[44px_64px_50px_64px];
+  @apply mobile:min-h-[360px];
+}
+
+.contact__banner h2, .contact__banner p {
+  @apply mobile:drop-shadow-[1px_1px_0_black];
+}
+
+.contact__banner h2 {
+  @apply font-semibold text-lg md:text-2xl leading-1.4 mb-4;
+}
+
+.contact__banner p {
+  @apply max-w-[538px] text-sm md:text-lg leading-1.5;
+}
+
+.contact__form {
+  @apply border border-portal-gray-border rounded-[5px] shadow-[0_4px_4px_rgba(0,0,0,0.15)];
+  /* @apply mobile: */
+}
+
+.contact__form-viewport {
+  @apply [&_.ant-input:focus]:border-[#C2C4CC] [&_.ant-input:focus]:shadow-none [&_.ant-input:focus]:ring-0 [&_.ant-input]:rounded-none [&_.ant-input]:border-0 [&_.ant-input]:border-b [&_.ant-input]:border-[#C2C4CC] [&_.ant-input]:shadow-none;
+}
+
+.contact__form-wrapper {
+  @apply grid grid-cols-2 gap-x-[37px] bg-white p-[37px_46px_44px];
+  @apply mobile:p-8;
+}
