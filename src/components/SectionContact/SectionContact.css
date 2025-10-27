@@ -37,7 +37,7 @@
 }
 
 .form-common-contact__controller-submit {
-  @apply w-[100%] max-w-[136px] !min-w-[auto] min-h-[35px] mx-[auto] !p-[3px_10px] flex justify-center items-center bg-[#982220] !rounded-[4px] text-[16px] leading-[calc(29/16)] font-[600] text-[#fff] text-center;
+  @apply w-[100%] max-w-[136px] !min-w-[auto] min-h-[35px] mx-[auto] !p-[3px_10px] flex justify-center items-center bg-[#982220] !rounded-[4px] text-[16px] leading-[calc(29/16)] font-[600] text-[#fff] text-center hover:opacity-80 transition-all duration-300;
 }
 
 .input-common-contact {

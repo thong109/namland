@@ -188,9 +188,9 @@ const PageClient = () => {
                     onClick={handleSend}
                     size="large"
                     type="primary"
-                    className="font-mona rounded-none font-semibold lg:px-32 bg-portal-primaryLiving w-[286px] h-[34px]"
+                    className="font-mona rounded-none font-semibold lg:px-32 bg-portal-primaryLiving w-[286px] h-[34px] hover:opacity-80 hover:!bg-portal-primaryLiving"
                   >
-                    {t('INQUIRY_NOW_I')}<span className='ml-[10px] block flex-[0_0_auto] bg-center bg-no-repeat bg-cover w-[17px] h-[18px]' style={{ backgroundImage: `url(${assetsImages.commonIconSearch.src})` }}></span>
+                    {t('INQUIRY_NOW_I')}<span className='ml-[10px] block flex-[0_0_auto] bg-center bg-no-repeat bg-cover w-[17px] h-[18px]' style={{ backgroundImage: `url(${assetsImages.commonIconSearchWhite.src})` }}></span>
                   </Button>
                 </div>
               </div>
