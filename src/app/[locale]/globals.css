@@ -17,3 +17,11 @@ input[id^='react-select-'] {
 .container {
   @apply desktop:!w-[calc(100%-60px)] desktop:!max-w-[1420px] desktop:!px-[0px] mobile:!px-[20px];
 }
+
+.ant-input-outlined.ant-input-status-error {
+  @apply !border-0 !border-b !shadow-none;
+}
+
+input,select,textarea {
+  @apply !font-mona;
+}

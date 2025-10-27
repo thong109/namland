@@ -1,13 +1,15 @@
 'use client';
 import contactAnonymousService from '@/apiServices/externalApiServices/apiAnonymousContact';
-import BG1FindHome from '@/assets/images/bg-1-find-home.webp';
+import { assetsImages } from '@/assets/images/package';
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
 import { ModalLoginOpen } from '@/components/Header/ultil/ModalLoginOpen';
+import SectionContact from '@/components/SectionContact/SectionContact';
 import { useAuthStore } from '@/stores/useAuthStore';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { useLocale, useTranslations } from 'next-intl';
 import React, { useTransition } from 'react';
 import { TypeOptions, toast } from 'react-toastify';
+import './findHouse.css';
 
 const PageClient = () => {
   const notify = React.useCallback((type: TypeOptions, message: any) => {
@@ -58,143 +60,145 @@ const PageClient = () => {
 
   return (
     <>
-      <Breadcrumb
-        additionalClass="bg-transparent"
-        breadcrumbItems={[
-          { path: '/', title: 'Trang chủ' },
-          { path: '/nhu-cau-cua-toi', title: 'Tìm môi giới' },
-          { path: '', title: 'Tìm nhà' },
-        ]}
-        hasBanner={true}
-      />
-      <div className="flex">
-        <div
-          style={{ backgroundImage: `url(${BG1FindHome.src})` }}
-          className="bg-cover bg-center bg-no-repeat lg:w-[360px]"
+      <section>
+        <Breadcrumb
+          additionalClass="bg-transparent"
+          breadcrumbItems={[
+            { path: '/', title: 'Trang chủ' },
+            { path: '/nhu-cau-cua-toi', title: 'Tìm môi giới' },
+            { path: '', title: 'Tìm nhà' },
+          ]}
+          hasBanner={true}
         />
-        <div className="grid h-fit w-full grid-flow-col grid-rows-7 gap-4 lg:grid-rows-4">
-          <div className="row-span-1 flex flex-col items-center justify-center">
-            <span className="mb-2 font-semibold">{t('FindHomeTitle')}</span>
-            <span className="px-2 text-center">{t('FindHomecontent')}</span>
-          </div>
-          {/* <div className="row-span-6 bg-[#EAEBEE] p-[3%] lg:row-span-3 lg:p-[3vw]">
-          <Form
-            form={formInquiry}
-            layout="vertical"
-            className="[&_.ant-input:focus]:border-[#C2C4CC] [&_.ant-input:focus]:shadow-none [&_.ant-input:focus]:ring-0 [&_.ant-input]:rounded-none [&_.ant-input]:border-0 [&_.ant-input]:border-b [&_.ant-input]:border-[#C2C4CC] [&_.ant-input]:shadow-none"
-          >
-            <div className="grid grid-cols-2 gap-x-6 bg-white p-14">
-              <div className="col-span-2 lg:col-span-1 lg:px-5">
-                <Form.Item
-                  name="name"
-                  label={t('FindHoneRequestName')}
-                  rules={[{ required: true, max: 250 }]}
-                >
-                  <Input placeholder={t('FindHoneRequestNamePlacehoder')} />
-                </Form.Item>
-                <Form.Item
-                  rules={[{ max: 250 }]}
-                  name="numberOfOccupants"
-                  label={t('FindHoneRequestMemberOfOcc')}
-                >
-                  <Input placeholder={t('FindHoneRequestMemberOfOccPlacehoder')} />
-                </Form.Item>
-                <Form.Item
-                  name="preferredLocation"
-                  label={t('FindHoneRequestPreferredLocation')}
-                  rules={[{ required: true, max: 250 }]}
-                >
-                  <Input placeholder={t('FindHoneRequestPreferredLocationPlacehoder')} />
-                </Form.Item>
-                <Form.Item
-                  rules={[{ max: 250 }]}
-                  name="layoutPreference"
-                  label={t('FindHoneRequestLayoutPreferrence')}
-                >
-                  <Input placeholder={t('FindHoneRequestLayoutPreferrencePlacehoder')} />
-                </Form.Item>
-                <Form.Item
-                  rules={[{ max: 250 }]}
-                  name="leaseTerm"
-                  label={t('FindHoneRequesLeaseTerm')}
-                >
-                  <Input placeholder={t('FindHoneRequesLeaseTermPlacehoder')} />
-                </Form.Item>
-              </div>
-              <div className="col-span-2 lg:col-span-1 lg:px-5">
-                <Form.Item
-                  name="contactInfomation"
-                  label={t('FindHoneRequestContactInfoMation')}
-                  rules={[{ required: true, max: 250 }]}
-                >
-                  <Input placeholder={t('FindHoneRequestContactInfoMationPlacehoder')} />
-                </Form.Item>
-                <Form.Item
-                  name="typeOfProperty"
-                  label={t('FindHoneRequestTypeOfProperty')}
-                  rules={[{ required: true, max: 250 }]}
-                >
-                  <Input placeholder={t('FindHoneRequestTypeOfPropertyPlacehoder')} />
-                </Form.Item>
-                <Form.Item
-                  name="budget"
-                  label={t('FindHoneRequestBudgetRendRange')}
-                  rules={[{ required: true, max: 250 }]}
-                >
-                  <Input placeholder={t('FindHoneRequestBudgetRendRamgePlacehoder')} />
-                </Form.Item>
-                <Form.Item
-                  name="moveInDate"
-                  label={t('FindHoneRequestMoveInDate')}
-                  rules={[{ required: true, max: 250 }]}
-                >
-                  <Input placeholder={t('FindHoneRequestMoveInDatePlacehoder')} />
-                </Form.Item>
-                <Form.Item
-                  rules={[{ max: 250 }]}
-                  name="aboutYou"
-                  label={t('FindHoneRequestAboutYou')}
-                >
-                  <Input placeholder={t('FindHoneRequestAboutYouPlacehoder')} />
-                </Form.Item>
-              </div>
-
-              <div className="col-span-2 text-red-500">{t('requiredFields')}</div>
-
-              <div className="col-span-2">
-                <Form.Item name="isAllow" valuePropName="checked">
-                  <Checkbox>
-                    {t.rich('AgreeWithTermsAndConditions', {
-                      quychehoatdong: (chunks) => (
-                        <span className="underline" onClick={openLink}>
-                          {chunks}
-                        </span>
-                      ),
-                      dieukhoandieukien: (chunks) => (
-                        <span className="underline" onClick={openLinkDieukhoandieukien}>
-                          {chunks}
-                        </span>
-                      ),
-                    })}
-                  </Checkbox>
-                </Form.Item>
-              </div>
-              <div className="col-span-2 flex justify-center">
-                <Button
-                  loading={isPending}
-                  onClick={handleSend}
-                  size="large"
-                  type="primary"
-                  className="rounded-none font-semibold lg:px-32"
-                >
-                  {t('INQUIRY_NOW_I')}
-                </Button>
-              </div>
+        <div className='container pb-12 md:pb-[88px]'>
+          <div className="contact__banner" style={{ backgroundImage: `url(${assetsImages.commonImageContact.src})` }}>
+            <div className="grid grid-col">
+              <h2>Bắt đầu tìm nhà một cách dễ dàng</h2>
+              <p>Hãy Cho Chúng Tôi Biết Những Gì Bạn Đang Tìm Kiếm — <br className='hidden md:block'/>Chúng Tôi Sẽ Kết Nối Bạn Với Đúng Đại Lý Bất Động Sản Hoặc Nhà Phát Triển.</p>
             </div>
-          </Form>
-        </div> */}
+          </div>
+          <div className="contact__form">
+            <Form
+              form={formInquiry}
+              layout="vertical"
+              className="contact__form-viewport"
+            >
+              <div className="contact__form-wrapper">
+                <div className="col-span-2 lg:col-span-1 lg:px-5">
+                  <Form.Item
+                    className='!mb-[22px]'
+                    name="name"
+                    rules={[{ required: true, max: 250 }]}
+                  >
+                    <Input placeholder={t('FindHoneRequestName')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+                  </Form.Item>
+                  <Form.Item
+                    className='!mb-[22px]'
+                    rules={[{ max: 250 }]}
+                    name="numberOfOccupants"
+                  >
+                    <Input placeholder={t('FindHoneRequestMemberOfOcc')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+                  </Form.Item>
+                  <Form.Item
+                    className='!mb-[22px]'
+                    name="preferredLocation"
+                    rules={[{ required: true, max: 250 }]}
+                  >
+                    <Input placeholder={t('FindHoneRequestPreferredLocation')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+                  </Form.Item>
+                  <Form.Item
+                    className='!mb-[22px]'
+                    rules={[{ max: 250 }]}
+                    name="layoutPreference"
+                  >
+                    <Input placeholder={t('FindHoneRequestLayoutPreferrence')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+                  </Form.Item>
+                  <Form.Item
+                    className='!mb-[22px]'
+                    rules={[{ max: 250 }]}
+                    name="leaseTerm"
+                  >
+                    <Input placeholder={t('FindHoneRequesLeaseTerm')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+                  </Form.Item>
+                </div>
+                <div className="col-span-2 lg:col-span-1 lg:px-5">
+                  <Form.Item
+                    className='!mb-[22px]'
+                    name="contactInfomation"
+                    rules={[{ required: true, max: 250 }]}
+                  >
+                    <Input placeholder={t('FindHoneRequestContactInfoMation')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+                  </Form.Item>
+                  <Form.Item
+                    className='!mb-[22px]'
+                    name="typeOfProperty"
+                    rules={[{ required: true, max: 250 }]}
+                  >
+                    <Input placeholder={t('FindHoneRequestTypeOfProperty')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+                  </Form.Item>
+                  <Form.Item
+                    className='!mb-[22px]'
+                    name="budget"
+                    rules={[{ required: true, max: 250 }]}
+                  >
+                    <Input placeholder={t('FindHoneRequestBudgetRendRange')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+                  </Form.Item>
+                  <Form.Item
+                    className='!mb-[22px]'
+                    name="moveInDate"
+                    rules={[{ required: true, max: 250 }]}
+                  >
+                    <Input placeholder={t('FindHoneRequestMoveInDate')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+                  </Form.Item>
+                  <Form.Item
+                    className='!mb-[22px]'
+                    rules={[{ max: 250 }]}
+                    name="aboutYou"
+                  >
+                    <Input placeholder={t('FindHoneRequestAboutYou')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+                  </Form.Item>
+                </div>
+
+                <div className="col-span-2 text-lg leading-1.5 text-red-500 md:px-4">{t('requiredFields')}</div>
+
+                <div className="col-span-2 md:px-4">
+                  <Form.Item name="isAllow" valuePropName="checked" className="!mb-4">
+                    <Checkbox
+                      className="[&_.ant-checkbox-inner]:w-6 [&_.ant-checkbox-inner]:h-6 [&_.ant-checkbox-inner]:border-1 [&_.ant-checkbox-inner]:border-portal-gray-4 [&_.ant-checkbox-inner]:rounded-sm [&_.ant-checkbox-checked_.ant-checkbox-inner]:bg-portal-red-3 [&_.ant-checkbox-checked_.ant-checkbox-inner]:border-portal-red-3 [&_.ant-checkbox]:align-top">
+                      <span className="text-sm md:text-base leading-snug">
+                        {t.rich('AgreeWithTermsAndConditions', {
+                          quychehoatdong: (chunks) => (
+                            <span className="underline cursor-pointer" onClick={openLink}>
+                              {chunks}
+                            </span>
+                          ),
+                          dieukhoandieukien: (chunks) => (
+                            <span className="underline cursor-pointer" onClick={openLinkDieukhoandieukien}>
+                              {chunks}
+                            </span>
+                          ),
+                        })}
+                      </span>
+                    </Checkbox>
+                  </Form.Item>
+                </div>
+                <div className="col-span-2 flex justify-center mt-4">
+                  <Button
+                    loading={isPending}
+                    onClick={handleSend}
+                    size="large"
+                    type="primary"
+                    className="font-mona rounded-none font-semibold lg:px-32 bg-portal-primaryLiving w-[286px] h-[34px]"
+                  >
+                    {t('INQUIRY_NOW_I')}<span className='ml-[10px] block flex-[0_0_auto] bg-center bg-no-repeat bg-cover w-[17px] h-[18px]' style={{ backgroundImage: `url(${assetsImages.commonIconSearch.src})` }}></span>
+                  </Button>
+                </div>
+              </div>
+            </Form>
+          </div>
         </div>
-      </div>
+        <SectionContact />
+      </section>
     </>
   );
 };

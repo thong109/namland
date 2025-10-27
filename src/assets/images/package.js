@@ -14,6 +14,8 @@ import commonLogoPrinmary from './common/logo_primary_01.svg';
 import commonLogoPrinmaryWhite from './common/logo_primary_01_white.svg';
 import commonBannerContact from "./common/banner_contact_01.png";
 import commonStampVerify from "./common/stamp_verify_01.png";
+import commonImageContact from "./common/contact_img_01.jpg";
+import commonIconSearch from "./common/icon_search.svg";
 
 
 export const assetsImages = {
@@ -32,5 +34,7 @@ export const assetsImages = {
   commonLogoPrinmary,
   commonLogoPrinmaryWhite,
   commonBannerContact,
-  commonStampVerify
+  commonStampVerify,
+  commonImageContact,
+  commonIconSearch
 }
