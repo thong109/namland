@@ -2,6 +2,43 @@
   @apply w-[calc(452/1420*100%)] p-[22px_26px_25px] bg-[#fff] rounded-[10px] flex-grow-0 flex-shrink-0;
 }
 
+.form-common-listing__item {
+  @apply m-[0px];
+}
+
+.form-common-listing__item--nextto,
+.form-common-listing__item--nextto-spanning {
+  @apply min-h-[48px] py-[6px] border-b-[1px] border-b-[#555] flex items-center;
+}
+
+.form-common-listing__item--nextto .ant-row.ant-form-item-row,
+.form-common-listing__item--nextto-spanning .ant-row.ant-form-item-row {
+  @apply w-[100%] flex !flex-row !flex-nowrap gap-[1px_10px] justify-between items-start;
+}
+
+.form-common-listing__item--nextto .ant-col.ant-form-item-label,
+.form-common-listing__item--nextto-spanning .ant-col.ant-form-item-label {
+  @apply w-[30%] !p-[0] flex-grow-0 flex-shrink-0 text-[16px] leading-[calc(25/16)] font-[600];
+}
+
+.form-common-listing__item--nextto .ant-col.ant-form-item-control,
+.form-common-listing__item--nextto-spanning .ant-col.ant-form-item-control {
+  @apply !w-[auto];
+}
+
+.form-common-listing__item--nextto .ant-col.ant-form-item-control .ant-form-item-control-input,
+.form-common-listing__item--nextto-spanning .ant-col.ant-form-item-control .ant-form-item-control-input {
+  @apply min-h-[auto] !flex !flex-row !justify-end;
+}
+
+.form-common-listing__item--nextto .ant-form-item-control-input-content {
+  @apply !w-[auto] !flex-grow-0;
+} 
+
+.form-common-listing__item--nextto-spanning .ant-form-item-control-input-content {
+  @apply !w-[auto] max-w-[240px];
+} 
+
 .input-common-listing {
   @apply w-[100%] h-[40px] p-[4.5px_13px_4.5px_19px] border-[1px] border-[#d9d9d9] rounded-[5px];
 }
@@ -21,5 +58,25 @@
 }
 
 .select-common-listing .ant-select-selector {
-  @apply w-[100%] h-[40px] p-[4.5px_13px_4.5px_19px] border-[1px] border-[#d9d9d9] rounded-[5px];
+  @apply w-[100%] !min-h-[40px] !p-[1px_13px_1px_7px] !border-[1px] !border-[#d9d9d9] !rounded-[5px];
+}
+
+.select-common-listing .anticon.anticon-down.ant-select-suffix {
+  @apply !bg-[url('../../../../assets/images/common/icon_arrow_01.svg')] !bg-[length:100%_auto] bg-center bg-no-repeat;
+}
+
+.select-common-listing .anticon.anticon-down.ant-select-suffix > svg {
+  @apply !opacity-0;
+}
+
+.selector-common-listing {
+  @apply !w-[auto] !flex-grow-0 gap-[8px];
+}
+
+.selector-common-listing button.chip-button {
+  @apply min-w-[32px] min-h-[25px] h-[auto] p-[2px_9px] border-[1px] border-[#cecece] bg-[#f5f5f5] rounded-[15px] text-[16px] leading-[calc(19/16)] font-[600] text-center;
+}
+
+.selector-common-listing button.chip-button.chip-button-selected {
+  @apply border-[#982220] bg-[#982220] text-[#fff];
 }

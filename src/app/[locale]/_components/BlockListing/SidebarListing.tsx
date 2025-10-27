@@ -115,7 +115,7 @@ const SidebarListing: FC<IProps> = ({
     <div className={`sidebar-common-listing ${className}`}>
       <div className='sidebar-common-listing__wrapper'>
         <Form className='form-common-listing' form={formRef} size='large' layout='vertical' onFinish={onSubmit}>
-          <Form.Item name='k'>
+          <Form.Item className='form-common-listing__item' name='k'>
             <Input
               className='input-common-listing input-common-listing--search'
               placeholder={t('ListingSearchPlaceholderKeyword')}
@@ -123,7 +123,7 @@ const SidebarListing: FC<IProps> = ({
               allowClear
             />
           </Form.Item>
-          <Form.Item name='c'>
+          <Form.Item className='form-common-listing__item' name='c'>
             <Select
               className='select-common-listing'
               mode='multiple'
@@ -137,7 +137,7 @@ const SidebarListing: FC<IProps> = ({
               ))}
             </Select>
           </Form.Item>
-          <Form.Item name='prjs'>
+          <Form.Item className='form-common-listing__item' name='prjs'>
             <Select
               className='select-common-listing'
               mode='multiple'
@@ -152,44 +152,38 @@ const SidebarListing: FC<IProps> = ({
               ))}
             </Select>
           </Form.Item>
-          <Form.Item label={t('HomeRealEstateSearchFormBedroom')} name='br'>
+          <Form.Item className='form-common-listing__item form-common-listing__item--nextto' label={t('HomeRealEstateSearchFormBedroom')} name='br'>
             <ChipSelectionField
-              hasAny
+              className='selector-common-listing'
               multiple
               options={[
                 { name: '1', id: 1 },
                 { name: '2', id: 2 },
                 { name: '3', id: 3 },
                 { name: '4', id: 4 },
-                { name: '> 4', id: 5 },
+                { name: '5', id: 5 },
+                { name: '6+', id: 6 },
               ]}
             />
           </Form.Item>
-          <Form.Item
-            label={t('HomeRealEstateSearchFormBathroom')}
-            className='border-t border-neutral-500 pt-1'
-            name='bathr'
-          >
+          <Form.Item className='form-common-listing__item form-common-listing__item--nextto' label={t('HomeRealEstateSearchFormBathroom')} name='bathr'>
             <ChipSelectionField
-              hasAny
+              className='selector-common-listing'
               multiple
               options={[
                 { name: '1', id: 1 },
                 { name: '2', id: 2 },
                 { name: '3', id: 3 },
                 { name: '4', id: 4 },
-                { name: '> 4', id: 5 },
+                { name: '5', id: 5 },
+                { name: '6+', id: 6 },
               ]}
             />
           </Form.Item>
           {type === listingType.rent && (
-            <Form.Item
-              label={t('HomeRealEstateSearchFormLeaseTerm')}
-              className='border-t border-neutral-500 pt-1'
-              name='lt'
-            >
+            <Form.Item className='form-common-listing__item form-common-listing__item--nextto' label={t('HomeRealEstateSearchFormLeaseTerm')} name='lt'>
               <ChipSelectionField
-                hasAny
+                className='selector-common-listing'
                 tidyItem
                 options={listingRentLeaseTerm.map((item) => ({
                   id: item.id,
@@ -198,29 +192,17 @@ const SidebarListing: FC<IProps> = ({
               />
             </Form.Item>
           )}
-          <Form.Item
-            label={t('HomeRealEstateSearchFormPrice')}
-            className='border-t border-neutral-500 pt-1'
-            name='rp'
-          >
-            <SliderRange min={0} max={type === listingType.rent ? 100000000 : 20000000000} />
+          <Form.Item className='form-common-listing__item form-common-listing__item--nextto-spanning' label={t('HomeRealEstateSearchFormPrice')} name='rp'>
+            <SliderRange className='range-common-listing' min={0} max={type === listingType.rent ? 100000000 : 20000000000} />
           </Form.Item>
-          <Form.Item
-            label={t('HomeRealEstateSearchFormSize')}
-            name='sz'
-            className='border-t border-neutral-500 pt-1'
-          >
-            <SliderRange min={0} max={500} />
+          <Form.Item className='form-common-listing__item form-common-listing__item--nextto-spanning' label={t('HomeRealEstateSearchFormSize')} name='sz'>
+            <SliderRange className='range-common-listing' min={0} max={500} />
           </Form.Item>
-          <Form.Item
-            label={t('HomeRealEstateSearchFormLocation')}
-            name='p'
-            className='border-t border-neutral-500 pt-1'
-          >
+          <Form.Item className='form-common-listing__item' label={t('HomeRealEstateSearchFormLocation')} name='p'>
             <Select
+              className='select-common-listing'
               placeholder={t('ListingSearchPlaceholderProvince')}
               showSearch
-              className='select-common-listing'
               filterOption={filterOptionsRemoveVietnameseTones}
               allowClear
               onChange={getDistricts}
@@ -231,7 +213,7 @@ const SidebarListing: FC<IProps> = ({
               }))}
             />
           </Form.Item>
-          <Form.Item name='d'>
+          <Form.Item className='form-common-listing__item' name='d'>
             <Select
               placeholder={t('ListingSearchPlaceholderDistrict')}
               className='select-common-listing'
@@ -246,7 +228,7 @@ const SidebarListing: FC<IProps> = ({
               }))}
             />
           </Form.Item>
-          <Form.Item name='w'>
+          <Form.Item className='form-common-listing__item' name='w'>
             <Select
               placeholder={t('ListingSearchPlaceholderWard')}
               className='select-common-listing'
@@ -264,7 +246,7 @@ const SidebarListing: FC<IProps> = ({
             <div className='flex flex-col gap-2 border-t border-neutral-500 pt-1'>
               <label className='font-bold'>{t('HomeRealEstateSearchFormCanMoveInDate')}</label>
               <div className='w-full lg:flex lg:items-center lg:gap-3'>
-                <Form.Item name={'fmd'}>
+                <Form.Item className='form-common-listing__item' name={'fmd'}>
                   <DatePicker
                     className='w-full !rounded-none'
                     placeholder={comm('SelectDate')}
@@ -273,7 +255,7 @@ const SidebarListing: FC<IProps> = ({
                   />
                 </Form.Item>
                 <label className='mb-3 font-semibold'>{comm('To')}</label>
-                <Form.Item name={'tmd'}>
+                <Form.Item className='form-common-listing__item' name={'tmd'}>
                   <DatePicker
                     className='w-full !rounded-none'
                     placeholder={comm('SelectDate')}
@@ -284,22 +266,14 @@ const SidebarListing: FC<IProps> = ({
               </div>
             </div>
           )}
-          <Form.Item
-            label={t('HomeRealEstateSearchFormView')}
-            name='v'
-            className='border-t border-neutral-500 pt-1'
-          >
+          <Form.Item className='form-common-listing__item' label={t('HomeRealEstateSearchFormView')} name='v'>
             <ChipSelectionField tidyItem hasAny multiple options={views ?? []} />
           </Form.Item>
           {isShowMore && (
             <>
               {type === listingType.sale && (
                 <>
-                  <Form.Item
-                    label={t('HomeRealEstateSearchFormLegalStatus')}
-                    name='lS'
-                    className='border-t border-neutral-500 pt-1'
-                  >
+                  <Form.Item className='form-common-listing__item' label={t('HomeRealEstateSearchFormLegalStatus')} name='lS'>
                     <ChipSelectionField
                       hasAny
                       tidyItem
@@ -310,11 +284,7 @@ const SidebarListing: FC<IProps> = ({
                       }))}
                     />
                   </Form.Item>
-                  <Form.Item
-                    label={t('HomeRealEstateSearchFormHandoverStatus')}
-                    name='hS'
-                    className='border-t border-neutral-500 pt-1'
-                  >
+                  <Form.Item className='form-common-listing__item' label={t('HomeRealEstateSearchFormHandoverStatus')} name='hS' >
                     <ChipSelectionField
                       hasAny
                       tidyItem
@@ -326,13 +296,8 @@ const SidebarListing: FC<IProps> = ({
                   </Form.Item>
                 </>
               )}
-
               <>
-                <Form.Item
-                  label={t('HomeRealEstateSearchFormFurnitureStatus')}
-                  name='i'
-                  className='border-t border-neutral-500 pt-1'
-                >
+                <Form.Item className='form-common-listing__item' label={t('HomeRealEstateSearchFormFurnitureStatus')} name='i'>
                   <ChipSelectionField
                     hasAny
                     multiple
@@ -343,11 +308,7 @@ const SidebarListing: FC<IProps> = ({
                     }))}
                   />
                 </Form.Item>
-                <Form.Item
-                  label={t('HomeRealEstateSearchFormPetAllowance')}
-                  name='iPA'
-                  className='border-t border-neutral-500 pt-1'
-                >
+                <Form.Item className='form-common-listing__item' label={t('HomeRealEstateSearchFormPetAllowance')} name='iPA'>
                   <ChipSelectionField
                     hasAny
                     tidyItem
@@ -361,24 +322,13 @@ const SidebarListing: FC<IProps> = ({
                   />
                 </Form.Item>
               </>
-
-              <Form.Item
-                name='odb'
-                label={t('ListingSearchFormCreateTime')}
-                className='border-t border-neutral-500 pt-1'
-              >
+              <Form.Item className='form-common-listing__item' name='odb' label={t('ListingSearchFormCreateTime')}>
                 <Radio.Group className='grid w-full grid-cols-2 gap-x-1 gap-y-2'>
                   <Radio value={false}>{comm('NewestFirst')}</Radio>
                   <Radio value={true}>{comm('OldestFirst')}</Radio>
                 </Radio.Group>
               </Form.Item>
-
-              <Form.Item
-                label={t('inDoorAmenities')}
-                name='inA'
-                valuePropName='checked'
-                className='border-t border-neutral-500 pt-1'
-              >
+              <Form.Item className='form-common-listing__item' label={t('inDoorAmenities')} name='inA' valuePropName='checked'>
                 <Checkbox.Group
                   defaultValue={searchParams.inA}
                   className='grid w-full grid-cols-2 gap-x-1 gap-y-2'
@@ -388,13 +338,7 @@ const SidebarListing: FC<IProps> = ({
                   }))}
                 />
               </Form.Item>
-
-              <Form.Item
-                label={t('outDoorAmenities')}
-                name='outA'
-                valuePropName='checked'
-                className='border-t border-neutral-500 pt-1'
-              >
+              <Form.Item className='form-common-listing__item' label={t('outDoorAmenities')} name='outA' valuePropName='checked'>
                 <Checkbox.Group
                   defaultValue={searchParams.outA}
                   className='grid w-full grid-cols-2 gap-x-1 gap-y-2'
@@ -404,13 +348,7 @@ const SidebarListing: FC<IProps> = ({
                   }))}
                 />
               </Form.Item>
-
-              <Form.Item
-                label={t('ListingSearchContentLanguage')}
-                name='lan'
-                valuePropName='checked'
-                className='border-t border-neutral-500 pt-1'
-              >
+              <Form.Item className='form-common-listing__item' label={t('ListingSearchContentLanguage')} name='lan' valuePropName='checked'>
                 <Checkbox.Group
                   defaultValue={searchParams.lan}
                   className='grid w-full grid-cols-2 gap-x-1 gap-y-2'
