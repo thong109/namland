@@ -20,7 +20,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from 'next-intl/client';
 import * as NProgress from 'nprogress';
 import { FC, useEffect, useState } from 'react';
-import '../SearchListing.scss';
+import './SidebarListing.css';
 import * as pixel from '@/utils/pixel';
 
 export interface IProps {
@@ -38,7 +38,7 @@ export interface IProps {
   className?: any;
 }
 
-const ListingResultSearchBar: FC<IProps> = ({
+const SidebarListing: FC<IProps> = ({
   properties = [],
   provinces = [],
   projects = [],
@@ -458,4 +458,4 @@ const ListingResultSearchBar: FC<IProps> = ({
   );
 };
 
-export default ListingResultSearchBar;
+export default SidebarListing;

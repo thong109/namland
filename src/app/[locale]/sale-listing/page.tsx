@@ -17,7 +17,7 @@ import {
   ShortHomeRealEstateSearchModel,
 } from '@/models/homeRealEstateSearchModel/homeRealEstateSearchModel';
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
-import ListingResult from '../_components/SearchListingResult/ListingResult';
+import BlockListing from '../_components/BlockListing/BlockListing';
 import SectionContact from '@/components/SectionContact/SectionContact';
 interface PageSaleListingProps {
   searchParams: ShortHomeRealEstateSearchModel;
@@ -74,28 +74,25 @@ const PageSaleListing: React.FC<PageSaleListingProps> = async ({ searchParams })
       <div className='section-ban'>
         <div className='container'>
           <h1 className='section-ban__title'>Gửi bán Bất động sản Nam Long<br /><strong>Nhanh chóng, Bảo mật & Uy tín</strong></h1>
-          <div className='section-ban__sidebar'>
-            <div className='section-ban__sidebar-wrapper'></div>
-          </div>
+          <BlockListing
+            allPropertyCoordinates={allPropertyCoordinates}
+            totalResult={totalResult}
+            paramsString={paramsString}
+            currentPage={curentPage}
+            pageSize={size}
+            searchParams={paramsvalue}
+            type={listingType.sale}
+            listing={listing}
+            properties={saleCategories}
+            projects={projects}
+            provinces={provinces}
+            views={views}
+            inAmenities={inAmenities}
+            outAmenities={outAmenities}
+            funitureStatus={funitureStatus}
+          />
         </div>
       </div>
-      <ListingResult
-        allPropertyCoordinates={allPropertyCoordinates}
-        totalResult={totalResult}
-        paramsString={paramsString}
-        currentPage={curentPage}
-        pageSize={size}
-        searchParams={paramsvalue}
-        type={listingType.sale}
-        listing={listing}
-        properties={saleCategories}
-        projects={projects}
-        provinces={provinces}
-        views={views}
-        inAmenities={inAmenities}
-        outAmenities={outAmenities}
-        funitureStatus={funitureStatus}
-      />
       <SectionContact />
     </>
   );

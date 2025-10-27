@@ -15,8 +15,8 @@ import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next-intl/link';
 import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
-import ListingResultData from './_components/ListingResultData';
-import ListingResultSearchBar from './_components/ListingResultSearchbar';
+import TableResult from './TableResult';
+import SidebarListing from './SidebarListing';
 
 export interface IProps {
   totalResult: number;
@@ -36,7 +36,7 @@ export interface IProps {
   allPropertyCoordinates: any;
 }
 
-const ListingResult: FC<IProps> = ({
+const BlockListing: FC<IProps> = ({
   type,
   listing,
   properties = [],
@@ -109,21 +109,19 @@ const ListingResult: FC<IProps> = ({
   };
 
   return (
-    <div className={`container relative flex flex-col gap-5 pb-3 pt-5 lg:flex-row`}>
-      <div className="hidden lg:flex lg:w-[27%]">
-        <ListingResultSearchBar
-          searchParams={searchParams}
-          type={type}
-          properties={properties}
-          projects={projects}
-          provinces={provinces}
-          views={views}
-          inAmenities={inAmenities}
-          outAmenities={outAmenities}
-          funitureStatus={funitureStatus}
-          className={''}
-        />
-      </div>
+    <div className='block-common-listing'>
+      <SidebarListing
+        searchParams={searchParams}
+        type={type}
+        properties={properties}
+        projects={projects}
+        provinces={provinces}
+        views={views}
+        inAmenities={inAmenities}
+        outAmenities={outAmenities}
+        funitureStatus={funitureStatus}
+        className={''}
+      />
       <div className="pt-2 lg:w-[73%]">
         <div className="mb-8 flex items-center justify-between">
           <div className="flex w-full flex-col items-center justify-center">
@@ -150,7 +148,7 @@ const ListingResult: FC<IProps> = ({
         </div>
         {!showingMap && (
           <>
-            <ListingResultData listings={listing} />
+            <TableResult listings={listing} />
             {totalResult > 0 && (
               <div className="mt-2">
                 <div className="flex w-full justify-center pb-7">
@@ -186,7 +184,7 @@ const ListingResult: FC<IProps> = ({
                   label={<Image alt="" width={20} height={20} src={IconCloseFilter.src} />}
                 />
               </div>
-              <ListingResultSearchBar
+              <SidebarListing
                 searchParams={searchParams}
                 type={type}
                 properties={properties}
@@ -205,4 +203,4 @@ const ListingResult: FC<IProps> = ({
   );
 };
 
-export default ListingResult;
+export default BlockListing;
