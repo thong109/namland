@@ -1,3 +1,15 @@
 .selector-common-chip {
   @apply flex flex-wrap flex-grow-0 gap-[8px] font-mona;
 }
+
+.selector-common-chip--blocky {
+  @apply gap-[8px];
+}
+
+.selector-common-chip--blocky .button-common-chip {
+  @apply max-w-[100%] min-h-[35px] p-[3px_6px] border-[1px] border-[#d9d9d9] rounded-[5px] bg-[#fff] flex-grow flex-shrink-0 text-[14px] leading-[calc(25/14)] text-[#444];
+}
+
+.selector-common-chip--blocky .button-common-chip.is-state-selected {
+  @apply border-[#982220] bg-[#982220] text-[#fff];
+}

@@ -1,9 +1,9 @@
 .sidebar-common-listing {
-  @apply w-[calc(452/1420*100%)] p-[22px_26px_25px] bg-[#fff] rounded-[10px] flex-grow-0 flex-shrink-0;
+  @apply w-[calc(452/1420*100%)] p-[22px_26px_25px] bg-[#fff] rounded-[10px] flex-grow-0 flex-shrink-0 font-mona;
 }
 
 .form-common-listing {
-  @apply flex flex-col gap-[15px];
+  @apply flex flex-col gap-[15px] font-mona;
 }
 
 .form-common-listing__entry {
@@ -78,7 +78,7 @@
 }  */
 
 .input-common-listing {
-  @apply w-[100%] h-[40px] p-[4.5px_13px_4.5px_19px] border-[1px] border-[#d9d9d9] rounded-[5px];
+  @apply w-[100%] h-[40px] p-[4.5px_13px_4.5px_19px] border-[1px] border-[#d9d9d9] rounded-[5px] font-mona;
 }
 
 .input-common-listing input::-webkit-input-placeholder,
@@ -93,6 +93,10 @@
 
 .input-common-listing--search {
   @apply pl-[44px] bg-[length:16px_auto] bg-[position:19px_50%] bg-no-repeat;
+}
+
+.select-common-listing {
+  @apply font-mona;
 }
 
 .select-common-listing .ant-select-selector {

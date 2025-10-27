@@ -30,7 +30,6 @@ const SelectorChip: React.FC<SelectorChipProps> = ({
   ...props
 }) => {
   const t = useTranslations();
-
   const handleClick = useCallback(
     (option: string | number | boolean) => {
       if (!multiple) {
@@ -51,7 +50,6 @@ const SelectorChip: React.FC<SelectorChipProps> = ({
     },
     [value, onChange, multiple],
   );
-
   return (
     <div className={`selector-common-chip ${clsx(className ? className : '')}`}>
       {hasAny && (
@@ -60,7 +58,6 @@ const SelectorChip: React.FC<SelectorChipProps> = ({
           onClick={() => handleClick(null)}
           selected={value === undefined || value === null}
           label={t('Common.Any')}
-          className={clsx(tidyItem ? 'min-w-[calc(33.33%-8px)] flex-grow' : '')}
         />
       )}
       {options.map((o, index) => (
@@ -69,7 +66,6 @@ const SelectorChip: React.FC<SelectorChipProps> = ({
           onClick={() => handleClick(o.id)}
           selected={multiple ? value?.includes(o.id) : value === o.id}
           label={o.name || o.value}
-          className={clsx(tidyItem ? 'min-w-[calc(33.33%-8px)] flex-grow' : '')}
         />
       ))}
     </div>
