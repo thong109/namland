@@ -1,11 +1,16 @@
 .breadcrumb-common {
   @apply bg-[#f5f5f5];
+  @apply tablet-lg:text-[14px] tablet-lg:leading-[calc(24/14)];
+  @apply mobile:text-[12px] mobile:leading-[calc(18/12)];
 }
 
 .breadcrumb-common__wrapper {
   @apply min-h-[49px] py-[10px] flex items-center gap-[5px_17px] flex-wrap;
+  @apply tablet-lg:min-h-[45px] tablet-lg:gap-[5px_15px];
+  @apply mobile:min-h-[40px] mobile:gap-[5px_10px];
 }
 
 .breadcrumb-common__item-link {
   @apply pr-[25px] text-[#9a9a9a] bg-[length:8px_auto] bg-[position:100%_50%] bg-no-repeat;
+  @apply mobile:pr-[15px] mobile:bg-[length:5px_auto];
 }
