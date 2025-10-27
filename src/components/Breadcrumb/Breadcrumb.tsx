@@ -7,7 +7,6 @@ import './Breadcrumb.css';
 export interface BreadCrumbItem {
   path: string;
   title: string;
-  hasBanner: boolean;
 }
 
 export interface BreadCrumbProps {

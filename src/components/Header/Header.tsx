@@ -4,7 +4,7 @@ import { assetsImages } from '../../assets/images/package';
 import './Header.css';
 import { useState } from 'react';
 
-const Header = () => {
+const Header = ({ className, navType }: { className: string; navType: string }) => {
   const [stateNavigation, toggleNavigation] = useState(false);
 
   return (
