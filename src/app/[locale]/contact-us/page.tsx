@@ -33,6 +33,7 @@ export default function ContactUs() {
   return (
     <>
       <Breadcrumb
+        additionalClass=""
         breadcrumbItems={[
           { path: '/', title: 'Trang chủ' },
           { path: '', title: 'Liên hệ' },
