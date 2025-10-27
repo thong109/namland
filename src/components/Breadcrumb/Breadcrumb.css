@@ -1,7 +1,11 @@
 .breadcrumb-common {
-  @apply bg-[#f5f5f5];
+  @apply bg-[#f5f5f5] relative;
   @apply tablet-lg:text-[14px] tablet-lg:leading-[calc(24/14)];
   @apply mobile:text-[12px] mobile:leading-[calc(18/12)];
+}
+
+.breadcrumb-common.has-banner .container {
+  @apply absolute top-0 left-1/2 -translate-x-1/2;
 }
 
 .breadcrumb-common__wrapper {
@@ -13,4 +17,18 @@
 .breadcrumb-common__item-link {
   @apply pr-[25px] text-[#9a9a9a] bg-[length:8px_auto] bg-[position:100%_50%] bg-no-repeat;
   @apply mobile:pr-[15px] mobile:bg-[length:5px_auto];
+}
+
+.breadcrumb-common__banner {
+  @apply bg-center bg-no-repeat bg-cover;
+  @apply mobile:bg-right;
+}
+
+.breadcrumb-common__banner-title {
+  @apply text-portal-primaryLiving font-semibold text-2xl leading-[calc(35/24)];
+  @apply mobile:text-xl;
+}
+
+.breadcrumb-common__banner-wrapper {
+  @apply p-[62px_0_30px];
 }

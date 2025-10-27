@@ -35,6 +35,15 @@ const Breadcrumb: FC<BreadCrumbProps> = ({ additionalClass, breadcrumbItems, has
           })}
         </ol>
       </div>
+      {hasBanner && (
+        <div className="min-h-[138px] breadcrumb-common__banner" style={{ backgroundImage: `url(${assetsImages.commonBannerContact.src})` }}>
+          <div className="container">
+            <div className="breadcrumb-common__banner-wrapper">
+              <h1 className='breadcrumb-common__banner-title'>Tư vấn cùng Nam Long O2O</h1>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

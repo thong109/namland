@@ -8,6 +8,10 @@ import ContactUs from './_components/ContactUs';
 import EntrustAgent from './_components/EntrustAgent';
 import ServiceContent from './_components/ServiceContent';
 import EntrustBannerHeader from './_components/entrustBannerHeader';
+import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
+import { assetsImages } from '@/assets/images/package';
+import SectionContact from '@/components/SectionContact/SectionContact';
+import "./findAgent.css";
 export interface IProps {
   params: any;
 }
@@ -25,23 +29,46 @@ const PageEntrust: FC<IProps> = async ({ params: { locale } }) => {
   );
 
   return (
-    <div className="container pb-5 pt-5">
-      <div>
-        <EntrustBannerHeader />
-        <ServiceContent data={serviceContents} />
-        <ContactUs data={contactUsContent} />
-        <div className="relative mt-6 h-40 w-full lg:h-96">
-          <Image
-            className="h-full w-full object-cover"
-            src={Bg.src}
-            alt={`banner`}
-            loading="lazy"
-            fill
-          />
+    // <div className="container pb-5 pt-5">
+    //   <div>
+    //     <EntrustBannerHeader />
+    //     <ServiceContent data={serviceContents} />
+    //     <ContactUs data={contactUsContent} />
+    //     <div className="relative mt-6 h-40 w-full lg:h-96">
+    //       <Image
+    //         className="h-full w-full object-cover"
+    //         src={Bg.src}
+    //         alt={`banner`}
+    //         loading="lazy"
+    //         fill
+    //       />
+    //     </div>
+    //     <EntrustAgent />
+    //   </div>
+    // </div>
+    <>
+      <section>
+        <Breadcrumb
+          additionalClass="bg-transparent"
+          breadcrumbItems={[
+            { path: '/', title: 'Trang chủ' },
+            { path: '/nhu-cau-cua-toi', title: 'Tìm môi giới' },
+            { path: '', title: 'Bán/ Cho thuê nhà của tôi' },
+          ]}
+          hasBanner={true}
+        />
+        <div className='container pb-12 md:pb-[88px]'>
+          <div className="contact__banner" style={{ backgroundImage: `url(${assetsImages.commonImageContact.src})` }}>
+            <div className="grid grid-col">
+              <h2>Tìm và so sánh các đơn vị môi giới uy tín</h2>
+              <p>Bạn luôn có thể so sánh các đơn vị môi giới để được tư vấn trước khi đưa ra quyết định</p>
+            </div>
+          </div>
+          {/*  */}
         </div>
-        <EntrustAgent />
-      </div>
-    </div>
+        <SectionContact />
+      </section>
+    </>
   );
 };
 
