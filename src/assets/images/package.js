@@ -1,5 +1,6 @@
 import commonIconArrow from './common/icon_arrow_01.svg';
 import commonIconArrow2 from './common/icon_arrow_02.svg';
+import commonIconSearch from './common/icon_search_01.svg';
 import commonIconBurger from './common/icon_burger_01.svg';
 import commonIconClose from './common/icon_close_01.svg';
 import commonIconUser from './common/icon_user_01.svg';
@@ -15,10 +16,10 @@ import commonLogoPrinmaryWhite from './common/logo_primary_01_white.svg';
 import commonBannerContact from "./common/banner_contact_01.png";
 import commonStampVerify from "./common/stamp_verify_01.png";
 
-
 export const assetsImages = {
   commonIconArrow,
   commonIconArrow2,
+  commonIconSearch,
   commonIconBurger,
   commonIconClose,
   commonIconUser,
