@@ -10,12 +10,12 @@ import AddToFavoriteButton from './_component/AddToFavoriteButton';
 import LeaveInquiryButton from './_component/LeaveInquiryButton';
 import PropertyInfoBox from './_component/PropertyInfoBox';
 
-interface ListingCardGoldProps {
+interface CardListingGoldProps {
   className?: string;
   listing: any;
 }
 
-const ListingCardGold: React.FC<ListingCardGoldProps> = ({ className, listing }) => {
+const CardListingGold: React.FC<CardListingGoldProps> = ({ className, listing }) => {
   const locale = useLocale();
 
   const enumTranslator = useTranslations('enum');
@@ -77,4 +77,4 @@ const ListingCardGold: React.FC<ListingCardGoldProps> = ({ className, listing })
   );
 };
 
-export default ListingCardGold;
+export default CardListingGold;

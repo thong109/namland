@@ -8,7 +8,7 @@ export interface IProps {
   className?: any;
 }
 
-const ListingCardRibbon: FC<IProps> = ({ variant, className }) => {
+const CardListingRibbon: FC<IProps> = ({ variant, className }) => {
   const t = useTranslations('enum');
 
   const label = useMemo(() => {
@@ -44,4 +44,4 @@ const ListingCardRibbon: FC<IProps> = ({ variant, className }) => {
   );
 };
 
-export default React.memo(ListingCardRibbon);
+export default React.memo(CardListingRibbon);

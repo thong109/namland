@@ -9,7 +9,7 @@ export interface IProps {
   className?: any;
 }
 
-const ListingCardProjectInfo: FC<IProps> = ({ project, className }) => {
+const CardListingProjectInfo: FC<IProps> = ({ project, className }) => {
   const t = useTranslations('enum');
 
   const label = useMemo(() => {
@@ -31,4 +31,4 @@ const ListingCardProjectInfo: FC<IProps> = ({ project, className }) => {
   );
 };
 
-export default React.memo(ListingCardProjectInfo);
+export default React.memo(CardListingProjectInfo);

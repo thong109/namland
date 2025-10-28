@@ -6,6 +6,10 @@
   @apply border-[1px] border-[#b2b2b2] bg-[#b2b2b2];
 }
 
+.button-common-core--more {
+  @apply max-w-[291px] min-h-[40px] border-[1px] border-[#b2b2b2] bg-[#fff] text-[20px] leading-[calc(29/20)] text-[#982220];
+}
+
 .button-common-core--primary-disabled {
   @apply bg-opacity-50;
 }

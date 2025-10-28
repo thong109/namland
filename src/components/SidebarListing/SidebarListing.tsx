@@ -381,12 +381,7 @@ const SidebarListing: FC<IProps> = ({
             </div>
           </div>
           <div className='form-common-listing__controller'>
-            <ButtonCore
-              preset='neutral'
-              onClick={resetFilter}
-              buttonType='destroy'
-              label={t('HomeRealEstateSearchFormClearFilter')}
-            />
+            <ButtonCore buttonType='destroy' preset='neutral' onClick={resetFilter} label={t('HomeRealEstateSearchFormClearFilter')} />
             <ButtonCore buttonType='search' type='submit' label={t('HomeRealEstateSearchFormSearch')} />
           </div>
         </Form>

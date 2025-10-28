@@ -9,12 +9,12 @@ import PriceNumberText from '../PriceNumberText/PriceNumberText';
 import AddToFavoriteButton from './_component/AddToFavoriteButton';
 import PropertyInfoBox from './_component/PropertyInfoBox';
 
-interface ListingCardBasicProps {
+interface CardListingBasicProps {
   className?: string;
   listing: any;
 }
 
-const ListingCardBasic: React.FC<ListingCardBasicProps> = ({ className, listing }) => {
+const CardListingBasic: React.FC<CardListingBasicProps> = ({ className, listing }) => {
   const locale = useLocale();
 
   const listingDetail: any = listing;
@@ -57,4 +57,4 @@ const ListingCardBasic: React.FC<ListingCardBasicProps> = ({ className, listing 
   );
 };
 
-export default ListingCardBasic;
+export default CardListingBasic;

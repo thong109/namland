@@ -1,5 +1,5 @@
 .section-ban {
-  @apply pt-[18px] bg-[length:100%_406px] bg-[position:0%_0%] bg-no-repeat;
+  @apply pt-[18px] pb-[73px] bg-[length:100%_406px] bg-[position:0%_0%] bg-no-repeat;
   @apply tablet-lg:pt-[15px] tablet-lg:bg-[length:100%_400px];
   @apply mobile:pt-[10px] mobile:bg-[length:100%_400px];
   background-image: linear-gradient(to top, #f5f5f5, #f5f5f5);
@@ -13,4 +13,8 @@
 
 .section-ban__title strong {
   @apply font-[600] text-[#982220];
+}
+
+.section-ban .pagination-common {
+  @apply mt-[44px];
 }

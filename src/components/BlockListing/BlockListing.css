@@ -8,3 +8,7 @@
 .block-common-listing__wrapper {
   @apply flex-1;
 }
+
+.block-common-listing__title {
+  @apply mt-[-5px] mb-[21px] block text-[30px] leading-[calc(39/30)] font-[600] text-[#000];
+}

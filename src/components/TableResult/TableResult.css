@@ -1,0 +1,5 @@
+.table-common-result {
+  @apply grid grid-cols-2 gap-[30px_29px];
+  @apply tablet-lg:gap-[20px];
+  @apply mobile:grid-cols-1 mobile:gap-[20px];
+}

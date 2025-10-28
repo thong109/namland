@@ -1,0 +1,35 @@
+.card-common-listing {
+  @apply p-[21px_18.5px_28px] bg-[#fff] border-[1px] border-[#d9d9d9] rounded-[10px] font-mona;
+}
+
+.card-common-listing__visual {
+  @apply mb-[17px] relative;
+}
+
+.card-common-listing__visual-status {
+  @apply max-w-[calc(100%-22px)] max-h-[calc(100%-18px)] p-[3px_8px] bg-[#982220] rounded-[3px] absolute top-[9px] left-[11px] z-[1] text-[14px] leading-[calc(19/14)] font-[600] text-[#fff];
+}
+
+.card-common-listing__visual-wrapper {
+  @apply pt-[calc(271/415*100%)] rounded-[5px] block relative z-0 overflow-hidden;
+}
+
+.card-common-listing__visual-wrapper img {
+  @apply w-[100%] h-[100%] absolute inset-0 object-cover;
+}
+
+.card-common-listing__title {
+  @apply mb-[11px] block text-[18px] leading-[calc(25/18)] font-[600] text-[#444];
+}
+
+.card-common-listing__info {
+  @apply flex flex-col gap-[11px] text-[16px] leading-[calc(24/16)] text-[#444];
+}
+
+.card-common-listing__entry-label {
+  @apply block text-[#9a9a9a];
+}
+
+.card-common-listing__controller {
+  @apply mt-[27px] flex justify-center flex-wrap;
+}

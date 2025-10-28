@@ -1,5 +1,5 @@
 'use client';
-import ListingCard from '@/components/ListingCard/ListingCard';
+import CardListing from '@/components/CardListing/CardListing';
 import { NAVIGATION } from '@/data/navigation';
 import { getParamsStringFromObj } from '@/libs/appconst';
 import clsx from 'clsx';
@@ -54,18 +54,18 @@ const SectionBaseListing: FC<SectionBaseListingProps> = ({
           </div>
           <div className="hidden flex-col gap-4 lg:flex">
             {platinumListing?.data?.data?.map((item) => (
-              <ListingCard key={item.id} listing={item} variant="platinum" />
+              <CardListing key={item.id} listing={item} variant="platinum" />
             ))}
           </div>
           <div className="hidden flex-col gap-4 lg:flex">
             {goldListing?.data?.data?.map((item) => (
-              <ListingCard key={item.id} listing={item} variant="gold" />
+              <CardListing key={item.id} listing={item} variant="gold" />
             ))}
           </div>
           <div className="hidden auto-rows-fr grid-cols-3 gap-4 lg:grid">
             {basicListing?.data?.data?.map((item) => (
               <div className="col-span-1">
-                <ListingCard key={item.id} listing={item} variant="basic" />
+                <CardListing key={item.id} listing={item} variant="basic" />
               </div>
             ))}
           </div>
@@ -75,7 +75,7 @@ const SectionBaseListing: FC<SectionBaseListingProps> = ({
               .concat(basicListing?.data?.data ?? [])
               .map((item) => (
                 <div key={item.id} className="min-w-60 grow">
-                  <ListingCard listing={item} variant="basic" />
+                  <CardListing listing={item} variant="basic" />
                 </div>
               ))}
           </div>

@@ -7,15 +7,15 @@ import Image from 'next/image';
 import React from 'react';
 import PriceNumberText from '../PriceNumberText/PriceNumberText';
 import AddToFavoriteButton from './_component/AddToFavoriteButton';
-import ListingCardProjectInfo from './_component/ListingCardProjectInfo';
-import ListingCardRibbon from './_component/ListingCardRibbon';
+import CardListingProjectInfo from './_component/CardListingProjectInfo';
+import CardListingRibbon from './_component/CardListingRibbon';
 
-interface ListingCardHomePageProps {
+interface CardListingHomePageProps {
   className?: string;
   listing: any;
 }
 
-const ListingCardHomePage: React.FC<ListingCardHomePageProps> = ({ className, listing }) => {
+const CardListingHomePage: React.FC<CardListingHomePageProps> = ({ className, listing }) => {
   const t = useTranslations('webLabel');
 
   const listingDetail: any = listing;
@@ -23,8 +23,8 @@ const ListingCardHomePage: React.FC<ListingCardHomePageProps> = ({ className, li
   const listingUrl = getListingUrl(listingDetail.id, listingDetail.title);
   return (
     <div className={clsx('relative h-full transition-all ease-linear', className)}>
-      <ListingCardRibbon className={'left-2'} variant="platinum" />
-      <ListingCardProjectInfo className={'left-2 top-48'} project={project} />
+      <CardListingRibbon className={'left-2'} variant="platinum" />
+      <CardListingProjectInfo className={'left-2 top-48'} project={project} />
       <div className="flex h-full flex-col border border-neutral-400 bg-neutral-0">
         <Link href={listingUrl} className="relative p-2 hover:text-[unset]">
           <div className="relative h-56 w-full">
@@ -91,4 +91,4 @@ const ListingCardHomePage: React.FC<ListingCardHomePageProps> = ({ className, li
   );
 };
 
-export default ListingCardHomePage;
+export default CardListingHomePage;

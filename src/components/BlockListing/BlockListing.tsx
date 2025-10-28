@@ -16,7 +16,7 @@ import Link from 'next-intl/link';
 import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
 import './BlockListing.css';
-import TableResult from './TableResult';
+import TableResult from '../TableResult/TableResult';
 import SidebarListing from '@/components/SidebarListing/SidebarListing';
 
 export interface IProps {
@@ -117,81 +117,22 @@ const BlockListing: FC<IProps> = ({
         className={''}
       />
       <div className="block-common-listing__wrapper">
-        <div className="mb-8 flex items-center justify-between">
-          <div className="flex w-full flex-col items-center justify-center">
-            <Typography className="text-3xl font-bold">{t('SearchResult')}</Typography>
-            <div>
-              {t('EcomSearchPageRentalListingMap')}{' '}
-              <Switch
-                className="bg-portal-gray-3"
-                checked={showingMap}
-                onChange={(e) => changeViewMode(e)}
-              ></Switch>
-            </div>
-          </div>
-          <div className="lg:hidden">
-            <IconButton
-              onClick={() => setIsShowFiltter(!showFiltter)}
-              label={<Image alt="" width={20} height={20} src={IconFilter.src} />}
+        <span className='block-common-listing__title'>Tin đăng bán</span>
+        <TableResult listings={listing} />
+        {totalResult > 0 && (
+          <div className="pagination-common">
+            <Pagination
+              current={currentPage}
+              total={totalResult}
+              pageSize={pageSize}
+              showSizeChanger={false}
+              itemRender={(page, itemtype, originalElement) => (
+                <Link href={`${type === listingType.sale ? NAVIGATION.saleListing.href : NAVIGATION.rentListing.href}?${paramsString}&page=${page}`} legacyBehavior>{originalElement}</Link>
+              )}
             />
           </div>
-        </div>
-        <div className={`${showingMap ? 'h-[800px]' : 'h-[0px]'} relative mt-4 w-full`}>
-          {renderMaps()}
-        </div>
-        {!showingMap && (
-          <>
-            <TableResult listings={listing} />
-            {totalResult > 0 && (
-              <div className="mt-2">
-                <div className="flex w-full justify-center pb-7">
-                  <Pagination
-                    current={currentPage}
-                    total={totalResult}
-                    pageSize={pageSize}
-                    showSizeChanger={false}
-                    itemRender={(page, itemtype, originalElement) => (
-                      <Link
-                        legacyBehavior
-                        href={`${type === listingType.sale ? NAVIGATION.saleListing.href : NAVIGATION.rentListing.href}?${paramsString}&page=${page}`}
-                      >
-                        {originalElement}
-                      </Link>
-                    )}
-                  />
-                </div>
-              </div>
-            )}
-          </>
         )}
       </div>
-      {showFiltter && (
-        <>
-          <div className="fixed inset-0 z-20 bg-gray-500 opacity-50"></div>
-          <div className="absolute left-0 right-0 z-30 flex justify-center border-b-2 border-yellow-500 bg-white pb-4">
-            <div className="w-full">
-              <div className="absolute right-0 z-[31]">
-                <IconButton
-                  className="bg-transparent"
-                  onClick={() => setIsShowFiltter(!showFiltter)}
-                  label={<Image alt="" width={20} height={20} src={IconCloseFilter.src} />}
-                />
-              </div>
-              <SidebarListing
-                searchParams={searchParams}
-                type={type}
-                properties={properties}
-                provinces={provinces}
-                views={views}
-                inAmenities={inAmenities}
-                outAmenities={outAmenities}
-                funitureStatus={funitureStatus}
-                onOffFiltter={() => setIsShowFiltter(!showFiltter)}
-              />
-            </div>
-          </div>
-        </>
-      )}
     </div>
   );
 };

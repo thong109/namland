@@ -1,7 +1,7 @@
 'use client';
 
 import SelectorChip from '@/components/SelectorChip/SelectorChip';
-import ListingCardHomePage from '@/app/[locale]/_components/ListingCard/ListingCard.HomePage';
+import CardListingHomePage from '@/app/[locale]/_components/CardListing/CardListing.HomePage';
 import { NAVIGATION } from '@/data/navigation';
 import {
   ElasticSearchQuery,
@@ -212,7 +212,7 @@ const SectionHomePageListing: FC<SectionHomePageListingProps> = ({
             <div className="homepage-listing-to-hide flex h-[422px] w-full flex-row overflow-x-auto overflow-y-hidden">
               {platinumListing?.data?.data?.map((item) => (
                 <div key={item.id} className="h-full shrink-0 grow basis-1/4">
-                  <ListingCardHomePage listing={item} className="px-2" />
+                  <CardListingHomePage listing={item} className="px-2" />
                 </div>
               ))}
             </div>

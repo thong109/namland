@@ -25,3 +25,15 @@ input[id^='react-select-'] {
 input,select,textarea {
   @apply !font-mona;
 }
+
+.pagination-common {
+  @apply flex justify-center;
+}
+
+.pagination-common .ant-pagination .ant-pagination-item {
+  @apply border-[1px] border-[#000] flex justify-center items-center text-[18px] leading-[calc(24/18)] font-[600];
+}
+
+.pagination-common .ant-pagination .ant-pagination-item-active {
+  @apply border-[#982220] bg-[#982220];
+}
