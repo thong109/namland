@@ -85,7 +85,7 @@ const SidebarListing: FC<IProps> = ({
   };
   const onSubmit = async (values) => {
     console.log(2);
-    
+
     const dataFilter: ShortHomeRealEstateSearchModel = values;
     // always include poster brokder if it's available
     if (searchParams.pb) {
@@ -200,6 +200,7 @@ const SidebarListing: FC<IProps> = ({
               <div className='form-common-listing__entry-wrapper'>
                 <Form.Item
                   name="rp"
+                  className='!mb-0'
                 >
                   <Range min={0} max={type === listingType.rent ? 100000000 : 20000000000} />
                 </Form.Item>
@@ -210,6 +211,7 @@ const SidebarListing: FC<IProps> = ({
               <div className='form-common-listing__entry-wrapper'>
                 <Form.Item
                   name="sz"
+                  className='!mb-0'
                 >
                   <Range min={0} max={500} />
                 </Form.Item>
@@ -267,18 +269,20 @@ const SidebarListing: FC<IProps> = ({
             <div className='form-common-listing__entry form-common-listing__entry--stacked'>
               <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormView')}</span>
               <div className='form-common-listing__entry-wrapper'>
-                <Select
-                  className='select-common-listing'
-                  placeholder={t('HomeRealEstateSearchFormView')}
-                  allowClear
-                  filterOption={filterOptionsRemoveVietnameseTones}
-                >
-                  {views?.map((view) => (
-                    <Select.Option key={view.id} value={view.id}>
-                      {view.name}
-                    </Select.Option>
-                  ))}
-                </Select>
+                <Form.Item name='v' className='!mb-0'>
+                  <Select
+                    className='select-common-listing'
+                    placeholder={t('HomeRealEstateSearchFormView')}
+                    allowClear
+                    filterOption={filterOptionsRemoveVietnameseTones}
+                  >
+                    {views?.map((view) => (
+                      <Select.Option key={view.id} value={view.id}>
+                        {view.name}
+                      </Select.Option>
+                    ))}
+                  </Select>
+                </Form.Item>
               </div>
             </div>
             <div className='form-common-listing__entry form-common-listing__entry--stacked'>
@@ -329,7 +333,7 @@ const SidebarListing: FC<IProps> = ({
             <div className='form-common-listing__entry form-common-listing__entry--wrapping'>
               <span className='form-common-listing__entry-label'>{t('ListingSearchFormCreateTime')}</span>
               <div className='form-common-listing__entry-wrapper'>
-                <Form.Item className='form-common-listing__entry-item'>
+                <Form.Item className='form-common-listing__entry-item' name="odb">
                   <Radio.Group className='radio-common-listing'>
                     <Radio value={false}>{comm('NewestFirst')}</Radio>
                     <Radio value={true}>{comm('OldestFirst')}</Radio>
