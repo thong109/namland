@@ -3,6 +3,7 @@ import commonIconArrow2 from './common/icon_arrow_02.svg';
 import commonIconSearch from './common/icon_search_01.svg';
 import commonIconBurger from './common/icon_burger_01.svg';
 import commonIconClose from './common/icon_close_01.svg';
+import commonIconClose2 from './common/icon_close_02.svg';
 import commonIconUser from './common/icon_user_01.svg';
 import commonIconLanguage from './common/icon_language_01.svg';
 import commonIconLocation from "./common/icon_location_01.svg";
@@ -24,6 +25,7 @@ export const assetsImages = {
   commonIconSearch,
   commonIconBurger,
   commonIconClose,
+  commonIconClose2,
   commonIconUser,
   commonIconLanguage,
   commonIconLocation,

@@ -10,7 +10,7 @@ interface CoreButtonProps {
 
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
-  buttonType?: 'search' | 'default';
+  buttonType?: 'search' | 'destroy' | 'default';
 }
 
 const CoreButton: React.FC<CoreButtonProps> = ({
@@ -41,6 +41,9 @@ const CoreButton: React.FC<CoreButtonProps> = ({
       {label}
       {buttonType === 'search' && (
         <span className='ml-[10px] block flex-[0_0_auto] bg-center bg-no-repeat bg-cover w-[17px] h-[18px]' style={{ backgroundImage: `url(${assetsImages.commonIconSearchWhite.src})` }}></span>
+      )}
+      {buttonType === 'destroy' && (
+        <span className='ml-[10px] block flex-[0_0_auto] bg-center bg-no-repeat bg-cover w-[24px] h-[24px]' style={{ backgroundImage: `url(${assetsImages.commonIconClose2.src})` }}></span>
       )}
     </button>
   );
