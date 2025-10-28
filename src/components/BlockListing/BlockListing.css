@@ -11,4 +11,6 @@
 
 .block-common-listing__title {
   @apply mt-[-5px] mb-[21px] block text-[30px] leading-[calc(39/30)] font-[600] text-[#000];
+  @apply tablet-lg:mt-[0] tablet-lg:mb-[20px] tablet-lg:text-[24px] tablet-lg:leading-[calc(32/24)];
+  @apply mobile:mt-[0] mobile:mb-[20px] mobile:text-[20px] mobile:leading-[calc(30/20)];
 }
