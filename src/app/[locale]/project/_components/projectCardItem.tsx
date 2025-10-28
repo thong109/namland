@@ -18,19 +18,19 @@ const ProjectCardItem: React.FC<IProps> = ({ data, className = '', ...props }) =
 
   return (
     <div
-      className={`flex h-full flex-col border border-portal-border transition lg:hover:scale-[1.03] ${className}`}
+      className={`flex h-full flex-col border border-portal-gray-border transition p-[22px] rounded-[10px] ${className}`}
     >
       <Link legacyBehavior href={projectDetailUrl}>
-        <div className={`relative h-64 w-full overflow-hidden`}>
-          <div className="absolute z-10 h-full w-full bg-gradient-to-b from-[rgba(1,1,1,0.0)] from-65% via-[rgba(1,1,1,0.5)] to-[rgba(1,1,1,0.7)] to-100%" />
-          <Image
-            alt="image"
-            src={logoImage?.thumbUrl}
-            className="h-full w-full"
-            loading="lazy"
-            fill
-          />
-          <div className="absolute bottom-0 z-20 flex w-full flex-col items-center p-4">
+        <div className={`relative w-full overflow-hidden`}>
+          <div className="relative pt-[calc(450/410*100%)]">
+            <Image
+              alt="image"
+              src={imageUrl}
+              loading="lazy"
+              fill
+            />
+          </div>
+          {/* <div className="absolute bottom-0 z-20 flex w-full flex-col items-center p-4">
             <Typography className={`line-clamp-1 text-base font-semibold text-white`}>
               {name}
             </Typography>
@@ -42,7 +42,7 @@ const ProjectCardItem: React.FC<IProps> = ({ data, className = '', ...props }) =
                 {t('ProjectListingItemLease')} {rentCount}
               </Typography>
             </div>
-          </div>
+          </div> */}
         </div>
       </Link>
     </div>

@@ -20,7 +20,7 @@ const fetchProject = async (currentPage, pageSize, keyword?) => {
 
 const PageProject = async ({ searchParams }) => {
   const currentPage = parseInt(searchParams.page, 10) || 1;
-  const pageSize = 24;
+  const pageSize = 12;
   const keyword = searchParams.keyword;
   const { projectList, total } = await fetchProject(currentPage, pageSize, keyword);
 
