@@ -4,7 +4,7 @@ import { Form, Input, Modal, Popconfirm, Select } from 'antd';
 import { useTranslations } from 'next-intl';
 import { FC, useEffect, useState } from 'react';
 
-import CoreButton from '@/_components/CoreButton/CoreButton';
+import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import PriceSearchListing from '@/components/FormInput/priceSearchListing';
 import MultiSelectWithCheckbox from '@/components/MultiSelectWithCheckbox/Index';
 import { NAVIGATION } from '@/data/navigation';
@@ -485,7 +485,7 @@ const HomeRealEstateSearchForm: FC<HomeRealEstateSearchFormProps> = ({}) => {
                     prefix={<MagnifyingGlassIcon className="size-4" />}
                     allowClear
                     suffix={
-                      <CoreButton
+                      <ButtonCore
                         type="submit"
                         className="!rounded-none border-l border-l-neutral-500 px-6 !text-pmh-text"
                         label={`${t('HomeRealEstateSearchFormSearch')}!`}
@@ -597,7 +597,7 @@ const HomeRealEstateSearchForm: FC<HomeRealEstateSearchFormProps> = ({}) => {
                 {t('HomeRealEstateSearchFormClearFilter')}
               </div>
 
-              <CoreButton
+              <ButtonCore
                 type="submit"
                 className="!rounded-none border border-neutral-500 px-6 !text-pmh-text"
                 label={`${t('HomeRealEstateSearchFormSearch')}!`}

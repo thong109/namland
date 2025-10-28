@@ -1,6 +1,6 @@
 'use client';
 
-import CoreButton from '@/_components/CoreButton/CoreButton';
+import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import { postEcomEcomContactContactUs } from '@/ecom-sadec-api-client';
 import { useMutation } from '@tanstack/react-query';
 import { Form, Input, Spin } from 'antd';
@@ -160,7 +160,7 @@ const FooterContactForm: FC<IProps> = () => {
           </div>
           <div className="col-span-full mt-[30px]">
             <Spin spinning={contactUsMutation.isPending}>
-              <CoreButton
+              <ButtonCore
                 disabled={contactUsMutation.isPending}
                 className="w-full !rounded-none bg-portal-yellow py-4 text-lg !text-green"
                 type="submit"

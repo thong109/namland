@@ -1,5 +1,5 @@
 'use client';
-import CoreButton from '@/_components/CoreButton/CoreButton';
+import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import AvatarDefault from '@/assets/images/avarta-default.svg';
 import { ModalLoginOpen } from '@/components/Header/ultil/ModalLoginOpen';
 import {
@@ -271,13 +271,13 @@ const InquiryFormComponent = ({ props }) => {
               ),
             })}
           </Checkbox>
-          <CoreButton
+          <ButtonCore
             disabled={!didAceeptTerms || isPending}
             className="mt-4 w-full"
             type="submit"
             label={t('EcomPropertyDetailPageLeaveAnInquiryLeaveInquiry')}
           />
-          <CoreButton
+          <ButtonCore
             disabled={isPending}
             className="mt-4 w-full border border-neutral-500"
             type="button"

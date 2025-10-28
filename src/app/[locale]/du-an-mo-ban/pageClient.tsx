@@ -1,5 +1,5 @@
 'use client';
-import CoreButton from '@/_components/CoreButton/CoreButton';
+import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import { NAVIGATION } from '@/data/navigation';
 import EmptyImage from '@/images/emptyImage.png';
 import { getParamsStringFromObj } from '@/libs/appconst';
@@ -106,7 +106,7 @@ const NewHomePageClient: FC<IProps> = ({ newHomeList, total, currentPage, pageSi
             </Form.Item>
           </div>
           <div className="col-span-12 flex justify-center">
-            <CoreButton
+            <ButtonCore
               type="submit"
               className="px-6 !text-pmh-text"
               label={`${t('HomeRealEstateSearchFormSearch')}!`}
@@ -198,7 +198,7 @@ const NewHomePageClient: FC<IProps> = ({ newHomeList, total, currentPage, pageSi
             </>
           )}
           <div className="col-span-12 flex justify-center">
-            <CoreButton
+            <ButtonCore
               type="submit"
               className="px-6 !text-pmh-text"
               label={`${t('HomeRealEstateSearchFormSearch')}!`}

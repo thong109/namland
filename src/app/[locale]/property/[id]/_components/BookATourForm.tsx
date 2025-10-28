@@ -1,6 +1,6 @@
 'use client';
 
-import CoreButton from '@/_components/CoreButton/CoreButton';
+import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import useCheckScreenSize from '@/components/CheckScreenSize/CheckScreenSize';
 import { ModalLoginOpen } from '@/components/Header/ultil/ModalLoginOpen';
 import MobiDatePicker from '@/components/MobiDatePicker/MobiDatePicker';
@@ -213,7 +213,7 @@ const BookATourForm: React.FC<Props> = (props) => {
           })}
         </Checkbox>
         <div className="flex w-full gap-4">
-          <CoreButton
+          <ButtonCore
             disabled={isPending}
             className="mt-4 w-full border border-neutral-500"
             type="button"
@@ -221,7 +221,7 @@ const BookATourForm: React.FC<Props> = (props) => {
             label={t('EcomPropertyDetailPageLeaveAnInquiryGoBack')}
             onClick={props.closeModal}
           />
-          <CoreButton
+          <ButtonCore
             disabled={!didAceeptTerms || isPending}
             className="mt-4 w-full"
             type="submit"

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 
-interface CoreButtonProps {
+interface ButtonCoreProps {
   preset?: 'primary' | 'secondary' | 'neutral';
   className?: string;
   onClick?: () => void;
@@ -11,7 +11,7 @@ interface CoreButtonProps {
   disabled?: boolean;
 }
 
-const IconButton: React.FC<CoreButtonProps> = ({
+const IconButton: React.FC<ButtonCoreProps> = ({
   preset = 'primary',
   className,
   onClick = () => {},

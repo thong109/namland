@@ -1,4 +1,4 @@
-import CoreButton from '@/_components/CoreButton/CoreButton';
+import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import FloatLabel from '@/_components/FloatLabel';
 import BlockRegister from '@/assets/images/BlockRegistor.svg';
 import appleSvg from '@/images/Apple-White.svg';
@@ -308,7 +308,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
             </>
           )}
           <Spin spinning={isLoading}>
-            <CoreButton
+            <ButtonCore
               disabled={!didAceeptTerms || popupBlock}
               className="w-full"
               type="submit"

@@ -1,4 +1,4 @@
-import CoreButton from '@/_components/CoreButton/CoreButton';
+import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import FloatLabel from '@/_components/FloatLabel';
 import appleSvg from '@/images/Apple-White.svg';
 import googleSvg from '@/images/Google.svg';
@@ -154,7 +154,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ ...props }) => {
             />
           </FloatLabel>
           <Spin spinning={isLoading}>
-            <CoreButton className="w-full" type="submit" label={t('LoginModalLogin')} />
+            <ButtonCore className="w-full" type="submit" label={t('LoginModalLogin')} />
           </Spin>
         </Form>
 

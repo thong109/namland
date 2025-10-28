@@ -1,5 +1,5 @@
 import SelectorChip from '@/components/SelectorChip/SelectorChip';
-import CoreButton from '@/_components/CoreButton/CoreButton';
+import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import {
   amenityType,
   handOverStatuses,
@@ -162,8 +162,8 @@ const AdvanceSearchListing = ({
 
         {!notActionButton && (
           <div className="sticky bottom-0 flex justify-center gap-2 bg-white p-2">
-            <CoreButton onClick={handleReset} preset="neutral" label={t('HomeSearchResetButton')} />
-            <CoreButton type="submit" onClick={handleApply} label={t('HomeSearchAplyButton')} />
+            <ButtonCore onClick={handleReset} preset="neutral" label={t('HomeSearchResetButton')} />
+            <ButtonCore type="submit" onClick={handleApply} label={t('HomeSearchAplyButton')} />
           </div>
         )}
       </Form>

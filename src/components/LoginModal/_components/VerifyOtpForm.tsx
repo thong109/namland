@@ -1,4 +1,4 @@
-import CoreButton from '@/_components/CoreButton/CoreButton';
+import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import { postEcomMobileV1EcomAccountResendOtp } from '@/ecom-sadec-api-client';
 import { Form, Input, Spin } from 'antd';
 import { Rule } from 'antd/es/form';
@@ -137,7 +137,7 @@ const VerifyOtpForm: React.FC<VerifyOtpFormProps> = ({
           <Input.OTP autoFocus length={4} />
         </Form.Item>
         <Spin spinning={isLoading}>
-          <CoreButton
+          <ButtonCore
             className="w-full"
             type="submit"
             label={type === 'registration' ? t('LoginModalRegister') : t('LoginModalLogin')}

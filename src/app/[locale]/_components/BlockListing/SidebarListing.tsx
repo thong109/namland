@@ -1,6 +1,6 @@
 'use client';
 import SelectorChip from '@/components/SelectorChip/SelectorChip';
-import CoreButton from '@/_components/CoreButton/CoreButton';
+import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import Range from '@/components/Range/Range';
 import { NAVIGATION } from '@/data/navigation';
 import { getEcomEcomPlaceGetDistrict, getEcomEcomPlaceGetWard } from '@/ecom-sadec-api-client';
@@ -374,14 +374,14 @@ const SidebarListing: FC<IProps> = ({
             </div>
           </div>
           <div className='form-common-listing__controller'>
-            <CoreButton
+            <ButtonCore
               onClick={resetFilter}
               preset='neutral'
               className='bg-[#B2B2B2]'
               buttonType='destroy'
               label={t('HomeRealEstateSearchFormClearFilter')}
             />
-            <CoreButton type='submit' label={t('HomeRealEstateSearchFormSearch')} />
+            <ButtonCore type='submit' label={t('HomeRealEstateSearchFormSearch')} />
           </div>
         </Form>
       </div>

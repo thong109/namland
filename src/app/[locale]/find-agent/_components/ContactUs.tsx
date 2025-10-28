@@ -3,7 +3,7 @@
 import { Input, Spin, Typography } from 'antd';
 import { useTranslations } from 'next-intl';
 
-import CoreButton from '@/_components/CoreButton/CoreButton';
+import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import { postEcomOwnerInquiryCreate } from '@/ecom-sadec-api-client';
 import useKeywordBanned from '@/hooks/useKeywordBaned';
 import { checkValidText } from '@/libs/appconst';
@@ -222,7 +222,7 @@ const ContactUs: React.FC<IProps> = ({ data, ...props }) => {
           </div>
           <div className="mt-[10px] lg:mt-[30px]">
             <Spin spinning={btnLoading}>
-              <CoreButton
+              <ButtonCore
                 className="w-full border border-neutral-500 px-6 !text-pmh-text"
                 type="submit"
                 label={t('EcomIamOwnerPageSubmit')}

@@ -1,5 +1,5 @@
 'use client';
-import CoreButton from '@/_components/CoreButton/CoreButton';
+import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import { Carousel, Typography } from 'antd';
 import { useTranslations } from 'next-intl';
 import Link from 'next-intl/link';
@@ -93,7 +93,7 @@ const HomePageOurOwnerService: React.FC<IProps> = ({ data, ...props }) => {
 
       <div className="mt-4 flex justify-center">
         <Link href={{ pathname: `/i-am-owner` }}>
-          <CoreButton className="w-fit" label={t('HomePageOurExploreOwnerServices')} />
+          <ButtonCore className="w-fit" label={t('HomePageOurExploreOwnerServices')} />
         </Link>
       </div>
     </div>
