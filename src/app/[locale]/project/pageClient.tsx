@@ -69,7 +69,7 @@ const PageProjectClient: FC<IProps> = ({ projectList, total, currentPage, pageSi
         <div className="container">
           <div>
             <div className="mb-6">
-              <div className="grid grid-cols-12 gap-[30px]">
+              <div className="grid grid-cols-12 gap-4 md:gap-[30px]">
                 {projectList.map((item, index) => (
                   <div className="col-span-12 sm:col-span-6 lg:col-span-4" key={`prj-${index}`}>
                     <ProjectCardItem data={item} />
