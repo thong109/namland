@@ -8,33 +8,33 @@ import React from 'react';
 import ListingCarousel from '../ListingCarousel/ListingCarousel';
 import PriceNumberText from '../PriceNumberText/PriceNumberText';
 import AddToFavoriteButton from './_component/AddToFavoriteButton';
-import ListingCardProjectInfo from './_component/ListingCardProjectInfo';
-import ListingCardRibbon from './_component/ListingCardRibbon';
+import CardListingProjectInfo from './_component/CardListingProjectInfo';
+import CardListingRibbon from './_component/CardListingRibbon';
 
-interface ListingCardGoldProps {
+interface CardListingPlatinumProps {
   className?: string;
   listing: any;
 }
 
-const ListingCardGold: React.FC<ListingCardGoldProps> = ({ className, listing }) => {
+const CardListingPlatinum: React.FC<CardListingPlatinumProps> = ({ className, listing }) => {
   const t = useTranslations('webLabel');
+
+  const enumTranslator = useTranslations('enum');
 
   const listingDetail: any = listing;
   const { project } = listing;
-
   const listingUrl = getListingUrl(listingDetail.id, listingDetail.title);
 
   return (
     <div className={clsx('relative h-full transition-all ease-linear', className)}>
-      <ListingCardRibbon variant="gold" />
-      <ListingCardProjectInfo className={'left-0 top-44'} project={project} />
+      <CardListingRibbon variant="platinum" />
+      <CardListingProjectInfo className={'left-0 top-44'} project={project} />
       <div className="flex h-full flex-col border border-neutral-500 bg-neutral-0">
-        {/* <Link href={listingUrl} className="relative hover:text-[unset]"> */}
         <div className="relative h-56 w-full overflow-hidden hover:text-[unset]">
           <ListingCarousel
             className="!hidden lg:!block"
-            slidesPerRow={1}
-            hasArrow={listingDetail?.imageThumbnailUrls?.length > 1}
+            slidesPerRow={3}
+            hasArrow={listingDetail?.imageThumbnailUrls?.length > 3}
             items={listingDetail?.imageThumbnailUrls?.map((image: any, index: number) => (
               <Link href={listingUrl} key={index} className="relative h-[14rem] overflow-hidden">
                 <Image
@@ -48,7 +48,6 @@ const ListingCardGold: React.FC<ListingCardGoldProps> = ({ className, listing })
             ))}
           />
         </div>
-        {/* </Link> */}
         <div className="flex flex-col gap-2 border-b border-neutral-400 p-2">
           <div className="grid grid-cols-12">
             <Link
@@ -80,23 +79,23 @@ const ListingCardGold: React.FC<ListingCardGoldProps> = ({ className, listing })
                 displayPriceType={listingDetail?.displayPriceType}
               />
             </label>
-            <div className="col-span-2 flex flex-col flex-wrap items-center justify-center p-2">
+            <div className="col-span-1 flex flex-col flex-wrap items-center justify-center p-2">
               <label className="mr-1 font-bold">{listingDetail.bedrooms}</label>
               {t('EcomHomePageRecentListingsForSaleBeds')}
             </div>
-            <div className="col-span-2 flex flex-col flex-wrap items-center justify-center p-2">
+            <div className="col-span-1 flex flex-col flex-wrap items-center justify-center p-2">
               <label className="mr-1 font-bold">{listingDetail.bathrooms}</label>
               {t('EcomHomePageRecentListingsForSaleBaths')}
             </div>
-            <div className="col-span-2 flex flex-col flex-wrap items-center justify-center p-2">
+            <div className="col-span-1 flex flex-col flex-wrap items-center justify-center p-2">
               <label className="mr-1 font-bold">{listingDetail.size}</label>
               <label>
                 m<sup>2</sup>
               </label>
             </div>
-          </div>
-          <div className="flex items-center justify-center bg-portal-primaryButtonAdmin p-4 font-bold text-neutral-0">
-            {t('EcomHomePageInquireNow')}
+            <div className="col-span-3 flex items-center justify-center bg-portal-primaryButtonAdmin p-4 font-bold text-neutral-0">
+              {t('EcomHomePageInquireNow')}
+            </div>
           </div>
         </Link>
       </div>
@@ -104,4 +103,4 @@ const ListingCardGold: React.FC<ListingCardGoldProps> = ({ className, listing })
   );
 };
 
-export default ListingCardGold;
+export default CardListingPlatinum;

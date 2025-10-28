@@ -1,5 +1,5 @@
 import CarouselWithArrow from '@/app/[locale]/_components/CarouselWithArrow/CarouselWithArrow';
-import ListingCardHomePage from '@/components/ListingCard/ListingCard.HomePage';
+import CardListingHomePage from '@/components/CardListing/CardListing.HomePage';
 import { Spin } from 'antd';
 import clsx from 'clsx';
 import { FC } from 'react';
@@ -17,7 +17,7 @@ export const SectionHomePageListingCarouselClient: FC<IProps> = ({ isLoading, li
         slidesPerRow={4}
         items={listingState?.data?.data?.map((item) => (
           <div key={item.id} className="h-full">
-            <ListingCardHomePage listing={item} className="px-2" />
+            <CardListingHomePage listing={item} className="px-2" />
           </div>
         ))}
       />
@@ -25,7 +25,7 @@ export const SectionHomePageListingCarouselClient: FC<IProps> = ({ isLoading, li
       <div className={clsx('flex overflow-x-auto max-lg:gap-4 lg:hidden')}>
         {listingState?.data?.data?.map((item) => (
           <div key={item.id} className={clsx('h-full max-lg:w-80 max-lg:min-w-80', 'lg:square')}>
-            <ListingCardHomePage listing={item} className="px-2" />
+            <CardListingHomePage listing={item} className="px-2" />
           </div>
         ))}
       </div>

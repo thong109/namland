@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import React from 'react';
 
-interface ListingCardHomePageProps {
+interface CardListingHomePageProps {
   urls: any;
 }
 
-const ListingCardHomePageImage: React.FC<ListingCardHomePageProps> = ({ urls }) => {
+const CardListingHomePageImage: React.FC<CardListingHomePageProps> = ({ urls }) => {
   if (!urls) {
     return null;
   }
@@ -15,4 +15,4 @@ const ListingCardHomePageImage: React.FC<ListingCardHomePageProps> = ({ urls }) 
   );
 };
 
-export default ListingCardHomePageImage;
+export default CardListingHomePageImage;

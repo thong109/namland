@@ -11,12 +11,12 @@ import AddToFavoriteButton from './_component/AddToFavoriteButton';
 import LeaveInquiryButton from './_component/LeaveInquiryButton';
 import PropertyInfoBox from './_component/PropertyInfoBox';
 
-interface ListingCardPlatinumProps {
+interface CardListingPlatinumProps {
   className?: string;
   listing: any;
 }
 
-const ListingCardPlatinum: React.FC<ListingCardPlatinumProps> = ({ className, listing }) => {
+const CardListingPlatinum: React.FC<CardListingPlatinumProps> = ({ className, listing }) => {
   const locale = useLocale();
 
   const enumTranslator = useTranslations('enum');
@@ -83,4 +83,4 @@ const ListingCardPlatinum: React.FC<ListingCardPlatinumProps> = ({ className, li
   );
 };
 
-export default ListingCardPlatinum;
+export default CardListingPlatinum;

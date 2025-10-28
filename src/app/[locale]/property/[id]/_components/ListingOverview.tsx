@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import React from 'react';
 import FavoriteButton from './ListingOverview.FavoriteButton';
 import ShareButton from './ListingOverview.ShareButton';
-import PropertyInfoBox from '@/components/ListingCard/_component/PropertyInfoBox';
+import PropertyInfoBox from '@/components/CardListing/_component/PropertyInfoBox';
 
 interface ListingOverviewProps {
   locale: string;
