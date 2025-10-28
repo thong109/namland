@@ -69,6 +69,7 @@ module.exports = {
             5: '#6E7987',
             6: '#555555',
             7: '#444444',
+            8: '#9A9A9A',
             border: '#D9D9D9',
           },
           purple: {
@@ -192,6 +193,7 @@ module.exports = {
         normal: '1.5',
         relaxed: '1.625',
         loose: '2',
+        1.3: 'calc(25/18)',
         1.4: 'calc(35/24)',
         1.5: 'calc(28/18)',
         3: '.75rem',      // 12px

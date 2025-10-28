@@ -1,7 +1,7 @@
 'use client';
 
+import CardListingHomePage from '@/components/CardListing/CardListing.HomePage';
 import SelectorChip from '@/components/SelectorChip/SelectorChip';
-import CardListingHomePage from '@/app/[locale]/_components/CardListing/CardListing.HomePage';
 import { NAVIGATION } from '@/data/navigation';
 import {
   ElasticSearchQuery,

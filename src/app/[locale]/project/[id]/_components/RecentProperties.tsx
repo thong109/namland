@@ -1,4 +1,4 @@
-import CardListing from '@/app/[locale]/_components/CardListing/CardListing';
+import CardListing from '@/components/CardListing/CardListing';
 import { NAVIGATION } from '@/data/navigation';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
