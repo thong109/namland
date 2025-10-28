@@ -77,20 +77,18 @@ const PageProjectClient: FC<IProps> = ({ projectList, total, currentPage, pageSi
                 ))}
               </div>
               {total > 0 && (
-                <div className="mt-6">
-                  <div className="mt-3 flex w-full justify-center">
-                    <Pagination
-                      current={currentPage}
-                      total={total}
-                      pageSize={pageSize}
-                      showSizeChanger={false}
-                      itemRender={(page, type, originalElement) => (
-                        <Link legacyBehavior href={`${NAVIGATION.projectList.href}?page=${page}`}>
-                          {originalElement}
-                        </Link>
-                      )}
-                    />
-                  </div>
+                <div className="pagination-common">
+                  <Pagination
+                    current={currentPage}
+                    total={total}
+                    pageSize={pageSize}
+                    showSizeChanger={false}
+                    itemRender={(page, type, originalElement) => (
+                      <Link legacyBehavior href={`${NAVIGATION.projectList.href}?page=${page}`}>
+                        {originalElement}
+                      </Link>
+                    )}
+                  />
                 </div>
               )}
             </div>

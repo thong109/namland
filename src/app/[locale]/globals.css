@@ -31,11 +31,28 @@ input,select,textarea {
 }
 
 .pagination-common .ant-pagination .ant-pagination-item {
-  @apply border-[1px] border-[#000] flex justify-center items-center text-[18px] leading-[calc(24/18)] font-[600];
+  @apply border-[1px] border-[#000] flex justify-center items-center text-[18px] leading-[calc(24/18)] font-semibold;
 }
 
 .pagination-common .ant-pagination .ant-pagination-item-active {
   @apply border-[#982220] bg-[#982220];
+}
+
+.pagination-common .ant-pagination-item {
+  @apply rounded-full hover:!bg-portal-primaryLiving hover:!text-white;
+}
+
+.pagination-common .ant-pagination-item:hover a {
+  @apply text-white;
+}
+
+.pagination-common .ant-pagination-next,
+.pagination-common .ant-pagination-prev {
+  @apply !bg-transparent hover:!bg-transparent;
+}
+
+.pagination-common .ant-pagination-item-link {
+  @apply !rounded-full hover:!bg-transparent;
 }
 
 .line-clamp-2 {
