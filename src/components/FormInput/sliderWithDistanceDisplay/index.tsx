@@ -1,8 +1,9 @@
 import { Slider } from 'antd';
-import { RangeProps, SliderSingleProps } from 'antd/es/slider';
+import { SliderRangeProps , SliderSingleProps } from 'antd/es/slider';
 import { SliderRef } from 'rc-slider';
 import React from 'react';
 import './index.scss';
+
 type InputProps = {
   markerFormatter?: (value: number) => string;
   displayDistance?: string;
@@ -10,7 +11,7 @@ type InputProps = {
 
 const SliderWithHomeFilterDisplay = React.forwardRef<
   SliderRef,
-  (RangeProps | SliderSingleProps) & InputProps
+  (SliderRangeProps | SliderSingleProps) & InputProps
 >((props, ref) => {
   // const [marks, setMarks] = useState<SliderMarks>({});
 
