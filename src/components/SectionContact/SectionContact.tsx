@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Form, Input, Spin, Typography } from 'antd';
-import CoreButton from '@/_components/CoreButton/CoreButton';
+import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import { useLocale, useTranslations } from 'next-intl';
 import { TypeOptions, toast } from 'react-toastify';
 import { postEcomEcomContactContactUs } from '@/ecom-sadec-api-client';
@@ -124,7 +124,7 @@ export default function SectionContact() {
             </div>
             <div className="form-common-contact__controller">
               <Spin spinning={buttonLoading}>
-                <CoreButton className="form-common-contact__controller-submit" type="submit" label={t('HomePageContactUsPageSubmit')} />
+                <ButtonCore className="form-common-contact__controller-submit" type="submit" label={t('HomePageContactUsPageSubmit')} />
               </Spin>
             </div>
           </Form>

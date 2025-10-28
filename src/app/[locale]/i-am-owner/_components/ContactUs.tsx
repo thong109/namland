@@ -1,6 +1,6 @@
 // import iamOwnerStore from '@/stores/iamOwnerStore';
 'use client';
-import CoreButton from '@/_components/CoreButton/CoreButton';
+import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import IconClock from '@/assets/icon/icon-clock-us.svg';
 import IconLocation from '@/assets/icon/icon-location-us.svg';
 import IconPhone from '@/assets/icon/icon-phone-us.svg';
@@ -306,7 +306,7 @@ const ContactUs: React.FC<IProps> = ({ data, ...props }) => {
           </Checkbox>
           <div className="mt-[10px] lg:mt-[30px]">
             <Spin spinning={btnLoading}>
-              <CoreButton
+              <ButtonCore
                 disabled={!didAceeptTerms}
                 className="w-full"
                 type="submit"

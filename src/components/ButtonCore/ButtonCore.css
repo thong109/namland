@@ -1,0 +1,27 @@
+.button-common-core {
+  @apply min-w-[160px] min-h-[39px] rounded-[5px] flex items-center justify-center;
+}
+
+.button-common-core--neutral {
+  @apply border-[1px] border-[#982220] bg-neutral-0 text-[#fff];
+}
+
+.button-common-core--primary {
+  @apply bg-[#982220] font-[700] text-[#fff];
+}
+
+.button-common-core--primary-disabled {
+  @apply bg-opacity-50;
+}
+
+.button-common-core__icon {
+  @apply ml-[10px] block flex-[0_0_auto] bg-[100%_auto] bg-center bg-no-repeat;
+}
+
+.button-common-core__icon--search {
+  @apply w-[17px] h-[18px];
+}
+
+.button-common-core__icon--close {
+  @apply w-[24px] h-[24px];
+}

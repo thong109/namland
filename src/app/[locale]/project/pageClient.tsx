@@ -1,5 +1,5 @@
 'use client';
-import CoreButton from '@/_components/CoreButton/CoreButton';
+import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import { NAVIGATION } from '@/data/navigation';
 import { getParamsStringFromObj } from '@/libs/appconst';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
@@ -53,7 +53,7 @@ const PageProjectClient: FC<IProps> = ({ projectList, total, currentPage, pageSi
               <Input
                 placeholder={t('ProjectListingSearchPlaceholder')}
                 suffix={
-                  <CoreButton
+                  <ButtonCore
                     type="submit"
                     buttonType='search'
                     className="!rounded-none border-l border-l-neutral-500 !p-[6px_1.5rem_4px] w-40"

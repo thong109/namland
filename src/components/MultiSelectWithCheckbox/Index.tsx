@@ -1,4 +1,4 @@
-import CoreButton from '@/_components/CoreButton/CoreButton';
+import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import { filterOptionsRemoveVietnameseTones } from '@/libs/helper';
 import { Checkbox, Divider, Select } from 'antd';
 import { useTranslations } from 'next-intl';
@@ -87,7 +87,7 @@ const MultiSelectWithCheckbox = ({
             >
               {t('HomeSearchResetButton')}
             </button>
-            <CoreButton
+            <ButtonCore
               onClick={handleApply}
               className="!rounded-none border border-neutral-500 !px-1 !py-1 !text-pmh-text"
               label={`${t('HomeSearchAplyButton')}`}
