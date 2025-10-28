@@ -1,6 +1,6 @@
 import NumberFormatPrice from '@/components/NumberFormatPrice/NumberFormatPrice';
 import { Slider } from 'antd';
-import { RangeProps, SliderSingleProps } from 'antd/es/slider';
+import { SliderRangeProps, SliderSingleProps } from 'antd/es/slider';
 import { SliderRef } from 'rc-slider';
 import React, { useState } from 'react';
 import './index.scss';
@@ -10,7 +10,7 @@ type InputProps = {
 
 const SliderWithHomeFilterDisplay = React.forwardRef<
   SliderRef,
-  (RangeProps | SliderSingleProps) & InputProps
+  (SliderRangeProps | SliderSingleProps) & InputProps
 >((props, ref) => {
   // const [marks, setMarks] = useState<SliderMarks>({});
   const [oldMarks, setOldMarks] = useState<[number, number]>([0, 0]);
