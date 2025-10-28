@@ -1,13 +1,9 @@
 .button-common-core {
-  @apply min-w-[160px] min-h-[39px] rounded-[5px] flex items-center justify-center;
+  @apply min-w-[160px] min-h-[39px] p-[5px_20px] rounded-[5px] border-[1px] border-[#982220] bg-[#982220] flex items-center justify-center font-[600] text-[#fff];
 }
 
 .button-common-core--neutral {
-  @apply border-[1px] border-[#982220] bg-neutral-0 text-[#fff];
-}
-
-.button-common-core--primary {
-  @apply bg-[#982220] font-[700] text-[#fff];
+  @apply border-[1px] border-[#b2b2b2] bg-[#b2b2b2];
 }
 
 .button-common-core--primary-disabled {
@@ -15,13 +11,9 @@
 }
 
 .button-common-core__icon {
-  @apply ml-[10px] block flex-[0_0_auto] bg-[100%_auto] bg-center bg-no-repeat;
+  @apply w-[24px] h-[29px] mr-[-12px] ml-[8px] block flex-[0_0_auto] bg-[length:100%_auto] bg-[position:50%_50%] bg-no-repeat;
 }
 
 .button-common-core__icon--search {
-  @apply w-[17px] h-[18px];
-}
-
-.button-common-core__icon--close {
-  @apply w-[24px] h-[24px];
+  @apply bg-[length:17px_auto];
 }

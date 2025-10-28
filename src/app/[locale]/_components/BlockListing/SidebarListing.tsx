@@ -375,13 +375,12 @@ const SidebarListing: FC<IProps> = ({
           </div>
           <div className='form-common-listing__controller'>
             <ButtonCore
-              onClick={resetFilter}
               preset='neutral'
-              className='bg-[#B2B2B2]'
+              onClick={resetFilter}
               buttonType='destroy'
               label={t('HomeRealEstateSearchFormClearFilter')}
             />
-            <ButtonCore type='submit' label={t('HomeRealEstateSearchFormSearch')} />
+            <ButtonCore buttonType='search' label={t('HomeRealEstateSearchFormSearch')} />
           </div>
         </Form>
       </div>
