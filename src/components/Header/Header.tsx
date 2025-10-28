@@ -136,7 +136,7 @@ const Header = ({ className, navType }: { className: string; navType: string }) 
             <div className='navigation-header-inside'>
               <ul className='navigation-header-inside__wrapper'>
                 {navigationHeaderData.map((item) => (
-                  <li className='navigation-header-inside__item'>
+                  <li className='navigation-header-inside__item' key={item.id}>
                     <span className='navigation-header-inside__item-label' onClick={() => { toggleNavigation(false); push(item.href) }}>{t(item.name)}</span>
                   </li>
                 ))}

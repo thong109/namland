@@ -56,7 +56,7 @@ const PageProjectClient: FC<IProps> = ({ projectList, total, currentPage, pageSi
                   <ButtonCore
                     type="submit"
                     buttonType='search'
-                    className="!rounded-none border-l border-l-neutral-500 !p-[6px_1.5rem_4px] w-40"
+                    className="!rounded-none border-l border-l-neutral-500 !p-[6px_1.5rem_4px] !min-h-[34px] w-40"
                     label={`${t('HomeRealEstateSearchFormSearch')}`}
                   />
                 }

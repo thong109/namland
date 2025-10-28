@@ -1,15 +1,23 @@
-import NumberTrim from '@/components/NumberTrim/NumberTrim';
+import React, { useState } from 'react';
 import { Slider } from 'antd';
+import NumberTrim from '@/components/NumberTrim/NumberTrim';
 import './Range.css';
 
 export interface InputProps {
   min?: number;
   max?: number;
-  value?: [number, number];
+  defaultValue?: [number, number];
   onChange?: (value: [number, number]) => void;
 }
 
-const Range = ({ min = 0, max = 20000000000, value = [min, max], onChange }: InputProps) => {
+const Range = ({ min = 0, max = 20000000000, defaultValue = [min, max], onChange }: InputProps) => {
+  const [value, setValue] = useState<[number, number]>(defaultValue);
+
+  const handleChange = (val: [number, number]) => {
+    setValue(val);
+    onChange?.(val); 
+  };
+
   const marks = {
     [value[0]]: {
       label: (
@@ -28,18 +36,16 @@ const Range = ({ min = 0, max = 20000000000, value = [min, max], onChange }: Inp
   };
 
   return (
-    <>
-      <Slider
-        className='range-common'
-        range
-        marks={marks}
-        onChange={onChange}
-        min={min}
-        max={max}
-        value={value}
-        tooltip={{ open: false }}
-      />
-    </>
+    <Slider
+      className='range-common'
+      range
+      marks={marks}
+      onChange={handleChange}
+      min={min}
+      max={max}
+      value={value}
+      tooltip={{ open: false }}
+    />
   );
 };
 
