@@ -115,263 +115,265 @@ const SidebarListing: FC<IProps> = ({
     <div className={`sidebar-common-listing ${className}`}>
       <div className='sidebar-common-listing__wrapper'>
         <Form className='form-common-listing' form={formRef} size='large' layout='vertical' onFinish={onSubmit}>
-          <div className='form-common-listing__entry form-common-listing__entry--basic'>
-            <div className='form-common-listing__entry-wrapper form-common-listing__entry-wrapper--width-full'>
-              <Form.Item className='form-common-listing__entry-item' name='k'>
-                <Input
-                  className='input-common-listing input-common-listing--search'
-                  placeholder={t('ListingSearchPlaceholderKeyword')}
-                  style={{ backgroundImage: `url(${assetsImages.commonIconSearch.src})` }}
-                  allowClear
-                />
-              </Form.Item>
-              <Form.Item className='form-common-listing__entry-item' name='c'>
+          <div className='form-common-listing__wrapper'>
+            <div className='form-common-listing__entry form-common-listing__entry--basic'>
+              <div className='form-common-listing__entry-wrapper form-common-listing__entry-wrapper--width-full'>
+                <Form.Item className='form-common-listing__entry-item' name='k'>
+                  <Input
+                    className='input-common-listing input-common-listing--search'
+                    placeholder={t('ListingSearchPlaceholderKeyword')}
+                    style={{ backgroundImage: `url(${assetsImages.commonIconSearch.src})` }}
+                    allowClear
+                  />
+                </Form.Item>
+                <Form.Item className='form-common-listing__entry-item' name='c'>
+                  <Select
+                    className='select-common-listing'
+                    mode='multiple'
+                    allowClear
+                    placeholder={t('ListingSearchPlaceholderCategories')}
+                  >
+                    {properties?.map((property) => (
+                      <Select.Option key={property.id} value={property.id}>
+                        {property.name}
+                      </Select.Option>
+                    ))}
+                  </Select>
+                </Form.Item>
+                <Form.Item className='form-common-listing__entry-item' name='prjs'>
+                  <Select
+                    className='select-common-listing'
+                    mode='multiple'
+                    allowClear
+                    filterOption={filterOptionsRemoveVietnameseTones}
+                    placeholder={t('EcomHomePageMenuProjects')}
+                  >
+                    {projects?.map((project) => (
+                      <Select.Option key={project.id} value={project.id}>
+                        {project.name}
+                      </Select.Option>
+                    ))}
+                  </Select>
+                </Form.Item>
+              </div>
+            </div>
+            <div className='form-common-listing__entry form-common-listing__entry--wrapping'>
+              <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormBedroom')}</span>
+              <div className='form-common-listing__entry-wrapper'>
+                <Form.Item className='form-common-listing__entry-item' name='br'>
+                  <SelectorChip
+                    multiple
+                    options={[
+                      { name: '1', id: 1 },
+                      { name: '2', id: 2 },
+                      { name: '3', id: 3 },
+                      { name: '4', id: 4 },
+                      { name: '5', id: 5 },
+                      { name: '6+', id: 6 },
+                    ]}
+                  />
+                </Form.Item>
+              </div>
+            </div>
+            <div className='form-common-listing__entry form-common-listing__entry--wrapping'>
+              <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormBathroom')}</span>
+              <div className='form-common-listing__entry-wrapper'>
+                <Form.Item className='form-common-listing__entry-item' name='bathr'>
+                  <SelectorChip
+                    multiple
+                    options={[
+                      { name: '1', id: 1 },
+                      { name: '2', id: 2 },
+                      { name: '3', id: 3 },
+                      { name: '4', id: 4 },
+                      { name: '5', id: 5 },
+                      { name: '6+', id: 6 },
+                    ]}
+                  />
+                </Form.Item>
+              </div>
+            </div>
+            <div className='form-common-listing__entry form-common-listing__entry--range'>
+              <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormPrice')}</span>
+              <div className='form-common-listing__entry-wrapper'>
+                <Range min={0} max={type === listingType.rent ? 100000000 : 20000000000} />
+              </div>
+            </div>
+            <div className='form-common-listing__entry form-common-listing__entry--range'>
+              <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormSize')}</span>
+              <div className='form-common-listing__entry-wrapper'>
+                <Range min={0} max={500} />
+              </div>
+            </div>
+            <div className='form-common-listing__entry form-common-listing__entry--stacked'>
+              <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormLocation')}</span>
+              <div className='form-common-listing__entry-wrapper'>
+                <Form.Item className='form-common-listing__entry-item' name='p'>
+                  <Select
+                    className='select-common-listing'
+                    placeholder={t('ListingSearchPlaceholderProvince')}
+                    showSearch
+                    filterOption={filterOptionsRemoveVietnameseTones}
+                    allowClear
+                    onChange={getDistricts}
+                    options={provinces?.map((province) => ({
+                      value: province.provinceID,
+                      label: province.listProvinceName,
+                      id: province.provinceID,
+                    }))}
+                  />
+                </Form.Item>
+                <Form.Item className='form-common-listing__entry-item' name='d'>
+                  <Select
+                    className='select-common-listing'
+                    placeholder={t('ListingSearchPlaceholderDistrict')}
+                    showSearch
+                    filterOption={filterOptionsRemoveVietnameseTones}
+                    allowClear
+                    onChange={getWards}
+                    options={districts?.map((district) => ({
+                      value: district.listDistrictID,
+                      label: district.nameDisplay,
+                      id: district.listDistrictID,
+                    }))}
+                  />
+                </Form.Item>
+                <Form.Item className='form-common-listing__entry-item' name='w'>
+                  <Select
+                    className='select-common-listing'
+                    placeholder={t('ListingSearchPlaceholderWard')}
+                    showSearch
+                    filterOption={filterOptionsRemoveVietnameseTones}
+                    allowClear
+                    options={wards?.map((ward) => ({
+                      value: ward.listWardID,
+                      label: ward.nameDisplay,
+                      id: ward.listWardID,
+                    }))}
+                  />
+                </Form.Item>
+              </div>
+            </div>
+            <div className='form-common-listing__entry form-common-listing__entry--stacked'>
+              <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormView')}</span>
+              <div className='form-common-listing__entry-wrapper'>
                 <Select
                   className='select-common-listing'
-                  mode='multiple'
+                  placeholder={t('HomeRealEstateSearchFormView')}
                   allowClear
-                  placeholder={t('ListingSearchPlaceholderCategories')}
+                  filterOption={filterOptionsRemoveVietnameseTones}
                 >
-                  {properties?.map((property) => (
-                    <Select.Option key={property.id} value={property.id}>
-                      {property.name}
+                  {views?.map((view) => (
+                    <Select.Option key={view.id} value={view.id}>
+                      {view.name}
                     </Select.Option>
                   ))}
                 </Select>
-              </Form.Item>
-              <Form.Item className='form-common-listing__entry-item' name='prjs'>
-                <Select
-                  className='select-common-listing'
-                  mode='multiple'
-                  allowClear
-                  filterOption={filterOptionsRemoveVietnameseTones}
-                  placeholder={t('EcomHomePageMenuProjects')}
-                >
-                  {projects?.map((project) => (
-                    <Select.Option key={project.id} value={project.id}>
-                      {project.name}
-                    </Select.Option>
-                  ))}
-                </Select>
-              </Form.Item>
+              </div>
+            </div>
+            <div className='form-common-listing__entry form-common-listing__entry--stacked'>
+              <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormFurnitureStatus')}</span>
+              <div className='form-common-listing__entry-wrapper'>
+                <Form.Item className='form-common-listing__entry-item' name='i'>
+                  <SelectorChip
+                    className='selector-common-chip--blocky'
+                    options={funitureStatus?.map((item) => ({
+                      id: item.id,
+                      name: item.interiorName,
+                    }))}
+                  />
+                </Form.Item>
+              </div>
+            </div>
+            <div className='form-common-listing__entry form-common-listing__entry--stacked'>
+              <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormLegalStatus')}</span>
+              <div className='form-common-listing__entry-wrapper'>
+                <Form.Item className='form-common-listing__entry-item' name='lS'>
+                  <SelectorChip
+                    className='selector-common-chip--blocky'
+                    hasAny
+                    multiple
+                    options={legalStatuses.map((item) => ({
+                      id: item.id,
+                      name: t(item.name),
+                    }))}
+                  />
+                </Form.Item>
+              </div>
+            </div>
+            <div className='form-common-listing__entry form-common-listing__entry--stacked'>
+              <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormHandoverStatus')}</span>
+              <div className='form-common-listing__entry-wrapper'>
+                <Form.Item className='form-common-listing__entry-item' name='hS' >
+                  <SelectorChip
+                    className='selector-common-chip--blocky'
+                    hasAny
+                    options={handOverStatuses.map((item) => ({
+                      id: item.id,
+                      name: t(item.name),
+                    }))}
+                  />
+                </Form.Item>
+              </div>
+            </div>
+            <div className='form-common-listing__entry form-common-listing__entry--wrapping'>
+              <span className='form-common-listing__entry-label'>{t('ListingSearchFormCreateTime')}</span>
+              <div className='form-common-listing__entry-wrapper'>
+                <Form.Item className='form-common-listing__entry-item'>
+                  <Radio.Group className='radio-common-listing'>
+                    <Radio value={false}>{comm('NewestFirst')}</Radio>
+                    <Radio value={true}>{comm('OldestFirst')}</Radio>
+                  </Radio.Group>
+                </Form.Item>
+              </div>
+            </div>
+            <div className='form-common-listing__entry form-common-listing__entry--stacked'>
+              <span className='form-common-listing__entry-label'>{t('inDoorAmenities')}</span>
+              <div className='form-common-listing__entry-wrapper'>
+                <Form.Item className='form-common-listing__entry-item' name='inA' valuePropName='checked'>
+                  <Checkbox.Group
+                    className='checkbox-common-listing'
+                    defaultValue={searchParams.inA}
+                    options={inAmenities.map((amenity) => ({
+                      value: amenity.id,
+                      label: amenity.name,
+                    }))}
+                  />
+                </Form.Item>
+              </div>
+            </div>
+            <div className='form-common-listing__entry form-common-listing__entry--stacked'>
+              <span className='form-common-listing__entry-label'>{t('outDoorAmenities')}</span>
+              <div className='form-common-listing__entry-wrapper'>
+                <Form.Item className='form-common-listing__entry-item' name='outA' valuePropName='checked'>
+                  <Checkbox.Group
+                    className='checkbox-common-listing'
+                    defaultValue={searchParams.outA}
+                    options={outAmenities.map((amenity) => ({
+                      value: amenity.id,
+                      label: amenity.name,
+                    }))}
+                  />
+                </Form.Item>
+              </div>
+            </div>
+            <div className='form-common-listing__entry form-common-listing__entry--end'>
+              <span className='form-common-listing__entry-label'>{t('ListingSearchContentLanguage')}</span>
+              <div className='form-common-listing__entry-wrapper'>
+                <Form.Item className='form-common-listing__entry-item' name='lan' valuePropName='checked'>
+                  <Checkbox.Group
+                    className='checkbox-common-listing'
+                    defaultValue={searchParams.lan}
+                    options={listLangue.map((lan) => ({
+                      value: lan.name,
+                      label: lan.displayName,
+                    }))}
+                  />
+                </Form.Item>
+              </div>
             </div>
           </div>
-          <div className='form-common-listing__entry form-common-listing__entry--selectorchip'>
-            <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormBedroom')}</span>
-            <div className='form-common-listing__entry-wrapper'>
-              <Form.Item className='form-common-listing__entry-item' name='br'>
-                <SelectorChip
-                  multiple
-                  options={[
-                    { name: '1', id: 1 },
-                    { name: '2', id: 2 },
-                    { name: '3', id: 3 },
-                    { name: '4', id: 4 },
-                    { name: '5', id: 5 },
-                    { name: '6+', id: 6 },
-                  ]}
-                />
-              </Form.Item>
-            </div>
-          </div>
-          <div className='form-common-listing__entry form-common-listing__entry--selectorchip'>
-            <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormBathroom')}</span>
-            <div className='form-common-listing__entry-wrapper'>
-              <Form.Item className='form-common-listing__entry-item' name='bathr'>
-                <SelectorChip
-                  multiple
-                  options={[
-                    { name: '1', id: 1 },
-                    { name: '2', id: 2 },
-                    { name: '3', id: 3 },
-                    { name: '4', id: 4 },
-                    { name: '5', id: 5 },
-                    { name: '6+', id: 6 },
-                  ]}
-                />
-              </Form.Item>
-            </div>
-          </div>
-          <div className='form-common-listing__entry form-common-listing__entry--range'>
-            <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormPrice')}</span>
-            <div className='form-common-listing__entry-wrapper'>
-              <Range min={0} max={type === listingType.rent ? 100000000 : 20000000000} />
-            </div>
-          </div>
-          <div className='form-common-listing__entry form-common-listing__entry--range'>
-            <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormSize')}</span>
-            <div className='form-common-listing__entry-wrapper'>
-              <Range min={0} max={500} />
-            </div>
-          </div>
-          <div className='form-common-listing__entry form-common-listing__entry--stacked'>
-            <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormLocation')}</span>
-            <div className='form-common-listing__entry-wrapper'>
-              <Form.Item className='form-common-listing__entry-item' name='p'>
-                <Select
-                  className='select-common-listing'
-                  placeholder={t('ListingSearchPlaceholderProvince')}
-                  showSearch
-                  filterOption={filterOptionsRemoveVietnameseTones}
-                  allowClear
-                  onChange={getDistricts}
-                  options={provinces?.map((province) => ({
-                    value: province.provinceID,
-                    label: province.listProvinceName,
-                    id: province.provinceID,
-                  }))}
-                />
-              </Form.Item>
-              <Form.Item className='form-common-listing__entry-item' name='d'>
-                <Select
-                  className='select-common-listing'
-                  placeholder={t('ListingSearchPlaceholderDistrict')}
-                  showSearch
-                  filterOption={filterOptionsRemoveVietnameseTones}
-                  allowClear
-                  onChange={getWards}
-                  options={districts?.map((district) => ({
-                    value: district.listDistrictID,
-                    label: district.nameDisplay,
-                    id: district.listDistrictID,
-                  }))}
-                />
-              </Form.Item>
-              <Form.Item className='form-common-listing__entry-item' name='w'>
-                <Select
-                  className='select-common-listing'
-                  placeholder={t('ListingSearchPlaceholderWard')}
-                  showSearch
-                  filterOption={filterOptionsRemoveVietnameseTones}
-                  allowClear
-                  options={wards?.map((ward) => ({
-                    value: ward.listWardID,
-                    label: ward.nameDisplay,
-                    id: ward.listWardID,
-                  }))}
-                />
-              </Form.Item>
-            </div>
-          </div>
-          <div className='form-common-listing__entry form-common-listing__entry--stacked'>
-            <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormView')}</span>
-            <div className='form-common-listing__entry-wrapper'>
-              <Select
-                className='select-common-listing'
-                placeholder={t('HomeRealEstateSearchFormView')}
-                allowClear
-                filterOption={filterOptionsRemoveVietnameseTones}
-              >
-                {views?.map((view) => (
-                  <Select.Option key={view.id} value={view.id}>
-                    {view.name}
-                  </Select.Option>
-                ))}
-              </Select>
-            </div>
-          </div>
-          <div className='form-common-listing__entry form-common-listing__entry--stacked'>
-            <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormFurnitureStatus')}</span>
-            <div className='form-common-listing__entry-wrapper'>
-              <Form.Item className='form-common-listing__entry-item' name='i'>
-                <SelectorChip
-                  className='selector-common-chip--blocky'
-                  options={funitureStatus?.map((item) => ({
-                    id: item.id,
-                    name: item.interiorName,
-                  }))}
-                />
-              </Form.Item>
-            </div>
-          </div>
-          <div className='form-common-listing__entry form-common-listing__entry--stacked'>
-            <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormLegalStatus')}</span>
-            <div className='form-common-listing__entry-wrapper'>
-              <Form.Item className='form-common-listing__entry-item' name='lS'>
-                <SelectorChip
-                  className='selector-common-chip--blocky'
-                  hasAny
-                  multiple
-                  options={legalStatuses.map((item) => ({
-                    id: item.id,
-                    name: t(item.name),
-                  }))}
-                />
-              </Form.Item>
-            </div>
-          </div>
-          <div className='form-common-listing__entry form-common-listing__entry--stacked'>
-            <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormHandoverStatus')}</span>
-            <div className='form-common-listing__entry-wrapper'>
-              <Form.Item className='form-common-listing__entry-item' name='hS' >
-                <SelectorChip
-                  className='selector-common-chip--blocky'
-                  hasAny
-                  options={handOverStatuses.map((item) => ({
-                    id: item.id,
-                    name: t(item.name),
-                  }))}
-                />
-              </Form.Item>
-            </div>
-          </div>
-          <div className='form-common-listing__entry form-common-listing__entry--stacked'>
-            <span className='form-common-listing__entry-label'>{t('ListingSearchFormCreateTime')}</span>
-            <div className='form-common-listing__entry-wrapper'>
-              <Form.Item className='form-common-listing__entry'>
-                <Radio.Group className='grid w-full grid-cols-2 gap-x-1 gap-y-2'>
-                  <Radio value={false}>{comm('NewestFirst')}</Radio>
-                  <Radio value={true}>{comm('OldestFirst')}</Radio>
-                </Radio.Group>
-              </Form.Item>
-            </div>
-          </div>
-          {isShowMore && (
-            <>
-
-              <Form.Item className='form-common-listing__entry' label={t('inDoorAmenities')} name='inA' valuePropName='checked'>
-                <Checkbox.Group
-                  defaultValue={searchParams.inA}
-                  className='grid w-full grid-cols-2 gap-x-1 gap-y-2'
-                  options={inAmenities.map((amenity) => ({
-                    value: amenity.id,
-                    label: amenity.name,
-                  }))}
-                />
-              </Form.Item>
-              <Form.Item className='form-common-listing__entry' label={t('outDoorAmenities')} name='outA' valuePropName='checked'>
-                <Checkbox.Group
-                  defaultValue={searchParams.outA}
-                  className='grid w-full grid-cols-2 gap-x-1 gap-y-2'
-                  options={outAmenities.map((amenity) => ({
-                    value: amenity.id,
-                    label: amenity.name,
-                  }))}
-                />
-              </Form.Item>
-              <Form.Item className='form-common-listing__entry' label={t('ListingSearchContentLanguage')} name='lan' valuePropName='checked'>
-                <Checkbox.Group
-                  defaultValue={searchParams.lan}
-                  className='grid w-full grid-cols-2 gap-x-1 gap-y-2'
-                  options={listLangue.map((lan) => ({
-                    value: lan.name,
-                    label: lan.displayName,
-                  }))}
-                />
-              </Form.Item>
-            </>
-          )}
-          <div className='flex w-full justify-center'>
-            <Button
-              className='w-fit underline underline-offset-2'
-              size='small'
-              type='text'
-              onClick={() => setIsShowMore(!isShowMore)}
-            >
-              {isShowMore ? comm('viewLess') : comm('viewMore')}
-            </Button>
-          </div>
-          <div className='mt-3 flex justify-center gap-2'>
+          <div className='form-common-listing__controller'>
             <CoreButton
               onClick={resetFilter}
               preset='neutral'
