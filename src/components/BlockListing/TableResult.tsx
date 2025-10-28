@@ -1,6 +1,6 @@
 import { ListPropertyStatusEnum } from '@/libs/enums/ListPropertyStatusEnum';
 import { FC } from 'react';
-import ListingCard from '../ListingCard/ListingCard';
+import ListingCard from '@/components/ListingCard/ListingCard';
 
 export interface IProps {
   listings: any;

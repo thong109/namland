@@ -18,7 +18,7 @@ import {
 } from '@/models/homeRealEstateSearchModel/homeRealEstateSearchModel';
 import './style.css';
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
-import BlockListing from '../_components/BlockListing/BlockListing';
+import BlockListing from '@/components/BlockListing/BlockListing';
 import SectionContact from '@/components/SectionContact/SectionContact';
 interface PageSaleListingProps {
   searchParams: ShortHomeRealEstateSearchModel;

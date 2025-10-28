@@ -17,7 +17,7 @@ import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
 import './BlockListing.css';
 import TableResult from './TableResult';
-import SidebarListing from './SidebarListing';
+import SidebarListing from '@/components/SidebarListing/SidebarListing';
 
 export interface IProps {
   totalResult: number;

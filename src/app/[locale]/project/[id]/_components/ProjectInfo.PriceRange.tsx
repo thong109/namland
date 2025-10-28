@@ -1,4 +1,4 @@
-import PriceNumberText from '@/app/[locale]/_components/PriceNumberText/PriceNumberText';
+import PriceNumberText from '@/components/PriceNumberText/PriceNumberText';
 import { PriceDisplayTypeEnum } from '@/libs/enums/PriceDisplayTypeEnum';
 import { ProjectDetailModel } from '@/models/projectModel/projectDetailModel';
 import { useTranslations } from 'next-intl';

@@ -136,7 +136,7 @@
 }
 
 .select-common-listing .anticon.anticon-down.ant-select-suffix {
-  @apply !bg-[url('../../../../assets/images/common/icon_arrow_01.svg')] !bg-[length:100%_auto] bg-center bg-no-repeat;
+  @apply !bg-[url('../../assets/images/common/icon_arrow_01.svg')] !bg-[length:100%_auto] bg-center bg-no-repeat;
 }
 
 .select-common-listing .anticon.anticon-down.ant-select-suffix > svg {

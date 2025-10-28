@@ -1,4 +1,4 @@
-import PriceNumberText from '@/app/[locale]/_components/PriceNumberText/PriceNumberText';
+import PriceNumberText from '@/components/PriceNumberText/PriceNumberText';
 import { Slider } from 'antd';
 
 export interface IProps {
