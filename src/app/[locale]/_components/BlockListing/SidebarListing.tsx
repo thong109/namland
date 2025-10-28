@@ -375,6 +375,7 @@ const SidebarListing: FC<IProps> = ({
             <CoreButton
               onClick={resetFilter}
               preset='neutral'
+              className='bg-[#B2B2B2]'
               label={t('HomeRealEstateSearchFormClearFilter')}
             />
             <CoreButton type='submit' label={t('HomeRealEstateSearchFormSearch')} />

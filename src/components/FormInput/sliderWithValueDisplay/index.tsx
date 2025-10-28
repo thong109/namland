@@ -1,6 +1,6 @@
 import NumberUtil from '@/utils/numberUtil';
 import { Slider } from 'antd';
-import { SliderMarks, RangeProps, SliderSingleProps } from 'antd/es/slider';
+import { SliderMarks, SliderRangeProps, SliderSingleProps } from 'antd/es/slider';
 import { useLocale } from 'next-intl';
 import { SliderRef } from 'rc-slider';
 import React, { useEffect, useState } from 'react';
@@ -11,7 +11,7 @@ type InputProps = {
 
 const SliderWithValueDisplay = React.forwardRef<
   SliderRef,
-  (RangeProps | SliderSingleProps) & InputProps
+  (SliderRangeProps | SliderSingleProps) & InputProps
 >((props, ref) => {
   const [marks, setMarks] = useState<SliderMarks>({});
   const [oldMarks, setOldMarks] = useState<[number, number]>([0, 0]);
