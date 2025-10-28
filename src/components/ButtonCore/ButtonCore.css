@@ -1,5 +1,5 @@
 .button-common-core {
-  @apply min-w-[160px] min-h-[39px] p-[5px_20px] rounded-[5px] border-[1px] border-[#982220] bg-[#982220] flex items-center justify-center font-[600] text-[#fff];
+  @apply w-[100%] max-w-[160px] min-h-[39px] p-[4px_20px] rounded-[5px] border-[1px] border-[#982220] bg-[#982220] flex items-center justify-center font-[600] text-[#fff];
 }
 
 .button-common-core--neutral {
