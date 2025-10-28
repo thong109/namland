@@ -1,5 +1,5 @@
 'use client';
-import ListingCard from '@/app/[locale]/_components/ListingCard/ListingCard';
+import ListingCard from '@/components/ListingCard/ListingCard';
 import { NAVIGATION } from '@/data/navigation';
 import { getParamsStringFromObj } from '@/libs/appconst';
 import clsx from 'clsx';

@@ -1,4 +1,3 @@
-import PropertyInfoBox from '@/app/[locale]/_components/ListingCard/_component/PropertyInfoBox';
 import { listingType } from '@/libs/appconst';
 import { formatNumber } from '@/libs/helper';
 import listingPropertyModel from '@/models/listingModel/listingPropertyModel';
@@ -6,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import React from 'react';
 import FavoriteButton from './ListingOverview.FavoriteButton';
 import ShareButton from './ListingOverview.ShareButton';
+import PropertyInfoBox from '@/components/ListingCard/_component/PropertyInfoBox';
 
 interface ListingOverviewProps {
   locale: string;
