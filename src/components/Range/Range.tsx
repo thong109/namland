@@ -15,7 +15,7 @@ const Range = ({ min = 0, max = 20000000000, defaultValue = [min, max], onChange
 
   const handleChange = (val: [number, number]) => {
     setValue(val);
-    onChange?.(val); 
+    onChange?.(val);
   };
 
   const marks = {

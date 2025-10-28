@@ -84,8 +84,6 @@ const SidebarListing: FC<IProps> = ({
     setWards((result as any).data?.data);
   };
   const onSubmit = async (values) => {
-    console.log(2);
-
     const dataFilter: ShortHomeRealEstateSearchModel = values;
     // always include poster brokder if it's available
     if (searchParams.pb) {
@@ -112,6 +110,7 @@ const SidebarListing: FC<IProps> = ({
   };
   const resetFilter = () => {
     formRef.resetFields();
+    push(window.location.pathname);
   };
   return (
     <div className={`sidebar-common-listing ${className}`}>
@@ -198,10 +197,7 @@ const SidebarListing: FC<IProps> = ({
             <div className='form-common-listing__entry form-common-listing__entry--range'>
               <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormPrice')}</span>
               <div className='form-common-listing__entry-wrapper'>
-                <Form.Item
-                  name="rp"
-                  className='!mb-0'
-                >
+                <Form.Item name="rp" noStyle>
                   <Range min={0} max={type === listingType.rent ? 100000000 : 20000000000} />
                 </Form.Item>
               </div>
@@ -209,10 +205,7 @@ const SidebarListing: FC<IProps> = ({
             <div className='form-common-listing__entry form-common-listing__entry--range'>
               <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormSize')}</span>
               <div className='form-common-listing__entry-wrapper'>
-                <Form.Item
-                  name="sz"
-                  className='!mb-0'
-                >
+                <Form.Item name="sz" noStyle>
                   <Range min={0} max={500} />
                 </Form.Item>
               </div>
