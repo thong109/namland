@@ -12,7 +12,7 @@ type IProps = {
 const ProjectCardItem: React.FC<IProps> = ({ data, className = '', ...props }) => {
   const t = useTranslations('webLabel');
 
-  const { id, name, imageUrl, saleCount, rentCount, logoImage } = data;
+  const { id, name, imageUrl, totalArea, saleCount, rentCount, logoImage } = data;
 
   const projectDetailUrl = getProjectUrl(id, name);
 
@@ -22,13 +22,17 @@ const ProjectCardItem: React.FC<IProps> = ({ data, className = '', ...props }) =
     >
       <Link legacyBehavior href={projectDetailUrl}>
         <div className={`relative w-full overflow-hidden`}>
-          <div className="relative pt-[calc(450/410*100%)]">
+          <div className="relative pt-[calc(450/410*100%)] mb-[12px]">
             <Image
               alt="image"
               src={imageUrl}
               loading="lazy"
               fill
             />
+          </div>
+          <div className="grid grid-col gap-x-[4px] border-b border-portal-gray-border pb-[9px]">
+            <p className='text-portal-gray-7 font-semibold text-lg leading-1.3 mb-[4px]'>{name}</p>
+            <p className='text-base text-portal-gray-8 leading-[1.5]'>{t('EcomProjectManagementPageNewHomeUnitArea')}: <span className="text-portal-gray-7">{totalArea} m²</span></p>
           </div>
           {/* <div className="absolute bottom-0 z-20 flex w-full flex-col items-center p-4">
             <Typography className={`line-clamp-1 text-base font-semibold text-white`}>

@@ -1,4 +1,4 @@
-import ListingCard from '@/app/[locale]/_components/ListingCard/ListingCard';
+import ListingCard from '@/components/ListingCard/ListingCard';
 import { NAVIGATION } from '@/data/navigation';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';

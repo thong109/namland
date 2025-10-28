@@ -1,5 +1,5 @@
 import CarouselWithArrow from '@/app/[locale]/_components/CarouselWithArrow/CarouselWithArrow';
-import ListingCardHomePage from '@/app/[locale]/_components/ListingCard/ListingCard.HomePage';
+import ListingCardHomePage from '@/components/ListingCard/ListingCard.HomePage';
 import { Spin } from 'antd';
 import clsx from 'clsx';
 import { FC } from 'react';
