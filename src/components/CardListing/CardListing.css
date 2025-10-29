@@ -1,5 +1,5 @@
 .card-common-listing {
-  @apply p-[21px_18.5px_28px] bg-[#fff] border-[1px] border-[#d9d9d9] rounded-[10px] font-mona;
+  @apply h-full flex flex-col p-[21px_18.5px_28px] bg-[#fff] border-[1px] border-[#d9d9d9] rounded-[10px] font-mona;
   @apply tablet-lg:p-[19px];
   @apply mobile:p-[19px];
 }
@@ -25,7 +25,7 @@
 }
 
 .card-common-listing__title {
-  @apply mb-[11px] block text-[18px] leading-[calc(25/18)] font-[600] text-[#444];
+  @apply mb-[11px] text-[18px] leading-[calc(25/18)] font-[600] text-[#444] line-clamp-2;
   @apply tablet-lg:mb-[10px] tablet-lg:text-[16px] tablet-lg:leading-[calc(24/16)];
   @apply mobile:mb-[10px] mobile:text-[16px] mobile:leading-[calc(24/16)];
 }
@@ -44,4 +44,8 @@
   @apply mt-[27px] flex justify-center flex-wrap;
   @apply tablet-lg:mt-[20px];
   @apply mobile:mt-[15px];
+}
+
+.card-common-listing__wrapper {
+  @apply flex flex-col justify-between flex-1;
 }

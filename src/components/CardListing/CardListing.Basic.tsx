@@ -1,4 +1,4 @@
-import IconLocation from '@/assets/icon/icon-location.svg';
+"use client";
 import { getListingUrl } from '@/utils/urlUtil';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
@@ -7,8 +7,6 @@ import Image from 'next/image';
 import React from 'react';
 import ButtonCore from '../ButtonCore/ButtonCore';
 import PriceNumberText from '../PriceNumberText/PriceNumberText';
-import AddToFavoriteButton from './_component/AddToFavoriteButton';
-import CardListingProjectInfo from './_component/CardListingProjectInfo';
 
 interface CardListingBasicProps {
   className?: string;
@@ -23,30 +21,32 @@ const CardListingBasic: React.FC<CardListingBasicProps> = ({ className, listing 
 
   const listingUrl = getListingUrl(listingDetail.id, listingDetail.title);
   return (
-    <div className={clsx('card-common-listing', className)}>
+    <Link className={clsx('card-common-listing', className)} href={listingUrl}>
       <div className='card-common-listing__visual'>
-        <span className='card-common-listing__visual-status'>Đang mở bán</span>
-        <Link className='card-common-listing__visual-wrapper' href={listingUrl}>
-          <Image src={listingDetail.imageThumbnailUrls[0]?.thumbUrl} width={415} height={271} alt={'Image'} />
-        </Link>
-      </div>
-      <div className='card-common-listing__wrapper'>
-        <span className='card-common-listing__title'>{listingDetail?.title}</span>
-        <ul className='card-common-listing__info'>
-          <li className='card-common-listing__info-entry'>
-            <span className='card-common-listing__entry-label'>Vị trí</span>
-            <div className='card-common-listing__entry-detail'>Gần bến neo thuyền, vài bước chân là tới clubhouse – trung tâm sinh hoạt & tiện ích.</div>
-          </li>
-          <li className='card-common-listing__info-entry'>
-            <span className='card-common-listing__entry-label'>Giá bán</span>
-            <div className='card-common-listing__entry-detail'><PriceNumberText value={listingDetail?.priceVnd} displayPriceType={listingDetail?.displayPriceType} /></div>
-          </li>
-        </ul>
-        <div className='card-common-listing__controller'>
-          <ButtonCore preset='more' label='Xem chi tiết'/>
+        <span className='card-common-listing__visual-status'>{t('EcomPropertyListingDetailPageLocationStatus')}</span>
+        <div className='card-common-listing__visual-wrapper'>
+          <Image src={listingDetail?.imageThumbnailUrl} width={415} height={271} alt={'Image'} />
         </div>
       </div>
-    </div>
+      <div className='card-common-listing__wrapper'>
+        <div>
+          <span className='card-common-listing__title'>{listingDetail?.title}</span>
+          <ul className='card-common-listing__info'>
+            <li className='card-common-listing__info-entry'>
+              <span className='card-common-listing__entry-label'>{t('EcomPropertyListingDetailPageLocationLocation')}</span>
+              <div className='card-common-listing__entry-detail'>{listingDetail?.location?.address}</div>
+            </li>
+            <li className='card-common-listing__info-entry'>
+              <span className='card-common-listing__entry-label'>{t('EcomPropertyListingDetailPageLocationPrice')}</span>
+              <div className='card-common-listing__entry-detail'><PriceNumberText value={listingDetail?.priceVnd} displayPriceType={listingDetail?.displayPriceType} /></div>
+            </li>
+          </ul>
+        </div>
+        <div className='card-common-listing__controller'>
+          <ButtonCore preset='more' label={t('EcomPropertyListingDetailPageLocationDetail')} />
+        </div>
+      </div>
+    </Link>
     // <div className={clsx('relative h-full transition-all ease-linear', className)}>
     //   <CardListingProjectInfo className={'left-0 top-44'} project={project} />
     //   <div className="flex h-full flex-col border border-neutral-400 bg-neutral-0">

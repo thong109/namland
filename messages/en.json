@@ -430,6 +430,9 @@
     "EcomPropertyListingDetailPagePriceOriginalContract": "Original contract",
     "EcomPropertyListingDetailPagePriceExpectedPublishingDate": "Expected Publishing Date",
     "EcomPropertyListingDetailPageLocationLocation": "Location",
+    "EcomPropertyListingDetailPageLocationPrice": "Price",
+    "EcomPropertyListingDetailPageLocationStatus": "Status",
+    "EcomPropertyListingDetailPageLocationDetail": "Detail",
     "EcomPropertyListingDetailPageLocationAddress": "Address",
     "EcomPropertyListingDetailPageLocationGetMyLocation": "Get my location",
 
