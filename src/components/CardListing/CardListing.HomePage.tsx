@@ -7,6 +7,7 @@ import React from 'react';
 import PriceNumberText from '../PriceNumberText/PriceNumberText';
 import ButtonCore from '../ButtonCore/ButtonCore';
 import "./CardListing.css"
+import { formatNumber } from '@/libs/helper';
 
 interface CardListingHomePageProps {
   className?: string;
@@ -40,8 +41,17 @@ const CardListingHomePage: React.FC<CardListingHomePageProps> = ({ className, li
               <div className='card-common-listing__entry-detail line-clamp-3'>{listingDetail?.location?.address}</div>
             </li>
             <li className='card-common-listing__info-entry'>
-              <span className='card-common-listing__entry-label'>{t('EcomPropertyListingDetailPageLocationPrice')}</span>
-              <div className='card-common-listing__entry-detail'><PriceNumberText value={listingDetail?.priceVnd} displayPriceType={listingDetail?.displayPriceType} /></div>
+              {listingDetail.type === 1 ? (
+                <>
+                  <span className='card-common-listing__entry-label'>{t('EcomPropertyListingDetailPageLocationPrice')}</span>
+                  <div className='card-common-listing__entry-detail'>{formatNumber(listingDetail?.priceVnd)}</div>
+                </>
+              ) : (
+                <>
+                  <span className='card-common-listing__entry-label'>{t('EcomPropertyListingDetailPageLocationRent')}</span>
+                  <div className='card-common-listing__entry-detail'>{formatNumber(listingDetail?.priceVnd)} {t('/mo')}</div>
+                </>
+              )}
             </li>
             <li className='card-common-listing__info-entry'>
               <span className='card-common-listing__entry-label'>{t('EcomPropertyListingDetailPageLocationType')}</span>

@@ -1,4 +1,4 @@
-import GalleryPrimaryShowOnlyOne from '@/app/[locale]/_components/GalleryPrimaryShowOnlyOne/GalleryPrimaryShowOnlyOne';
+import GalleryPrimaryShowOnlyOne from '@/app/[locale]/_components/BigGalleryShowOnlyOne/BigGalleryShowOnlyOne';
 import { getTranslator } from 'next-intl/server';
 import React from 'react';
 import './style.css';
