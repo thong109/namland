@@ -208,8 +208,8 @@ const SectionHomePageListing: FC<SectionHomePageListingProps> = ({
             </div>
           </div>
 
-          <div className="h-[422px] w-full overflow-x-hidden overflow-y-hidden">
-            <div className="homepage-listing-to-hide flex h-[422px] w-full flex-row overflow-x-auto overflow-y-hidden">
+          <div className="w-full overflow-x-hidden overflow-y-hidden">
+            <div className="homepage-listing-to-hide flex w-full flex-row overflow-x-auto overflow-y-hidden">
               {platinumListing?.data?.data?.map((item) => (
                 <div key={item.id} className="h-full shrink-0 grow basis-1/4">
                   <CardListingHomePage listing={item} className="px-2" />

@@ -17,7 +17,7 @@ export const SectionHomePageListingCarouselClient: FC<IProps> = ({ isLoading, li
         slidesPerRow={4}
         items={listingState?.data?.data?.map((item) => (
           <div key={item.id} className="h-full">
-            <CardListingHomePage listing={item} className="px-2" />
+            <CardListingHomePage listing={item} className="mx-[15px]" />
           </div>
         ))}
       />
