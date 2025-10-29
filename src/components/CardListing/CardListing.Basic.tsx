@@ -21,11 +21,11 @@ const CardListingBasic: React.FC<CardListingBasicProps> = ({ className, listing 
 
   const listingUrl = getListingUrl(listingDetail.id, listingDetail.title);
   return (
-    <Link className={clsx('card-common-listing', className)} href={listingUrl}>
+    <Link className={clsx('card-common-listing group', className)} href={listingUrl}>
       <div className='card-common-listing__visual'>
         <span className='card-common-listing__visual-status'>{t('EcomPropertyListingDetailPageLocationStatus')}</span>
         <div className='card-common-listing__visual-wrapper'>
-          <Image src={listingDetail?.imageThumbnailUrl} width={415} height={271} alt={'Image'} />
+          <Image src={listingDetail?.imageThumbnailUrl} className='group-hover:scale-105' width={415} height={271} alt={'Image'} />
         </div>
       </div>
       <div className='card-common-listing__wrapper'>

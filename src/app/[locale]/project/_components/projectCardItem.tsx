@@ -20,15 +20,16 @@ const ProjectCardItem: React.FC<IProps> = ({ data, className = '', ...props }) =
 
   return (
     <div
-      className={`flex h-full flex-col border border-portal-gray-border transition p-[22px] mobile:p-4 rounded-[10px] ${className}`}
+      className={`flex h-full flex-col border border-portal-gray-border transition p-[22px] mobile:p-4 rounded-[10px] cursor-pointer group ${className}`}
     >
       <Link legacyBehavior href={projectDetailUrl}>
         <div className={`relative w-full overflow-hidden`}>
-          <div className="relative pt-[calc(450/410*100%)] mb-[12px]">
+          <div className="relative pt-[calc(450/410*100%)] mb-[12px] overflow-hidden">
             <Image
               alt="image"
               src={imageUrl}
               loading="lazy"
+              className='group-hover:scale-105 transition-transform duration-500 ease-in-out'
               fill
             />
           </div>

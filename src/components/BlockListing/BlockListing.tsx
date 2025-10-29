@@ -73,14 +73,14 @@ const BlockListing: FC<IProps> = ({
     }
     return property
       ? Componentutil.GetGoogleMapPopupContentString(
-          getPropertyLink(property),
-          property.imageThumbnailUrl,
-          property.title,
-          property.location?.formattedAddress,
-          property.priceVnd,
-          property.priceUsd,
-          locale,
-        )
+        getPropertyLink(property),
+        property.imageThumbnailUrl,
+        property.title,
+        property.location?.formattedAddress,
+        property.priceVnd,
+        property.priceUsd,
+        locale,
+      )
       : '';
   };
   const changeViewMode = (e) => {
