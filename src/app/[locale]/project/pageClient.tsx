@@ -34,7 +34,7 @@ const PageProjectClient: FC<IProps> = ({ projectList, total, currentPage, pageSi
     push(NAVIGATION.projectList.href + '?' + paramsString);
   };
   return (
-    <section>
+    <>
       <Breadcrumb
         additionalClass=""
         breadcrumbItems={[
@@ -67,36 +67,34 @@ const PageProjectClient: FC<IProps> = ({ projectList, total, currentPage, pageSi
       </div>
       <div className="pt-12 md:pt-[46px] pb-8 md:pb-[60px]">
         <div className="container">
-          <div>
-            <div className="md:mb-6">
-              <div className="grid grid-cols-12 gap-4 md:gap-[30px]">
-                {projectList.map((item, index) => (
-                  <div className="col-span-12 sm:col-span-6 lg:col-span-4" key={`prj-${index}`}>
-                    <ProjectCardItem data={item} />
-                  </div>
-                ))}
-              </div>
-              {total > 0 && (
-                <div className="pagination-common mt-8 md:mt-[38px]">
-                  <Pagination
-                    current={currentPage}
-                    total={total}
-                    pageSize={pageSize}
-                    showSizeChanger={false}
-                    itemRender={(page, type, originalElement) => (
-                      <Link legacyBehavior href={`${NAVIGATION.projectList.href}?page=${page}`}>
-                        {originalElement}
-                      </Link>
-                    )}
-                  />
+          <div className="md:mb-6">
+            <div className="grid grid-cols-12 gap-4 md:gap-[30px]">
+              {projectList.map((item, index) => (
+                <div className="col-span-12 sm:col-span-6 lg:col-span-4" key={`prj-${index}`}>
+                  <ProjectCardItem data={item} />
                 </div>
-              )}
+              ))}
             </div>
+            {total > 0 && (
+              <div className="pagination-common mt-8 md:mt-[38px]">
+                <Pagination
+                  current={currentPage}
+                  total={total}
+                  pageSize={pageSize}
+                  showSizeChanger={false}
+                  itemRender={(page, type, originalElement) => (
+                    <Link legacyBehavior href={`${NAVIGATION.projectList.href}?page=${page}`}>
+                      {originalElement}
+                    </Link>
+                  )}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
       <SectionContact />
-    </section>
+    </>
   );
 };
 

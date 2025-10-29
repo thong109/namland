@@ -13,6 +13,8 @@ import Image from 'next/image';
 import * as NProgress from 'nprogress';
 import { FC, useState } from 'react';
 import HomeCardItem from './_components/HomeCardItem';
+import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
+import SectionContact from '@/components/SectionContact/SectionContact';
 
 export interface IProps {
   newHomeList: any;
@@ -35,196 +37,56 @@ const NewHomePageClient: FC<IProps> = ({ newHomeList, total, currentPage, pageSi
     push(NAVIGATION.newHomePage.href + '?' + paramsString);
   };
   return (
-    <div className="container mb-3 pt-10">
-      <Typography className="mb-5 text-center text-3xl font-bold text-portal-primaryLiving">
-        {t('EcomHomePageMenuNewHome')}
-      </Typography>
-      <Form form={formRef} size="middle" layout="vertical" onFinish={onSubmit}>
-        <div className="mb-3 hidden grid-cols-12 lg:grid">
-          <div className="col-span-12">
-            <Form.Item name="keyword" className="hidden lg:block">
-              <Input
-                className="w-full"
-                placeholder={t('ProjectListingSearchPlaceholder')}
-                prefix={<MagnifyingGlassIcon className="size-4" />}
-              />
-            </Form.Item>
-          </div>
-          <div className="col-span-12 flex items-center justify-around">
+    <>
+      <Breadcrumb
+        additionalClass=""
+        breadcrumbItems={[
+          { path: '/', title: 'Trang chủ' },
+          { path: '', title: 'Dự án mới' },
+        ]}
+        hasBanner={false}
+      />
+      <div className='bg-portal-gray p-[10px_0_20px] md:p-[8px_0_40px]'>
+        <div className='container'>
+          <Form form={formRef} size="large" layout="vertical" onFinish={onSubmit}>
             <Form.Item
-              label={t('HomeRealEstateSearchFromToPrice')}
-              name="fromPrice"
-              className="mr-1"
+              name="keyword"
+              className="!mb-0 [&_.ant-input-affix-wrapper]:!rounded-[5px] [&_.ant-input-affix-wrapper]:border-gray [&_.ant-input-affix-wrapper]:!p-[3px_3px_3px_16px]"
             >
-              <InputNumber
-                placeholder={t('HomeRealEstateSearchFromPrice')}
-                size="middle"
-                className="w-full"
-                min={0}
-              />
-            </Form.Item>
-            <Form.Item label=" " name="toPrice" className="mr-1">
-              <InputNumber
-                placeholder={t('HomeRealEstateSearchToPrice')}
-                min={0}
-                className="w-full"
-              />
-            </Form.Item>
-            <div className="mx-2 h-1/2 w-[1px] border border-r-black"></div>
-
-            <Form.Item label={t('HomeRealEstateSearchFromToArea')} name="fromArea" className="mr-1">
-              <InputNumber
-                placeholder={t('HomeRealEstateSearchFromArea')}
-                size="middle"
-                className="w-full"
-                min={0}
-              />
-            </Form.Item>
-            <Form.Item name="toArea" className="mr-1" label=" ">
-              <InputNumber
-                placeholder={t('HomeRealEstateSearchToArea')}
-                min={0}
-                className="w-full"
-              />
-            </Form.Item>
-            <div className="mx-2 h-1/2 w-[1px] border border-r-black"></div>
-
-            <Form.Item label={t('HomeRealEstateSearchFromToRoom')} name="fromRoom" className="mr-1">
-              <InputNumber
-                placeholder={t('HomeRealEstateSearchFromRoom')}
-                size="middle"
-                className="w-full"
-                min={0}
-              />
-            </Form.Item>
-            <Form.Item name="toRoom" label=" ">
-              <InputNumber
-                placeholder={t('HomeRealEstateSearchToRoom')}
-                min={0}
-                className="w-full"
-              />
-            </Form.Item>
-          </div>
-          <div className="col-span-12 flex justify-center">
-            <ButtonCore
-              type="submit"
-              className="px-6 !text-pmh-text"
-              label={`${t('HomeRealEstateSearchFormSearch')}!`}
-            />
-          </div>
-        </div>
-
-        <div className="mb-3 grid grid-cols-12 lg:hidden">
-          <div className="col-span-12">
-            <Form.Item name="keyword">
               <Input
-                className="w-full"
                 placeholder={t('ProjectListingSearchPlaceholder')}
-                prefix={<MagnifyingGlassIcon className="size-4" />}
+                suffix={
+                  <ButtonCore
+                    type="submit"
+                    buttonType='search'
+                    className="!rounded-none !p-[1px_1.5rem] !min-h-[34px] !w-30 md:!w-40"
+                    label={`${t('HomeRealEstateSearchFormSearch')}`}
+                  />
+                }
               />
             </Form.Item>
-          </div>
-          <div className="col-span-12">
-            <span onClick={() => setIsShowFilter(!isShowFilter)}>
-              {isShowFilter ? comm('showLessFilter') : comm('showMoreFilter')}
-            </span>
-          </div>
-          {isShowFilter && (
-            <>
-              <div className="col-span-12 flex items-center justify-around">
-                <Form.Item
-                  label={t('HomeRealEstateSearchFromToPrice')}
-                  name="fromPrice"
-                  className="mr-1"
-                >
-                  <InputNumber
-                    placeholder={t('HomeRealEstateSearchFromPrice')}
-                    size="middle"
-                    className="w-full"
-                    min={0}
-                  />
-                </Form.Item>
-
-                <Form.Item label=" " name="toPrice" className="mr-1">
-                  <InputNumber
-                    placeholder={t('HomeRealEstateSearchToPrice')}
-                    min={0}
-                    className="w-full"
-                  />
-                </Form.Item>
-              </div>
-              <div className="col-span-12 flex items-center justify-around">
-                <Form.Item
-                  label={t('HomeRealEstateSearchFromToArea')}
-                  name="fromArea"
-                  className="mr-1"
-                >
-                  <InputNumber
-                    placeholder={t('HomeRealEstateSearchFromArea')}
-                    size="middle"
-                    className="w-full"
-                    min={0}
-                  />
-                </Form.Item>
-                <Form.Item name="toArea" className="mr-1" label=" ">
-                  <InputNumber
-                    placeholder={t('HomeRealEstateSearchToArea')}
-                    min={0}
-                    className="w-full"
-                  />
-                </Form.Item>
-              </div>
-              <div className="col-span-12 flex items-center justify-around">
-                <Form.Item
-                  label={t('HomeRealEstateSearchFromToRoom')}
-                  name="fromRoom"
-                  className="mr-1"
-                >
-                  <InputNumber
-                    placeholder={t('HomeRealEstateSearchFromRoom')}
-                    size="middle"
-                    className="w-full"
-                    min={0}
-                  />
-                </Form.Item>
-                <Form.Item name="toRoom" label=" ">
-                  <InputNumber
-                    placeholder={t('HomeRealEstateSearchToRoom')}
-                    min={0}
-                    className="w-full"
-                  />
-                </Form.Item>
-              </div>
-            </>
-          )}
-          <div className="col-span-12 flex justify-center">
-            <ButtonCore
-              type="submit"
-              className="px-6 !text-pmh-text"
-              label={`${t('HomeRealEstateSearchFormSearch')}!`}
-            />
-          </div>
+          </Form>
         </div>
-      </Form>
-      <div>
-        <div className="mb-6">
-          <div className="grid grid-cols-12 gap-4">
-            {total > 0 ? (
-              newHomeList.map((item, index) => (
-                <div className="col-span-12 sm:col-span-6 lg:col-span-4" key={`prj-${index}`}>
-                  <HomeCardItem data={item} />
+      </div>
+      <div className="pt-12 md:pt-[46px] pb-8 md:pb-[60px]">
+        <div className="container">
+          <div className="mb-6">
+            <div className="grid grid-cols-12 gap-4">
+              {total > 0 ? (
+                newHomeList.map((item, index) => (
+                  <div className="col-span-12 sm:col-span-6 lg:col-span-4" key={`prj-${index}`}>
+                    <HomeCardItem data={item} />
+                  </div>
+                ))
+              ) : (
+                <div className="col-span-12 flex-col justify-items-center">
+                  <Image src={EmptyImage} width={500} height={500} alt="empty" className="p-4" />
+                  <span className="">{t('notHaveData')}</span>
                 </div>
-              ))
-            ) : (
-              <div className="col-span-12 flex-col justify-items-center">
-                <Image src={EmptyImage} width={500} height={500} alt="empty" className="p-4" />
-                <span className="">{t('notHaveData')}</span>
-              </div>
-            )}
-          </div>
-          {total > 0 ? (
-            <div className="mt-6">
-              <div className="mt-3 flex w-full justify-center">
+              )}
+            </div>
+            {total > 0 && (
+              <div className="pagination-common mt-8 md:mt-[38px]">
                 <Pagination
                   current={currentPage}
                   total={total}
@@ -237,13 +99,12 @@ const NewHomePageClient: FC<IProps> = ({ newHomeList, total, currentPage, pageSi
                   )}
                 />
               </div>
-            </div>
-          ) : (
-            <></>
-          )}
+            )}
+          </div>
         </div>
       </div>
-    </div>
+      <SectionContact />
+    </>
   );
 };
 

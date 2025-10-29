@@ -74,13 +74,8 @@ const BigGallery: React.FC<BigGalleryProps> = ({ images: initImages = [] }) => {
           },
         }}
       >
-        <div className="relative grid max-h-screen grid-cols-12 grid-rows-12 gap-1 [&_.ant-image]:h-full [&_.ant-image_img]:h-full [&_.ant-image_img]:object-cover">
-          <div
-            className={clsx(
-              'relative row-span-12',
-              images.length === 1 ? 'col-span-12' : 'col-span-9',
-            )}
-          >
+        <div className="grid grid-cols-12 gap-1 [&_.ant-image]:h-full [&_.ant-image_img]:h-full [&_.ant-image_img]:object-cover max-h-[90vh] overflow-hidden">
+          <div className="relative col-span-6 row-span-12 overflow-hidden">
             {images[0] && (
               <>
                 <Image
@@ -104,129 +99,66 @@ const BigGallery: React.FC<BigGalleryProps> = ({ images: initImages = [] }) => {
                     src={images[0]?.src}
                     srcSet={images[0]?.srcSet}
                     alt={images[0]?.id}
-                    rootClassName="w-full"
+                    rootClassName="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                     onClick={() => setCurrentPreview(0)}
-                    fetchPriority="high"
-                    loading="eager"
                   />
                 )}
               </>
             )}
           </div>
-          {images[1] && (
-            <div
-              className={clsx(
-                'relative col-span-3',
-                images.length === 2 && 'row-span-12',
-                images.length === 3 && 'row-span-6',
-                images.length > 3 && 'row-span-4',
-              )}
-            >
-              <Image
-                src={images[1]?.url}
-                alt={images[1]?.id}
-                className="hidden"
-                width={600}
-                height={600}
-                onLoad={(e) => {
-                  setSource(1, {
-                    src: e.currentTarget.currentSrc,
-                    srcset: e.currentTarget.srcset,
-                  });
-                }}
-                priority
-              />
-              {imagesLoading[1] ? (
-                renderLoading()
-              ) : (
-                <AntImage
-                  src={images[1]?.src}
-                  srcSet={images[1]?.srcSet}
-                  alt={images[1]?.id}
-                  rootClassName="w-full"
-                  onClick={() => setCurrentPreview(1)}
-                />
-              )}
-            </div>
-          )}
-          {images[2] && (
-            <div
-              className={clsx(
-                'relative col-span-3',
-                images.length === 3 && 'row-span-6',
-                images.length > 3 && 'row-span-4',
-              )}
-            >
-              <Image
-                src={images[2]?.url}
-                alt={images[2]?.id}
-                className="hidden"
-                width={400}
-                height={400}
-                onLoad={(e) => {
-                  setSource(2, {
-                    src: e.currentTarget.currentSrc,
-                    srcset: e.currentTarget.srcset,
-                  });
-                }}
-                priority
-              />
-              {imagesLoading[2] ? (
-                renderLoading()
-              ) : (
-                <AntImage
-                  src={images[2]?.src}
-                  srcSet={images[2]?.srcSet}
-                  alt={images[2]?.id}
-                  rootClassName="w-full"
-                  onClick={() => setCurrentPreview(2)}
-                />
-              )}
-            </div>
-          )}
-          {images[3] && (
-            <div className={clsx('relative col-span-3 row-span-4')}>
-              <Image
-                src={images[3]?.url}
-                alt={images[3]?.id}
-                className="hidden"
-                width={400}
-                height={400}
-                onLoad={(e) => {
-                  setSource(3, {
-                    src: e.currentTarget.currentSrc,
-                    srcset: e.currentTarget.srcset,
-                  });
-                }}
-                priority
-              />
-              {imagesLoading[3] ? (
-                renderLoading()
-              ) : (
-                <AntImage
-                  src={images[3]?.src}
-                  srcSet={images[3]?.srcSet}
-                  alt={images[3]?.id}
-                  rootClassName="w-full"
-                  onClick={() => setCurrentPreview(3)}
-                />
-              )}
-              {images.length > lastIndex && (
-                <div
-                  className="absolute left-0 top-0 flex size-full cursor-pointer items-center justify-center bg-neutral-800 bg-opacity-75 text-4xl font-bold text-neutral-0"
-                  onClick={() => {
-                    setCurrentPreview(lastIndex);
-                    setPreviewVisible(true);
-                  }}
-                >
-                  +{images.length - lastIndex}
-                  {images.slice(lastIndex + 1, images.length - 1).map((image, index) => (
-                    <AntImage key={index} src={image.url} alt={image.id} className="hidden" />
-                  ))}
+
+          <div className="col-span-6 grid grid-cols-2 grid-rows-2 gap-1">
+            {images.slice(1, 5).map((img, idx) => {
+              const index = idx + 1;
+              const isLastVisible = index === 4 && images.length > lastIndex;
+
+              return (
+                <div key={img.id} className="relative overflow-hidden">
+                  <Image
+                    src={img.url}
+                    alt={img.id}
+                    className="hidden"
+                    width={600}
+                    height={600}
+                    onLoad={(e) => {
+                      setSource(index, {
+                        src: e.currentTarget.currentSrc,
+                        srcset: e.currentTarget.srcset,
+                      });
+                    }}
+                    priority
+                  />
+
+                  {imagesLoading[index] ? (
+                    renderLoading()
+                  ) : (
+                    <AntImage
+                      src={img.src}
+                      srcSet={img.srcSet}
+                      alt={img.id}
+                      rootClassName="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                      onClick={() => setCurrentPreview(index)}
+                    />
+                  )}
+
+                  {isLastVisible && (
+                    <div
+                      className="absolute left-0 top-0 flex size-full cursor-pointer items-center justify-center bg-neutral-800 bg-opacity-75 text-4xl font-bold text-neutral-0"
+                      onClick={() => {
+                        setCurrentPreview(lastIndex);
+                        setPreviewVisible(true);
+                      }}
+                    >
+                      +{images.length - lastIndex}
+                      {images.slice(lastIndex).map((image, index2) => (
+                        <AntImage key={index2} src={image.url} alt={image.id} className="hidden" />
+                      ))}
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-          )}
+              );
+            })}
+          </div>
         </div>
       </AntImage.PreviewGroup>
     </>
