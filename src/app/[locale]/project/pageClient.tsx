@@ -2,7 +2,6 @@
 import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import { NAVIGATION } from '@/data/navigation';
 import { getParamsStringFromObj } from '@/libs/appconst';
-import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 import { Form, Input, Typography } from 'antd';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next-intl/client';
@@ -12,6 +11,7 @@ import * as NProgress from 'nprogress';
 import { FC } from 'react';
 import ProjectCardItem from './_components/projectCardItem';
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
+import SectionContact from '@/components/SectionContact/SectionContact';
 
 export interface IProps {
   projectList: any;
@@ -43,12 +43,12 @@ const PageProjectClient: FC<IProps> = ({ projectList, total, currentPage, pageSi
         ]}
         hasBanner={false}
       />
-      <div className='bg-portal-gray p-[8px_0_40px]'>
+      <div className='bg-portal-gray p-[10px_0_20px] md:p-[8px_0_40px]'>
         <div className='container'>
           <Form form={formRef} size="large" layout="vertical" onFinish={onSubmit}>
             <Form.Item
               name="keyword"
-              className="!mb-0 hidden lg:block [&_.ant-input-affix-wrapper]:!rounded-[5px] [&_.ant-input-affix-wrapper]:border-gray [&_.ant-input-affix-wrapper]:!p-[3px_3px_3px_16px]"
+              className="!mb-0 [&_.ant-input-affix-wrapper]:!rounded-[5px] [&_.ant-input-affix-wrapper]:border-gray [&_.ant-input-affix-wrapper]:!p-[3px_3px_3px_16px]"
             >
               <Input
                 placeholder={t('ProjectListingSearchPlaceholder')}
@@ -56,7 +56,7 @@ const PageProjectClient: FC<IProps> = ({ projectList, total, currentPage, pageSi
                   <ButtonCore
                     type="submit"
                     buttonType='search'
-                    className="!rounded-none !p-[1px_1.5rem] !min-h-[34px] !w-40"
+                    className="!rounded-none !p-[1px_1.5rem] !min-h-[34px] !w-30 md:!w-40"
                     label={`${t('HomeRealEstateSearchFormSearch')}`}
                   />
                 }
@@ -65,10 +65,10 @@ const PageProjectClient: FC<IProps> = ({ projectList, total, currentPage, pageSi
           </Form>
         </div>
       </div>
-      <div className="pt-[46px]">
+      <div className="pt-12 md:pt-[46px] pb-8 md:pb-[60px]">
         <div className="container">
           <div>
-            <div className="mb-6">
+            <div className="md:mb-6">
               <div className="grid grid-cols-12 gap-4 md:gap-[30px]">
                 {projectList.map((item, index) => (
                   <div className="col-span-12 sm:col-span-6 lg:col-span-4" key={`prj-${index}`}>
@@ -77,7 +77,7 @@ const PageProjectClient: FC<IProps> = ({ projectList, total, currentPage, pageSi
                 ))}
               </div>
               {total > 0 && (
-                <div className="pagination-common">
+                <div className="pagination-common mt-8 md:mt-[38px]">
                   <Pagination
                     current={currentPage}
                     total={total}
@@ -95,7 +95,7 @@ const PageProjectClient: FC<IProps> = ({ projectList, total, currentPage, pageSi
           </div>
         </div>
       </div>
-
+      <SectionContact />
     </section>
   );
 };

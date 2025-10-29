@@ -1,4 +1,5 @@
 import { assetsImages } from '@/assets/images/package';
+import { formatArea } from '@/utils/convertUtil';
 import { getProjectUrl } from '@/utils/urlUtil';
 import { Typography } from 'antd';
 import { useTranslations } from 'next-intl';
@@ -33,7 +34,7 @@ const ProjectCardItem: React.FC<IProps> = ({ data, className = '', ...props }) =
           </div>
           <div className="grid grid-col gap-x-[4px] border-b border-portal-gray-border pb-[9px] mb-[6px]">
             <Typography className='text-portal-gray-7 font-semibold text-lg leading-1.3 mb-[4px]'>{name}</Typography>
-            <Typography className='text-base text-portal-gray-8 leading-[1.5]'>{t('EcomProjectManagementPageNewHomeUnitArea')}: <span className="text-portal-gray-7">{totalArea} m²</span></Typography>
+            <Typography className='text-base text-portal-gray-8 leading-[1.5]'>{t('EcomProjectManagementPageNewHomeUnitArea')}: <span className="text-portal-gray-7">{formatArea(totalArea)}</span></Typography>
           </div>
           <div className="flex items-start">
             <Image
