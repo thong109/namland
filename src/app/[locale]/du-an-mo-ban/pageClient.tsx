@@ -39,7 +39,7 @@ const NewHomePageClient: FC<IProps> = ({ newHomeList, total, currentPage, pageSi
   return (
     <>
       <Breadcrumb
-        additionalClass=""
+        additionalClass=''
         breadcrumbItems={[
           { path: '/', title: 'Trang chủ' },
           { path: '', title: 'Dự án mới' },

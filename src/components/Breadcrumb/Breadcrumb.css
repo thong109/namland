@@ -4,7 +4,11 @@
   @apply mobile:text-[12px] mobile:leading-[calc(18/12)];
 }
 
-.breadcrumb-common.has-banner .container {
+.breadcrumb-common--style-transparent {
+  @apply bg-transparent;
+}
+
+.breadcrumb-common--has-banner .container {
   @apply absolute top-0 left-1/2 -translate-x-1/2;
 }
 

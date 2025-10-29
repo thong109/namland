@@ -5,11 +5,13 @@ import { useLocale } from 'next-intl';
 import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
 import { FC } from 'react';
-import BigGallery from '../../_components/BigGallery/BigGallery';
 import LinkedProject from './_components/LinkedProject';
 import ListingDetailedInfo from './_components/ListingDetailedInfo';
 import ListingOverview from './_components/ListingOverview';
 import { RatingComponent } from './_components/RatingComponent';
+import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
+import GalleryPrimary from '@/components/GalleryPrimary/GalleryPrimary';
+import SectionContact from '@/components/SectionContact/SectionContact';
 
 const InquiryForm = dynamic(() => import('./_components/InquiryForm'), { ssr: false });
 
@@ -59,27 +61,34 @@ const PageDetailProperty: FC<PagePropertyDetailProps> = async ({ params, searchP
   const listingId = params.id.substring(lastIndex + 1);
   const locale = useLocale();
   const listingDetail = await getListingDetail(listingId, locale);
-
   if (!listingDetail) {
     notFound();
   }
-
   return (
     <>
+      <Breadcrumb
+        additionalClass='breadcrumb-common--style-transparent'
+        breadcrumbItems={[
+          { path: '/', title: 'Trang chủ' },
+          { path: '/sale-listing/', title: 'Bán' },
+          { path: '', title: 'Khu đô thị mới Khu đô thị Nam Long' },
+        ]}
+        hasBanner={false}
+      />
       {(listingDetail?.imageUrls ?? []).slice(0, 4).map((image, index) => (
-        <link key={index} rel="preload" href={image.url} as="image" />
+        <link key={index} rel='preload' href={image.url} as='image' />
       ))}
-      <div className="container flex flex-col gap-10 pb-20">
-        <BigGallery images={listingDetail?.imageUrls ?? []} />
+      <div className='section-chitiet'>
+        <GalleryPrimary images={listingDetail?.imageUrls ?? []} />
         <ListingOverview listingDetail={listingDetail} locale={params.locale} />
-        <div className="flex flex-col gap-8 lg:flex-row">
-          <div className="flex flex-col gap-10 lg:w-3/4">
+        <div className='flex flex-col gap-8 lg:flex-row'>
+          <div className='flex flex-col gap-10 lg:w-3/4'>
             <ListingDetailedInfo listingDetail={listingDetail} locale={params.locale} />
             <LinkedProject listingDetail={listingDetail} locale={params.locale} />
             <SimilarListing listingDetail={listingDetail} locale={params.locale} />
             <RatingComponent listingDetail={listingDetail} />
           </div>
-          <div className="flex-1">
+          <div className='flex-1'>
             <InquiryForm listingDetail={listingDetail} locale={params.locale} />
           </div>
         </div>

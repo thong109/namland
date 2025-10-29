@@ -1,4 +1,4 @@
-import BigGalleryShowOnlyOne from '@/app/[locale]/_components/BigGalleryShowOnlyOne/BigGalleryShowOnlyOne';
+import GalleryPrimaryShowOnlyOne from '@/app/[locale]/_components/GalleryPrimaryShowOnlyOne/GalleryPrimaryShowOnlyOne';
 import { getTranslator } from 'next-intl/server';
 import React from 'react';
 import './style.css';
@@ -22,7 +22,7 @@ const LayoutImage: React.FC<Props> = async ({ layouts, locale }) => {
           return (
             <div key={item?.id} className="flex flex-col">
               <div className="h-24 w-36">
-                <BigGalleryShowOnlyOne images={item?.files ?? []} />
+                <GalleryPrimaryShowOnlyOne images={item?.files ?? []} />
               </div>
               <span className="text-xs font-semibold">{item?.name}</span>
               <span className="text-xs font-semibold text-gray-400">{item?.area}</span>
@@ -37,7 +37,7 @@ const LayoutImage: React.FC<Props> = async ({ layouts, locale }) => {
           return (
             <div key={item?.id} className="flex flex-col">
               <div className="lg:h-[172px] lg:w-[320px]">
-                <BigGalleryShowOnlyOne images={item?.files ?? []} />
+                <GalleryPrimaryShowOnlyOne images={item?.files ?? []} />
               </div>
               <span className="text-xs font-semibold">{item?.name}</span>
               <span className="text-xs font-semibold text-gray-400">{item?.area}</span>

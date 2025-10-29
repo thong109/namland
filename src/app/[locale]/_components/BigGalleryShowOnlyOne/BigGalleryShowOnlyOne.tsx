@@ -6,13 +6,13 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import React, { useCallback, useEffect, useState } from 'react';
 
-interface BigGalleryProps {
+interface GalleryPrimaryProps {
   images: ImageUrlModel[];
 }
 
 const lastIndex = 3;
 
-const BigGalleryShowOnlyOne: React.FC<BigGalleryProps> = ({ images: initImages = [] }) => {
+const GalleryPrimaryShowOnlyOne: React.FC<GalleryPrimaryProps> = ({ images: initImages = [] }) => {
   const [isPreviewVisible, setPreviewVisible] = useState(false);
   const [currentPreview, setCurrentPreview] = useState(undefined);
   const [images, setImages] = useState<(ImageUrlModel & ImageProps)[]>([]);
@@ -233,4 +233,4 @@ const BigGalleryShowOnlyOne: React.FC<BigGalleryProps> = ({ images: initImages =
   );
 };
 
-export default BigGalleryShowOnlyOne;
+export default GalleryPrimaryShowOnlyOne;
