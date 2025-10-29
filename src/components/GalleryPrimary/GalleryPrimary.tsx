@@ -11,8 +11,6 @@ interface GalleryPrimaryProps {
   images: ImageUrlModel[];
 }
 
-const lastIndex = 3;
-
 const GalleryPrimary: React.FC<GalleryPrimaryProps> = ({ images: initImages = [] }) => {
   const [isPreviewVisible, setPreviewVisible] = useState(false);
   const [currentPreview, setCurrentPreview] = useState(undefined);
@@ -78,41 +76,42 @@ const GalleryPrimary: React.FC<GalleryPrimaryProps> = ({ images: initImages = []
           <div className='container'>
             <div className='gallery-common-primary__viewport'>
               <div className='gallery-common-primary__wrapper'>
-                {images.slice(0, 5).map((img, idx) => {
-                  const isLastVisible = idx === 5 && images.length > lastIndex;
+                {images.slice(0, 5).map((image, imageIndex) => {
+                  const imageIndexLast = 4;
+                  const isItemLast = imageIndex === 4 && images.length > imageIndexLast;
                   return (
-                    <div className='gallery-common-primary__entry' key={img.id}>
+                    <div className='gallery-common-primary__entry' key={image.id}>
                       <div className='gallery-common-primary__entry-wrapper'>
                         <Image
                           className='hidden'
-                          src={img.url}
-                          alt={img.id}
+                          src={image.url}
+                          alt={image.id}
                           width={600}
                           height={600}
                           onLoad={(e) => {
-                            setSource(idx, {
+                            setSource(imageIndex, {
                               src: e.currentTarget.currentSrc,
                               srcset: e.currentTarget.srcset,
                             });
                           }}
                           priority
                         />
-                        {imagesLoading[idx] ? (
+                        {imagesLoading[imageIndex] ? (
                           renderLoading()
                         ) : (
-                          <AntImage rootClassName='gallery-common-primary__entry-visual' src={img.src} srcSet={img.srcSet} alt={img.id} onClick={() => setCurrentPreview(idx)} />
+                          <AntImage rootClassName='gallery-common-primary__entry-visual' src={image.src} srcSet={image.srcSet} alt={image.id} onClick={() => setCurrentPreview(imageIndex)} />
                         )}
-                        {isLastVisible && (
+                        {isItemLast && (
                           <div
-                            className='absolute left-0 top-0 flex size-full cursor-pointer items-center justify-center bg-neutral-800 bg-opacity-75 text-4xl font-bold text-neutral-0'
+                            className='gallery-common-primary__visual-mask'
                             onClick={() => {
-                              setCurrentPreview(lastIndex);
+                              setCurrentPreview(imageIndexLast);
                               setPreviewVisible(true);
                             }}
                           >
-                            +{images.length - lastIndex}
-                            {images.slice(lastIndex).map((image, index2) => (
-                              <AntImage key={index2} src={image.url} alt={image.id} className='hidden' />
+                            +{images.length - imageIndexLast}
+                            {images.slice(imageIndexLast).map((image, index2) => (
+                              <AntImage className='hidden' key={index2} src={image.url} alt={image.id} />
                             ))}
                           </div>
                         )}
