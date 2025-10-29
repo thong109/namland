@@ -62,7 +62,7 @@ const PageClient = () => {
     <>
       <section>
         <Breadcrumb
-          additionalClass="bg-transparent"
+          additionalClass='breadcrumb-common--style-transparent'
           breadcrumbItems={[
             { path: '/', title: 'Trang chủ' },
             { path: '/nhu-cau-cua-toi', title: 'Tìm môi giới' },

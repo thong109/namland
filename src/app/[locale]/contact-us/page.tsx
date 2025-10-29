@@ -34,7 +34,7 @@ export default function PageContactUs() {
     <>
       <section>
         <Breadcrumb
-          additionalClass=""
+          additionalClass=''
           breadcrumbItems={[
             { path: '/', title: 'Trang chủ' },
             { path: '', title: 'Liên hệ' },

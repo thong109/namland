@@ -18,7 +18,7 @@ export interface BreadCrumbProps {
 const Breadcrumb: FC<BreadCrumbProps> = ({ additionalClass, breadcrumbItems, hasBanner = false }) => {
   const { push } = useRouter();
   return (
-    <nav className={`breadcrumb-common ${additionalClass} ${hasBanner ? 'has-banner' : ''}`}>
+    <nav className={`breadcrumb-common ${additionalClass} ${hasBanner ? 'breadcrumb-common--has-banner' : ''}`}>
       <div className='container'>
         <ol className='breadcrumb-common__wrapper'>
           {breadcrumbItems.map((breadcrumbItem, index) => {

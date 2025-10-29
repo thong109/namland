@@ -36,7 +36,7 @@ const PageProjectClient: FC<IProps> = ({ projectList, total, currentPage, pageSi
   return (
     <>
       <Breadcrumb
-        additionalClass=""
+        additionalClass=''
         breadcrumbItems={[
           { path: '/', title: 'Trang chủ' },
           { path: '', title: 'Dự án' },
