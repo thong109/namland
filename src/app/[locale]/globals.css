@@ -54,3 +54,15 @@ input,select,textarea {
 .pagination-common .ant-pagination-item-link {
   @apply !rounded-full hover:!bg-transparent;
 }
+
+.slick-slide {
+  @apply !h-full;
+}
+
+.slick-slide > div {
+  @apply !flex;
+}
+
+.slick-track {
+  @apply !flex;
+}

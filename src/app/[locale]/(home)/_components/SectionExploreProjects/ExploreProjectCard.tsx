@@ -11,7 +11,6 @@ interface Props {
 }
 
 const ExploreProjectCard: React.FC<Props> = async ({ locale, project }) => {
-  const t = await getTranslator(locale, 'Common');
 
   return (
     <Link
@@ -29,11 +28,9 @@ const ExploreProjectCard: React.FC<Props> = async ({ locale, project }) => {
         <div className="text-center text-base font-bold">{project.name}</div>
         <div className="mb-2 flex justify-center gap-8 text-sm">
           <div className="underline">
-            <span>{t('Sell')}: </span>
             <span>{project.saleCount}</span>
           </div>
           <div className="underline">
-            <span>{t('Lease')}: </span>
             <span>{project.rentCount}</span>
           </div>
         </div>

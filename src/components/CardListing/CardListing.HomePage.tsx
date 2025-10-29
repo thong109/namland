@@ -55,7 +55,7 @@ const CardListingHomePage: React.FC<CardListingHomePageProps> = ({ className, li
             </li>
             <li className='card-common-listing__info-entry'>
               <span className='card-common-listing__entry-label'>{t('EcomPropertyListingDetailPageLocationType')}</span>
-              <div className='card-common-listing__entry-detail'><PriceNumberText value={listingDetail?.priceVnd} displayPriceType={listingDetail?.displayPriceType} /></div>
+              <div className='card-common-listing__entry-detail'>{listingDetail?.listingCategory?.name ?? 'ー'}</div>
             </li>
           </ul>
         </div>
