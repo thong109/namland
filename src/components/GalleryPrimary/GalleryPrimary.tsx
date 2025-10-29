@@ -78,7 +78,8 @@ const GalleryPrimary: React.FC<GalleryPrimaryProps> = ({ images: initImages = []
           <div className='container'>
             <div className='gallery-common-primary__viewport'>
               <div className='gallery-common-primary__wrapper'>
-                {images.map((img, idx) => {
+                {images.slice(0, 5).map((img, idx) => {
+                  const isLastVisible = idx === 5 && images.length > lastIndex;
                   return (
                     <div className='gallery-common-primary__entry' key={img.id}>
                       <div className='gallery-common-primary__entry-wrapper'>
@@ -100,6 +101,20 @@ const GalleryPrimary: React.FC<GalleryPrimaryProps> = ({ images: initImages = []
                           renderLoading()
                         ) : (
                           <AntImage rootClassName='gallery-common-primary__entry-visual' src={img.src} srcSet={img.srcSet} alt={img.id} onClick={() => setCurrentPreview(idx)} />
+                        )}
+                        {isLastVisible && (
+                          <div
+                            className='absolute left-0 top-0 flex size-full cursor-pointer items-center justify-center bg-neutral-800 bg-opacity-75 text-4xl font-bold text-neutral-0'
+                            onClick={() => {
+                              setCurrentPreview(lastIndex);
+                              setPreviewVisible(true);
+                            }}
+                          >
+                            +{images.length - lastIndex}
+                            {images.slice(lastIndex).map((image, index2) => (
+                              <AntImage key={index2} src={image.url} alt={image.id} className='hidden' />
+                            ))}
+                          </div>
                         )}
                       </div>
                     </div>
