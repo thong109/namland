@@ -12,13 +12,13 @@ import { createTranslator } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
-import FooterContactForm from '../_components/FooterContactForm/FooterContactForm';
 import EntrustAgent from '../find-agent/_components/EntrustAgent';
 import MiddleBanner from './_components/MiddleBanner/MiddleBanner';
 import SectionHero from './_components/SectionHero/SectionHero';
 import SectionListingForRent from './_components/SectionListingForRent/SectionListingForRent';
 import SectionListingForSale from './_components/SectionListingForSale/SectionListingForSale';
 import TopBanner from './_components/TopBanner/TopBanner';
+import SectionContact from '@/components/SectionContact/SectionContact';
 
 const SectionExploreProjects = dynamic(
   () => import('./_components/SectionExploreProjects/SectionExploreProjects'),
@@ -88,7 +88,7 @@ const PageHome: FC<Props> = async ({ params: { locale } }) => {
         <EntrustAgent />
       </div>
       <SectionExploreProjects locale={locale} />
-      <FooterContactForm />
+      <SectionContact />
     </main>
   );
 };

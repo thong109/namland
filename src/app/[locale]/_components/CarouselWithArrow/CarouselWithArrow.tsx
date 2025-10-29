@@ -38,7 +38,7 @@ const generatePages = (items: React.JSX.Element[], slidesPerRow: number) => {
 const ListingCarousel: FC<IProps & CarouselProps> = ({ items, slidesPerRow = 5, ...props }) => {
   const pages = generatePages(items, slidesPerRow);
   return (
-    <div className={clsx('-mx-[15px]', styles.customCarousel)}>
+    <div className={clsx('', styles.customCarousel)}>
       <Carousel
         arrows
         dots={false}

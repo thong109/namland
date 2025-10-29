@@ -2,7 +2,7 @@ import CarouselWithArrow from '@/app/[locale]/_components/CarouselWithArrow/Caro
 import CardListingHomePage from '@/components/CardListing/CardListing.HomePage';
 import { Spin } from 'antd';
 import clsx from 'clsx';
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 interface IProps {
   isLoading: boolean;
@@ -10,25 +10,30 @@ interface IProps {
 }
 
 export const SectionHomePageListingCarouselClient: FC<IProps> = ({ isLoading, listingState }) => {
+  const [slidesPerRow, setSlidesPerRow] = useState(4);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) setSlidesPerRow(1);
+      else if (window.innerWidth < 1250) setSlidesPerRow(2);
+      else setSlidesPerRow(4);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <Spin spinning={isLoading}>
       <CarouselWithArrow
-        className="!hidden lg:!block"
-        slidesPerRow={4}
+        className="block"
+        slidesPerRow={slidesPerRow}
         items={listingState?.data?.data?.map((item) => (
-          <div key={item.id} className="h-full">
-            <CardListingHomePage listing={item} className="mx-[15px]" />
+          <div key={item.id} className="px-2 md:px-[10px] lg:px-[15px]">
+            <CardListingHomePage listing={item} />
           </div>
         ))}
       />
-
-      <div className={clsx('flex overflow-x-auto max-lg:gap-4 lg:hidden')}>
-        {listingState?.data?.data?.map((item) => (
-          <div key={item.id} className={clsx('h-full max-lg:w-80 max-lg:min-w-80', 'lg:square')}>
-            <CardListingHomePage listing={item} className="px-2" />
-          </div>
-        ))}
-      </div>
     </Spin>
   );
 };

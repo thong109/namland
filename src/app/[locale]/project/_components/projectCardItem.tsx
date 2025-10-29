@@ -34,8 +34,8 @@ const ProjectCardItem: React.FC<IProps> = ({ data, className = '', ...props }) =
             />
           </div>
           <div className="grid grid-col gap-x-[4px] border-b border-portal-gray-border pb-[9px] mb-[6px]">
-            <Typography className='text-portal-gray-7 font-semibold text-lg leading-1.3 mb-[4px]'>{name}</Typography>
-            <Typography className='text-base text-portal-gray-8 leading-[1.5]'>{t('EcomProjectManagementPageNewHomeUnitArea')}: <span className="text-portal-gray-7">{formatArea(totalArea)}</span></Typography>
+            <Typography className='font-mona text-portal-gray-7 font-semibold text-base md:text-lg leading-1.3 mb-[4px]'>{name}</Typography>
+            <Typography className='font-mona text-sm md:text-base text-portal-gray-8 leading-[1.5]'>{t('EcomProjectManagementPageNewHomeUnitArea')}: <span className="text-portal-gray-7">{formatArea(totalArea)}</span></Typography>
           </div>
           <div className="flex items-start">
             <Image
@@ -44,7 +44,7 @@ const ProjectCardItem: React.FC<IProps> = ({ data, className = '', ...props }) =
               className="h-[22px] w-[22px]"
               loading="eager"
             />
-            <Typography className="text-base text-portal-gray-8 leading-[1.5] ml-[3px] min-h-[42px] line-clamp-2">
+            <Typography className="text-sm md:text-base text-portal-gray-8 leading-[1.5] ml-[3px] min-h-[42px] line-clamp-2">
               {address}
             </Typography>
           </div>

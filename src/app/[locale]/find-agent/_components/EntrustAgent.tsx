@@ -8,11 +8,12 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
 
-export interface IProps {}
+export interface IProps { }
 
 const EntrustAgent: FC<IProps> = () => {
   const t = useTranslations('webLabel');
   const [listAgent, setListAgent] = useState<any>([]);
+  const [slidesPerRow, setSlidesPerRow] = useState(4);
 
   const getData = useCallback(async () => {
     try {
@@ -41,15 +42,27 @@ const EntrustAgent: FC<IProps> = () => {
     ));
   }, [listAgent]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) setSlidesPerRow(2);
+      else setSlidesPerRow(4);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className="my-16 flex w-full flex-col gap-4">
-      <Typography.Title className="mb-1 text-3xl font-bold text-portal-primaryLiving">
+      <p className="mb-1 text-xl md:text-[30px] font-semibold text-black leading-1">
         {t('EcomHomePageEntrustAgent')}
-      </Typography.Title>
+      </p>
 
-      <CarouselWithArrow items={items} className="!hidden lg:!block" slidesPerRow={4}>
-        {items}
-      </CarouselWithArrow>
+      <CarouselWithArrow
+        items={items}
+        className="block"
+        slidesPerRow={slidesPerRow}
+      >{items}</CarouselWithArrow>
 
       <div className={clsx('flex overflow-x-auto max-lg:gap-4 lg:hidden')}>{items}</div>
     </div>

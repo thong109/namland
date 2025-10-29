@@ -163,50 +163,9 @@ const SectionHomePageListing: FC<SectionHomePageListingProps> = ({
               : 'lg:w-3/4',
           )}
         >
-          <div className="rever grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-0">
-            <div className="order-2 col-span-1 flex items-center justify-start lg:order-1">
-              <div className="overflow-x-auto">
-                <SelectorChip
-                  className={clsx(
-                    '[&_button.chip-button-selected]:text-pmh-text',
-                    '[&_button.chip-button-selected]:!border-portal-primaryButtonAdmin',
-                    '[&_button.chip-button]:border-pmh-text',
-                  )}
-                  options={Object.keys(listingFilters).map((x) => ({
-                    id: listingFilters[x].value,
-                    name: listingFilters[x].label,
-                  }))}
-                  value={selectedFilter}
-                  onChange={(value) => {
-                    setSelectedFilter(value);
-                    setIsFilterChanged(true);
-                  }}
-                />
-              </div>
-            </div>
-            <div className="order-1 col-span-1 grid grid-cols-2 lg:order-2 lg:col-span-2">
-              <div className="flex items-end justify-start lg:items-center lg:justify-center">
-                <h1 className="text-3xl font-bold">{title}</h1>
-              </div>
-              <div className="flex items-end justify-end lg:items-center">
-                <Link
-                  href={`${
-                    type === listingType.sale
-                      ? NAVIGATION.saleListing.href
-                      : NAVIGATION.rentListing.href
-                  }`}
-                  className="flex flex-row flex-nowrap items-center gap-4"
-                >
-                  <div className="cursor-pointer whitespace-nowrap text-green underline underline-offset-4 lg:uppercase lg:text-pmh-text lg:no-underline">
-                    {t('Common.ShowMore')}
-                  </div>
-                  <div className="hidden size-10 lg:inline-block">
-                    <ArrowRightCircleIcon className="size-full" />
-                  </div>
-                </Link>
-              </div>
-            </div>
-          </div>
+          <p className="mb-1 text-xl md:text-[30px] font-semibold text-black leading-1">
+            {title}
+          </p>
 
           <div className="w-full overflow-x-hidden overflow-y-hidden">
             <div className="homepage-listing-to-hide flex w-full flex-row overflow-x-auto overflow-y-hidden">
