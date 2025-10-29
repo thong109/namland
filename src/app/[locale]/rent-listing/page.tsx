@@ -17,7 +17,7 @@ import {
   ShortHomeRealEstateSearchModel,
 } from '@/models/homeRealEstateSearchModel/homeRealEstateSearchModel';
 import FooterContactForm from '../_components/FooterContactForm/FooterContactForm';
-import BlockListing from '../_components/BlockListing/BlockListing';
+import BlockListing from '@/components/BlockListing/BlockListing';
 interface PageRentListingProps {
   searchParams: ShortHomeRealEstateSearchModel;
 }
