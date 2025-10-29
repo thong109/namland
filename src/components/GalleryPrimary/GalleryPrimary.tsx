@@ -76,32 +76,36 @@ const GalleryPrimary: React.FC<GalleryPrimaryProps> = ({ images: initImages = []
       >
         <div className='gallery-common-primary'>
           <div className='container'>
-            <div className='gallery-common-primary__wrapper'>
-              {images.map((img, idx) => {
-                return (
-                  <div className='gallery-common-primary__entry' key={img.id}>
-                    <Image
-                      className='hidden'
-                      src={img.url}
-                      alt={img.id}
-                      width={600}
-                      height={600}
-                      onLoad={(e) => {
-                        setSource(idx, {
-                          src: e.currentTarget.currentSrc,
-                          srcset: e.currentTarget.srcset,
-                        });
-                      }}
-                      priority
-                    />
-                    {imagesLoading[idx] ? (
-                      renderLoading()
-                    ) : (
-                      <AntImage rootClassName='gallery-common-primary__entry-visual' src={img.src} srcSet={img.srcSet} alt={img.id} onClick={() => setCurrentPreview(idx)} />
-                    )}
-                  </div>
-                );
-              })}
+            <div className='gallery-common-primary__viewport'>
+              <div className='gallery-common-primary__wrapper'>
+                {images.map((img, idx) => {
+                  return (
+                    <div className='gallery-common-primary__entry' key={img.id}>
+                      <div className='gallery-common-primary__entry-wrapper'>
+                        <Image
+                          className='hidden'
+                          src={img.url}
+                          alt={img.id}
+                          width={600}
+                          height={600}
+                          onLoad={(e) => {
+                            setSource(idx, {
+                              src: e.currentTarget.currentSrc,
+                              srcset: e.currentTarget.srcset,
+                            });
+                          }}
+                          priority
+                        />
+                        {imagesLoading[idx] ? (
+                          renderLoading()
+                        ) : (
+                          <AntImage rootClassName='gallery-common-primary__entry-visual' src={img.src} srcSet={img.srcSet} alt={img.id} onClick={() => setCurrentPreview(idx)} />
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
