@@ -1,0 +1,23 @@
+.article-common-information--overview {
+  @apply pt-[17px];
+  @apply tablet-lg:pt-[20px];
+  @apply mobile:pt-[20px];
+}
+
+.article-common-information--overview .article-common-information__title {
+  @apply mb-[9px] block text-[24px] leading-[calc(35/24)] font-[600] text-[#000];
+  @apply tablet-lg:mb-[10px] tablet-lg:text-[20px] tablet-lg:leading-[calc(30/20)];
+  @apply mobile:mb-[10px] mobile:text-[20px] mobile:leading-[calc(30/20)];
+}
+
+.article-common-information--overview .article-common-information__address {
+  @apply mb-[20px] flex items-start text-[18px] leading-[calc(35/18)] not-italic;
+  @apply tablet-lg:text-[16px] tablet-lg:leading-[calc(24/16)];
+  @apply mobile:text-[14px] mobile:leading-[calc(24/14)];
+}
+
+.article-common-information--overview .article-common-information__address-icon {
+  @apply w-[22px] h-[35px] mr-[3px] flex-shrink-0 flex-grow-0 bg-[length:100%_auto] bg-[position:50%_50%] bg-no-repeat;
+  @apply tablet-lg:w-[20px] tablet-lg:h-[24px] tablet-lg:mr-[5px];
+  @apply mobile:w-[20px] mobile:h-[24px] mobile:mr-[5px];
+}

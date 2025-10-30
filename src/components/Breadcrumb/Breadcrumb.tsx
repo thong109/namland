@@ -26,7 +26,7 @@ const Breadcrumb: FC<BreadCrumbProps> = ({ additionalClass, breadcrumbItems, has
             return (
               <li key={index} className='breadcrumb-common__item'>
                 {!isItemLast ? (
-                  <span className='breadcrumb-common__item-link cursor-pointer' onClick={() => push(breadcrumbItem.path)} style={{ backgroundImage: `url(${assetsImages.commonIconArrow2.src})` }}>{breadcrumbItem.title}</span>
+                  <span className='breadcrumb-common__item-link cursor-pointer' onClick={() => push(breadcrumbItem.path)} style={{ backgroundImage: `url(${assetsImages.commonIconArrow02.src})` }}>{breadcrumbItem.title}</span>
                 ) : (
                   <span className='breadcrumb-common__item-label'>{breadcrumbItem.title}</span>
                 )}

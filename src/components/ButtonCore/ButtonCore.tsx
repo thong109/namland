@@ -43,7 +43,7 @@ const ButtonCore: React.FC<ButtonCoreProps> = ({
         <span className='button-common-core__icon button-common-core__icon--search' style={{ backgroundImage: `url(${assetsImages.commonIconSearchWhite.src})` }}></span>
       )}
       {buttonType === 'destroy' && (
-        <span className='button-common-core__icon button-common-core__icon--close' style={{ backgroundImage: `url(${assetsImages.commonIconClose2.src})` }}></span>
+        <span className='button-common-core__icon button-common-core__icon--close' style={{ backgroundImage: `url(${assetsImages.commonIconClose02.src})` }}></span>
       )}
     </button>
   );

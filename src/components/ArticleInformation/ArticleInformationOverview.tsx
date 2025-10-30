@@ -5,6 +5,7 @@ import FavoriteButton from '@/components/ArticleInformation/ArticleInformationOv
 import ShareButton from '@/components/ArticleInformation/ArticleInformationOverview.ShareButton';
 import PropertyInfoBox from '@/components/CardListing/_component/PropertyInfoBox';
 import { assetsImages } from '@/assets/images/package';
+import './ArticleInformationOverview.css';
 import ArticleInformationOverviewAbout from './ArticleInformationOverviewAbout';
 
 interface ArticleInformationOverviewProps {
@@ -18,7 +19,7 @@ const ArticleInformationOverview: React.FC<ArticleInformationOverviewProps> = ({
   return (
     <div className='article-common-information article-common-information--overview' id='overview'>
       <h1 className='article-common-information__title'>{listingDetail?.title}</h1>
-      <address className='article-common-information__address'><span className='article-common-information__address-icon'></span>{listingDetail?.location?.formattedAddress}</address>
+      <address className='article-common-information__address'><span className='article-common-information__address-icon' style={{ backgroundImage: `url(${assetsImages.commonIconLocation.src})` }}></span>{listingDetail?.location?.formattedAddress}</address>
       <ArticleInformationOverviewAbout locale={locale} listingDetail={listingDetail} />
       <div className='article-common-information__description'>
         <span className='article-common-information__description-label'>{t('EcomPropertyDetailPageDetailDescription')}</span>

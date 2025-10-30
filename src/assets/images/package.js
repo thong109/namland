@@ -1,17 +1,17 @@
 import commonIconArrow from './common/icon_arrow_01.svg';
-import commonIconArrow2 from './common/icon_arrow_02.svg';
+import commonIconArrow02 from './common/icon_arrow_02.svg';
 import commonIconSearch from './common/icon_search_01.svg';
 import commonIconBurger from './common/icon_burger_01.svg';
 import commonIconClose from './common/icon_close_01.svg';
-import commonIconClose2 from './common/icon_close_02.svg';
+import commonIconClose02 from './common/icon_close_02.svg';
 import commonIconUser from './common/icon_user_01.svg';
 import commonIconLanguage from './common/icon_language_01.svg';
 import commonIconLocation from "./common/icon_location_01.svg";
 import commonIconLetter from "./common/icon_letter_01.svg";
 import commonIconPhone from "./common/icon_phone_01.svg";
 import commonIconSNS from "./common/icon_sns_01.svg";
-import commonIconSNS2 from "./common/icon_sns_02.svg";
-import commonIconSNS3 from "./common/icon_sns_03.svg";
+import commonIconSNS02 from "./common/icon_sns_02.svg";
+import commonIconSNS03 from "./common/icon_sns_03.svg";
 import commonLogoPrinmary from './common/logo_primary_01.svg';
 import commonLogoPrinmaryWhite from './common/logo_primary_01_white.svg';
 import commonBannerContact from "./common/banner_contact_01.png";
@@ -41,22 +41,27 @@ import commonIconUtilities05 from "./common/icon_utilities_05.svg";
 import commonIconUtilities06 from "./common/icon_utilities_06.svg";
 import commonIconUtilities07 from "./common/icon_utilities_07.svg";
 import commonIconUtilities08 from "./common/icon_utilities_08.svg";
+import commonIconNavigation from "./common/icon_navigation_01.svg";
+import commonIconNavigation02 from "./common/icon_navigation_02.svg";
+import commonIconNavigation03 from "./common/icon_navigation_03.svg";
+import commonIconNavigation04 from "./common/icon_navigation_04.svg";
+import commonIconNavigation05 from "./common/icon_navigation_05.svg";
 
 export const assetsImages = {
   commonIconArrow,
-  commonIconArrow2,
+  commonIconArrow02,
   commonIconSearch,
   commonIconBurger,
   commonIconClose,
-  commonIconClose2,
+  commonIconClose02,
   commonIconUser,
   commonIconLanguage,
   commonIconLocation,
   commonIconLetter,
   commonIconPhone,
   commonIconSNS,
-  commonIconSNS2,
-  commonIconSNS3,
+  commonIconSNS02,
+  commonIconSNS03,
   commonLogoPrinmary,
   commonLogoPrinmaryWhite,
   commonBannerContact,
@@ -87,4 +92,9 @@ export const assetsImages = {
   commonIconUtilities06,
   commonIconUtilities07,
   commonIconUtilities08,
+  commonIconNavigation,
+  commonIconNavigation02,
+  commonIconNavigation03,
+  commonIconNavigation04,
+  commonIconNavigation05,
 }

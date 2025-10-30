@@ -33,10 +33,10 @@ const Footer = () => {
                     <Link className='list-footer-sns__entry-link' href='#' style={{ backgroundImage: `url(${assetsImages.commonIconSNS.src})` }}></Link>
                   </li>
                   <li className='list-footer-sns__entry'>
-                    <Link className='list-footer-sns__entry-link' href='#' style={{ backgroundImage: `url(${assetsImages.commonIconSNS2.src})` }}></Link>
+                    <Link className='list-footer-sns__entry-link' href='#' style={{ backgroundImage: `url(${assetsImages.commonIconSNS02.src})` }}></Link>
                   </li>
                   <li className='list-footer-sns__entry'>
-                    <Link className='list-footer-sns__entry-link' href='#' style={{ backgroundImage: `url(${assetsImages.commonIconSNS3.src})` }}></Link>
+                    <Link className='list-footer-sns__entry-link' href='#' style={{ backgroundImage: `url(${assetsImages.commonIconSNS03.src})` }}></Link>
                   </li>
                 </ul>
               </div>

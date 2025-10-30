@@ -9,6 +9,7 @@ import LinkedProject from '@/components/ArticleInformation/LinkedProject';
 import ArticleInformationDetails from '@/components/ArticleInformation/ArticleInformationDetails';
 import ArticleInformationOverview from '@/components/ArticleInformation/ArticleInformationOverview';
 import { RatingComponent } from '@/components/ArticleInformation/RatingComponent';
+import { assetsImages } from '@/assets/images/package';
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
 import GalleryPrimary from '@/components/GalleryPrimary/GalleryPrimary';
 import SectionContact from '@/components/SectionContact/SectionContact';
@@ -80,14 +81,28 @@ const PageDetailProperty: FC<PagePropertyDetailProps> = async ({ params, searchP
           <link key={index} rel='preload' href={image.url} as='image' />
         ))}
         <GalleryPrimary images={listingDetail?.imageUrls ?? []} />
-        <div className='navigation-common-chitiet'>
+        <div className='navigation-common-page'>
           <div className='container'>
-            <ul className='navigation-common-chitiet__wrapper'>
-              <li className='navigation-common-chitiet__entry'><a href='#overview'>Tổng quan</a></li>
-              <li className='navigation-common-chitiet__entry'><a href='#details'>Chi tiết căn hộ</a></li>
-              <li className='navigation-common-chitiet__entry'><a href='#furniture'>Nội thất </a></li>
-              <li className='navigation-common-chitiet__entry'><a href='#utilities'>Tiện ích</a></li>
-              <li className='navigation-common-chitiet__entry'><a href='#location'>Bản đồ khu vực</a></li>
+            <ul className='navigation-common-page__wrapper'>
+              <li className='navigation-common-page__entry'>
+                <a className='navigation-common-page__entry-wrapper' href='#overview'><span className='navigation-common-page__entry-icon' style={{ backgroundImage: `url(${assetsImages.commonIconNavigation.src})`, backgroundSize: `calc(20 / 24 * 100%) auto` }}></span>Tổng quan</a>
+              </li>
+              <li className='navigation-common-page__entry'>
+                <a className='navigation-common-page__entry-wrapper' href='#details'><span className='navigation-common-page__entry-icon' style={{ backgroundImage: `url(${assetsImages.commonIconNavigation02.src})`, backgroundSize: `calc(24 / 24 * 100%) auto` }}></span>Chi tiết căn hộ</a>
+              </li>
+              <li className='navigation-common-page__entry'>
+                <a className='navigation-common-page__entry-wrapper' href='#furniture'><span className='navigation-common-page__entry-icon' style={{ backgroundImage: `url(${assetsImages.commonIconNavigation03.src})`, backgroundSize: `calc(24 / 24 * 100%) auto` }}></span>Nội thất </a>
+              </li>
+              <li className='navigation-common-page__entry'>
+                <a className='navigation-common-page__entry-wrapper' href='#utilities'><span className='navigation-common-page__entry-icon' style={{ backgroundImage: `url(${assetsImages.commonIconNavigation04.src})`, backgroundSize: `calc(24 / 24 * 100%) auto` }}></span>Tiện ích</a>
+              </li>
+              <li className='navigation-common-page__entry'>
+                <a className='navigation-common-page__entry-wrapper' href='#location'><span className='navigation-common-page__entry-icon' style={{ backgroundImage: `url(${assetsImages.commonIconNavigation05.src})`, backgroundSize: `calc(18 / 24 * 100%) auto` }}></span>Bản đồ khu vực</a>
+              </li>
+            </ul>
+            <ul className='navigation-common-page__additional'>
+              <li className='navigation-common-page__additional-entry'></li>
+              <li className='navigation-common-page__additional-entry'></li>
             </ul>
           </div>
         </div>
