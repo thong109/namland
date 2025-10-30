@@ -1,5 +1,5 @@
 .card-common-listing {
-  @apply h-full flex flex-col p-[21px_18.5px_28px] bg-[#fff] border-[1px] border-[#d9d9d9] rounded-[10px] font-mona;
+  @apply h-full flex flex-col p-[21px_18.5px_28px] bg-[#fff] border-[1px] border-[#d9d9d9] rounded-[10px] font-mona cursor-pointer;
   @apply tablet-lg:p-[19px];
   @apply mobile:p-[19px];
 }

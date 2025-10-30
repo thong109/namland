@@ -11,7 +11,7 @@ const Footer = () => {
         <div className='container'>
           <div className='navigation-footer__wrapper'>
             <div className='navigation-footer__block'>
-              <span className='navigation-footer__block-label'>CÔNG TY TNHH NAM LONG O2O</span>
+              <span className='navigation-footer__block-label'>CÔNG TY TNHH Nam Long Living</span>
               <ul className='list-footer-address'>
                 <li className='list-footer-address__entry'>
                   <span className='list-footer-address__entry-title'><span className='list-footer-address__title-icon' style={{ maskImage: `url(${assetsImages.commonIconLocation.src})` }}></span>ĐỊA CHỈ</span>
@@ -27,7 +27,7 @@ const Footer = () => {
                 </li>
               </ul>
               <div className='list-footer-sns'>
-                <span className='list-footer-sns__label'>THEO DÕI NAM LONG O2O</span>
+                <span className='list-footer-sns__label'>THEO DÕI Nam Long Living</span>
                 <ul className='list-footer-sns__wrapper'>
                   <li className='list-footer-sns__entry'>
                     <Link className='list-footer-sns__entry-link' href='#' style={{ backgroundImage: `url(${assetsImages.commonIconSNS.src})` }}></Link>
@@ -65,7 +65,7 @@ const Footer = () => {
               <div className='navigation-footer__block-stamp'><Image src={assetsImages.commonStampVerify} width={206} height={70} alt='Stamp' /></div>
             </div>
           </div>
-          <div className='navigation-footer__credits'>Copyright © 2025 Nam Long O2O. All Right Reserved.</div>
+          <div className='navigation-footer__credits'>Copyright © 2025 Nam Long Living. All Right Reserved.</div>
         </div>
       </div>
     </footer>

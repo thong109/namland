@@ -66,20 +66,20 @@ const Header = ({ className, navType }: { className: string; navType: string }) 
         </ul>
       ),
     },
-    {
-      id: ncNanoId(),
-      href: NAVIGATION.housingServices.href,
-      name: 'EcomHomePageMenuService',
-      type: 'dropdown',
-      subMenu: null,
-    },
-    {
-      id: ncNanoId(),
-      href: NAVIGATION.serviceAndProduct.href,
-      name: 'EcomHomePageMenuProducts',
-      type: 'dropdown',
-      subMenu: null,
-    },
+    // {
+    //   id: ncNanoId(),
+    //   href: NAVIGATION.housingServices.href,
+    //   name: 'EcomHomePageMenuService',
+    //   type: 'dropdown',
+    //   subMenu: null,
+    // },
+    // {
+    //   id: ncNanoId(),
+    //   href: NAVIGATION.serviceAndProduct.href,
+    //   name: 'EcomHomePageMenuProducts',
+    //   type: 'dropdown',
+    //   subMenu: null,
+    // },
     {
       id: ncNanoId(),
       href: NAVIGATION.contactUs.href,

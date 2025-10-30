@@ -114,7 +114,7 @@ const SelectionComponent = ({
                     ? amenityEnum === amenityType.In
                       ? 'bg-portal-amenityIn [&_*]:fill-portal-amenityIn'
                       : 'bg-portal-amenityOut [&_*]:fill-portal-amenityOut'
-                    : 'bg-portal-backgroud'
+                    : 'bg-portal-background'
                 }`}
               >
                 <Image width={20} height={20} alt={option?.name ?? ''} src={option?.imageUrl} />

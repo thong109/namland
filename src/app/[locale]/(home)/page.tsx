@@ -80,10 +80,8 @@ const PageHome: FC<Props> = async ({ params: { locale } }) => {
   return (
     <main className="nc-PageHome relative flex flex-col gap-16 pb-0">
       <SectionHero locale={locale} />
-      <TopBanner initAboveSaleBanner={aboveSaleBanner} />
       <SectionListingForSale locale={locale} platinumListing={salePlatinumListing} />
       <SectionListingForRent locale={locale} platinumListing={rentPlatinumListing} />
-      <MiddleBanner />
       <div className="container">
         <EntrustAgent />
       </div>

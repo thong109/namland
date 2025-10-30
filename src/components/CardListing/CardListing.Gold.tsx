@@ -26,7 +26,7 @@ const CardListingGold: React.FC<CardListingGoldProps> = ({ className, listing })
 
   return (
     <div className={clsx('relative h-full transition-all ease-linear', className)}>
-      <CardListingRibbon variant="gold" />
+      <CardListingRibbon />
       <CardListingProjectInfo className={'left-0 top-44'} project={project} />
       <div className="flex h-full flex-col border border-neutral-500 bg-neutral-0">
         {/* <Link href={listingUrl} className="relative hover:text-[unset]"> */}

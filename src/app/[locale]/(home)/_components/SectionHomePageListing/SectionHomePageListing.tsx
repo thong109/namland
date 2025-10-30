@@ -144,16 +144,6 @@ const SectionHomePageListing: FC<SectionHomePageListingProps> = ({
   });
   return (
     <div>
-      {aboveBanner?.attachments?.length > 0 && (
-        <div className="container hidden lg:block">
-          <Image
-            src={aboveBanner.attachments[0].bannerImageUrl}
-            alt={aboveBanner.attachments[0].bannerName}
-            width={2440}
-            height={1920}
-          />
-        </div>
-      )}
       <div className="container relative flex flex-col gap-6 lg:flex-row">
         <div
           className={clsx(
@@ -167,7 +157,7 @@ const SectionHomePageListing: FC<SectionHomePageListingProps> = ({
             {title}
           </p>
 
-          <div className="w-full overflow-x-hidden overflow-y-hidden">
+          <div className="w-full overflow-visible">
             <div className="homepage-listing-to-hide flex w-full flex-row overflow-x-auto overflow-y-hidden">
               {platinumListing?.data?.data?.map((item) => (
                 <div key={item.id} className="h-full shrink-0 grow basis-1/4">

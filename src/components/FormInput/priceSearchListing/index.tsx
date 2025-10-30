@@ -162,7 +162,7 @@ const PriceSearchListing = ({
     {
       key: '9',
       label: t('HomeSearchPriceFilterSale[9]'),
-      onClick: () => onChoosePrice([20000000000, undefined]),
+      onClick: () => onChoosePrice([20000000000, 200000000000]),
     },
   ];
 
@@ -211,7 +211,7 @@ const PriceSearchListing = ({
     {
       key: '9',
       label: t('HomeSearchPriceFilterRent[9]'),
-      onClick: () => onChoosePrice([100000000, undefined]),
+      onClick: () => onChoosePrice([100000000, 100000000]),
     },
   ];
 

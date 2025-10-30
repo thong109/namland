@@ -6,7 +6,7 @@ import Link from 'next-intl/link';
 import Image from 'next/image';
 import React from 'react';
 import ButtonCore from '../ButtonCore/ButtonCore';
-import PriceNumberText from '../PriceNumberText/PriceNumberText';
+import { formatNumber } from '@/libs/helper';
 
 interface CardListingBasicProps {
   className?: string;
@@ -15,11 +15,9 @@ interface CardListingBasicProps {
 
 const CardListingBasic: React.FC<CardListingBasicProps> = ({ className, listing }) => {
   const t = useTranslations('webLabel');
-
   const listingDetail: any = listing;
-  const { project } = listing;
-
   const listingUrl = getListingUrl(listingDetail.id, listingDetail.title);
+
   return (
     <Link className={clsx('card-common-listing group', className)} href={listingUrl}>
       <div className='card-common-listing__visual'>
@@ -38,7 +36,7 @@ const CardListingBasic: React.FC<CardListingBasicProps> = ({ className, listing 
             </li>
             <li className='card-common-listing__info-entry'>
               <span className='card-common-listing__entry-label'>{t('EcomPropertyListingDetailPageLocationPrice')}</span>
-              <div className='card-common-listing__entry-detail'><PriceNumberText value={listingDetail?.priceVnd} displayPriceType={listingDetail?.displayPriceType} /></div>
+              <div className='card-common-listing__entry-detail'>{formatNumber(listingDetail?.priceVnd)}</div>
             </li>
           </ul>
         </div>

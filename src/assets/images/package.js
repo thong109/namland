@@ -18,6 +18,9 @@ import commonBannerContact from "./common/banner_contact_01.png";
 import commonStampVerify from "./common/stamp_verify_01.png";
 import commonImageContact from "./common/contact_img_01.jpg";
 import commonIconSearchWhite from "./common/icon_search_02.svg";
+import contactIcon01 from "./common/contact_icn_01.svg";
+import contactIcon02 from "./common/contact_icn_02.svg";
+import contactIcon03 from "./common/contact_icn_03.svg";
 
 export const assetsImages = {
   commonIconArrow,
@@ -40,5 +43,8 @@ export const assetsImages = {
   commonStampVerify,
   commonImageContact,
   commonIconSearch,
-  commonIconSearchWhite
+  commonIconSearchWhite,
+  contactIcon01,
+  contactIcon02,
+  contactIcon03,
 }

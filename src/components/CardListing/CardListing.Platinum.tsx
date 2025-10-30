@@ -27,7 +27,7 @@ const CardListingPlatinum: React.FC<CardListingPlatinumProps> = ({ className, li
 
   return (
     <div className={clsx('relative h-full transition-all ease-linear', className)}>
-      <CardListingRibbon variant="platinum" />
+      <CardListingRibbon/>
       <CardListingProjectInfo className={'left-0 top-44'} project={project} />
       <div className="flex h-full flex-col border border-neutral-500 bg-neutral-0">
         <div className="relative h-56 w-full overflow-hidden hover:text-[unset]">

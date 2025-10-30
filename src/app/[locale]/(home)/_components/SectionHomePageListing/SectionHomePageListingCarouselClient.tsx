@@ -1,7 +1,6 @@
 import CarouselWithArrow from '@/app/[locale]/_components/CarouselWithArrow/CarouselWithArrow';
 import CardListingHomePage from '@/components/CardListing/CardListing.HomePage';
 import { Spin } from 'antd';
-import clsx from 'clsx';
 import { FC, useEffect, useState } from 'react';
 
 interface IProps {
@@ -29,7 +28,7 @@ export const SectionHomePageListingCarouselClient: FC<IProps> = ({ isLoading, li
         className="block"
         slidesPerRow={slidesPerRow}
         items={listingState?.data?.data?.map((item) => (
-          <div key={item.id} className="px-2 md:px-[10px] lg:px-[15px]">
+          <div key={item.id} className="mobile:px-2 laptop-sm:px-[6px] desktop:px-[15px]">
             <CardListingHomePage listing={item} />
           </div>
         ))}

@@ -9,9 +9,9 @@ import { Pagination } from 'antd';
 import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next-intl/link';
 import { FC } from 'react';
-import './BlockListing.css';
+import './BlockListingRent.css';
 import TableResult from '../TableResult/TableResult';
-import SidebarListing from '@/components/SidebarListing/SidebarListing';
+import SidebarListingRent from '../SidebarListingRent/SidebarListingRent';
 
 export interface IProps {
   totalResult: number;
@@ -31,7 +31,7 @@ export interface IProps {
   allPropertyCoordinates: any;
 }
 
-const BlockListing: FC<IProps> = ({
+const BlockListingRent: FC<IProps> = ({
   type,
   listing,
   properties = [],
@@ -80,18 +80,7 @@ const BlockListing: FC<IProps> = ({
 
   return (
     <div className='block-common-listing'>
-      <SidebarListing
-        searchParams={searchParams}
-        type={type}
-        properties={properties}
-        projects={projects}
-        provinces={provinces}
-        views={views}
-        inAmenities={inAmenities}
-        outAmenities={outAmenities}
-        funitureStatus={funitureStatus}
-        className={''}
-      />
+      <SidebarListingRent />
       <div className="block-common-listing__wrapper">
         <span className='block-common-listing__title'>{t('EcomHomePagePropertyForSale')}</span>
         <TableResult listings={listing} />
@@ -113,4 +102,4 @@ const BlockListing: FC<IProps> = ({
   );
 };
 
-export default BlockListing;
+export default BlockListingRent;

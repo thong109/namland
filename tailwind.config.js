@@ -39,7 +39,7 @@ module.exports = {
           primaryButtonAdmin: '#FFD14B',
           textColorAdmin: '#575757',
           textTitleChart: '#404040',
-          backgroud: '#F6F8F9',
+          background: '#F6F8F9',
           card: '#FFFFFF',
           border: '#E6E9EC',
           greenBg: '#BCF0D2',
@@ -170,21 +170,21 @@ module.exports = {
         danger: '#EF4444',
       },
       screens: {
-        'desktop': '768px',
-        'laptop-lg': {min: '768px', max: '1899.98px'},
-        'laptop-md': {min: '768px', max: '1619.98px'},
-        'laptop-sm': {min: '768px', max: '1439.98px'},
-        'tablet-lg': {min: '768px', max: '1365.98px'},
-        'tablet-md': {min: '768px', max: '1079.98px'},
-        'mobile': {max: '767.98px'}
+        desktop: '768px',
+        'laptop-lg': { min: '768px', max: '1899.98px' },
+        'laptop-md': { min: '768px', max: '1619.98px' },
+        'laptop-sm': { min: '768px', max: '1439.98px' },
+        'tablet-lg': { min: '768px', max: '1365.98px' },
+        'tablet-md': { min: '768px', max: '1079.98px' },
+        mobile: { max: '767.98px' },
       },
       fontSize: {
-        sm: '0.875rem',   // 14px
-        base: '1rem',     // 16px
-        lg: '1.125rem',   // 18px
-        xl: '1.25rem',    // 20px
-        '2xl': '1.5rem',  // 24px
-        '3xl': '1.75rem'
+        sm: '0.875rem', // 14px
+        base: '1rem', // 16px
+        lg: '1.125rem', // 18px
+        xl: '1.25rem', // 20px
+        '2xl': '1.5rem', // 24px
+        '3xl': '1.75rem',
       },
       lineHeight: {
         none: '1',
@@ -196,15 +196,18 @@ module.exports = {
         1.3: 'calc(25/18)',
         1.4: 'calc(35/24)',
         1.5: 'calc(28/18)',
-        3: '.75rem',      // 12px
-        4: '1rem',        // 16px
-        5: '1.25rem',     // 20px
-        6: '1.5rem',      // 24px
-        7: '1.75rem',     // 28px
-        8: '2rem',        // 32px
+        3: '.75rem', // 12px
+        4: '1rem', // 16px
+        5: '1.25rem', // 20px
+        6: '1.5rem', // 24px
+        7: '1.75rem', // 28px
+        8: '2rem', // 32px
       },
       spacing: {
         15: '3.75rem', // = 60px
+      },
+      boxShadow: {
+        soft: '0px 4px 4px rgba(0, 0, 0, 0.15)',
       },
     },
   },

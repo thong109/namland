@@ -88,7 +88,7 @@ const ChipSelectionComponent = ({
             onClick={() => onOptionSelect(option)}
           >
             <div
-              className={`inline-flex h-9 w-9 flex-none items-center justify-center rounded-full bg-portal-backgroud ${
+              className={`inline-flex h-9 w-9 flex-none items-center justify-center rounded-full bg-portal-background ${
                 (multiSelect ? selected.includes(option.value) : selected == option.value)
                   ? 'border border-portal-primaryLiving [&_*]:fill-portal-primaryLiving'
                   : ''

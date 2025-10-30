@@ -16,8 +16,9 @@ import {
   convertTypeOfShortFilterListingParams,
   ShortHomeRealEstateSearchModel,
 } from '@/models/homeRealEstateSearchModel/homeRealEstateSearchModel';
-import FooterContactForm from '../_components/FooterContactForm/FooterContactForm';
-import BlockListing from '@/components/BlockListing/BlockListing';
+import SectionContact from '@/components/SectionContact/SectionContact';
+import BlockListingRent from '@/components/BlockListingRent/BlockListingRent';
+import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
 interface PageRentListingProps {
   searchParams: ShortHomeRealEstateSearchModel;
 }
@@ -61,24 +62,34 @@ const PageRentListing: React.FC<PageRentListingProps> = async ({ searchParams })
 
   return (
     <>
-      <BlockListing
-        allPropertyCoordinates={allPropertyCoordinates}
-        paramsString={paramsString}
-        totalResult={totalResult}
-        currentPage={curentPage}
-        pageSize={size}
-        searchParams={paramsvalue}
-        type={listingType.rent}
-        listing={listing}
-        properties={rentCategories}
-        projects={projects}
-        provinces={provinces}
-        views={views}
-        inAmenities={inAmenities}
-        outAmenities={outAmenities}
-        funitureStatus={funitureStatus}
+      <Breadcrumb
+        additionalClass=''
+        breadcrumbItems={[
+          { path: '/', title: 'Trang chủ' },
+          { path: '', title: 'Cho thuê' },
+        ]}
+        hasBanner={false}
       />
-      <FooterContactForm />
+      <div className="container">
+        <BlockListingRent
+          allPropertyCoordinates={allPropertyCoordinates}
+          paramsString={paramsString}
+          totalResult={totalResult}
+          currentPage={curentPage}
+          pageSize={size}
+          searchParams={paramsvalue}
+          type={listingType.rent}
+          listing={listing}
+          properties={rentCategories}
+          projects={projects}
+          provinces={provinces}
+          views={views}
+          inAmenities={inAmenities}
+          outAmenities={outAmenities}
+          funitureStatus={funitureStatus}
+        />
+        <SectionContact />
+      </div>
     </>
   );
 };

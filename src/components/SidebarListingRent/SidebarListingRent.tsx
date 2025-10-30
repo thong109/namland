@@ -32,8 +32,7 @@ import dayjs from 'dayjs';
 import { useRouter } from 'next-intl/client';
 import dynamic from 'next/dynamic';
 import * as NProgress from 'nprogress';
-import styles from './HomeRealEstateSearch.module.scss';
-import PropertySelectionField from './_components/PropertySelectionField';
+import PropertySelectionField from '@/app/[locale]/(home)/_components/HomeRealEstateSearchForm/_components/PropertySelectionField';
 
 const AdvanceSearchListing = dynamic(() => import('@/components/FormInput/advanceSearchListing'), {
   ssr: false,
@@ -41,7 +40,7 @@ const AdvanceSearchListing = dynamic(() => import('@/components/FormInput/advanc
 
 export interface HomeRealEstateSearchFormProps { }
 
-const HomeRealEstateSearchForm: FC<HomeRealEstateSearchFormProps> = ({ }) => {
+const SidebarListingRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
   const t = useTranslations('webLabel');
   const { push } = useRouter();
   const comm = useTranslations('Common');
@@ -62,7 +61,7 @@ const HomeRealEstateSearchForm: FC<HomeRealEstateSearchFormProps> = ({ }) => {
 
   const [isMobileMoreFilterModalOpen, setIsMobileMoreFilterModalOpen] = useState(false);
 
-  const [filterBy, seFilterBy] = useState(listingType.sale);
+  const [filterBy, seFilterBy] = useState(listingType.rent);
   const [selectedMoreFilterArea, setSelectedMoreFilterArea] = useState<string | null>(null);
 
   const priceRangeVnd = Form.useWatch('rp', form);
@@ -229,36 +228,22 @@ const HomeRealEstateSearchForm: FC<HomeRealEstateSearchFormProps> = ({ }) => {
     }
   };
 
-  const saleOrRentBlock = () => {
+  const SaleOrRentSelect = ({ filterBy, setFilterBy, t }) => {
     return (
-      <div className="grid grid-cols-2 items-center gap-2 rounded-3xl border border-neutral-500 p-2 lg:flex lg:p-0.5">
-        <div
-          onClick={() => {
-            seFilterBy(listingType.sale);
-          }}
-          className={clsx(
-            `cursor-pointer grid-cols-1 rounded-3xl px-4 py-2 text-center font-semibold lg:py-1`,
-            {
-              'border border-neutral-500 bg-neutral-0': filterBy === listingType.sale,
-            },
-          )}
-        >
-          {t('EcomHomePageBannerBuy')}
-        </div>
-        <div
-          onClick={() => {
-            seFilterBy(listingType.rent);
-          }}
-          className={clsx(
-            `cursor-pointer grid-cols-1 rounded-3xl px-4 py-2 text-center font-semibold lg:py-1`,
-            {
-              'border border-neutral-500 bg-neutral-0': filterBy === listingType.rent,
-            },
-          )}
-        >
+      <Select
+        value={filterBy}
+        onChange={(value) => setFilterBy(value)}
+        className="w-full max-w-xs"
+        size="large"
+        popupClassName="rounded-xl"
+      >
+        <Select.Option value={listingType.rent}>
           {t('EcomHomePageBannerRent')}
-        </div>
-      </div>
+        </Select.Option>
+        <Select.Option value={listingType.sale}>
+          {t('EcomHomePageBannerBuy')}
+        </Select.Option>
+      </Select>
     );
   };
 
@@ -308,12 +293,11 @@ const HomeRealEstateSearchForm: FC<HomeRealEstateSearchFormProps> = ({ }) => {
       <div
         className={clsx(
           'container flex h-full flex-col content-center items-center justify-center',
-          styles['home-real-estate-search-form'],
         )}
       >
         <div
           className={clsx(
-            'relative w-full bg-portal-yellow px-8 py-6 lg:w-[1000px] lg:px-20',
+            'relative w-full px-8 py-6 lg:px-20',
             filterBy === listingType.sale && 'rounded-tl-none',
           )}
         >
@@ -324,108 +308,70 @@ const HomeRealEstateSearchForm: FC<HomeRealEstateSearchFormProps> = ({ }) => {
             onFinish={onSubmit}
             size="large"
           >
-            <div className="hidden flex-row divide-neutral-500 lg:flex lg:divide-x">
-              <div className="pr-8">{saleOrRentBlock()}</div>
+            <div className="hidden flex-row divide-neutral-500 lg:flex">
+              <div className="col-span-5">
+                <Form.Item
+                  name="k"
+                  className="hidden lg:block [&_.ant-input-affix-wrapper]:!rounded-none [&_.ant-input-affix-wrapper]:border-neutral-500 [&_.ant-input-affix-wrapper]:!py-0 [&_.ant-input-affix-wrapper]:!pr-0"
+                >
+                  <Input
+                    placeholder={t('HomeRealEstateSearchFormSearchFieldPlaceHolder')}
+                    prefix={<MagnifyingGlassIcon className="size-4" />}
+                    allowClear
+                    suffix={
+                      <ButtonCore
+                        type="submit"
+                        className="!rounded-none border-l border-l-neutral-500 px-6 !text-pmh-text"
+                        label={`${t('HomeRealEstateSearchFormSearch')}!`}
+                      />
+                    }
+                  />
+                </Form.Item>
+              </div>
+              <div className="pr-8">
+                <SaleOrRentSelect
+                  filterBy={filterBy}
+                  setFilterBy={seFilterBy}
+                  t={t}
+                />
+              </div>
               <div className="flex flex-grow flex-row items-center gap-2 pl-8">
-                <div
-                  className={clsx(
-                    'w-[21%] rounded-xl px-2 py-2 text-center',
-                    propertyType && propertyType.length > 0 && 'bg-portal-yellow-1',
-                  )}
+                <Form.Item
+                  name="c"
+                  className="w-[22%]"
                 >
-                  {popupFilter(
-                    t('HomeRealEstateSearchFormType'),
-                    <Form.Item name="c">
-                      <PropertySelectionField
-                        options={filterBy === listingType.sale ? saleCategories : rentCategories}
-                        multiple
-                      />
-                    </Form.Item>,
-                    true,
-                    () => form.resetFields(['c']),
-                  )}
-                </div>
-                <div
-                  className={clsx(
-                    'price-filter relative w-[21%] rounded-xl px-2 py-2 text-center',
-                    ((priceRangeVnd &&
-                      priceRangeVnd.length > 0 &&
-                      priceRangeVnd.find((x) => !!x)) ||
-                      (priceRangeUsd &&
-                        priceRangeUsd.length > 0 &&
-                        priceRangeUsd.find((x) => !!x))) &&
-                    'bg-portal-yellow-1',
-                  )}
+                  <Select
+                    placeholder={t('HomeRealEstateSearchFormType')}
+                    allowClear
+                    showSearch
+                    optionFilterProp="label"
+                    filterOption={(input, option) =>
+                      String(option?.label ?? '').toLowerCase().includes(String(input).toLowerCase())
+                    }
+                    options={
+                      (filterBy === listingType.sale ? saleCategories : rentCategories)?.map(
+                        (item) => ({
+                          label: item.name,
+                          value: item.id,
+                        })
+                      )
+                    }
+                  />
+                </Form.Item>
+                <Form.Item
+                  name="rp"
+                  className="w-[22%]"
                 >
-                  <div
-                    className="flex cursor-pointer items-center justify-center gap-1 overflow-hidden font-semibold"
-                    onClick={onPriceFilterClick}
-                  >
-                    <span>{t('HomeRealEstateSearchFormPrice')}</span>{' '}
-                    <ChevronDownIcon className="size-4" />{' '}
-                  </div>
-                  <Form.Item
-                    name="rp"
-                    className="absolute -bottom-2 left-1/2 -z-50 min-w-96 -translate-x-1/2 transform"
-                  >
-                    <PriceSearchListing
-                      defaultValue={
-                        filterBy === listingType.sale
-                          ? [500000000, 5000000000]
-                          : [10000000, 35000000]
-                      }
-                      typeft={filterBy}
-                      placeholder={t('HomeRealEstateSearchFormPriceFieldPlaceHolder')}
-                    />
-                  </Form.Item>
-                  {/* {popupFilter(
-                    t('HomeRealEstateSearchFormPrice'),
-                    <Form.Item name="rp" className="min-w-96">
-                      <PriceSearchListing
-                        typeft={filterBy}
-                        placeholder={t('HomeRealEstateSearchFormPriceFieldPlaceHolder')}
-                      />
-                    </Form.Item>,
-                  )} */}
-                </div>
-                <div
-                  className={clsx(
-                    'location-filter relative w-[21%] rounded-xl px-2 py-2 text-center',
-                    locationArea && 'bg-portal-yellow-1',
-                  )}
-                >
-                  <div
-                    className="flex cursor-pointer items-center justify-center gap-1 overflow-hidden font-semibold"
-                    onClick={onLocationFilterClick}
-                  >
-                    <span>{t('HomeRealEstateSearchFormLocation')}</span>{' '}
-                    <ChevronDownIcon className="size-4" />{' '}
-                  </div>
-                  <div className="absolute -bottom-2 left-1/2 -z-50 -translate-x-1/2 transform">
-                    <Form.Item name="p">
-                      <Select
-                        placeholder={t('ListingSearchPlaceholderProvince')}
-                        allowClear
-                        showSearch
-                        filterOption={filterOptionsRemoveVietnameseTones}
-                        className={clsx('min-w-60 opacity-0')}
-                        options={provinces?.map((province) => ({
-                          value: province.provinceID,
-                          label: province.listProvinceName,
-                          id: province.provinceID,
-                        }))}
-                        onSelect={(e) => {
-                          if (e === currentLocation) {
-                            form.resetFields(['p']);
-                            setCurrentLocation(null);
-                          } else {
-                            setCurrentLocation(e);
-                          }
-                        }}
-                      />
-                    </Form.Item>
-                  </div>
-                </div>
+                  <PriceSearchListing
+                    typeft={filterBy}
+                    defaultValue={
+                      filterBy === listingType.sale
+                        ? [500000000, 5000000000]
+                        : [10000000, 35000000]
+                    }
+                    placeholder={t('HomeRealEstateSearchFormPriceFieldPlaceHolder')}
+                  />
+                </Form.Item>
                 <div
                   className={clsx(
                     'w-[21%] rounded-xl px-2 py-2 text-center',
@@ -450,56 +396,17 @@ const HomeRealEstateSearchForm: FC<HomeRealEstateSearchFormProps> = ({ }) => {
                     () => formAdvanceSearch.resetFields(),
                   )}
                 </div>
-                <div
-                  className="cursor-pointer text-center font-bold underline"
-                  onClick={resetFilter}
-                >
-                  {t('HomeRealEstateSearchFormClearFilter')}
-                </div>
               </div>
             </div>
-            <div className="grid grid-cols-7 gap-2">
-              <div className="col-span-2">
-                <Form.Item
-                  name="prjs"
-                  className="hidden lg:block [&_.ant-select-selector]:!h-[42px] [&_.ant-select-selector]:!rounded-none [&_.ant-select-selector]:!border-neutral-500 [&_.ant-select-selector]:!py-0 [&_.ant-select-selector]:!pr-0"
-                >
-                  <MultiSelectWithCheckbox
-                    showSearch
-                    placeholder={t('HomeRealEstateSearchFormSearchFieldProject')}
-                    options={projects?.map((prj) => ({
-                      value: prj.id,
-                      label: prj.name,
-                      id: prj.id,
-                    }))}
-                  />
-                </Form.Item>
-              </div>
-              <div className="col-span-5">
-                <Form.Item
-                  name="k"
-                  className="hidden lg:block [&_.ant-input-affix-wrapper]:!rounded-none [&_.ant-input-affix-wrapper]:border-neutral-500 [&_.ant-input-affix-wrapper]:!py-0 [&_.ant-input-affix-wrapper]:!pr-0"
-                >
-                  <Input
-                    placeholder={t('HomeRealEstateSearchFormSearchFieldPlaceHolder')}
-                    prefix={<MagnifyingGlassIcon className="size-4" />}
-                    allowClear
-                    suffix={
-                      <ButtonCore
-                        type="submit"
-                        buttonType='search'
-                        className="!rounded-none !p-[1px_1.5rem] !min-h-[34px] !w-30 md:!w-40"
-                        label={`${t('HomeRealEstateSearchFormSearch')}`}
-                      />
-                    }
-                  />
-                </Form.Item>
-              </div>
-            </div>
-
             {/* mobile */}
             <div className="flex flex-col lg:hidden">
-              <div className="mb-4">{saleOrRentBlock()}</div>
+              <div className="mb-4">
+                <SaleOrRentSelect
+                  filterBy={filterBy}
+                  setFilterBy={seFilterBy}
+                  t={t}
+                />
+              </div>
               <Form.Item
                 name="k"
                 className="[&_.ant-input-affix-wrapper]:!rounded-none"
@@ -611,4 +518,4 @@ const HomeRealEstateSearchForm: FC<HomeRealEstateSearchFormProps> = ({ }) => {
   );
 };
 
-export default HomeRealEstateSearchForm;
+export default SidebarListingRent;

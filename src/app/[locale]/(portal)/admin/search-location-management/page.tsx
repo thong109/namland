@@ -18,7 +18,7 @@ const BannerManagement: FC = () => {
   ]) ? (
     <>
       <AppPageMeta title={t('EcomSearchLocationManagement')} />
-      <div className="h-full w-full bg-portal-backgroud px-[3%] md:px-[40px] lg:px-[60px]">
+      <div className="h-full w-full bg-portal-background px-[3%] md:px-[40px] lg:px-[60px]">
         <div className="align-items-center mt-[4%] flex justify-between lg:mt-[57px]">
           <div className="mb-5 text-xl font-semibold">
             <h1>{t('EcomSearchLocationManagement')}</h1>
