@@ -1,5 +1,5 @@
 .button-common-core {
-  @apply w-[100%] max-w-[160px] min-h-[39px] p-[4px_20px] rounded-[5px] border-[1px] border-[#982220] bg-[#982220] flex items-center justify-center font-[600] text-[#fff];
+  @apply w-[100%] max-w-[160px] min-h-[39px] p-[4px_20px] rounded-[5px] border-[1px] border-portal-primaryLiving bg-portal-primaryLiving flex items-center justify-center font-semibold text-white;
 }
 
 .button-common-core--neutral {
@@ -7,7 +7,7 @@
 }
 
 .button-common-core--more {
-  @apply max-w-[291px] min-h-[40px] border-[1px] border-[#b2b2b2] bg-[#fff] text-[20px] leading-[calc(29/20)] text-[#982220];
+  @apply max-w-[291px] min-h-[40px] border-[1px] border-[#b2b2b2] bg-white text-[20px] leading-[calc(29/20)] text-portal-primaryLiving;
 }
 
 .button-common-core--primary-disabled {

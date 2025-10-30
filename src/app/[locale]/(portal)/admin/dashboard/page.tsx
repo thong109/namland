@@ -25,7 +25,7 @@ const DashboardPage: FC = () => {
     <>
       <AppPageMeta title={t('EcomLeftMenuBarDashboard')} />
 
-      <div className="h-full w-full bg-portal-backgroud px-3 md:px-[40px] lg:px-[50px]">
+      <div className="h-full w-full bg-portal-background px-3 md:px-[40px] lg:px-[50px]">
         <div className="align-items-center mt-[57px] flex justify-between">
           <div className="mb-5 text-xl font-semibold">
             <h1>{t('EcomLeftMenuBarDashboard')}</h1>

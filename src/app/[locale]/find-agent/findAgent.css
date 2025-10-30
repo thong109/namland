@@ -16,7 +16,7 @@
 }
 
 .contact__form {
-  @apply border border-portal-gray-border rounded-[5px] shadow-[0_4px_4px_rgba(0,0,0,0.15)];
+  @apply border border-portal-gray-border rounded-[5px] shadow-soft;
   /* @apply mobile: */
 }
 

@@ -1,17 +1,17 @@
 .section-common-contact {
-  @apply pt-[53px] pb-[65px] bg-[#f5f5f5] font-mona;
+  @apply pt-[53px] pb-[65px] bg-portal-gray font-mona;
   @apply tablet-lg:pt-[30px] tablet-lg:pb-[50px];
   @apply mobile:py-[60px];
 }
 
 .section-common-contact__title {
-  @apply mb-[19px] block text-[35px] leading-[calc(50/35)] font-[700] text-[#a01d25] text-center uppercase;
+  @apply mb-[19px] block text-[35px] leading-[calc(50/35)] font-bold text-portal-red-3 text-center uppercase;
   @apply tablet-lg:mb-[15px] tablet-lg:text-[30px] tablet-lg:leading-[calc(50/30)];
   @apply mobile:mb-[30px] mobile:text-[28px] mobile:leading-[calc(42/28)];
 }
 
 .section-common-contact__detail {
-  @apply max-w-[1172px] mx-[auto] mb-[24px] block text-[18px] leading-[calc(25/18)] text-[#555] text-center;
+  @apply max-w-[1172px] mx-[auto] mb-[24px] block text-[18px] leading-[calc(25/18)] text-portal-gray-6 text-center;
   @apply tablet-lg:mb-[30px] tablet-lg:text-[16px] tablet-lg:leading-[calc(24/16)];
   @apply mobile:mb-[30px] mobile:text-[14px] mobile:leading-[calc(24/14)];
 }
@@ -37,7 +37,11 @@
 }
 
 .form-common-contact__controller-submit {
-  @apply w-[100%] max-w-[136px] !min-w-[auto] min-h-[35px] mx-[auto] !p-[3px_10px] flex justify-center items-center bg-[#982220] !rounded-[4px] text-[16px] leading-[calc(29/16)] font-[600] text-[#fff] text-center hover:opacity-80 transition-all duration-300;
+  @apply w-[100%] max-w-[136px] !min-w-[auto] min-h-[35px] mx-[auto] !p-[2px_10px_3px] flex justify-center items-center bg-portal-primaryLiving !rounded-[4px] text-[16px] leading-[calc(29/16)] font-[600] text-[#fff] text-center hover:opacity-80 transition-all duration-300;
+}
+
+.form-common-contact__controller-submit-sm {
+  @apply min-h-[34px] !p-[1px_10px_2px];
 }
 
 .input-common-contact {
@@ -45,7 +49,7 @@
 }
 
 .input-common-contact input {
-  @apply h-[28px] border-b-[1px] border-b-[#d4d4d4] mb-[0px] text-[18px] leading-[calc(24/18)] text-[#444];
+  @apply h-[28px] border-b-[1px] border-b-portal-gray-2 mb-[0px] text-[18px] leading-[calc(24/18)] text-portal-gray-7;
   @apply tablet-lg:text-[16px] tablet-lg:leading-[calc(24/16)];
   @apply mobile:text-[14px] mobile:leading-[calc(24/14)];
 }

@@ -1,3 +1,4 @@
+import { assetsImages } from '@/assets/images/package';
 import { Typography } from 'antd';
 import { useTranslations } from 'next-intl';
 
@@ -8,14 +9,19 @@ const ServiceContent: React.FC<IProps> = ({ ...props }) => {
 
   const datas = [
     {
+      icon: (
+        <div className="w-[89px] h-[89px] rounded-full bg-[#F9ECEC] flex items-center justify-center flex-[0_0_auto]">
+          <div className="block w-[61px] h-[61px]" style={{ backgroundImage: `url(${assetsImages.contactIcon01.src})` }}></div>
+        </div>
+      ),
       title: (
-        <Typography className="text-3xl font-bold uppercase text-white">
+        <Typography className="font-mona text-xl md:text-2xl font-semibold text-portal-primaryLiving leading-[calc(30/24)]">
           {t('EcomEntructQuickMatchMaking')}
         </Typography>
       ),
 
       content: (
-        <Typography className="text-lg text-white">
+        <Typography className="font-mona text-lg text-portal-gray-7">
           {t(
             'EcomEntructBasicQuesyionnaireQuickClassificationToFilterAndSelectTheRightAgencyServiceForYou',
           )}
@@ -23,14 +29,19 @@ const ServiceContent: React.FC<IProps> = ({ ...props }) => {
       ),
     },
     {
+      icon: (
+        <div className="w-[89px] h-[89px] rounded-full bg-[#F9ECEC] flex items-center justify-center flex-[0_0_auto]">
+          <div className="block w-[61px] h-[61px]" style={{ backgroundImage: `url(${assetsImages.contactIcon02.src})` }}></div>
+        </div>
+      ),
       title: (
-        <Typography className="text-3xl font-bold uppercase text-white">
+        <Typography className="font-mona text-xl md:text-2xl font-semibold text-portal-primaryLiving leading-[calc(30/24)] pr-1">
           {t('EcomEntructDedicatedSuportInOneClick')}
         </Typography>
       ),
 
       content: (
-        <Typography className="text-lg text-white">
+        <Typography className="font-mona text-lg text-portal-gray-7">
           {t(
             'EcomEntructFillOutTheInformationAndADedicatedProfessionalWillMatchAnAgentWithOneClickApply',
           )}
@@ -38,14 +49,19 @@ const ServiceContent: React.FC<IProps> = ({ ...props }) => {
       ),
     },
     {
+      icon: (
+        <div className="w-[89px] h-[89px] rounded-full bg-[#F9ECEC] flex items-center justify-center flex-[0_0_auto]">
+          <div className="block w-[61px] h-[61px]" style={{ backgroundImage: `url(${assetsImages.contactIcon03.src})` }}></div>
+        </div>
+      ),
       title: (
-        <Typography className="text-3xl font-bold uppercase text-white">
+        <Typography className="font-mona text-xl md:text-2xl font-semibold text-portal-primaryLiving leading-[calc(30/24)]">
           {t('EcomConnectToTheBest')}
         </Typography>
       ),
 
       content: (
-        <Typography className="text-lg text-white">
+        <Typography className="font-mona text-lg text-portal-gray-7">
           {t('EcomEntructGetAnAssistanceFromAgentsToCaterToYourNeeds')}
         </Typography>
       ),
@@ -53,27 +69,18 @@ const ServiceContent: React.FC<IProps> = ({ ...props }) => {
   ];
 
   return (
-    <div className="mb-2 py-16">
-      <div className="mb-10">
-        <Typography className="mb-1 text-3xl font-bold uppercase text-portal-primaryLiving">
-          {t('EcomEntrustTitle')}
-        </Typography>
-        <Typography className="text-xl">{t('EcomEntrustContent')}</Typography>{' '}
-      </div>
-      <div className="grid grid-cols-12 gap-4">
+    <div className="mb-4 md:mb-8 lg:mb-[58px] pt-1">
+      <div className="grid grid-cols-12 gap-2 md:gap-4 lg:gap-[30px]">
         {datas?.map((serviceItem, index) => (
           <div
             key={`isc-${index}`}
-            className="relative col-span-12 grid w-full grid-cols-12 bg-portal-primaryLiving p-4 lg:col-span-4 lg:mb-0"
+            className="relative col-span-12 grid w-full grid-cols-12 bg-white border border-portal-gray-border p-[26px] lg:pb-[49px] lg:col-span-4 lg:mb-0 rounded-[10px]"
           >
-            <div className="absolute right-4 top-0 h-16 w-14 bg-portal-yellow">
-              <div className="flex h-full items-center justify-center text-center text-3xl font-bold">
-                {index + 1}{' '}
-              </div>
-              <span className="absolute bottom-[-8px] left-1/2 h-0 w-0 -translate-x-[10%] transform border-l-[8px] border-r-[8px] border-t-[8px] border-l-transparent border-r-transparent border-t-portal-yellow"></span>
+            <div className="col-span-12 flex items-center">
+              <div className="col-span-3 mr-[19px]">{serviceItem.icon}</div>
+              <div className="col-span-9 text-lg font-bold">{serviceItem.title}</div>
             </div>
-            <div className="col-span-9 mt-4 text-lg font-bold">{serviceItem.title}</div>
-            <div className="col-span-12 mt-2">{serviceItem.content}</div>
+            <div className="col-span-12 mt-[18px]">{serviceItem.content}</div>
           </div>
         ))}
       </div>

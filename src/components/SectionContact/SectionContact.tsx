@@ -103,7 +103,6 @@ export default function SectionContact() {
                 className="input-common-contact"
                 name="email"
                 rules={[
-                  { required: true, message: messageError('emailRequired') },
                   { type: 'email', message: messageError('formatEmail') },
                   { max: 256, message: `${messageError('maxlength', { number: 256 })}` },
                 ]}
@@ -114,7 +113,6 @@ export default function SectionContact() {
                 className="input-common-contact"
                 name="message"
                 rules={[
-                  { required: true, message: messageError('messageRequired') },
                   { max: 2000, message: `${messageError('maxlength', { number: 2000 })}` },
                   { validator: validatorCustom, message: messageError('validText') },
                 ]}

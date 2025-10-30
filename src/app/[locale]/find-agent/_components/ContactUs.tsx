@@ -57,6 +57,7 @@ const ContactUs: React.FC<IProps> = ({ data, ...props }) => {
         email: userInfo?.email,
         message: '',
         phone: formatPhone(userInfo?.phone),
+        address: userInfo?.address,
       });
     } else {
       formSubmit.resetFields();
@@ -108,13 +109,13 @@ const ContactUs: React.FC<IProps> = ({ data, ...props }) => {
     }
   };
   return (
-    <div className="mb-16 max-w-full flex-col rounded-2xl bg-portal-yellow-1 p-7">
-      <Typography className="text-3xl font-bold uppercase text-portal-primaryLiving">
+    <div className="max-w-full flex-col rounded-[10px] bg-white border border-portal-gray-border p-6 md:p-[26px] lg:p-[32px_65px_48px] shadow-soft">
+      <Typography className="font-mona text-2xl leading-1.4 font-semibold text-portal-primaryLiving">
         {t('EcomEntrustFindAgents')}
       </Typography>
 
       {/* send inquiry */}
-      <div className="mt-[20px] flex w-full flex-col lg:mb-[70px] lg:mt-[30px]">
+      <div className="mt-[16px] flex w-full flex-col">
         <Form
           className="form-bold w-full"
           autoComplete="off"
@@ -123,33 +124,23 @@ const ContactUs: React.FC<IProps> = ({ data, ...props }) => {
           form={formSubmit}
           onFinish={submitForm}
         >
-          <div className="grid grid-cols-12 gap-x-4">
-            <div className="col-span-12">
+          <div className="grid grid-cols-12 gap-x-2 md:gap-x-[20px] lg:gap-x-[74px] gap-y-[20px] lg:gap-y-[27px] pb-10 md:pb-[52px] border-b border-portal-gray-border">
+            <div className="col-span-12 md:col-span-6">
               <Form.Item
+                className="input-common-contact"
+                name="clientName"
                 rules={[
-                  {
-                    required: true,
-                    message: messageError('nameRequired'),
-                  },
-                  {
-                    max: 100,
-                    message: `${messageError('maxlength', {
-                      number: 100,
-                    })} `,
-                  },
-                  {
-                    message: `${messageError('validText')}`,
-                    validator: validatorCustom,
-                  },
+                  { required: true, message: messageError('nameRequired') },
+                  { max: 100, message: `${messageError('maxlength', { number: 100 })}` },
+                  { validator: validatorCustom, message: messageError('validText') },
                 ]}
-                name={'clientName'}
-                label={t('EcomPropertyDetailPageTicketName')}
               >
-                <Input size="large" className="!rounded-3xl !border-neutral-500 !bg-transparent" />
+                <Input placeholder={t('EcomPropertyDetailPageTicketName')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
               </Form.Item>
             </div>
-            <div className="col-span-12 lg:col-span-6">
+            <div className="col-span-12 md:col-span-6">
               <Form.Item
+                className="input-common-contact"
                 rules={[
                   {
                     required: true,
@@ -161,72 +152,52 @@ const ContactUs: React.FC<IProps> = ({ data, ...props }) => {
                   },
                 ]}
                 name={'phone'}
-                label={t('EcomPropertyDetailPageTicketPhone')}
               >
-                <Input size="large" className="!rounded-3xl !border-neutral-500 !bg-transparent" />
+                <Input placeholder={t('EcomPropertyDetailPageTicketPhoneNumber')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
               </Form.Item>
             </div>
-            <div className="col-span-12 lg:col-span-6">
+            <div className="col-span-12 md:col-span-6">
               <Form.Item
+                className="input-common-contact"
                 rules={[
-                  {
-                    required: true,
-                    message: messageError('emailRequired'),
-                  },
-                  {
-                    type: 'email',
-                    message: messageError('formatEmail'),
-                  },
-                  {
-                    max: 256,
-                    message: `${messageError('maxlength', {
-                      number: 256,
-                    })} `,
-                  },
+                  { type: 'email', message: messageError('formatEmail') },
+                  { max: 256, message: `${messageError('maxlength', { number: 256 })} ` }
                 ]}
                 name={'email'}
-                label={t('EcomPropertyDetailPageTicketEmail')}
               >
-                <Input size="large" className="!rounded-3xl !border-neutral-500 !bg-transparent" />
+                <Input placeholder={t('EcomPropertyDetailPageReviewEmail')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+              </Form.Item>
+            </div>
+            <div className="col-span-12 md:col-span-6">
+              <Form.Item
+                className="input-common-contact"
+                rules={[{ message: `${messageError('validText')}`, validator: validatorCustom }]}
+                name={'address'}
+              >
+                <Input placeholder={t('EcomContactUsPageDetailPageAddress')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
               </Form.Item>
             </div>
             <div className="col-span-12">
               <Form.Item
-                className="area-custom"
+                className="area-custom input-common-contact"
                 rules={[
-                  {
-                    required: true,
-                    message: messageError('messageRequired'),
-                  },
-                  {
-                    max: 2000,
-                    message: `${messageError('maxlength', {
-                      number: 2000,
-                    })} `,
-                  },
-                  {
-                    message: `${messageError('validText')}`,
-                    validator: validatorCustom,
-                  },
+                  { max: 2000, message: `${messageError('maxlength', { number: 2000 })} ` },
+                  { message: `${messageError('validText')}`, validator: validatorCustom },
                 ]}
                 name={'message'}
-                label={t('EcomPropertyDetailPageTicketMessage')}
               >
                 <Input.TextArea
+                  placeholder={t('EcomPropertyDetailPageTicketLeaveATicket')}
                   size="large"
-                  rows={3}
-                  className="!rounded-3xl !border-neutral-500 !bg-transparent"
+                  rows={1}
+                  className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0'
                 />
               </Form.Item>
             </div>
           </div>
-          <div className="mt-[10px] lg:mt-[30px]">
+          <div className="mt-[30px]">
             <Spin spinning={btnLoading}>
-              <ButtonCore
-                className="w-full border border-neutral-500 px-6 !text-pmh-text"
-                type="submit"
-                label={t('EcomIamOwnerPageSubmit')}
-              />
+              <ButtonCore className="form-common-contact__controller-submit form-common-contact__controller-submit-sm !max-w-[161px]" type="submit" label={t('EcomIamOwnerPageSubmit')} />
             </Spin>
           </div>
         </Form>

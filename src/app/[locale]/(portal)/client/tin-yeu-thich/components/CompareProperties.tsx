@@ -41,43 +41,43 @@ const CompareProperties = ({ amenities, listProperties, visible, onClose }: any)
         <table className="overflow-x-auto rounded-lg px-2">
           <tr className="w-[25%] bg-white">
             <th className="my-2 h-40 bg-white"></th>
-            <th className="ml-2 flex h-12 items-center bg-portal-backgroud pl-3 text-start text-sm">
+            <th className="ml-2 flex h-12 items-center bg-portal-background pl-3 text-start text-sm">
               {comm('title')}
             </th>
             <th className="ml-2 flex h-12 items-center bg-white pl-3 text-start text-sm">
               {comm('PropertyType')}
             </th>
-            <th className="ml-2 flex h-12 items-center bg-portal-backgroud pl-3 text-start text-sm">
+            <th className="ml-2 flex h-12 items-center bg-portal-background pl-3 text-start text-sm">
               {comm('Address')}
             </th>
             <th className="ml-2 flex h-12 items-center bg-white pl-3 text-start text-sm">
               {comm('City')}
             </th>
-            <th className="ml-2 flex h-12 items-center bg-portal-backgroud pl-3 text-start text-sm">
+            <th className="ml-2 flex h-12 items-center bg-portal-background pl-3 text-start text-sm">
               {comm('District')}
             </th>
             <th className="ml-2 flex h-12 items-center bg-white pl-3 text-start text-sm">
               {comm('Ward')}
             </th>
-            <th className="ml-2 flex h-12 items-center bg-portal-backgroud pl-3 text-start text-sm">
+            <th className="ml-2 flex h-12 items-center bg-portal-background pl-3 text-start text-sm">
               {comm('PropertySize')}
             </th>
             <th className="ml-2 flex h-12 items-center bg-white pl-3 text-start text-sm">
               {comm('Project')}
             </th>
-            <th className="ml-2 flex h-12 items-center bg-portal-backgroud pl-3 text-start text-sm">
+            <th className="ml-2 flex h-12 items-center bg-portal-background pl-3 text-start text-sm">
               {comm('Bedrooms')}
             </th>
             <th className="ml-2 flex h-12 items-center bg-white pl-3 text-start text-sm">
               {comm('Bathrooms')}
             </th>
-            <th className="ml-2 flex h-12 items-center bg-portal-backgroud pl-3 text-start text-sm">
+            <th className="ml-2 flex h-12 items-center bg-portal-background pl-3 text-start text-sm">
               {comm('GeneralFurnitureStatus')}
             </th>
             <th className="ml-2 flex h-12 items-center bg-white pl-3 text-start text-sm">
               {comm('View')}
             </th>
-            <th className="ml-2 flex h-12 items-center bg-portal-backgroud pl-3 text-start text-sm">
+            <th className="ml-2 flex h-12 items-center bg-portal-background pl-3 text-start text-sm">
               {comm('LegalStatus')}
             </th>
             <th className="ml-2 flex h-12 items-center bg-white pl-3 text-start text-sm">
@@ -87,7 +87,7 @@ const CompareProperties = ({ amenities, listProperties, visible, onClose }: any)
             {amenities.map((item, index) => (
               <th
                 className={`ml-2 flex h-12 items-center pl-3 text-sm ${
-                  index % 2 == 0 ? 'bg-portal-backgroud' : 'bg-white'
+                  index % 2 == 0 ? 'bg-portal-background' : 'bg-white'
                 }`}
               >
                 {item?.name}
@@ -100,40 +100,40 @@ const CompareProperties = ({ amenities, listProperties, visible, onClose }: any)
               <td className="my-2 h-40 bg-white">
                 <img className="h-40" src={item?.imageThumbnailUrl} />
               </td>
-              <td className="flex h-12 items-center bg-portal-backgroud text-sm">
+              <td className="flex h-12 items-center bg-portal-background text-sm">
                 <label className="line-clamp-2">{item?.title}</label>
               </td>
               <td className="flex h-12 items-center bg-white text-sm">{item?.type}</td>
-              <td className="flex h-12 items-center bg-portal-backgroud text-sm">
+              <td className="flex h-12 items-center bg-portal-background text-sm">
                 <label className="line-clamp-2">{item?.location?.address}</label>
               </td>
               <td className="flex h-12 items-center bg-white text-sm">{item?.location?.city}</td>
-              <td className="flex h-12 items-center bg-portal-backgroud text-sm">
+              <td className="flex h-12 items-center bg-portal-background text-sm">
                 {item?.location?.district}
               </td>
               <td className="flex h-12 items-center bg-white text-sm">{item?.location?.ward}</td>
-              <td className="flex h-12 items-center bg-portal-backgroud text-sm">
+              <td className="flex h-12 items-center bg-portal-background text-sm">
                 {item?.size} m<sup>2</sup>
               </td>
               <td className="flex h-12 items-center bg-white text-sm">{item?.projectName}</td>
-              <td className="flex h-12 items-center bg-portal-backgroud text-sm">
+              <td className="flex h-12 items-center bg-portal-background text-sm">
                 {item?.bedrooms}
               </td>
               <td className="flex h-12 items-center bg-white text-sm">{item?.bathrooms}</td>
-              <td className="h-12 items-center bg-portal-backgroud text-sm">
+              <td className="h-12 items-center bg-portal-background text-sm">
                 {item?.generalFurnitureStatus}
               </td>
               <td className="flex h-12 items-center bg-white text-sm">
                 {item?.views?.map((item) => item?.name)}
               </td>
-              <td className="flex h-12 items-center bg-portal-backgroud text-sm">
+              <td className="flex h-12 items-center bg-portal-background text-sm">
                 {t(legalStatuses.find((a) => a?.id === item?.legalStatus)?.name)}
               </td>
               <td className="flex h-12 items-center bg-white text-sm">{item?.handOverStatus}</td>
               {amenities.map((amenity, index) => (
                 <td
                   className={`flex h-12 items-center text-sm ${
-                    index % 2 == 0 ? 'bg-portal-backgroud' : 'bg-white'
+                    index % 2 == 0 ? 'bg-portal-background' : 'bg-white'
                   }`}
                 >
                   {item.amenities.some((a) => a.id === amenity?.id) ? (
