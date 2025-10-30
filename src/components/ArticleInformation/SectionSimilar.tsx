@@ -67,11 +67,7 @@ const SectionSimilar: React.FC<SectionSimilarProps> = async ({ listingDetail, lo
 
   return (
     <div className={`flex flex-col gap-2`}>
-      <div>
-        <h1 className="text-center text-4xl font-bold text-portal-primaryLiving">
-          {t('EcomPropertyDetailPageSectionSimilarsSectionSimilars')}
-        </h1>
-      </div>
+      <div>Tin đăng bán khác</div>
       <div className="hidden flex-col gap-4 lg:flex">
         {platinumListing?.data?.data?.map((item) => (
           <CardListing key={item.id} listing={item} />

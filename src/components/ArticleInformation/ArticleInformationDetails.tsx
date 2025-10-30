@@ -8,6 +8,7 @@ import ListingDetailedNearby from './ListingDetailed.Nearby';
 import ListingDetailedOutdoorAmenity from './ListingDetailed.OutdoorAmenity';
 import { YouTubeComponent } from './YoutubeEmbed';
 import { assetsImages } from '@/assets/images/package';
+import './ArticleInformationDetails.css';
 
 const ArticleInformationDetailsLocation = dynamic(() => import('./ArticleInformationDetailsLocation'), { ssr: false });
 
