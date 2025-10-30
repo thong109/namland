@@ -1,6 +1,6 @@
 import GalleryPrimary from '@/components/GalleryPrimary/GalleryPrimary';
-import ListingDetailedInfo from '@/app/[locale]/property/[id]/_components/ListingDetailedInfo';
-import ListingOverview from '@/app/[locale]/property/[id]/_components/ListingOverview';
+import ListingDetailedInfo from '@/components/ArticleInformation/ListingDetailedInfo';
+import ArticleInformationOverview from '@/components/ArticleInformation/ArticleInformationOverview';
 import ButtonSaveListing from '@/components/Button/ButtonSaveListing/ButtonSaveListing';
 import Modal from 'antd/es/modal';
 import { useTranslations } from 'next-intl';
@@ -53,7 +53,7 @@ const PreviewListingModal: React.FC<BuyPackageModalProps> = ({
     >
       <div className="container flex flex-col gap-10">
         <GalleryPrimary images={dataShowPreview?.imageUrls ?? []} />
-        <ListingOverview listingDetail={dataShowPreview} locale={locale} />
+        <ArticleInformationOverview listingDetail={dataShowPreview} locale={locale} />
         <div className="flex flex-col gap-8 lg:flex-row">
           <div className="flex flex-col gap-10 lg:w-3/4">
             <ListingDetailedInfo listingDetail={dataShowPreview} locale={locale} />

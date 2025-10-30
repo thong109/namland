@@ -6,7 +6,6 @@ import React from 'react';
 import ListingDetailedIndoorAmenity from './ListingDetailed.IndoorAmenity';
 import ListingDetailedNearby from './ListingDetailed.Nearby';
 import ListingDetailedOutdoorAmenity from './ListingDetailed.OutdoorAmenity';
-import ListingDetailedPropertyDetails from './ListingDetailed.PropertyDetails';
 import { YouTubeComponent } from './YoutubeEmbed';
 
 const ListingDetailedLocation = dynamic(() => import('./ListingDetailed.Location'), { ssr: false });
@@ -34,7 +33,7 @@ const ListingDetailedInfo: React.FC<ListingDetailedInfoProps> = ({ locale, listi
           {t('EcomPropertyDetailPageDetailPropertyDetails')}
         </div>
         <div className="">
-          <ListingDetailedPropertyDetails locale={locale} listingDetail={listingDetail} />
+          
         </div>
       </div>
       {listingDetail?.inDoorAmenities?.length > 0 && (

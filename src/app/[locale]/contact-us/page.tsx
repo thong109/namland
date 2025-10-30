@@ -5,7 +5,7 @@ import Image from 'next/image';
 import LocaltionConstant from '@/libs/constants/locationConstant';
 import { Typography } from 'antd';
 import { useTranslations } from 'next-intl';
-import { assetsImages } from '../../../assets/images/package';
+import { assetsImages } from '@/assets/images/package';
 import SectionContact from '@/components/SectionContact/SectionContact';
 
 export default function PageContactUs() {

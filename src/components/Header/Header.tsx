@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { assetsImages } from '../../assets/images/package';
+import { assetsImages } from '@/assets/images/package';
 import './Header.css';
 import { useState } from 'react';
 import { NAVIGATION } from '@/data/navigation';

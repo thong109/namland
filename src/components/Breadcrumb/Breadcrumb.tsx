@@ -1,6 +1,6 @@
 'use client';
 import React, { FC } from 'react';
-import { assetsImages } from '../../assets/images/package';
+import { assetsImages } from '@/assets/images/package';
 import './Breadcrumb.css';
 import { useRouter } from 'next-intl/client';
 

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { assetsImages } from '../../assets/images/package';
+import { assetsImages } from '@/assets/images/package';
 import './Footer.css';
 import { useState } from 'react';
 
