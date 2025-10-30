@@ -7,7 +7,7 @@ export interface IProps {
   variant?: 'new' | 'sale' | '';
 }
 
-const CardListingRibbon: FC<IProps> = ({ variant = 'new' }) => {
+const CardListingRibbon: FC<IProps> = ({ variant = '' }) => {
   const t = useTranslations('webLabel');
 
   const label = useMemo(() => {
@@ -15,6 +15,8 @@ const CardListingRibbon: FC<IProps> = ({ variant = 'new' }) => {
       return t('EcomPropertyListingDetailPageLocationStatus');
     } else if (variant === 'sale') {
       return t('EcomPropertyListingDetailPageLocationSale');
+    } else {
+      return '';
     }
   }, [variant, t]);
 
