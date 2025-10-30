@@ -4,10 +4,10 @@ import { useTranslations } from 'next-intl';
 import Link from 'next-intl/link';
 import Image from 'next/image';
 import React from 'react';
-import PriceNumberText from '../PriceNumberText/PriceNumberText';
 import ButtonCore from '../ButtonCore/ButtonCore';
 import "./CardListing.css"
 import { formatNumber } from '@/libs/helper';
+import CardListingRibbon from './_component/CardListingRibbon';
 
 interface CardListingHomePageProps {
   className?: string;
@@ -18,16 +18,12 @@ const CardListingHomePage: React.FC<CardListingHomePageProps> = ({ className, li
   const t = useTranslations('webLabel');
 
   const listingDetail: any = listing;
-  console.log('listingDetail', listingDetail);
-
   const { project } = listing;
   const listingUrl = getListingUrl(listingDetail.id, listingDetail.title);
   return (
-    <div className={clsx('card-common-listing group', className)}>
-      {/* <CardListingRibbon className={'left-2'} variant="platinum" /> */}
-      {/* <CardListingProjectInfo className={'left-2 top-48'} project={project} /> */}
+    <Link href={listingUrl} className={clsx('card-common-listing group', className)}>
       <div className='card-common-listing__visual'>
-        {listingDetail.type === 1 && (<span className='card-common-listing__visual-status'>{t('EcomPropertyListingDetailPageLocationStatus')}</span>)}
+        {listingDetail.type === 1 && (<CardListingRibbon variant="new" />)}
         <div className='card-common-listing__visual-wrapper'>
           <Image src={listingDetail?.imageThumbnailUrl} className='group-hover:scale-105' width={415} height={271} alt={'Image'} />
         </div>
@@ -63,7 +59,7 @@ const CardListingHomePage: React.FC<CardListingHomePageProps> = ({ className, li
           <ButtonCore preset='more' label={t('EcomPropertyListingDetailPageLocationDetail')} />
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

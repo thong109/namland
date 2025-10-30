@@ -32,7 +32,7 @@
 
 .logo-header {
   @apply w-[317px] mr-[96px] block;
-  @apply laptop-lg:w-[280px] laptop-lg:mr-[20px];
+  @apply laptop-lg:w-[280px] laptop-lg:mr-[60px];
   @apply mobile:w-[180px] mobile:mr-[15px];
 }
 
@@ -47,7 +47,7 @@
 .navigation-header-outside__wrapper {
   @apply flex justify-start items-center gap-[50px];
   @apply laptop-lg:gap-[20px];
-  @apply laptop-md:gap-[15px] laptop-md:text-[14px] laptop-md:leading-[calc(24/14)];
+  @apply laptop-md:gap-[20px] laptop-md:text-[14px] laptop-md:leading-[calc(24/14)];
   @apply tablet-lg:hidden;
   @apply mobile:hidden;
 }

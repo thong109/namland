@@ -434,6 +434,7 @@
     "EcomPropertyListingDetailPageLocationRent": "Rent",
     "EcomPropertyListingDetailPageLocationType": "Type",
     "EcomPropertyListingDetailPageLocationStatus": "Status",
+    "EcomPropertyListingDetailPageLocationSale": "Promotional campaign",
     "EcomPropertyListingDetailPageLocationDetail": "Detail",
     "EcomPropertyListingDetailPageLocationAddress": "Address",
     "EcomPropertyListingDetailPageLocationGetMyLocation": "Get my location",
@@ -1719,6 +1720,7 @@
 
     "SearchResult": "Search result",
     "ListingSearchPlaceholderKeyword": "Listing title",
+    "ListingSearchPlaceholder": "Enter the property code, area, or project to search",
     "ListingSearchPlaceholderCategories": "Property type",
     "ListingSearchPlaceholderSize": "Select your size",
     "ListingSearchPlaceholderProvince": "Select City",
