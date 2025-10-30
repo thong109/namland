@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
 import { FC } from 'react';
 import LinkedProject from '@/components/ArticleInformation/LinkedProject';
-import ListingDetailedInfo from '@/components/ArticleInformation/ListingDetailedInfo';
+import ArticleInformationDetails from '@/components/ArticleInformation/ArticleInformationDetails';
 import ArticleInformationOverview from '@/components/ArticleInformation/ArticleInformationOverview';
 import { RatingComponent } from '@/components/ArticleInformation/RatingComponent';
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
@@ -94,16 +94,12 @@ const PageDetailProperty: FC<PagePropertyDetailProps> = async ({ params, searchP
         <div className='section-chitiet__wrapper'>
           <div className='container'>
             <ArticleInformationOverview listingDetail={listingDetail} locale={params.locale} />
-            <div className='flex flex-col gap-8 lg:flex-row'>
-              <div className='flex flex-col gap-10 lg:w-3/4'>
-                <ListingDetailedInfo listingDetail={listingDetail} locale={params.locale} />
-                <LinkedProject listingDetail={listingDetail} locale={params.locale} />
-                <SimilarListing listingDetail={listingDetail} locale={params.locale} />
-                <RatingComponent listingDetail={listingDetail} />
-              </div>
-              <div className='flex-1'>
-                <InquiryForm listingDetail={listingDetail} locale={params.locale} />
-              </div>
+            <ArticleInformationDetails listingDetail={listingDetail} locale={params.locale} />
+            <LinkedProject listingDetail={listingDetail} locale={params.locale} />
+            <SimilarListing listingDetail={listingDetail} locale={params.locale} />
+            <RatingComponent listingDetail={listingDetail} />
+            <div className='flex-1'>
+              <InquiryForm listingDetail={listingDetail} locale={params.locale} />
             </div>
           </div>
         </div>

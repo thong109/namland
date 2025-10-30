@@ -16,11 +16,31 @@ import commonLogoPrinmary from './common/logo_primary_01.svg';
 import commonLogoPrinmaryWhite from './common/logo_primary_01_white.svg';
 import commonBannerContact from "./common/banner_contact_01.png";
 import commonStampVerify from "./common/stamp_verify_01.png";
-import commonImageContact from "./common/contact_img_01.jpg";
+import commonImageContact from "./common/image_contact_01.jpg";
 import commonIconSearchWhite from "./common/icon_search_02.svg";
-import contactIcon01 from "./common/contact_icn_01.svg";
-import contactIcon02 from "./common/contact_icn_02.svg";
-import contactIcon03 from "./common/contact_icn_03.svg";
+import commonIconContact from "./common/icon_contact_01.svg";
+import commonIconContact02 from "./common/icon_contact_02.svg";
+import commonIconContact03 from "./common/icon_contact_03.svg";
+import commonIconFurniture from "./common/icon_furniture_01.svg";
+import commonIconFurniture02 from "./common/icon_furniture_02.svg";
+import commonIconFurniture03 from "./common/icon_furniture_03.svg";
+import commonIconFurniture04 from "./common/icon_furniture_04.svg";
+import commonIconFurniture05 from "./common/icon_furniture_05.svg";
+import commonIconFurniture06 from "./common/icon_furniture_06.svg";
+import commonIconFurniture07 from "./common/icon_furniture_07.svg";
+import commonIconFurniture08 from "./common/icon_furniture_08.svg";
+import commonIconFurniture09 from "./common/icon_furniture_09.svg";
+import commonIconFurniture10 from "./common/icon_furniture_10.svg";
+import commonIconFurniture11 from "./common/icon_furniture_11.svg";
+import commonIconFurniture12 from "./common/icon_furniture_12.svg";
+import commonIconUtilities from "./common/icon_utilities_01.svg";
+import commonIconUtilities02 from "./common/icon_utilities_02.svg";
+import commonIconUtilities03 from "./common/icon_utilities_03.svg";
+import commonIconUtilities04 from "./common/icon_utilities_04.svg";
+import commonIconUtilities05 from "./common/icon_utilities_05.svg";
+import commonIconUtilities06 from "./common/icon_utilities_06.svg";
+import commonIconUtilities07 from "./common/icon_utilities_07.svg";
+import commonIconUtilities08 from "./common/icon_utilities_08.svg";
 
 export const assetsImages = {
   commonIconArrow,
@@ -44,7 +64,27 @@ export const assetsImages = {
   commonImageContact,
   commonIconSearch,
   commonIconSearchWhite,
-  contactIcon01,
-  contactIcon02,
-  contactIcon03,
+  commonIconContact,
+  commonIconContact02,
+  commonIconContact03,
+  commonIconFurniture,
+  commonIconFurniture02,
+  commonIconFurniture03,
+  commonIconFurniture04,
+  commonIconFurniture05,
+  commonIconFurniture06,
+  commonIconFurniture07,
+  commonIconFurniture08,
+  commonIconFurniture09,
+  commonIconFurniture10,
+  commonIconFurniture11,
+  commonIconFurniture12,
+  commonIconUtilities,
+  commonIconUtilities02,
+  commonIconUtilities03,
+  commonIconUtilities04,
+  commonIconUtilities05,
+  commonIconUtilities06,
+  commonIconUtilities07,
+  commonIconUtilities08,
 }

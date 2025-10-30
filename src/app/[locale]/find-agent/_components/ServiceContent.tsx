@@ -11,7 +11,7 @@ const ServiceContent: React.FC<IProps> = ({ ...props }) => {
     {
       icon: (
         <div className="w-[89px] h-[89px] rounded-full bg-[#F9ECEC] flex items-center justify-center flex-[0_0_auto]">
-          <div className="block w-[61px] h-[61px]" style={{ backgroundImage: `url(${assetsImages.contactIcon01.src})` }}></div>
+          <div className="block w-[61px] h-[61px]" style={{ backgroundImage: `url(${assetsImages.commonIconContact.src})` }}></div>
         </div>
       ),
       title: (
@@ -31,7 +31,7 @@ const ServiceContent: React.FC<IProps> = ({ ...props }) => {
     {
       icon: (
         <div className="w-[89px] h-[89px] rounded-full bg-[#F9ECEC] flex items-center justify-center flex-[0_0_auto]">
-          <div className="block w-[61px] h-[61px]" style={{ backgroundImage: `url(${assetsImages.contactIcon02.src})` }}></div>
+          <div className="block w-[61px] h-[61px]" style={{ backgroundImage: `url(${assetsImages.commonIconContact02.src})` }}></div>
         </div>
       ),
       title: (
@@ -51,7 +51,7 @@ const ServiceContent: React.FC<IProps> = ({ ...props }) => {
     {
       icon: (
         <div className="w-[89px] h-[89px] rounded-full bg-[#F9ECEC] flex items-center justify-center flex-[0_0_auto]">
-          <div className="block w-[61px] h-[61px]" style={{ backgroundImage: `url(${assetsImages.contactIcon03.src})` }}></div>
+          <div className="block w-[61px] h-[61px]" style={{ backgroundImage: `url(${assetsImages.commonIconContact03.src})` }}></div>
         </div>
       ),
       title: (
