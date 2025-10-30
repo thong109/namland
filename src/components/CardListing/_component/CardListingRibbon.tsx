@@ -4,10 +4,10 @@ import React, { FC, useMemo } from 'react';
 import ribbonStyle from './Ribbon.module.scss';
 
 export interface IProps {
-  variant: 'new' | 'sale';
+  variant?: 'new' | 'sale' | '';
 }
 
-const CardListingRibbon: FC<IProps> = ({ variant }) => {
+const CardListingRibbon: FC<IProps> = ({ variant = 'new' }) => {
   const t = useTranslations('webLabel');
 
   const label = useMemo(() => {

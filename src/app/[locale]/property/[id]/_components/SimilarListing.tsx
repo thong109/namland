@@ -74,18 +74,18 @@ const SimilarListing: React.FC<SimilarListingProps> = async ({ listingDetail, lo
       </div>
       <div className="hidden flex-col gap-4 lg:flex">
         {platinumListing?.data?.data?.map((item) => (
-          <CardListing key={item.id} listing={item} variant="platinum" />
+          <CardListing key={item.id} listing={item} variant="" />
         ))}
       </div>
       <div className="hidden flex-col gap-4 lg:flex">
         {goldListing?.data?.data?.map((item) => (
-          <CardListing key={item.id} listing={item} variant="gold" />
+          <CardListing key={item.id} listing={item} variant="" />
         ))}
       </div>
       <div className="hidden auto-rows-fr grid-cols-3 gap-8 lg:grid">
         {basicListing?.data?.data?.map((item) => (
           <div className="col-span-1">
-            <CardListing key={item.id} listing={item} variant="basic" />
+            <CardListing key={item.id} listing={item} variant="" />
           </div>
         ))}
       </div>
