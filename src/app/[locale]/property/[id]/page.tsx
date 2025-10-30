@@ -15,7 +15,7 @@ import SectionContact from '@/components/SectionContact/SectionContact';
 
 const InquiryForm = dynamic(() => import('@/components/ArticleInformation/InquiryForm'), { ssr: false });
 
-const SimilarListing = dynamic(() => import('@/components/ArticleInformation/SimilarListing'), { ssr: true });
+const SectionSimilar = dynamic(() => import('@/components/ArticleInformation/SectionSimilar'), { ssr: true });
 
 export interface PagePropertyDetailProps {
   params: any;
@@ -91,19 +91,18 @@ const PageDetailProperty: FC<PagePropertyDetailProps> = async ({ params, searchP
             </ul>
           </div>
         </div>
-        <div className='section-chitiet__wrapper'>
-          <div className='container'>
+        <div className='container'>
+          <div className='section-chitiet__wrapper'>
             <ArticleInformationOverview listingDetail={listingDetail} locale={params.locale} />
             <ArticleInformationDetails listingDetail={listingDetail} locale={params.locale} />
+          </div>
+          <div className='section-chitiet__sidebar'>
             <LinkedProject listingDetail={listingDetail} locale={params.locale} />
-            <SimilarListing listingDetail={listingDetail} locale={params.locale} />
             <RatingComponent listingDetail={listingDetail} />
-            <div className='flex-1'>
-              <InquiryForm listingDetail={listingDetail} locale={params.locale} />
-            </div>
           </div>
         </div>
       </div>
+      <SectionSimilar listingDetail={listingDetail} locale={params.locale} />
       <SectionContact />
     </>
   );

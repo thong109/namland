@@ -30,7 +30,7 @@ const GalleryPrimary: React.FC<GalleryPrimaryProps> = ({ images: initImages = []
   };
 
   const renderLoading = useCallback(
-    () => <Spin className="flex h-full items-center justify-center" />,
+    () => <Spin className='flex h-full items-center justify-center' />,
     []
   );
 
@@ -48,7 +48,7 @@ const GalleryPrimary: React.FC<GalleryPrimaryProps> = ({ images: initImages = []
         },
         imageRender: (originalNode, { transform, current }) => (
           <img
-            className="ant-image-preview-img"
+            className='ant-image-preview-img'
             src={images[current]?.url}
             alt={images[current]?.id}
             style={{
@@ -64,18 +64,17 @@ const GalleryPrimary: React.FC<GalleryPrimaryProps> = ({ images: initImages = []
         ),
       }}
     >
-      <div className="gallery-common-primary container">
-        <div className="gallery-common-primary__viewport">
-          <div className="gallery-common-primary__wrapper">
+      <div className='gallery-common-primary container'>
+        <div className='gallery-common-primary__viewport'>
+          <div className='gallery-common-primary__wrapper'>
             {images.slice(0, 5).map((image, i) => {
               const imageIndexLast = 4;
               const isItemLast = i === imageIndexLast && images.length > 5;
-
               return (
-                <div className="gallery-common-primary__entry" key={image.id}>
-                  <div className="gallery-common-primary__entry-wrapper">
+                <div className='gallery-common-primary__entry' key={image.id}>
+                  <div className='gallery-common-primary__entry-wrapper'>
                     <Image
-                      className="hidden"
+                      className='hidden'
                       src={image.url}
                       alt={image.id}
                       width={600}
@@ -88,12 +87,11 @@ const GalleryPrimary: React.FC<GalleryPrimaryProps> = ({ images: initImages = []
                       }}
                       priority
                     />
-
                     {imagesLoading[i] ? (
                       renderLoading()
                     ) : (
                       <AntImage
-                        rootClassName="gallery-common-primary__entry-visual"
+                        rootClassName='gallery-common-primary__entry-visual'
                         src={image.src}
                         srcSet={image.srcSet}
                         alt={image.id}
@@ -103,18 +101,17 @@ const GalleryPrimary: React.FC<GalleryPrimaryProps> = ({ images: initImages = []
                         }}
                       />
                     )}
-
                     {isItemLast && (
                       <div
-                        className="gallery-common-primary__visual-mask"
+                        className='gallery-common-primary__visual-mask'
                         onClick={() => {
                           setCurrentPreview(imageIndexLast);
                           setPreviewVisible(true);
                         }}
                       >
                         +{images.length - imageIndexLast}
-                        {images.slice(imageIndexLast).map((img, idx2) => (
-                          <AntImage className="hidden" key={idx2} src={img.url} alt={img.id} />
+                        {images.slice(imageIndexLast).map((imageFinal, imageIndexFinal) => (
+                          <AntImage className='hidden' key={imageIndexFinal} src={imageFinal.url} alt={imageFinal.id} />
                         ))}
                       </div>
                     )}

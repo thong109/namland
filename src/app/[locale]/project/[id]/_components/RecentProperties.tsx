@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import React from 'react';
 
-interface SimilarListingProps {
+interface SectionSimilarProps {
   locale: string;
   title: string;
   platinumListing: any;
@@ -13,7 +13,7 @@ interface SimilarListingProps {
   type: 'sale' | 'lease';
 }
 
-const RecentProperties: React.FC<SimilarListingProps> = ({
+const RecentProperties: React.FC<SectionSimilarProps> = ({
   title,
   basicListing,
   goldListing,

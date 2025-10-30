@@ -9,7 +9,7 @@ import ListingDetailedOutdoorAmenity from './ListingDetailed.OutdoorAmenity';
 import { YouTubeComponent } from './YoutubeEmbed';
 import { assetsImages } from '@/assets/images/package';
 
-const ListingDetailedLocation = dynamic(() => import('./ListingDetailed.Location'), { ssr: false });
+const ArticleInformationDetailsLocation = dynamic(() => import('./ArticleInformationDetailsLocation'), { ssr: false });
 
 interface ArticleInformationDetailsProps {
   locale: string;
@@ -20,8 +20,8 @@ const ArticleInformationDetails: React.FC<ArticleInformationDetailsProps> = ({ l
   const t = useTranslations('webLabel');
   const blockTitleClassName = 'text-lg font-medium text-neutral-900 mb-4';
   return (
-    <div className='article-common-information article-common-information--details' id='#details'>
-      <div className='article-common-information__wrapper'>
+    <div className='article-common-information article-common-information--details'>
+      <div className='article-common-information__wrapper' id='#details'>
         <span className='article-common-information__title'>{t('EcomPropertyDetailPageDetailPropertyDetails')}</span>
         <div className='article-common-information__block'>
           <dl className='article-common-information__block-row'>
@@ -68,7 +68,7 @@ const ArticleInformationDetails: React.FC<ArticleInformationDetailsProps> = ({ l
           </dl>
         </div>
       </div>
-      <div className='article-common-information__wrapper'>
+      <div className='article-common-information__wrapper' id='#furniture'>
         <span className='article-common-information__title'>Nội thất</span>
         <div className='article-common-information__block'>
           <ul className='list-common-property list-common-property--furniture'>
@@ -87,7 +87,7 @@ const ArticleInformationDetails: React.FC<ArticleInformationDetailsProps> = ({ l
           </ul>
         </div>
       </div>
-      <div className='article-common-information__wrapper'>
+      <div className='article-common-information__wrapper' id='#utilities'>
         <span className='article-common-information__title'>Tiện ích</span>
         <div className='article-common-information__block'>
           <ul className='list-common-property list-common-property--utilities'>
@@ -102,10 +102,10 @@ const ArticleInformationDetails: React.FC<ArticleInformationDetailsProps> = ({ l
           </ul>
         </div>
       </div>
-      <div className='article-common-information__wrapper'>
+      <div className='article-common-information__wrapper' id='#location'>
         <span className='article-common-information__title'>{t('EcomPropertyDetailPageLocation')}</span>
         <div className='article-common-information__block'>
-          <ListingDetailedLocation locale={locale} listingDetail={listingDetail} />
+          <ArticleInformationDetailsLocation locale={locale} listingDetail={listingDetail} />
         </div>
       </div>
     </div>

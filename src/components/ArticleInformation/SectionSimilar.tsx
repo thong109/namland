@@ -8,7 +8,7 @@ import listingPropertyModel from '@/models/listingModel/listingPropertyModel';
 import { getTranslator } from 'next-intl/server';
 import React from 'react';
 
-interface SimilarListingProps {
+interface SectionSimilarProps {
   locale: string;
   listingDetail: listingPropertyModel;
 }
@@ -40,7 +40,7 @@ const basedQuery = (listingId: string, projectId: string) => ({
   },
 });
 
-const SimilarListing: React.FC<SimilarListingProps> = async ({ listingDetail, locale }) => {
+const SectionSimilar: React.FC<SectionSimilarProps> = async ({ listingDetail, locale }) => {
   const t = await getTranslator(locale, 'webLabel');
 
   const platinumListing: any = await postEcomListingGetSimilarInProjectQuery({
@@ -69,7 +69,7 @@ const SimilarListing: React.FC<SimilarListingProps> = async ({ listingDetail, lo
     <div className={`flex flex-col gap-2`}>
       <div>
         <h1 className="text-center text-4xl font-bold text-portal-primaryLiving">
-          {t('EcomPropertyDetailPageSimilarListingsSimilarListings')}
+          {t('EcomPropertyDetailPageSectionSimilarsSectionSimilars')}
         </h1>
       </div>
       <div className="hidden flex-col gap-4 lg:flex">
@@ -103,4 +103,4 @@ const SimilarListing: React.FC<SimilarListingProps> = async ({ listingDetail, lo
   );
 };
 
-export default React.memo(SimilarListing);
+export default React.memo(SectionSimilar);
