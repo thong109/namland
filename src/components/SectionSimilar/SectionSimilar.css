@@ -15,3 +15,9 @@
   @apply tablet-lg:text-[24px] tablet-lg:leading-[calc(30/24)];
   @apply mobile:text-[20px] mobile:leading-[calc(30/20)];
 }
+
+.section-common-similar .pagination-common {
+  @apply mt-[44px];
+  @apply tablet-lg:mt-[30px];
+  @apply mobile:mt-[30px];
+}

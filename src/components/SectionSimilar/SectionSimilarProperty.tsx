@@ -6,6 +6,7 @@ import {
 import { ListPropertyStatusEnum } from '@/libs/enums/ListPropertyStatusEnum';
 import listingPropertyModel from '@/models/listingModel/listingPropertyModel';
 import { getTranslator } from 'next-intl/server';
+import { Pagination } from 'antd';
 import React from 'react';
 import './SectionSimilar.css'
 
@@ -73,6 +74,9 @@ const SectionSimilar: React.FC<SectionSimilarProps> = async ({ listingDetail, lo
               <CardListing key={item.id} listing={item} />
             </div>
           ))}
+        </div>
+        <div className="pagination-common">
+          <Pagination />
         </div>
       </div>
     </div>
