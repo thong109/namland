@@ -72,7 +72,7 @@ const PageDetailProperty: FC<PagePropertyDetailProps> = async ({ params, searchP
         breadcrumbItems={[
           { path: '/', title: 'Trang chủ' },
           { path: '/sale-listing/', title: 'Bán' },
-          { path: '', title: 'Khu đô thị mới Khu đô thị Nam Long' },
+          { path: '', title: listingDetail?.title || '' },
         ]}
         hasBanner={false}
       />

@@ -4,10 +4,10 @@ import { useLocale } from 'next-intl';
 import { getTranslator } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { FC } from 'react';
-import GalleryPrimary from '@/components/GalleryPrimary/GalleryPrimary';
 import ProjectInfo from './_components/ProjectInfo';
 import RecentPropertiesForLease from './_components/RecentPropertiesForLease';
 import RecentPropertiesForSale from './_components/RecentPropertiesForSale';
+import GallerySwiperPrimary from '@/components/GallerySwiperPrimary/GallerySwiperPrimary';
 
 export interface PagePropertyDetailProps {
   params: any;
@@ -57,12 +57,9 @@ const PageDetailProject: FC<PagePropertyDetailProps> = async ({ params, searchPa
 
   return (
     <>
-      {(projectDetail?.images ?? []).slice(0, 4).map((image, index) => (
-        <link key={index} rel="preload" href={image.url} as="image" />
-      ))}
+      <GallerySwiperPrimary images={projectDetail.images ?? []} />
       <div className="container flex flex-col gap-10 pb-20">
-        <h1 className="text-center text-4xl font-bold text-neutral-1000">{projectDetail.name}</h1>
-        <GalleryPrimary images={projectDetail.images ?? []} />
+
         <div className="flex flex-col gap-10">
           <ProjectInfo projectDetail={projectDetail} locale={params.locale} />
           <RecentPropertiesForLease projectDetail={projectDetail} locale={params.locale} />
