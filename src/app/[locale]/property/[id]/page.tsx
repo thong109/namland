@@ -8,7 +8,7 @@ import { FC } from 'react';
 import LinkedProject from '@/components/ArticleInformation/LinkedProject';
 import ArticleInformationDetails from '@/components/ArticleInformation/ArticleInformationDetails';
 import ArticleInformationOverview from '@/components/ArticleInformation/ArticleInformationOverview';
-import { RatingComponent } from '@/components/ArticleInformation/RatingComponent';
+import { ArticleInformationRatings } from '@/components/ArticleInformation/ArticleInformationRatings';
 import { assetsImages } from '@/assets/images/package';
 import '../style.css';
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
@@ -115,7 +115,7 @@ const PageDetailProperty: FC<PagePropertyDetailProps> = async ({ params, searchP
             <ArticleInformationDetails listingDetail={listingDetail} locale={params.locale} />
           </div>
           <div className='section-chitiet__sidebar'>
-            <RatingComponent listingDetail={listingDetail} />
+            <ArticleInformationRatings listingDetail={listingDetail} />
           </div>
         </div>
       </div>

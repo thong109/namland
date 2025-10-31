@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
 import { FC } from 'react';
 
-const RatingComponent = dynamic(() => import('./_components/RatingComponent'), { ssr: false });
+const ArticleInformationRatings = dynamic(() => import('./_components/ArticleInformationRatings'), { ssr: false });
 
 export interface IProps {
   params: { locale: string; id: string };
@@ -45,7 +45,7 @@ const pageRating: FC<IProps> = async ({ params }) => {
   }
   return (
     <div className="h-full">
-      <RatingComponent broker={broker.data} />
+      <ArticleInformationRatings broker={broker.data} />
     </div>
   );
 };

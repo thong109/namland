@@ -18,7 +18,7 @@ import { TypeOptions, toast } from 'react-toastify';
 interface Props {
   broker: UserInfo;
 }
-const RatingComponent: React.FC<Props> = ({ broker }) => {
+const ArticleInformationRatings: React.FC<Props> = ({ broker }) => {
   const notify = React.useCallback((type: TypeOptions, message: any) => {
     toast[type](message);
   }, []);
@@ -256,4 +256,4 @@ const RatingComponent: React.FC<Props> = ({ broker }) => {
   );
 };
 
-export default RatingComponent;
+export default ArticleInformationRatings;
