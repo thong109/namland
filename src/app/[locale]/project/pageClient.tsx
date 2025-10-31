@@ -22,8 +22,6 @@ export interface IProps {
 const Pagination = dynamic(() => import('antd/lib/pagination'), { ssr: false });
 
 const PageProjectClient: FC<IProps> = ({ projectList, total, currentPage, pageSize }) => {
-  console.log('projectList', projectList);
-
   const t = useTranslations('webLabel');
   const [formRef] = Form.useForm();
   const { push } = useRouter();

@@ -3,6 +3,7 @@ import { NAVIGATION } from '@/data/navigation';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import React from 'react';
+import ProjectCardItem from '../../_components/projectCardItem';
 
 interface SectionSimilarProps {
   locale: string;
@@ -37,15 +38,15 @@ const RecentProperties: React.FC<SectionSimilarProps> = ({
       {goldListing?.data?.data?.length > 0 && (
         <div className="hidden flex-col gap-4 lg:flex">
           {goldListing?.data?.data?.map((item) => (
-            <CardListing key={item.id} listing={item} />
+            <ProjectCardItem key={item.id} data={item} />
           ))}
         </div>
       )}
       {basicListing?.data?.data.length > 0 && (
         <div className="hidden auto-rows-fr grid-cols-3 gap-4 lg:grid">
           {basicListing?.data?.data?.map((item) => (
-            <div className="col-span-1">
-              <CardListing key={item.id} listing={item} />
+            <div className="col-span-1" key={item.id}>
+              <ProjectCardItem data={item} />
             </div>
           ))}
         </div>
@@ -56,7 +57,7 @@ const RecentProperties: React.FC<SectionSimilarProps> = ({
           .concat(basicListing?.data?.data ?? [])
           .map((item) => (
             <div key={item.id} className="min-w-60 grow">
-              <CardListing listing={item} />
+              <ProjectCardItem data={item} />
             </div>
           ))}
       </div>

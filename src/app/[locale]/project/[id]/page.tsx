@@ -62,8 +62,8 @@ const PageDetailProject: FC<PagePropertyDetailProps> = async ({ params, searchPa
 
         <div className="flex flex-col gap-10">
           <ProjectInfo projectDetail={projectDetail} locale={params.locale} />
-          <RecentPropertiesForLease projectDetail={projectDetail} locale={params.locale} />
-          <RecentPropertiesForSale projectDetail={projectDetail} locale={params.locale} />
+          {/* <RecentPropertiesForLease projectDetail={projectDetail} locale={params.locale} /> */}
+          <RecentPropertiesForSale />
         </div>
       </div>
     </>
