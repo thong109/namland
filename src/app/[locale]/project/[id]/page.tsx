@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PagePropertyDetailProps) {
 
   return {
     title: t.rich('webLabel.EcomProjectDetailPageTitle', {
-      project: () => projectDetail.name,
+      project: () => projectDetail?.name,
     }),
     description: projectDetail?.description,
     openGraph: {
