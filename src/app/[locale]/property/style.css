@@ -1,3 +1,7 @@
+.section-chitiet {
+  @apply mb-[40px];
+}
+
 .section-chitiet .container {
   @apply flex gap-[30px];
   @apply tablet-lg:flex-col;

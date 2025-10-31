@@ -1,0 +1,17 @@
+.section-common-similar {
+  @apply pb-[70px];
+  @apply tablet-lg:pb-[60px];
+  @apply mobile:pb-[60px];
+}
+
+.section-common-similar__wrapper {
+  @apply grid grid-cols-3 gap-[29px];
+  @apply tablet-lg:gap-[20px];
+  @apply mobile:grid-cols-1 mobile:gap-[20px];
+}
+
+.section-common-similar__title {
+  @apply mb-[20px] block text-[30px] leading-[calc(45/30)] font-[600] text-[#000];
+  @apply tablet-lg:text-[24px] tablet-lg:leading-[calc(30/24)];
+  @apply mobile:text-[20px] mobile:leading-[calc(30/20)];
+}

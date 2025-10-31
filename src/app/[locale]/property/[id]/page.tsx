@@ -17,7 +17,7 @@ import SectionContact from '@/components/SectionContact/SectionContact';
 
 const InquiryForm = dynamic(() => import('@/components/ArticleInformation/InquiryForm'), { ssr: false });
 
-const SectionSimilar = dynamic(() => import('@/components/ArticleInformation/SectionSimilar'), { ssr: true });
+const SectionSimilar = dynamic(() => import('@/components/SectionSimilar/SectionSimilarProperty'), { ssr: true });
 
 export interface PagePropertyDetailProps {
   params: any;

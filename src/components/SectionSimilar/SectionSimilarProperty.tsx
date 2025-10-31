@@ -7,6 +7,7 @@ import { ListPropertyStatusEnum } from '@/libs/enums/ListPropertyStatusEnum';
 import listingPropertyModel from '@/models/listingModel/listingPropertyModel';
 import { getTranslator } from 'next-intl/server';
 import React from 'react';
+import './SectionSimilar.css'
 
 interface SectionSimilarProps {
   locale: string;
@@ -42,7 +43,6 @@ const basedQuery = (listingId: string, projectId: string) => ({
 
 const SectionSimilar: React.FC<SectionSimilarProps> = async ({ listingDetail, locale }) => {
   const t = await getTranslator(locale, 'webLabel');
-
   const platinumListing: any = await postEcomListingGetSimilarInProjectQuery({
     requestBody: {
       ...basedQuery(listingDetail.id, listingDetail.project.id),
@@ -56,7 +56,6 @@ const SectionSimilar: React.FC<SectionSimilarProps> = async ({ listingDetail, lo
       priorityStatus: ListPropertyStatusEnum.Gold,
     },
   });
-
   const basicListing: any = await postEcomListingGetForSellByQuery({
     requestBody: {
       ...basedQuery(listingDetail.id, listingDetail.project.id),
@@ -64,36 +63,17 @@ const SectionSimilar: React.FC<SectionSimilarProps> = async ({ listingDetail, lo
       priorityStatus: ListPropertyStatusEnum.Basic,
     },
   });
-
   return (
-    <div className={`flex flex-col gap-2`}>
-      <div>Tin đăng bán khác</div>
-      <div className="hidden flex-col gap-4 lg:flex">
-        {platinumListing?.data?.data?.map((item) => (
-          <CardListing key={item.id} listing={item} />
-        ))}
-      </div>
-      <div className="hidden flex-col gap-4 lg:flex">
-        {goldListing?.data?.data?.map((item) => (
-          <CardListing key={item.id} listing={item} />
-        ))}
-      </div>
-      <div className="hidden auto-rows-fr grid-cols-3 gap-8 lg:grid">
-        {basicListing?.data?.data?.map((item) => (
-          <div className="col-span-1">
-            <CardListing key={item.id} listing={item} />
-          </div>
-        ))}
-      </div>
-      <div className="flex gap-4 overflow-x-auto lg:hidden">
-        {(platinumListing?.data?.data ?? [])
-          .concat(goldListing?.data?.data ?? [])
-          .concat(basicListing?.data?.data ?? [])
-          .map((item) => (
-            <div key={item.id} className="min-w-80 grow">
-              <CardListing listing={item} />
+    <div className='section-common-similar'>
+      <div className='container'>
+        <div className='section-common-similar__title'>Tin đăng bán khác</div>
+        <div className='section-common-similar__wrapper'>
+          {basicListing?.data?.data?.map((item) => (
+            <div className='section-common-similar__entry'>
+              <CardListing key={item.id} listing={item} />
             </div>
           ))}
+        </div>
       </div>
     </div>
   );
