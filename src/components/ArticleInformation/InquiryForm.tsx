@@ -112,7 +112,7 @@ const InquiryFormComponent = ({ props }) => {
       email: userInfo?.email || '',
     });
   }, [userInfo]);
-  useEffect(() => {}, [props.listingDetail?.id, userInfo]);
+  useEffect(() => { }, [props.listingDetail?.id, userInfo]);
 
   useEffect(() => {
     if (props.listingDetail?.inquiryId) {
@@ -178,116 +178,15 @@ const InquiryFormComponent = ({ props }) => {
     });
   };
   return (
-    <div className="sticky top-24 w-full rounded-3xl border border-neutral-200 px-2 py-5">
-      <div className="flex justify-center gap-4">
-        <div className="relative size-[4.5rem] overflow-hidden rounded-full border-4 border-neutral-0 bg-portal-yellow shadow-xl">
-          <Image
-            src={listingUserInfo.avatarUrl ?? AvatarDefault?.src}
-            alt="avatar"
-            fill
-            className={`${listingUserInfo.avatarUrl ? '' : 'scale-75'}object-cover`}
-          />
-        </div>
-        <div className="flex flex-col">
-          <div className="text-base font-medium">{listingUserInfo.fullName}</div>
-          <div className="text-sm text-neutral-500">
-            {listingUserInfo.contactNumber ?? listingUserInfo.userName}
-          </div>
-          <Link
-            href={getPosterDetailUrl(listingUserInfo.id, null)}
-            className="cursor-pointer text-sm text-neutral-500 underline"
-          >
-            {t('EcomPropertyDetailPageViewListings')}
-          </Link>
-        </div>
-      </div>
-      <div className="my-2 text-center text-xl font-medium text-portal-primaryLiving">
-        {t(
-          inquiryIdChat !== null
-            ? 'EcomPropertyDetailChat'
-            : 'EcomPropertyDetailPageSendUsYourInquiry',
-        )}
-      </div>
-
-      {inquiryIdChat !== null ? (
-        <>
-          <div className="flex flex-col gap-2">
-            <ChatMessages messages={listMessage} />
-            <ChatInput onSendMessage={handleSendMessage} />
-          </div>
-        </>
-      ) : (
-        <Form
-          size="large"
-          form={formRef}
-          className="flex w-full flex-col items-center justify-center px-8 lg:px-1"
-          onFinish={submitForm}
-          layout="vertical"
-          initialValues={initValues}
-        >
-          <Form.Item
-            name="name"
-            rules={rules.name}
-            className="w-full"
-            label={t('EcomPropertyDetailPageLeaveAnInquiryName')}
-          >
-            <Input disabled={userInfo ? true : false} />
-          </Form.Item>
-          <Form.Item
-            name="phone"
-            rules={rules.phone}
-            className="w-full"
-            label={t('EcomPropertyDetailPageLeaveAnInquiryPhone')}
-          >
-            <Input disabled={userInfo ? true : false} />
-          </Form.Item>
-          <Form.Item
-            name="email"
-            rules={rules.email}
-            className="w-full"
-            label={t('EcomPropertyDetailPageLeaveAnInquiryEmail')}
-          >
-            <Input disabled={userInfo ? true : false} />
-          </Form.Item>
-          <Form.Item
-            name="message"
-            rules={rules.message}
-            className="w-full"
-            label={t('EcomPropertyDetailPageLeaveAnInquiryMessage')}
-          >
-            <Input.TextArea rows={3} />
-          </Form.Item>
-          <Checkbox onChange={(e) => setDidAceeptTerms(e.target.checked)}>
-            {t.rich('AgreeWithTermsAndConditions', {
-              quychehoatdong: (chunks) => (
-                <span className="underline" onClick={openLink}>
-                  {chunks}
-                </span>
-              ),
-              dieukhoandieukien: (chunks) => (
-                <span className="underline" onClick={openLinkDieukhoandieukien}>
-                  {chunks}
-                </span>
-              ),
-            })}
-          </Checkbox>
-          <ButtonCore
-            disabled={!didAceeptTerms || isPending}
-            className="mt-4 w-full"
-            type="submit"
-            label={t('EcomPropertyDetailPageLeaveAnInquiryLeaveInquiry')}
-          />
-          <ButtonCore
-            disabled={isPending}
-            className="mt-4 w-full border border-neutral-500"
-            type="button"
-            preset="secondary"
-            label={t('EcomPropertyDetailPageLeaveAnInquiryBookATour')}
-            onClick={() => setBookATourVisible(true)}
-          />
-        </Form>
-      )}
-
+    <div className="w-full">
+      <ButtonCore
+        disabled={isPending}
+        className="mt-4 w-full"
+        type="button"
+        preset="secondary"
+        label="Tư vấn ngay"
+        onClick={() => setBookATourVisible(true)}
+      />
       {bookATourVisible && (
         <Modal
           open={bookATourVisible}
@@ -295,15 +194,38 @@ const InquiryFormComponent = ({ props }) => {
           styles={{
             wrapper: {
               background: 'none',
+              zIndex: 9999,
             },
             content: {
               background: 'none',
               boxShadow: 'none',
             },
           }}
-          closable={false}
+          closable={true}
           footer={null}
         >
+          <div className="flex justify-center gap-4">
+            <div className="relative size-[4.5rem] overflow-hidden rounded-full border-4 border-neutral-0 bg-portal-yellow shadow-xl">
+              <Image
+                src={listingUserInfo.avatarUrl ?? AvatarDefault?.src}
+                alt="avatar"
+                fill
+                className={`${listingUserInfo.avatarUrl ? '' : 'scale-75'}object-cover`}
+              />
+            </div>
+            <div className="flex flex-col">
+              <div className="text-base font-medium">{listingUserInfo.fullName}</div>
+              <div className="text-sm text-neutral-500">
+                {listingUserInfo.contactNumber ?? listingUserInfo.userName}
+              </div>
+              <Link
+                href={getPosterDetailUrl(listingUserInfo.id, null)}
+                className="cursor-pointer text-sm text-neutral-500 underline"
+              >
+                {t('EcomPropertyDetailPageViewListings')}
+              </Link>
+            </div>
+          </div>
           <BookATourForm
             listingDetail={props.listingDetail}
             locale={props.locale}

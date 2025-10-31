@@ -17,8 +17,6 @@ import ButtonShare from '@/components/ButtonShare/ButtonShare';
 import GalleryPrimary from '@/components/GalleryPrimary/GalleryPrimary';
 import SectionContact from '@/components/SectionContact/SectionContact';
 
-const InquiryForm = dynamic(() => import('@/components/ArticleInformation/InquiryForm'), { ssr: false });
-
 const SectionSimilar = dynamic(() => import('@/components/SectionSimilar/SectionSimilarProperty'), { ssr: true });
 
 export interface PagePropertyDetailProps {
@@ -57,7 +55,7 @@ export async function generateMetadata({
       },
       robots: 'index, follow',
     };
-  } catch (error) {}
+  } catch (error) { }
 }
 
 const PageDetailProperty: FC<PagePropertyDetailProps> = async ({ params, searchParams }) => {
@@ -115,7 +113,7 @@ const PageDetailProperty: FC<PagePropertyDetailProps> = async ({ params, searchP
             <ArticleInformationDetails listingDetail={listingDetail} locale={params.locale} />
           </div>
           <div className='section-chitiet__sidebar'>
-            <ArticleInformationRatings listingDetail={listingDetail} />
+            <ArticleInformationRatings listingDetail={listingDetail} locale={params.locale}/>
           </div>
         </div>
       </div>

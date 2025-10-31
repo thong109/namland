@@ -1,15 +1,16 @@
 'use client';
 import ratingApiService from '@/apiServices/externalApiServices/apiRatingService';
 import AvatarDefault from '@/assets/images/avarta-default.svg';
-import backToHome from '@/assets/images/backToHome.png';
-import { caculateDiffYears } from '@/libs/helper';
 import { Rate } from 'antd';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import ButtonCore from '@/components/ButtonCore/ButtonCore';
+import dynamic from 'next/dynamic';
 
-export const ArticleInformationRatings = ({ listingDetail }) => {
+const InquiryForm = dynamic(() => import('@/components/ArticleInformation/InquiryForm'), { ssr: false });
+
+export const ArticleInformationRatings = ({ listingDetail, locale }) => {
   const t = useTranslations('webLabel');
   const comm = useTranslations('Common');
   const agentRating = listingDetail?.agentRating;
@@ -65,11 +66,7 @@ export const ArticleInformationRatings = ({ listingDetail }) => {
             type='submit'
             label='Gọi ngay'
           />
-          <ButtonCore
-            className='w-full'
-            type='submit'
-            label='Tư vấn ngay'
-          />
+          <InquiryForm listingDetail={listingDetail} locale={locale} />
         </div>
       </div>
       <span className='ratings-common-information__title'>{t('REAL_ESTATE_AGENT')}</span>
