@@ -11,13 +11,10 @@ import { useEffect, useState } from 'react';
 export const RatingComponent = ({ listingDetail }) => {
   const t = useTranslations('webLabel');
   const comm = useTranslations('Common');
-
   const agentRating = listingDetail?.agentRating;
-
   const [ratings, setRatings] = useState<any[]>([]);
   const [from, setFrom] = useState<number>(0);
   const [disableViewMore, setDisableViewMore] = useState<boolean>(false);
-
   const onShowMoreRating = async (init: boolean) => {
     let values = [];
     if (init) {
@@ -37,20 +34,17 @@ export const RatingComponent = ({ listingDetail }) => {
         return [...safePrev, ...newValues];
       });
     }
-
     if (values.length < 1) {
       setDisableViewMore(true);
     } else {
       setDisableViewMore(false);
     }
   };
-
   useEffect(() => {
     onShowMoreRating(true);
     setDisableViewMore(false);
     setFrom(0);
   }, []);
-
   return (
     <div>
       <span className="mb-2 flex justify-center font-semibold lg:justify-start">

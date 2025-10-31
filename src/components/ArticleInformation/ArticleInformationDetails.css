@@ -22,13 +22,13 @@
 
 .article-common-information--details .article-common-information__block-column:nth-child(odd) .article-common-information__block-title {
   @apply w-[136px];
-  @apply tablet-lg:w-[calc(50%-5px)];
+  @apply tablet-lg:w-[160px];
   @apply mobile:w-[calc(50%-5px)];
 }
 
 .article-common-information--details .article-common-information__block-column:nth-child(even) .article-common-information__block-title {
   @apply w-[166px];
-  @apply tablet-lg:w-[calc(50%-5px)];
+  @apply tablet-lg:w-[160px];
   @apply mobile:w-[calc(50%-5px)];
 }
 

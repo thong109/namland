@@ -115,7 +115,6 @@ const PageDetailProperty: FC<PagePropertyDetailProps> = async ({ params, searchP
             <ArticleInformationDetails listingDetail={listingDetail} locale={params.locale} />
           </div>
           <div className='section-chitiet__sidebar'>
-            <LinkedProject listingDetail={listingDetail} locale={params.locale} />
             <RatingComponent listingDetail={listingDetail} />
           </div>
         </div>
