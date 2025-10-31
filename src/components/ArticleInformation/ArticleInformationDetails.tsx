@@ -78,13 +78,13 @@ const ArticleInformationDetails: React.FC<ArticleInformationDetailsProps> = ({ l
           <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture03.src})`, backgroundSize: `calc(22 / 30 * 100%) auto` }}></span>WiFi</li>
           <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture04.src})`, backgroundSize: `calc(23 / 30 * 100%) auto` }}></span>Bàn ghế ăn</li>
           <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture05.src})`, backgroundSize: `calc(25 / 30 * 100%) auto` }}></span>Fitness</li>
-          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture05.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Tủ lạnh</li>
-          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture05.src})`, backgroundSize: `calc(21 / 30 * 100%) auto` }}></span>Giường</li>
-          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture05.src})`, backgroundSize: `calc(27 / 30 * 100%) auto` }}></span>Phòng Tập Yoga</li>
-          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture05.src})`, backgroundSize: `calc(21 / 30 * 100%) auto` }}></span>Màn che cửa sổ</li>
-          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture05.src})`, backgroundSize: `calc(27 / 30 * 100%) auto` }}></span>Giường + đệm</li>
-          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture05.src})`, backgroundSize: `calc(25 / 30 * 100%) auto` }}></span>Phòng Đọc Sách</li>
-          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture05.src})`, backgroundSize: `calc(21 / 30 * 100%) auto` }}></span>Giặt, là</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture06.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Tủ lạnh</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture07.src})`, backgroundSize: `calc(21 / 30 * 100%) auto` }}></span>Giường</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture08.src})`, backgroundSize: `calc(27 / 30 * 100%) auto` }}></span>Phòng Tập Yoga</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture09.src})`, backgroundSize: `calc(21 / 30 * 100%) auto` }}></span>Màn che cửa sổ</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture10.src})`, backgroundSize: `calc(27 / 30 * 100%) auto` }}></span>Giường + đệm</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture11.src})`, backgroundSize: `calc(25 / 30 * 100%) auto` }}></span>Phòng Đọc Sách</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture12.src})`, backgroundSize: `calc(21 / 30 * 100%) auto` }}></span>Giặt, là</li>
         </ul>
       </div>
       <div className='article-common-information__wrapper' id='utilities'>
@@ -102,9 +102,7 @@ const ArticleInformationDetails: React.FC<ArticleInformationDetailsProps> = ({ l
       </div>
       <div className='article-common-information__wrapper' id='location'>
         <span className='article-common-information__title'>{t('EcomPropertyDetailPageLocation')}</span>
-        <div className='article-common-information__block'>
-          <ArticleInformationDetailsLocation locale={locale} listingDetail={listingDetail} />
-        </div>
+        <ArticleInformationDetailsLocation locale={locale} listingDetail={listingDetail} />
       </div>
     </div>
   );
