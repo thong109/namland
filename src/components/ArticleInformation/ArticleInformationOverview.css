@@ -23,7 +23,53 @@
 }
 
 .article-common-information--overview .article-common-information__about {
-  @apply mb-[30px];
+  @apply mb-[30px] p-[14px_12px_14px_39px] border-[1px] border-[#d9d9d9] bg-[#f8f8f8] rounded-[10px] flex;
+  @apply tablet-lg:p-[14px_9px_14px_29px];
+  @apply mobile:p-[14px] mobile:flex-wrap mobile:text-center;
+}
+
+.article-common-information--overview .article-common-information__about-price {
+  @apply flex-1;
+  @apply mobile:w-[100%] mobile:py-[10px] mobile:flex-initial;
+}
+
+.article-common-information--overview .article-common-information__price-wrapper {
+  @apply text-[22px] leading-[calc(35/22)] font-[700] text-[#982220];
+  @apply tablet-lg:text-[20px] tablet-lg:leading-[calc(30/20)];
+  @apply mobile:text-[20px] mobile:leading-[calc(30/20)];
+}
+
+.article-common-information--overview .article-common-information__price-note {
+  @apply py-[5px] text-[16px] leading-[calc(25/16)] text-[#9a9a9a];
+  @apply tablet-lg:text-[14px] tablet-lg:leading-[calc(20/14)];
+  @apply mobile:mt-[10px] mobile:py-[0] mobile:text-[12px] mobile:leading-[calc(20/12)];
+}
+
+.article-common-information--overview .article-common-information__about-entry {
+  @apply w-[135px] ml-[12px] pl-[12px] border-l-[1px] border-[#d9d9d9] flex-grow-0 flex-shrink-0;
+  @apply tablet-lg:w-[130px] tablet-lg:ml-[10px] tablet-lg:pl-[10px];
+  @apply mobile:!w-[calc(50%-20px)] mobile:ml-[0px] mobile:py-[10px] mobile:pl-[0px] mobile:border-l-[0px];
+}
+
+.article-common-information--overview .article-common-information__about-entry:last-child {
+  @apply w-[163px];
+  @apply tablet-lg:w-[160px];
+}
+
+.article-common-information--overview .article-common-information__about-entry:nth-child(odd) {
+  @apply mobile:!w-[calc(50%+10px)] mobile:ml-[10px] mobile:pl-[10px] mobile:border-l-[1px];
+}
+
+.article-common-information--overview .article-common-information__entry-wrapper {
+  @apply my-[-5px] text-[35px] leading-[calc(45/35)] font-[600];
+  @apply tablet-lg:text-[30px] tablet-lg:leading-[calc(40/30)];
+  @apply mobile:text-[30px] mobile:leading-[calc(40/30)];
+}
+
+.article-common-information--overview .article-common-information__entry-label {
+  @apply py-[5px] text-[16px] leading-[calc(25/16)];
+  @apply tablet-lg:text-[14px] tablet-lg:leading-[calc(20/14)];
+  @apply mobile:mt-[10px] mobile:py-[0] mobile:text-[14px] mobile:leading-[calc(20/14)];
 }
 
 .article-common-information--overview .article-common-information__description {
