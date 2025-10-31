@@ -2,16 +2,31 @@
   @apply w-[100%] max-w-[160px] min-h-[39px] p-[4px_20px] rounded-[5px] border-[1px] border-portal-primaryLiving bg-portal-primaryLiving flex items-center justify-center font-semibold text-white;
 }
 
+.button-common-core--primary-disabled {
+  @apply bg-opacity-50;
+}
+
+.button-common-core--secondary,
+.button-common-core--secondary-reversed {
+  @apply border-[#b2b2b2] text-[20px] leading-[calc(29/20)];
+  @apply tablet-lg:text-[18px] tablet-lg:leading-[calc(24/18)];
+  @apply mobile:text-[16px] mobile:leading-[calc(24/16)];
+}
+
+.button-common-core--secondary {
+  @apply text-[#fff];
+}
+
+.button-common-core--secondary-reversed {
+  @apply bg-[#fff] text-portal-primaryLiving;
+}
+
 .button-common-core--neutral {
   @apply border-[1px] border-[#b2b2b2] bg-[#b2b2b2];
 }
 
 .button-common-core--more {
   @apply max-w-[291px] min-h-[40px] border-[1px] border-[#b2b2b2] bg-white text-[20px] leading-[calc(29/20)] text-portal-primaryLiving;
-}
-
-.button-common-core--primary-disabled {
-  @apply bg-opacity-50;
 }
 
 .button-common-core__icon {

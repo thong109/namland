@@ -20,7 +20,7 @@ import { TypeOptions, toast } from 'react-toastify';
 import ChatInput from './ChatComponent/ChatInput';
 import ChatMessages from './ChatComponent/ChatMessages';
 
-interface InquiryFormProps {
+interface ArticleInformationRatingsInquiryProps {
   locale: string;
   listingDetail: listingPropertyModel;
 }
@@ -41,11 +41,11 @@ export type FormSchema = {
   message?: string;
 };
 
-export default function InquiryForm(props) {
-  return <InquiryFormComponent props={props} />;
+export default function ArticleInformationRatingsInquiry(props) {
+  return <ArticleInformationRatingsInquiryComponent props={props} />;
 }
 
-const InquiryFormComponent = ({ props }) => {
+const ArticleInformationRatingsInquiryComponent = ({ props }) => {
   const t = useTranslations('webLabel');
   const notify = React.useCallback((type: TypeOptions, message: any) => {
     toast[type](message);
@@ -178,13 +178,12 @@ const InquiryFormComponent = ({ props }) => {
     });
   };
   return (
-    <div className="w-full">
+    <>
       <ButtonCore
+        type='button'
+        preset='secondary'
+        label='Tư vấn ngay'
         disabled={isPending}
-        className="mt-4 w-full"
-        type="button"
-        preset="secondary"
-        label="Tư vấn ngay"
         onClick={() => setBookATourVisible(true)}
       />
       {bookATourVisible && (
@@ -204,23 +203,23 @@ const InquiryFormComponent = ({ props }) => {
           closable={true}
           footer={null}
         >
-          <div className="flex justify-center gap-4">
-            <div className="relative size-[4.5rem] overflow-hidden rounded-full border-4 border-neutral-0 bg-portal-yellow shadow-xl">
+          <div className='flex justify-center gap-4'>
+            <div className='relative size-[4.5rem] overflow-hidden rounded-full border-4 border-neutral-0 bg-portal-yellow shadow-xl'>
               <Image
                 src={listingUserInfo.avatarUrl ?? AvatarDefault?.src}
-                alt="avatar"
+                alt='avatar'
                 fill
                 className={`${listingUserInfo.avatarUrl ? '' : 'scale-75'}object-cover`}
               />
             </div>
-            <div className="flex flex-col">
-              <div className="text-base font-medium">{listingUserInfo.fullName}</div>
-              <div className="text-sm text-neutral-500">
+            <div className='flex flex-col'>
+              <div className='text-base font-medium'>{listingUserInfo.fullName}</div>
+              <div className='text-sm text-neutral-500'>
                 {listingUserInfo.contactNumber ?? listingUserInfo.userName}
               </div>
               <Link
                 href={getPosterDetailUrl(listingUserInfo.id, null)}
-                className="cursor-pointer text-sm text-neutral-500 underline"
+                className='cursor-pointer text-sm text-neutral-500 underline'
               >
                 {t('EcomPropertyDetailPageViewListings')}
               </Link>
@@ -233,6 +232,6 @@ const InquiryFormComponent = ({ props }) => {
           />
         </Modal>
       )}
-    </div>
+    </>
   );
 };

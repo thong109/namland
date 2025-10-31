@@ -7,8 +7,9 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import dynamic from 'next/dynamic';
+import './ArticleInformationRatings.css';
 
-const InquiryForm = dynamic(() => import('@/components/ArticleInformation/InquiryForm'), { ssr: false });
+const ArticleInformationRatingsInquiry = dynamic(() => import('@/components/ArticleInformation/ArticleInformationRatingsInquiry'), { ssr: false });
 
 export const ArticleInformationRatings = ({ listingDetail, locale }) => {
   const t = useTranslations('webLabel');
@@ -51,25 +52,53 @@ export const ArticleInformationRatings = ({ listingDetail, locale }) => {
     <div className='ratings-common-information'>
       <div className='ratings-common-information__profile'>
         <div className='ratings-common-information__profile-avatar'>
-          <Image
-            className='ratings-common-information__avatar-wrapper'
-            src={listingDetail?.userInfo?.avatarUrl ?? AvatarDefault?.src}
-            alt='avatar'
-            width={120}
-            height={120}
-          />
+          <div className='ratings-common-information__avatar-wrapper'>
+            <Image
+              src={listingDetail?.userInfo?.avatarUrl ?? AvatarDefault?.src}
+              alt='avatar'
+              width={131}
+              height={131}
+            />
+          </div>
           <span className='ratings-common-information__avatar-label'>{listingDetail?.userInfo?.fullName}</span>
         </div>
         <div className='ratings-common-information__profile-controller'>
           <ButtonCore
             className='w-full'
             type='submit'
+            preset='secondary-reversed'
             label='Gọi ngay'
           />
-          <InquiryForm listingDetail={listingDetail} locale={locale} />
+          <ArticleInformationRatingsInquiry listingDetail={listingDetail} locale={locale} />
         </div>
       </div>
       <span className='ratings-common-information__title'>{t('REAL_ESTATE_AGENT')}</span>
+      <ul className='ratings-common-information__wrapper'>
+        <li className='ratings-common-information__item'>
+          <span className='ratings-common-information__item-score'>0</span>
+          <span className='ratings-common-information__item-label'>Đánh giá</span>
+        </li>
+        <li className='ratings-common-information__item'>
+          <span className='ratings-common-information__item-score'>0</span>
+          <span className='ratings-common-information__item-label'>Xếp hạng sao</span>
+        </li>
+        <li className='ratings-common-information__item'>
+          <span className='ratings-common-information__item-score'>0</span>
+          <span className='ratings-common-information__item-label'>Đánh giá</span>
+        </li>
+        <li className='ratings-common-information__item'>
+          <span className='ratings-common-information__item-score'>0</span>
+          <span className='ratings-common-information__item-label'>Xếp hạng sao</span>
+        </li>
+      </ul>
+      <ul className='ratings-common-information__description'>
+        <li class='ratings-common-information__description-item'>Tính chuyên nghiệp</li>
+        <li class='ratings-common-information__description-item'>Dịch vụ</li>
+        <li class='ratings-common-information__description-item'>Trải nghiệm dịch vụ</li>
+        <li class='ratings-common-information__description-item'>Tốc độ phản hồi</li>
+        <li class='ratings-common-information__description-item'>Độ chính xác</li>
+        <li class='ratings-common-information__description-item'>Đánh giá</li>
+      </ul>
     </div>
   );
 };

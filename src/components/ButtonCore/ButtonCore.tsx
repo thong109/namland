@@ -4,7 +4,7 @@ import React from 'react';
 import './ButtonCore.css';
 
 interface ButtonCoreProps {
-  preset?: 'primary' | 'secondary' | 'neutral' | 'more';
+  preset?: 'primary' | 'secondary' | 'secondary-reversed' | 'neutral' | 'more';
   className?: string;
   onClick?: () => void;
   label: string;
@@ -30,7 +30,9 @@ const ButtonCore: React.FC<ButtonCoreProps> = ({
           'button-common-core--neutral': preset === 'neutral',
           'button-common-core--more': preset === 'more',
           'button-common-core--primary': preset === 'primary',
-          'button-common-core--primary-disabled': disabled && preset === 'primary',
+          'button-common-core--primary-disabled': preset === 'primary' && disabled,
+          'button-common-core--secondary': preset === 'secondary',
+          'button-common-core--secondary-reversed': preset === 'secondary-reversed',
         },
         className
       )} 
