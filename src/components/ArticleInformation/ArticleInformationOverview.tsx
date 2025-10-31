@@ -1,8 +1,6 @@
 import listingPropertyModel from '@/models/listingModel/listingPropertyModel';
 import { useTranslations } from 'next-intl';
 import React from 'react';
-import FavoriteButton from '@/components/ArticleInformation/ArticleInformationOverview.FavoriteButton';
-import ShareButton from '@/components/ArticleInformation/ArticleInformationOverview.ShareButton';
 import PropertyInfoBox from '@/components/CardListing/_component/PropertyInfoBox';
 import { formatNumber } from '@/libs/helper';
 import { listingType } from '@/libs/appconst';

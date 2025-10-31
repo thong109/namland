@@ -12,6 +12,8 @@ import { RatingComponent } from '@/components/ArticleInformation/RatingComponent
 import { assetsImages } from '@/assets/images/package';
 import '../style.css';
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
+import ButtonFavorite from '@/components/ButtonFavorite/ButtonFavorite';
+import ButtonShare from '@/components/ButtonShare/ButtonShare';
 import GalleryPrimary from '@/components/GalleryPrimary/GalleryPrimary';
 import SectionContact from '@/components/SectionContact/SectionContact';
 
@@ -102,8 +104,8 @@ const PageDetailProperty: FC<PagePropertyDetailProps> = async ({ params, searchP
               </li>
             </ul>
             <ul className='navigation-common-page__additional'>
-              <li className='navigation-common-page__additional-entry'></li>
-              <li className='navigation-common-page__additional-entry'></li>
+              <li className='navigation-common-page__additional-entry'><ButtonFavorite listingDetail={listingDetail} locale={locale} /></li>
+              <li className='navigation-common-page__additional-entry'><ButtonShare listingDetail={listingDetail} locale={locale} /></li>
             </ul>
           </div>
         </div>

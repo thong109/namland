@@ -1,0 +1,15 @@
+.button-common-favorite {
+  @apply w-[20px] h-[20px] flex justify-center items-center;
+}
+
+.button-common-favorite svg {
+  @apply w-[calc(19/20*100%)] h-[100%];
+}
+
+.button-common-favorite path {
+  @apply fill-[transparent] stroke-[#982220] transition-[fill] duration-300 ease-in-out;
+}
+
+.button-common-favorite.is-state-active path {
+  @apply fill-[#982220];
+}

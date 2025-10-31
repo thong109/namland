@@ -1,0 +1,11 @@
+.button-common-share {
+  @apply w-[20px] h-[20px] flex justify-center items-center;
+}
+
+.button-common-share svg {
+  @apply w-[calc(19.5/20*100%)] h-[100%];
+}
+
+.button-common-share path {
+  @apply fill-[#9a9a9a] transition-[fill] duration-300 ease-in-out;
+}
