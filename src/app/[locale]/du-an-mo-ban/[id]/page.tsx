@@ -58,7 +58,7 @@ const PageDetailNewHome: FC<PagePropertyDetailProps> = async ({ params }) => {
   return (
     <>
       <div className="container flex h-full flex-col gap-2">
-        <Image
+        {/* <Image
           src={projectDetail?.thumbnail?.thumbUrl}
           alt="thumbnail"
           layout="responsive"
@@ -66,7 +66,7 @@ const PageDetailNewHome: FC<PagePropertyDetailProps> = async ({ params }) => {
           height={20} // This is a placeholder, the real height is controlled by CSS
           className="!max-h-[240px] w-screen object-cover lg:!max-h-[600px]"
           priority
-        />
+        /> */}
         <div className="flex flex-col">
           <ProjectNewInfo projectDetail={projectDetail} locale={params.locale} />
 

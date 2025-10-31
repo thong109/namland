@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 import ProjectInfoIndoorAmenity from './ProjectInfo.IndoorAmenity';
-import ProjectInfoLocation from './ProjectInfo.Location';
+// import ProjectInfoLocation from './ProjectInfo.Location';
 import ProjectInfoNearby from './ProjectInfo.Nearby';
 import ProjectInfoOutdoorAmenity from './ProjectInfo.OutdoorAmenity';
 import ProjectInfoPriceRange from './ProjectInfo.PriceRange';
@@ -51,7 +51,7 @@ const ProjectInfo: React.FC<ProjectInfoProps> = ({ locale, projectDetail }) => {
       )}
       <div>
         <div className={clsx(blockTitleClassName)}>{t('EcomProjectDetailLocation')}</div>
-        <ProjectInfoLocation locale={locale} projectDetail={projectDetail} />
+        {/* <ProjectInfoLocation locale={locale} projectDetail={projectDetail} /> */}
       </div>
     </div>
   );

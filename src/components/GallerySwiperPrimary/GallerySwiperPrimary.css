@@ -1,0 +1,81 @@
+.edge-gallery-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.edge-carousel {
+  @apply mx-auto;
+  @apply desktop:w-[calc(100%-calc(400/1920*100%))];
+  @apply mobile:w-[calc(100%-calc(32/375*100%))];
+}
+
+.edge-carousel .slick-list {
+  @apply overflow-visible;
+  @apply desktop:m-[0_-10%];
+}
+
+.edge-carousel .slick-track {
+  gap: 5px;
+}
+
+.edge-carousel .slick-slide {
+}
+
+.edge-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  padding: 0 8px;
+  position: relative;
+  padding-top: calc(560 / 909 * 100%);
+}
+
+.edge-slide>div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.edge-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.edge-thumbnail-row {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  transition: all 0.3s ease;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.edge-thumb-wrapper {
+  @apply w-full;
+  @apply desktop:flex-[0_0_256px] desktop:max-w-[256px];
+  @apply laptop-md:flex-[0_0_calc(100%/7-15px)] laptop-md:max-w-[calc(100%/7-15px)];
+  @apply laptop-sm:flex-[0_0_calc(100%/6-20px)] laptop-sm:max-w-[calc(100%/6-20px)];
+  @apply mobile:flex-[0_0_calc(100%/3-20px)] mobile:max-w-[calc(100%/3-20px)];
+}
+
+.edge-thumb {
+  position: relative;
+  padding-top: calc(174 / 256 * 100%);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.edge-thumb img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

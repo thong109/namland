@@ -45,7 +45,7 @@
 }
 
 .navigation-header-outside__wrapper {
-  @apply flex justify-start items-center gap-[50px];
+  @apply flex justify-start items-center gap-[70px];
   @apply laptop-lg:gap-[20px];
   @apply laptop-md:gap-[20px] laptop-md:text-[14px] laptop-md:leading-[calc(24/14)];
   @apply tablet-lg:hidden;
