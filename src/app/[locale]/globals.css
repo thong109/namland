@@ -112,3 +112,13 @@ input,select,textarea {
   @apply w-[20px] h-[20px];
   @apply mobile:w-[15px] mobile:h-[15px];
 }
+
+/* Map */
+
+.map-common-information {
+  @apply pt-[calc(443/816*100%)] relative rounded-[10px] overflow-hidden;
+}
+
+.map-common-information>* {
+  @apply w-[100%] h-[100%] absolute inset-0;
+}
