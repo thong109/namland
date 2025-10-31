@@ -10,6 +10,7 @@ import ArticleInformationDetails from '@/components/ArticleInformation/ArticleIn
 import ArticleInformationOverview from '@/components/ArticleInformation/ArticleInformationOverview';
 import { RatingComponent } from '@/components/ArticleInformation/RatingComponent';
 import { assetsImages } from '@/assets/images/package';
+import '../style.css';
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
 import GalleryPrimary from '@/components/GalleryPrimary/GalleryPrimary';
 import SectionContact from '@/components/SectionContact/SectionContact';

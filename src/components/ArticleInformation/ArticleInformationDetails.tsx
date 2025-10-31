@@ -22,91 +22,87 @@ const ArticleInformationDetails: React.FC<ArticleInformationDetailsProps> = ({ l
   return (
     <div className='article-common-information article-common-information--details'>
       <div className='article-common-information__wrapper' id='details'>
-        <span className='article-common-information__title'>{listingDetail.title}</span>
+        <span className='article-common-information__title'>Chi tiết căn hộ</span>
         <div className='article-common-information__block'>
-          <dl className='article-common-information__block-row'>
-            <dt className='article-common-information__block-title'>Loại sản phẩm:</dt>
-            <dd className='article-common-information__block-description'></dd>
-          </dl>
-          <dl className='article-common-information__block-row'>
-            <dt className='article-common-information__block-title'>Dự án:</dt>
-            <dd className='article-common-information__block-description'></dd>
-          </dl>
-          <dl className='article-common-information__block-row'>
-            <dt className='article-common-information__block-title'>Tháp /Tòa:</dt>
-            <dd className='article-common-information__block-description'></dd>
-          </dl>
-          <dl className='article-common-information__block-row'>
-            <dt className='article-common-information__block-title'>Tầng:</dt>
-            <dd className='article-common-information__block-description'></dd>
-          </dl>
-          <dl className='article-common-information__block-row'>
-            <dt className='article-common-information__block-title'>Diện tích(m2):</dt>
-            <dd className='article-common-information__block-description'>{listingDetail?.size ?? 'ー'}</dd>
-          </dl>
-        </div>
-        <div className='article-common-information__block'>
-          <dl className='article-common-information__block-row'>
-            <dt className='article-common-information__block-title'>Phòng ngủ:</dt>
-            <dd className='article-common-information__block-description'>{listingDetail?.bedrooms ?? 'ー'}</dd>
-          </dl>
-          <dl className='article-common-information__block-row'>
-            <dt className='article-common-information__block-title'>Phòng vệ sinh:</dt>
-            <dd className='article-common-information__block-description'>{listingDetail?.bathrooms ?? 'ー'}</dd>
-          </dl>
-          <dl className='article-common-information__block-row'>
-            <dt className='article-common-information__block-title'>Trạng thái pháp lý:</dt>
-            <dd className='article-common-information__block-description'>Đã có Sổ Hồng</dd>
-          </dl>
-          <dl className='article-common-information__block-row'>
-            <dt className='article-common-information__block-title'>Tình trạng nội thất:</dt>
-            <dd className='article-common-information__block-description'>Nội thất cơ bản</dd>
-          </dl>
-          <dl className='article-common-information__block-row'>
-            <dt className='article-common-information__block-title'>Hướng nhìn:</dt>
-            <dd className='article-common-information__block-description'>Đông Nam</dd>
-          </dl>
+          <div className='article-common-information__block-column'>
+            <dl className='article-common-information__block-row'>
+              <dt className='article-common-information__block-title'>Loại sản phẩm:</dt>
+              <dd className='article-common-information__block-description'></dd>
+            </dl>
+            <dl className='article-common-information__block-row'>
+              <dt className='article-common-information__block-title'>Dự án:</dt>
+              <dd className='article-common-information__block-description'></dd>
+            </dl>
+            <dl className='article-common-information__block-row'>
+              <dt className='article-common-information__block-title'>Tháp /Tòa:</dt>
+              <dd className='article-common-information__block-description'></dd>
+            </dl>
+            <dl className='article-common-information__block-row'>
+              <dt className='article-common-information__block-title'>Tầng:</dt>
+              <dd className='article-common-information__block-description'></dd>
+            </dl>
+            <dl className='article-common-information__block-row'>
+              <dt className='article-common-information__block-title'>Diện tích(m2):</dt>
+              <dd className='article-common-information__block-description'>{listingDetail?.size ?? 'ー'}</dd>
+            </dl>
+          </div>
+          <div className='article-common-information__block-column'>
+            <dl className='article-common-information__block-row'>
+              <dt className='article-common-information__block-title'>Phòng ngủ:</dt>
+              <dd className='article-common-information__block-description'>{listingDetail?.bedrooms ?? 'ー'}</dd>
+            </dl>
+            <dl className='article-common-information__block-row'>
+              <dt className='article-common-information__block-title'>Phòng vệ sinh:</dt>
+              <dd className='article-common-information__block-description'>{listingDetail?.bathrooms ?? 'ー'}</dd>
+            </dl>
+            <dl className='article-common-information__block-row'>
+              <dt className='article-common-information__block-title'>Trạng thái pháp lý:</dt>
+              <dd className='article-common-information__block-description'>Đã có Sổ Hồng</dd>
+            </dl>
+            <dl className='article-common-information__block-row'>
+              <dt className='article-common-information__block-title'>Tình trạng nội thất:</dt>
+              <dd className='article-common-information__block-description'>Nội thất cơ bản</dd>
+            </dl>
+            <dl className='article-common-information__block-row'>
+              <dt className='article-common-information__block-title'>Hướng nhìn:</dt>
+              <dd className='article-common-information__block-description'>Đông Nam</dd>
+            </dl>
+          </div>
         </div>
       </div>
       <div className='article-common-information__wrapper' id='furniture'>
         <span className='article-common-information__title'>Nội thất</span>
-        <div className='article-common-information__block'>
-          <ul className='list-common-property list-common-property--furniture'>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture.src})`, backgroundSize: `calc(22 / 30 * 100%) auto` }}></span>Bếp điện</li>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture02.src})`, backgroundSize: `calc(25 / 30 * 100%) auto` }}></span>Lò vi sóng</li>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture03.src})`, backgroundSize: `calc(22 / 30 * 100%) auto` }}></span>WiFi</li>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture04.src})`, backgroundSize: `calc(23 / 30 * 100%) auto` }}></span>Bàn ghế ăn</li>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture05.src})`, backgroundSize: `calc(25 / 30 * 100%) auto` }}></span>Fitness</li>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture05.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Tủ lạnh</li>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture05.src})`, backgroundSize: `calc(21 / 30 * 100%) auto` }}></span>Giường</li>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture05.src})`, backgroundSize: `calc(27 / 30 * 100%) auto` }}></span>Phòng Tập Yoga</li>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture05.src})`, backgroundSize: `calc(21 / 30 * 100%) auto` }}></span>Màn che cửa sổ</li>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture05.src})`, backgroundSize: `calc(27 / 30 * 100%) auto` }}></span>Giường + đệm</li>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture05.src})`, backgroundSize: `calc(25 / 30 * 100%) auto` }}></span>Phòng Đọc Sách</li>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture05.src})`, backgroundSize: `calc(21 / 30 * 100%) auto` }}></span>Giặt, là</li>
-          </ul>
-        </div>
+        <ul className='list-common-property list-common-property--furniture'>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture.src})`, backgroundSize: `calc(22 / 30 * 100%) auto` }}></span>Bếp điện</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture02.src})`, backgroundSize: `calc(25 / 30 * 100%) auto` }}></span>Lò vi sóng</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture03.src})`, backgroundSize: `calc(22 / 30 * 100%) auto` }}></span>WiFi</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture04.src})`, backgroundSize: `calc(23 / 30 * 100%) auto` }}></span>Bàn ghế ăn</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture05.src})`, backgroundSize: `calc(25 / 30 * 100%) auto` }}></span>Fitness</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture06.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Tủ lạnh</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture07.src})`, backgroundSize: `calc(21 / 30 * 100%) auto` }}></span>Giường</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture08.src})`, backgroundSize: `calc(27 / 30 * 100%) auto` }}></span>Phòng Tập Yoga</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture09.src})`, backgroundSize: `calc(21 / 30 * 100%) auto` }}></span>Màn che cửa sổ</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture10.src})`, backgroundSize: `calc(27 / 30 * 100%) auto` }}></span>Giường + đệm</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture11.src})`, backgroundSize: `calc(25 / 30 * 100%) auto` }}></span>Phòng Đọc Sách</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconFurniture12.src})`, backgroundSize: `calc(21 / 30 * 100%) auto` }}></span>Giặt, là</li>
+        </ul>
       </div>
       <div className='article-common-information__wrapper' id='utilities'>
         <span className='article-common-information__title'>Tiện ích</span>
-        <div className='article-common-information__block'>
-          <ul className='list-common-property list-common-property--utilities'>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconUtilities.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Trường học</li>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconUtilities02.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Công viên</li>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconUtilities03.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Bệnh viện</li>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconUtilities04.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Chợ</li>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconUtilities05.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Trung tâm hành chính</li>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconUtilities06.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Siêu thị</li>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconUtilities07.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Trường đại học</li>
-            <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconUtilities08.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Trung tâm thương mại</li>
-          </ul>
-        </div>
+        <ul className='list-common-property list-common-property--utilities'>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconUtilities.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Trường học</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconUtilities02.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Công viên</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconUtilities03.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Bệnh viện</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconUtilities04.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Chợ</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconUtilities05.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Trung tâm hành chính</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconUtilities06.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Siêu thị</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconUtilities07.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Trường đại học</li>
+          <li className='list-common-property__item'><span className='list-common-property__item-icon' style={{ backgroundImage: `url(${assetsImages.commonIconUtilities08.src})`, backgroundSize: `calc(24 / 30 * 100%) auto` }}></span>Trung tâm thương mại</li>
+        </ul>
       </div>
       <div className='article-common-information__wrapper' id='location'>
         <span className='article-common-information__title'>{t('EcomPropertyDetailPageLocation')}</span>
-        <div className='article-common-information__block'>
-          <ArticleInformationDetailsLocation locale={locale} listingDetail={listingDetail} />
-        </div>
+        <ArticleInformationDetailsLocation locale={locale} listingDetail={listingDetail} />
       </div>
     </div>
   );
