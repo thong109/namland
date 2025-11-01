@@ -4,7 +4,7 @@ import React from 'react';
 import './ButtonCore.css';
 
 interface ButtonCoreProps {
-  preset?: 'primary' | 'secondary' | 'secondary-reversed' | 'neutral' | 'more';
+  preset?: 'primary' | 'secondary' | 'secondary-reversed' | 'neutral' | 'more' | 'directing';
   className?: string;
   onClick?: () => void;
   label: string;
@@ -29,6 +29,7 @@ const ButtonCore: React.FC<ButtonCoreProps> = ({
         {
           'button-common-core--neutral': preset === 'neutral',
           'button-common-core--more': preset === 'more',
+          'button-common-core--directing': preset === 'directing',
           'button-common-core--primary': preset === 'primary',
           'button-common-core--primary-disabled': preset === 'primary' && disabled,
           'button-common-core--secondary': preset === 'secondary',
@@ -46,6 +47,9 @@ const ButtonCore: React.FC<ButtonCoreProps> = ({
       )}
       {buttonType === 'destroy' && (
         <span className='button-common-core__icon button-common-core__icon--close' style={{ backgroundImage: `url(${assetsImages.commonIconClose02.src})` }}></span>
+      )}
+      {preset === 'directing' && (
+        <span className='button-common-core__icon button-common-core__icon--directing' style={{ backgroundImage: `url(${assetsImages.commonIconClose02.src})` }}></span>
       )}
     </button>
   );

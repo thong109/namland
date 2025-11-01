@@ -1,7 +1,9 @@
 import BgHome from '@/assets/images/bg-home-2.webp';
 import Image from 'next/image';
 import { FC } from 'react';
+import { assetsImages } from '@/assets/images/package';
 import HomeRealEstateSearchForm from '../HomeRealEstateSearchForm/HomeRealEstateSearchForm';
+import ButtonCore from '@/components/ButtonCore/ButtonCore';
 
 export interface SectionHeroProps {
   className?: string;
@@ -10,14 +12,16 @@ export interface SectionHeroProps {
 
 const SectionHero: FC<SectionHeroProps> = ({ className = '' }) => {
   return (
-    <div className={`nc-SectionHero relative ${className}`} data-nc-id="SectionHero">
-      <div className="absolute inset-y-0 left-0 w-full flex-grow">
-        <Image className="object-cover" src={BgHome.src} alt="hero" fill />
-      </div>
-      <div className="relative px-2 py-5 lg:px-0 lg:py-20">
-        {/* <div className="hidden w-full lg:mt-20 lg:block"> */}
-        <HomeRealEstateSearchForm />
-        {/* </div> */}
+    <div className='section-home-hero'>
+      <div className='container'>
+        <div className='section-home-hero__wrapper'>
+          <span className='section-home-hero__title'>Giải pháp giao dịch bất động sản từ trực tuyến đến trực tiếp của Nam Long O2O</span>
+          <HomeRealEstateSearchForm />
+        </div>
+        <div className='section-home-hero__visual'>
+          <ButtonCore preset='directing' label='Xem chi tiết' />
+          <div className='section-home-hero__visual-wrapper'><Image src='' alt='Visual' /></div>
+        </div>
       </div>
     </div>
   );

@@ -68,15 +68,12 @@ const PageHome: FC<Props> = async ({ params: { locale } }) => {
       position: AdBannerPositionEnum.AboveSale,
     })) as ApiResponseModel<Banner>
   )?.data;
-
   const salePlatinumListing: any = await postEcomListingGetForSellByQuery({
     requestBody: { ...basedQuery(ListPropertyStatusEnum.Platinum) },
   });
-
   const rentPlatinumListing: any = await postEcomListingGetForRentByQuery({
     requestBody: { ...basedQuery(ListPropertyStatusEnum.Platinum) },
   });
-
   return (
     <main className="nc-PageHome relative flex flex-col gap-16 pb-0">
       <SectionHero locale={locale} />
