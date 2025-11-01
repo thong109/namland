@@ -201,35 +201,11 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
         break;
     }
   };
-  const saleOrRentBlock = () => {
+  const selectHomeSaleRent = () => {
     return (
-      <div className='grid grid-cols-2 items-center gap-2 rounded-3xl border border-neutral-500 p-2 lg:flex lg:p-0.5'>
-        <div
-          onClick={() => {
-            seFilterBy(listingType.sale);
-          }}
-          className={clsx(
-            `cursor-pointer grid-cols-1 rounded-3xl px-4 py-2 text-center font-semibold lg:py-1`,
-            {
-              'border border-neutral-500 bg-neutral-0': filterBy === listingType.sale,
-            },
-          )}
-        >
-          {t('EcomHomePageBannerBuy')}
-        </div>
-        <div
-          onClick={() => {
-            seFilterBy(listingType.rent);
-          }}
-          className={clsx(
-            `cursor-pointer grid-cols-1 rounded-3xl px-4 py-2 text-center font-semibold lg:py-1`,
-            {
-              'border border-neutral-500 bg-neutral-0': filterBy === listingType.rent,
-            },
-          )}
-        >
-          {t('EcomHomePageBannerRent')}
-        </div>
+      <div className='select-home-salerent'>
+        <div onClick={() => { seFilterBy(listingType.sale); }} className={clsx(`select-home-salerent__option`, { 'is-state-active': filterBy === listingType.sale })}>{t('EcomHomePageBannerBuy')}</div>
+        <div onClick={() => { seFilterBy(listingType.rent); }} className={clsx(`select-home-salerent__option`, { 'is-state-active': filterBy === listingType.rent })}>{t('EcomHomePageBannerRent')}</div>
       </div>
     );
   };
@@ -273,33 +249,13 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
   };
   return (
     <>
-      <div
-        className={clsx(
-          'form-home-search',
-        )}
-      >
-        <div
-          className={clsx(
-            'form-home-search__viewport',
-            filterBy === listingType.sale && 'rounded-tl-none',
-          )}
-        >
-          <Form
-            className='form-home-search__wrapper'
-            form={form}
-            layout='vertical'
-            onFinish={onSubmit}
-            size='large'
-          >
-            <div className='hidden flex-row divide-neutral-500 lg:flex lg:divide-x'>
-              <div className='pr-8'>{saleOrRentBlock()}</div>
-              <div className='flex flex-grow flex-row items-center gap-2 pl-8'>
-                <div
-                  className={clsx(
-                    'w-[21%] rounded-xl px-2 py-2 text-center',
-                    propertyType && propertyType.length > 0 && 'bg-portal-yellow-1',
-                  )}
-                >
+      <div className={clsx('form-home-search')}>
+        <div className={clsx('form-home-search__viewport', filterBy === listingType.sale)}>
+          <Form className='form-home-search__wrapper' form={form} layout='vertical' onFinish={onSubmit} size='large'>
+            <div className='form-home-search__filter'>
+              {selectHomeSaleRent()}
+              <div className='form-home-search__filter-wrapper'>
+                <div className={clsx('w-[21%] rounded-xl px-2 py-2 text-center', propertyType && propertyType.length > 0 && 'bg-portal-yellow-1')}>
                   {popupFilter(
                     t('HomeRealEstateSearchFormType'),
                     <Form.Item name='c'>
@@ -466,7 +422,7 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
 
             {/* mobile */}
             <div className='flex flex-col lg:hidden'>
-              <div className='mb-4'>{saleOrRentBlock()}</div>
+              <div className='mb-4'>{selectHomeSaleRent()}</div>
               <Form.Item
                 name='k'
                 className='[&_.ant-input-affix-wrapper]:!rounded-none'
