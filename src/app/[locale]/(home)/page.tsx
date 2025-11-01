@@ -19,6 +19,7 @@ import SectionListingForRent from './_components/SectionListingForRent/SectionLi
 import SectionListingForSale from './_components/SectionListingForSale/SectionListingForSale';
 import TopBanner from './_components/TopBanner/TopBanner';
 import SectionContact from '@/components/SectionContact/SectionContact';
+import './style.css';
 
 const SectionExploreProjects = dynamic(
   () => import('./_components/SectionExploreProjects/SectionExploreProjects'),

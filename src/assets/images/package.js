@@ -1,5 +1,6 @@
 import commonIconArrow from './common/icon_arrow_01.svg';
 import commonIconArrow02 from './common/icon_arrow_02.svg';
+import commonIconArrow03 from './common/icon_arrow_03.svg';
 import commonIconSearch from './common/icon_search_01.svg';
 import commonIconBurger from './common/icon_burger_01.svg';
 import commonIconClose from './common/icon_close_01.svg';
@@ -46,10 +47,12 @@ import commonIconNavigation02 from "./common/icon_navigation_02.svg";
 import commonIconNavigation03 from "./common/icon_navigation_03.svg";
 import commonIconNavigation04 from "./common/icon_navigation_04.svg";
 import commonIconNavigation05 from "./common/icon_navigation_05.svg";
+import homeBackgroundHero from "./home/background_hero_01.jpg";
 
 export const assetsImages = {
   commonIconArrow,
   commonIconArrow02,
+  commonIconArrow03,
   commonIconSearch,
   commonIconBurger,
   commonIconClose,
@@ -97,4 +100,5 @@ export const assetsImages = {
   commonIconNavigation03,
   commonIconNavigation04,
   commonIconNavigation05,
+  homeBackgroundHero,
 }

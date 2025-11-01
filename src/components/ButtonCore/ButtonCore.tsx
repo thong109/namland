@@ -1,3 +1,5 @@
+'use client';
+
 import { assetsImages } from '@/assets/images/package';
 import clsx from 'clsx';
 import React from 'react';
@@ -49,7 +51,7 @@ const ButtonCore: React.FC<ButtonCoreProps> = ({
         <span className='button-common-core__icon button-common-core__icon--close' style={{ backgroundImage: `url(${assetsImages.commonIconClose02.src})` }}></span>
       )}
       {preset === 'directing' && (
-        <span className='button-common-core__icon button-common-core__icon--directing' style={{ backgroundImage: `url(${assetsImages.commonIconClose02.src})` }}></span>
+        <span className='button-common-core__icon button-common-core__icon--directing' style={{ backgroundImage: `url(${assetsImages.commonIconArrow03.src})` }}></span>
       )}
     </button>
   );

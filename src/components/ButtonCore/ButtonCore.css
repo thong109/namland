@@ -36,3 +36,7 @@
 .button-common-core__icon--search {
   @apply bg-[length:17px_auto];
 }
+
+.button-common-core__icon--directing {
+  @apply w-[27px] mr-[-13.5px] ml-[1px] bg-[length:100%_auto];
+}
