@@ -92,12 +92,12 @@ export const ArticleInformationRatings = ({ listingDetail, locale }) => {
         </li>
       </ul>
       <ul className='ratings-common-information__description'>
-        <li class='ratings-common-information__description-item'>Tính chuyên nghiệp</li>
-        <li class='ratings-common-information__description-item'>Dịch vụ</li>
-        <li class='ratings-common-information__description-item'>Trải nghiệm dịch vụ</li>
-        <li class='ratings-common-information__description-item'>Tốc độ phản hồi</li>
-        <li class='ratings-common-information__description-item'>Độ chính xác</li>
-        <li class='ratings-common-information__description-item'>Đánh giá</li>
+        <li className='ratings-common-information__description-item'>Tính chuyên nghiệp</li>
+        <li className='ratings-common-information__description-item'>Dịch vụ</li>
+        <li className='ratings-common-information__description-item'>Trải nghiệm dịch vụ</li>
+        <li className='ratings-common-information__description-item'>Tốc độ phản hồi</li>
+        <li className='ratings-common-information__description-item'>Độ chính xác</li>
+        <li className='ratings-common-information__description-item'>Đánh giá</li>
       </ul>
     </div>
   );
