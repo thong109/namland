@@ -32,7 +32,6 @@ import dayjs from 'dayjs';
 import { useRouter } from 'next-intl/client';
 import dynamic from 'next/dynamic';
 import * as NProgress from 'nprogress';
-import PropertySelectionField from '@/app/[locale]/(home)/_components/HomeRealEstateSearchForm/_components/PropertySelectionField';
 
 const AdvanceSearchListing = dynamic(() => import('@/components/FormInput/advanceSearchListing'), {
   ssr: false,
