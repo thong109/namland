@@ -357,11 +357,7 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
             </div>
             <div className='form-home-search__inner form-home-search__inner--mobile'>
               <div className='mb-4'>{selectHomeSaleRent()}</div>
-              <Form.Item
-                name='k'
-                className='[&_.ant-input-affix-wrapper]:!rounded-none'
-                label={t('HomeRealEstateSearchFormSearch')}
-              >
+              <Form.Item className='input-common' name='k' label={t('HomeRealEstateSearchFormSearch')}>
                 <Input
                   allowClear
                   placeholder={t('HomeRealEstateSearchFormSearchFieldPlaceHolder')}

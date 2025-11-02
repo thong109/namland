@@ -234,15 +234,12 @@ const PriceSearchListing = ({
         dropdownRender={(menu) => (
           <div ref={popupRef} className='popup-common-searchprice'>
             <SliderFrice range={range} max={maxValue} onchange={(value) => onChoosePrice(value as [number | undefined, number | undefined])} />
-            <div className='overflow-scroll lg:h-40'>
+            <div className='popup-common-searchprice__menu'>
               {React.cloneElement(menu as React.ReactElement, { style: { boxShadow: 'none' } })}
             </div>
-            <Divider style={{ margin: 0 }} />
-            <div className='flex w-full justify-end gap-2 p-2'>
-              <Button onClick={handleReset}>{t('HomeSearchResetButton')}</Button>
-              <Button type='primary' onClick={handleApply}>
-                {t('HomeSearchAplyButton')}
-              </Button>
+            <div className='popup-common-searchprice__controller'>
+              <Button className='button-common button-common--reset' onClick={handleReset}>{t('HomeSearchResetButton')}</Button>
+              <Button className='button-common' onClick={handleApply}>{t('HomeSearchAplyButton')}</Button>
             </div>
           </div>
         )}

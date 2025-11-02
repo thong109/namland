@@ -7,7 +7,11 @@
 }
 
 .popup-common-searchprice__range .range-common {
-  @apply !m-[14px_6.5px_27px];
+  @apply !m-[14px_6.5px_31px];
+}
+
+.popup-common-searchprice__range .ant-slider-step {
+  @apply !w-[calc(100%+(6.5px*2))] !mx-[calc(-6.5px)];
 }
 
 .popup-common-searchprice__range .range-common__value.range-common__value--start {
@@ -24,4 +28,20 @@
 
 .popup-common-searchprice__label-field {
   @apply min-h-[40px] p-[7px_10px] bg-[#fff] border-[1px] border-[#d9d9d9] rounded-[5px] text-[16px] leading-[calc(24/16)];
+}
+
+.popup-common-searchprice__menu {
+  @apply max-h-[315px] overflow-y-auto;
+}
+
+.popup-common-searchprice__menu .ant-dropdown-menu {
+  @apply !p-[0] !bg-transparent !border-none;
+}
+
+.popup-common-searchprice__menu .ant-dropdown-menu-item {
+  @apply !p-[5px_10px] !text-[16px] !leading-[calc(25/16)];
+}
+
+.popup-common-searchprice__controller {
+  @apply mt-[11px] flex justify-end gap-[10px];
 }

@@ -121,7 +121,7 @@ const SidebarListing: FC<IProps> = ({
               <div className='form-common-listing__entry-wrapper form-common-listing__entry-wrapper--width-full'>
                 <Form.Item className='form-common-listing__entry-item' name='k'>
                   <Input
-                    className='input-common-listing input-common-listing--search'
+                    className='input-common input-common--search'
                     placeholder={t('ListingSearchPlaceholderKeyword')}
                     style={{ backgroundImage: `url(${assetsImages.commonIconSearch.src})` }}
                     allowClear
@@ -129,7 +129,7 @@ const SidebarListing: FC<IProps> = ({
                 </Form.Item>
                 <Form.Item className='form-common-listing__entry-item' name='c'>
                   <Select
-                    className='select-common-listing'
+                    className='select-common'
                     mode='multiple'
                     allowClear
                     placeholder={t('ListingSearchPlaceholderCategories')}
@@ -143,7 +143,7 @@ const SidebarListing: FC<IProps> = ({
                 </Form.Item>
                 <Form.Item className='form-common-listing__entry-item' name='prjs'>
                   <Select
-                    className='select-common-listing'
+                    className='select-common'
                     mode='multiple'
                     allowClear
                     filterOption={filterOptionsRemoveVietnameseTones}
@@ -215,7 +215,7 @@ const SidebarListing: FC<IProps> = ({
               <div className='form-common-listing__entry-wrapper'>
                 <Form.Item className='form-common-listing__entry-item' name='p'>
                   <Select
-                    className='select-common-listing'
+                    className='select-common'
                     placeholder={t('ListingSearchPlaceholderProvince')}
                     showSearch
                     filterOption={filterOptionsRemoveVietnameseTones}
@@ -230,7 +230,7 @@ const SidebarListing: FC<IProps> = ({
                 </Form.Item>
                 <Form.Item className='form-common-listing__entry-item' name='d'>
                   <Select
-                    className='select-common-listing'
+                    className='select-common'
                     placeholder={t('ListingSearchPlaceholderDistrict')}
                     showSearch
                     filterOption={filterOptionsRemoveVietnameseTones}
@@ -245,7 +245,7 @@ const SidebarListing: FC<IProps> = ({
                 </Form.Item>
                 <Form.Item className='form-common-listing__entry-item' name='w'>
                   <Select
-                    className='select-common-listing'
+                    className='select-common'
                     placeholder={t('ListingSearchPlaceholderWard')}
                     showSearch
                     filterOption={filterOptionsRemoveVietnameseTones}
@@ -264,7 +264,7 @@ const SidebarListing: FC<IProps> = ({
               <div className='form-common-listing__entry-wrapper'>
                 <Form.Item name='v' className='!mb-0'>
                   <Select
-                    className='select-common-listing'
+                    className='select-common'
                     placeholder={t('HomeRealEstateSearchFormView')}
                     allowClear
                     filterOption={filterOptionsRemoveVietnameseTones}
@@ -327,7 +327,7 @@ const SidebarListing: FC<IProps> = ({
               <span className='form-common-listing__entry-label'>{t('ListingSearchFormCreateTime')}</span>
               <div className='form-common-listing__entry-wrapper'>
                 <Form.Item className='form-common-listing__entry-item' name="odb">
-                  <Radio.Group className='radio-common-listing'>
+                  <Radio.Group className='radio-common'>
                     <Radio value={false}>{comm('NewestFirst')}</Radio>
                     <Radio value={true}>{comm('OldestFirst')}</Radio>
                   </Radio.Group>
@@ -339,7 +339,7 @@ const SidebarListing: FC<IProps> = ({
               <div className='form-common-listing__entry-wrapper'>
                 <Form.Item className='form-common-listing__entry-item' name='inA' valuePropName='checked'>
                   <Checkbox.Group
-                    className='checkbox-common-listing'
+                    className='checkbox-common'
                     defaultValue={searchParams.inA}
                     options={inAmenities.map((amenity) => ({
                       value: amenity.id,
@@ -354,7 +354,7 @@ const SidebarListing: FC<IProps> = ({
               <div className='form-common-listing__entry-wrapper'>
                 <Form.Item className='form-common-listing__entry-item' name='outA' valuePropName='checked'>
                   <Checkbox.Group
-                    className='checkbox-common-listing'
+                    className='checkbox-common'
                     defaultValue={searchParams.outA}
                     options={outAmenities.map((amenity) => ({
                       value: amenity.id,
@@ -369,7 +369,7 @@ const SidebarListing: FC<IProps> = ({
               <div className='form-common-listing__entry-wrapper'>
                 <Form.Item className='form-common-listing__entry-item' name='lan' valuePropName='checked'>
                   <Checkbox.Group
-                    className='checkbox-common-listing'
+                    className='checkbox-common'
                     defaultValue={searchParams.lan}
                     options={listLangue.map((lan) => ({
                       value: lan.name,
