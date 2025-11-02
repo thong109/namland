@@ -44,17 +44,17 @@ const ArticleInformationDetails: React.FC<ArticleInformationDetailsProps> = ({ l
             </dl>
             <dl className='article-common-information__block-row'>
               <dt className='article-common-information__block-title'>Diện tích(m2):</dt>
-              <dd className='article-common-information__block-description'>{listingDetail?.size ?? 'ー'}</dd>
+              <dd className='article-common-information__block-description'>{(listingDetail as listingPropertyModel)?.size ?? '-'}</dd>
             </dl>
           </div>
           <div className='article-common-information__block-column'>
             <dl className='article-common-information__block-row'>
               <dt className='article-common-information__block-title'>Phòng ngủ:</dt>
-              <dd className='article-common-information__block-description'>{listingDetail?.bedrooms ?? 'ー'}</dd>
+              <dd className='article-common-information__block-description'>{(listingDetail as listingPropertyModel)?.bedrooms ?? '-'}</dd>
             </dl>
             <dl className='article-common-information__block-row'>
               <dt className='article-common-information__block-title'>Phòng vệ sinh:</dt>
-              <dd className='article-common-information__block-description'>{listingDetail?.bathrooms ?? 'ー'}</dd>
+              <dd className='article-common-information__block-description'>{(listingDetail as listingPropertyModel)?.bathrooms ?? '-'}</dd>
             </dl>
             <dl className='article-common-information__block-row'>
               <dt className='article-common-information__block-title'>Trạng thái pháp lý:</dt>
