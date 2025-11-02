@@ -6,7 +6,7 @@ import { FC, useEffect, useState } from 'react';
 
 import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import PriceSearchListing from '@/components/PopupSearchPrice/PopupSearchPrice';
-import MultiSelectWithCheckbox from '@/components/MultiSelectWithCheckbox/Index';
+import SelectCheckbox from '@/components/SelectCheckbox/SelectCheckbox';
 import { NAVIGATION } from '@/data/navigation';
 import {
   getEcomEcomPlaceGetProvince,
@@ -423,7 +423,7 @@ const SidebarListingRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
                 name="prjs"
                 className="lg:hidden [&_.ant-select-selector]:!rounded-none"
               >
-                <MultiSelectWithCheckbox
+                <SelectCheckbox
                   placeholder={t('HomeRealEstateSearchFormSearchFieldProject')}
                   showSearch
                   options={projects?.map((prj) => ({

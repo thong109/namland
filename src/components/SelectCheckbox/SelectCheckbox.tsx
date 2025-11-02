@@ -3,7 +3,7 @@ import { filterOptionsRemoveVietnameseTones } from '@/libs/helper';
 import { Checkbox, Divider, Select } from 'antd';
 import { useTranslations } from 'next-intl';
 import { useCallback, useState } from 'react';
-import './index.scss';
+import './SelectCheckbox.css';
 
 export interface IProps {
   options: any[];
@@ -16,7 +16,7 @@ export interface IProps {
   disabled?: boolean;
 }
 
-const MultiSelectWithCheckbox = ({
+const SelectCheckbox = ({
   options,
   multiSelect = false,
   onChange,
@@ -46,7 +46,7 @@ const MultiSelectWithCheckbox = ({
   const renderOption = useCallback(
     (item: any) => (
       <Select.Option key={item.value} value={item.value} label={item.label}>
-        <div className="flex justify-between">
+        <div className='flex justify-between'>
           {item.label}
           <Checkbox
             checked={selectedItems.includes(item.value)}
@@ -68,9 +68,9 @@ const MultiSelectWithCheckbox = ({
 
   return (
     <Select
+      className='select-common select-common--has-checkbox'
       value={selectedItems}
-      className="multiselect-withcheckbox"
-      mode="multiple"
+      mode='multiple'
       placeholder={placeholder}
       style={{ width: '100%' }}
       open={dropdownVisible}
@@ -79,18 +79,11 @@ const MultiSelectWithCheckbox = ({
         <div>
           {menu}
           <Divider style={{ margin: '8px 0' }} />
-          <div className="flex items-end justify-between p-2">
-            <button
-              onClick={handleReset}
-              className="ml-2 text-neutral-500 underline"
-              disabled={disabled}
-            >
+          <div className='flex items-end justify-between p-2'>
+            <button className='button-common-resetfilters' onClick={handleReset} disabled={disabled}>
               {t('HomeSearchResetButton')}
             </button>
-            <ButtonCore
-              onClick={handleApply}
-              className="!rounded-none border border-neutral-500 !px-1 !py-1 !text-pmh-text"
-              label={`${t('HomeSearchAplyButton')}`}
+            <ButtonCore onClick={handleApply} label={`${t('HomeSearchAplyButton')}`}
             />
           </div>
         </div>
@@ -101,7 +94,7 @@ const MultiSelectWithCheckbox = ({
       onSearch={onSearch}
       onChange={handleChange}
       allowClear
-      maxTagCount="responsive"
+      maxTagCount='responsive'
       maxTagPlaceholder={() => '...'}
       tagRender={({ label }) => {
         return <>{label}</>;
@@ -112,4 +105,4 @@ const MultiSelectWithCheckbox = ({
   );
 };
 
-export default MultiSelectWithCheckbox;
+export default SelectCheckbox;

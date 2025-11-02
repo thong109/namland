@@ -123,7 +123,6 @@ const SidebarListing: FC<IProps> = ({
                   <Input
                     className='input-common input-common--search'
                     placeholder={t('ListingSearchPlaceholderKeyword')}
-                    style={{ backgroundImage: `url(${assetsImages.commonIconSearch.src})` }}
                     allowClear
                   />
                 </Form.Item>

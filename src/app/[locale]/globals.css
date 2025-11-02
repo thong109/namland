@@ -22,6 +22,16 @@ input,select,textarea {
   @apply desktop:!w-[calc(100%-60px)] desktop:!max-w-[1420px] desktop:!px-[0px] mobile:!px-[20px];
 }
 
+/* Plugin: Ant */
+.ant-dropdown,
+.ant-modal-root .ant-modal-mask {
+  @apply !z-[11000];
+}
+
+.ant-modal-root .ant-modal-wrap {
+  @apply !z-[11100];
+}
+
 /* Plugin: Form */
 
 .ant-input-outlined.ant-input-status-error {
@@ -40,6 +50,13 @@ input,select,textarea {
 
 .slick-track {
   @apply !flex;
+}
+
+/* Button */
+.button-common-resetfilters {
+  @apply text-[16px] leading-[calc(25/16)] font-[600] underline cursor-pointer decoration-[#666] decoration-[2px] underline-offset-[5px];
+  @apply tablet-lg:text-[14px] tablet-lg:leading-[calc(25/14)] tablet-lg:decoration-[1px];
+  @apply mobile:text-[14px] mobile:leading-[calc(25/14)] mobile:decoration-[1px];
 }
 
 /* Pagination */
@@ -124,6 +141,7 @@ input,select,textarea {
 }
 
 /* Input */
+
 .input-common {
   @apply w-[100%] h-[40px] p-[4.5px_13px_4.5px_19px] border-[1px] border-[#d9d9d9] rounded-[5px] font-mona tablet-lg:text-[16px] tablet-lg:leading-[calc(25/16)];
   @apply tablet-lg:p-[4.5px_9px_4.5px_14px] tablet-lg:text-[14px] tablet-lg:leading-[calc(20/14)];
@@ -141,7 +159,7 @@ input,select,textarea {
 }
 
 .input-common--search {
-  @apply pl-[44px] bg-[length:16px_auto] bg-[position:19px_50%] bg-no-repeat;
+  @apply pl-[44px] !bg-[url('../../assets/images/common/icon_search_01.svg')] bg-[length:16px_auto] bg-[position:19px_50%] bg-no-repeat;
   @apply tablet-lg:pl-[29px] tablet-lg:bg-[length:15px_auto] tablet-lg:bg-[position:14px_50%];
   @apply mobile:pl-[34px] mobile:bg-[length:15px_auto] mobile:bg-[position:11px_50%];
 }

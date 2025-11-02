@@ -6,7 +6,7 @@ import { FC, useEffect, useState } from 'react';
 
 import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import PriceSearchListing from '@/components/PopupSearchPrice/PopupSearchPrice';
-import MultiSelectWithCheckbox from '@/components/MultiSelectWithCheckbox/Index';
+import SelectCheckbox from '@/components/SelectCheckbox/SelectCheckbox';
 import { NAVIGATION } from '@/data/navigation';
 import {
   getEcomEcomPlaceGetProvince,
@@ -343,10 +343,10 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                       () => formAdvanceSearch.resetFields(),
                     )}
                   </div>
-                  <div className='form-home-search__filter-reset' onClick={resetFilter}>{t('HomeRealEstateSearchFormClearFilter')}</div>
+                  <div className='button-common-resetfilters' onClick={resetFilter}>{t('HomeRealEstateSearchFormClearFilter')}</div>
                 </div>
               </div>
-              <div className='form-home-search__filter-field'>
+              <div className='form-home-search__field'>
                 <Form.Item className='form-home-search__field-wrapper' name='k'>
                   <Input
                     allowClear
@@ -356,20 +356,16 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
               </div>
             </div>
             <div className='form-home-search__inner form-home-search__inner--mobile'>
-              <div className='mb-4'>{selectHomeSaleRent()}</div>
-              <Form.Item className='input-common' name='k' label={t('HomeRealEstateSearchFormSearch')}>
+              <div className='form-home-search__entry'>{selectHomeSaleRent()}</div>
+              <Form.Item className='form-home-search__entry' name='k' label={t('HomeRealEstateSearchFormSearch')}>
                 <Input
-                  allowClear
+                  className='input-common input-common--search'
                   placeholder={t('HomeRealEstateSearchFormSearchFieldPlaceHolder')}
-                  suffix={<MagnifyingGlassIcon className='size-4' />}
+                  allowClear
                 />
               </Form.Item>
-              <Form.Item
-                label={t('HomeRealEstateSearchProject')}
-                name='prjs'
-                className='lg:hidden [&_.ant-select-selector]:!rounded-none'
-              >
-                <MultiSelectWithCheckbox
+              <Form.Item className='form-home-search__entry' label={t('HomeRealEstateSearchProject')} name='prjs'>
+                <SelectCheckbox
                   placeholder={t('HomeRealEstateSearchFormSearchFieldProject')}
                   showSearch
                   options={projects?.map((prj) => ({
@@ -379,12 +375,11 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                   }))}
                 />
               </Form.Item>
-
               <Form.Item name='c' label={t('HomeRealEstateSearchFormType')}>
                 <Select
+                  className='select-common'
                   placeholder={t('HomeRealEstateSearchFormType')}
                   allowClear
-                  className='no-raidus-selector'
                   mode='multiple'
                 >
                   {(filterBy === listingType.sale ? saleCategories : rentCategories)?.map(
@@ -396,23 +391,21 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                   )}
                 </Select>
               </Form.Item>
-
               <Form.Item name='rp' label={t('HomeRealEstateSearchFormPrice')}>
                 <PriceSearchListing
-                  className='no-raidus-selector'
+                  className='select-common'
                   typeft={filterBy}
                   placeholder={t('HomeRealEstateSearchFormPriceFieldPlaceHolder')}
                 />
               </Form.Item>
-
               <Form.Item name='p' label={t('HomeRealEstateSearchFormLocation')}>
                 <Select
+                  className='select-common'
                   placeholder={t('ListingSearchPlaceholderProvince')}
                   showSearch
                   // allowClear={{ clearIcon: <>x</> }}
                   allowClear
                   filterOption={filterOptionsRemoveVietnameseTones}
-                  className='no-raidus-selector'
                   options={provinces?.map((province) => ({
                     value: province.provinceID,
                     label: province.listProvinceName,
@@ -420,18 +413,16 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                   }))}
                 />
               </Form.Item>
-
               <Form.Item label={t('HomeRealEstateSearchFormMoreFilter')}>
                 <div onClick={() => setIsMobileMoreFilterModalOpen(!isMobileMoreFilterModalOpen)}>
                   <Select
+                    className='select-common'
                     placeholder={t('HomeRealEstateSearchFormMoreFilterFieldPlaceHolder')}
                     value={selectedMoreFilterArea}
-                    className='no-raidus-selector w-full'
                     open={false}
                   />
                 </div>
               </Form.Item>
-
               <Modal open={isMobileMoreFilterModalOpen} footer={null} centered closable={false}>
                 <AdvanceSearchListing
                   filterBy={filterBy}
@@ -446,16 +437,13 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                   onChangePopup={setIsMobileMoreFilterModalOpen}
                 />
               </Modal>
-
-              <div className='mb-4 cursor-pointer text-center underline' onClick={resetFilter}>
-                {t('HomeRealEstateSearchFormClearFilter')}
+              <div className='form-home-search__controller'>
+                <div className='button-common-resetfilters' onClick={resetFilter}>{t('HomeRealEstateSearchFormClearFilter')}</div>
+                <ButtonCore
+                  type='submit'
+                  label={`${t('HomeRealEstateSearchFormSearch')}!`}
+                />
               </div>
-
-              <ButtonCore
-                type='submit'
-                className='!rounded-none border border-neutral-500 px-6 !text-pmh-text'
-                label={`${t('HomeRealEstateSearchFormSearch')}!`}
-              />
             </div>
           </Form>
         </div>
