@@ -12,14 +12,14 @@
 
 .section-home-hero__wrapper {
   @apply pt-[67px] pb-[85px] flex-1;
-  @apply tablet-lg:pt-[0px] tablet-lg:pb-[0px];
-  @apply mobile:pt-[0px] mobile:pb-[0px];
+  @apply tablet-lg:w-[100%] tablet-lg:flex-initial tablet-lg:pt-[0px] tablet-lg:pb-[0px];
+  @apply mobile:w-[100%] mobile:flex-initial mobile:pt-[0px] mobile:pb-[0px];
 }
 
 .section-home-hero__title {
   @apply mb-[31px] block text-[30px] leading-[calc(35/30)] font-[600] text-[#000];
-  @apply tablet-lg:mb-[30px] tablet-lg:text-[24px] tablet-lg:leading-[calc(30/24)];
-  @apply mobile:mb-[20px] mobile:text-[20px] mobile:leading-[calc(30/20)];
+  @apply tablet-lg:mb-[30px] tablet-lg:text-[24px] tablet-lg:leading-[calc(30/24)] tablet-lg:text-center;
+  @apply mobile:mb-[20px] mobile:text-[20px] mobile:leading-[calc(30/20)] mobile:text-center;
 }
 
 .section-home-hero__visual {
