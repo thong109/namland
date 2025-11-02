@@ -349,43 +349,13 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                   <div className='form-home-search__filter-reset' onClick={resetFilter}>{t('HomeRealEstateSearchFormClearFilter')}</div>
                 </div>
               </div>
-              <div className='grid grid-cols-7 gap-2'>
-                <div className='col-span-2'>
-                  <Form.Item
-                    name='prjs'
-                    className='hidden lg:block [&_.ant-select-selector]:!h-[42px] [&_.ant-select-selector]:!rounded-none [&_.ant-select-selector]:!border-neutral-500 [&_.ant-select-selector]:!py-0 [&_.ant-select-selector]:!pr-0'
-                  >
-                    <MultiSelectWithCheckbox
-                      showSearch
-                      placeholder={t('HomeRealEstateSearchFormSearchFieldProject')}
-                      options={projects?.map((prj) => ({
-                        value: prj.id,
-                        label: prj.name,
-                        id: prj.id,
-                      }))}
-                    />
-                  </Form.Item>
-                </div>
-                <div className='col-span-5'>
-                  <Form.Item
-                    name='k'
-                    className='hidden lg:block [&_.ant-input-affix-wrapper]:!rounded-none [&_.ant-input-affix-wrapper]:border-neutral-500 [&_.ant-input-affix-wrapper]:!py-0 [&_.ant-input-affix-wrapper]:!pr-0'
-                  >
-                    <Input
-                      placeholder={t('HomeRealEstateSearchFormSearchFieldPlaceHolder')}
-                      prefix={<MagnifyingGlassIcon className='size-4' />}
-                      allowClear
-                      suffix={
-                        <ButtonCore
-                          type='submit'
-                          buttonType='search'
-                          className='!rounded-none !p-[1px_1.5rem] !min-h-[34px] !w-30 md:!w-40'
-                          label={`${t('HomeRealEstateSearchFormSearch')}`}
-                        />
-                      }
-                    />
-                  </Form.Item>
-                </div>
+              <div className='form-home-search__filter-field'>
+                <Form.Item className='form-home-search__field-wrapper' name='k'>
+                  <Input
+                    allowClear
+                    suffix={ <ButtonCore type='submit' buttonType='search' label={`${t('HomeRealEstateSearchFormSearch')}`} /> }
+                  />
+                </Form.Item>
               </div>
             </div>
             <div className='form-home-search__inner form-home-search__inner--mobile'>
