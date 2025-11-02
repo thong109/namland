@@ -1,0 +1,19 @@
+.section-chitiet {
+  @apply mb-[40px];
+}
+
+.section-chitiet>.container {
+  @apply flex gap-[30px];
+  @apply tablet-lg:flex-col;
+  @apply mobile:flex-col;
+}
+
+.section-chitiet__wrapper {
+  @apply flex-1 overflow-hidden;
+}
+
+.section-chitiet__sidebar {
+  @apply w-[calc(571/1420*100%)] py-[48px];
+  @apply tablet-lg:w-[100%] tablet-lg:py-[0px];
+  @apply mobile:w-[100%] mobile:py-[0px];
+}

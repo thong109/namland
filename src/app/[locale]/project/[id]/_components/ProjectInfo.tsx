@@ -1,59 +1,142 @@
+"use client"
 import { ProjectDetailModel } from '@/models/projectModel/projectDetailModel';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import ProjectInfoIndoorAmenity from './ProjectInfo.IndoorAmenity';
 // import ProjectInfoLocation from './ProjectInfo.Location';
 import ProjectInfoNearby from './ProjectInfo.Nearby';
 import ProjectInfoOutdoorAmenity from './ProjectInfo.OutdoorAmenity';
 import ProjectInfoPriceRange from './ProjectInfo.PriceRange';
 import ProjectInfoProjectDetails from './ProjectInfo.ProjectDetails';
+import ArticleInformationDetails from '@/components/ArticleInformation/ArticleInformationDetails';
+import ArticleInformationDetailsLocation from '@/components/ArticleInformation/ArticleInformationDetailsLocation';
+import '@/components/ArticleInformation/ArticleInformationDetails.css';
+import { formatArea } from '@/utils/convertUtil';
+import CarouselWithArrow from '@/app/[locale]/_components/CarouselWithArrow/CarouselWithArrow';
+import Image from 'next/image';
+import { assetsImages } from '@/assets/images/package';
 
 interface ProjectInfoProps {
   locale: string;
   projectDetail: ProjectDetailModel;
 }
 
+const imagesProject = [
+  {
+    image: assetsImages.articleImage1,
+  },
+  {
+    image: assetsImages.articleImage2,
+  },
+  {
+    image: assetsImages.articleImage3,
+  },
+  {
+    image: assetsImages.articleImage4,
+  },
+]
+
 const ProjectInfo: React.FC<ProjectInfoProps> = ({ locale, projectDetail }) => {
   const t = useTranslations('webLabel');
+  const [slidesPerRow, setSlidesPerRow] = useState(3);
 
-  const blockTitleClassName = 'text-lg font-medium text-neutral-900 mb-4';
+  console.log(projectDetail);
+
+  const items = useMemo(() => {
+    return imagesProject.map((item: any, index) => (
+      <div className={clsx('w-[212px] mobile:w-full px-[5px]')} key={index}>
+        <div className="relative pt-[calc(133/212*100%)]">
+          <Image
+            className="absolute inset-0 object-cover w-full h-full"
+            src={item.image}
+            alt="Image"
+            width={212}
+            height={133}
+          />
+        </div>
+      </div>
+    ));
+  }, [imagesProject]);
 
   return (
-    <div className="flex flex-col gap-8 lg:px-6 lg:py-4">
-      <div>
-        <div className={clsx(blockTitleClassName)}>{t('EcomProjectDetailIntroduction')}</div>
-        <div className="whitespace-pre-line">{projectDetail?.description}</div>
-      </div>
-      <div>
-        <div className={clsx(blockTitleClassName)}>{t('EcomProjectDetailDetail')}</div>
-        <div className="">
-          <ProjectInfoProjectDetails locale={locale} projectDetail={projectDetail} />
+    <>
+      <div className='article-common-information article-common-information--details article-common-information--details-custom'>
+        <div className='article-common-information__wrapper' id='details'>
+          <h1 className='article-common-information__title'>Tổng quan dự án {projectDetail?.name}</h1>
+          <div className='article-common-information__block'>
+            <span className='md:col-span-2 article-common-information__title article-common-information__title-small'>Thông tin chi tiết</span>
+            <div className='article-common-information__block-column'>
+              <dl className='article-common-information__block-row'>
+                <dt className='article-common-information__block-title'>Tên dự án</dt>
+                <dd className='article-common-information__block-description'>{projectDetail?.name}</dd>
+              </dl>
+              <dl className='article-common-information__block-row'>
+                <dt className='article-common-information__block-title'>Hình thức sở hữu</dt>
+                <dd className='article-common-information__block-description'>{projectDetail?.unitTypeRent?.length ? projectDetail?.unitTypeRent.map(i => i.name).join(', ') : '—'}</dd>
+              </dl>
+              <dl className='article-common-information__block-row'>
+                <dt className='article-common-information__block-title'>Mật độ xây dựng</dt>
+                <dd className='article-common-information__block-description'></dd>
+              </dl>
+              <dl className='article-common-information__block-row'>
+                <dt className='article-common-information__block-title'>Quy mô dự án</dt>
+                <dd className='article-common-information__block-description'>{formatArea(projectDetail?.totalArea)}</dd>
+              </dl>
+            </div>
+            <div className='article-common-information__block-column'>
+              <dl className='article-common-information__block-row'>
+                <dt className='article-common-information__block-title'>Chủ đầu tư</dt>
+                <dd className='article-common-information__block-description'>{projectDetail?.managedBy}</dd>
+              </dl>
+              <dl className='article-common-information__block-row'>
+                <dt className='article-common-information__block-title'>Vịnh Cảng nước ngọt</dt>
+                <dd className='article-common-information__block-description'>8,6ha</dd>
+              </dl>
+              <dl className='article-common-information__block-row'>
+                <dt className='article-common-information__block-title'>Công viên ven sông</dt>
+                <dd className='article-common-information__block-description'>3,5ha</dd>
+              </dl>
+              <dl className='article-common-information__block-row'>
+                <dt className='article-common-information__block-title'>
+                  {Number(projectDetail?.handOverYear)
+                    ? t('EcomProjectDetailHandOverYear')
+                    : t('EcomPropertyListingDetailPageProgress')}
+                </dt>
+                <dd className='article-common-information__block-description'>
+                  {Number(projectDetail?.handOverYear)
+                    ? projectDetail.handOverYear
+                    : 'Đang triển khai'}
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div className='article-common-information__description'>
+            <div className='article-common-information__description-wrapper'>{projectDetail?.description}</div>
+          </div>
+        </div>
+        <div className='article-common-information__wrapper' id='area'>
+          <span className='article-common-information__title'>{t('EcomPropertyDetailPageLocation')}</span>
+          {/* <ArticleInformationDetailsLocation locale={locale} listingDetail={projectDetail} /> */}
+        </div>
+        <div className='article-common-information__wrapper' id='amenities'>
+          <span className='article-common-information__title'>{t('EcomPropertyDetailPageLocationAmenities', { name: projectDetail?.name })}</span>
+          <CarouselWithArrow
+            items={items}
+            className="block"
+            slidesPerRow={slidesPerRow}
+          ></CarouselWithArrow>
+        </div>
+        <div className='article-common-information__wrapper' id='partner'>
+          <span className='article-common-information__title'>{t('EcomPropertyDetailPageLocationPartner', { name: projectDetail?.name })}</span>
+          <div className="article-common-information__block-partner">
+            <div className="article-common-information__block-partner--wrapper">
+              
+            </div>
+          </div>
         </div>
       </div>
-      <div>
-        <div className={clsx(blockTitleClassName)}>{t('EcomProjectDetailPriceRange')}</div>
-        <ProjectInfoPriceRange locale={locale} projectDetail={projectDetail} />
-      </div>
-      <div>
-        <div className={clsx(blockTitleClassName)}>{t('EcomProjectDetailIndoorAmenity')}</div>
-        <ProjectInfoIndoorAmenity locale={locale} projectDetail={projectDetail} />
-      </div>
-      <div>
-        <div className={clsx(blockTitleClassName)}>{t('EcomProjectDetailOutdoorAmenity')}</div>
-        <ProjectInfoOutdoorAmenity locale={locale} projectDetail={projectDetail} />
-      </div>
-      {projectDetail?.nearBy?.length > 0 && (
-        <div>
-          <div className={clsx(blockTitleClassName)}>{t('EcomProjectDetailNearBy')}</div>
-          <ProjectInfoNearby locale={locale} projectDetail={projectDetail} />
-        </div>
-      )}
-      <div>
-        <div className={clsx(blockTitleClassName)}>{t('EcomProjectDetailLocation')}</div>
-        {/* <ProjectInfoLocation locale={locale} projectDetail={projectDetail} /> */}
-      </div>
-    </div>
+    </>
   );
 };
 
