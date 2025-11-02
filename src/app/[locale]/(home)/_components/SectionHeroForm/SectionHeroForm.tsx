@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { FC, useEffect, useState } from 'react';
 
 import ButtonCore from '@/components/ButtonCore/ButtonCore';
-import PriceSearchListing from '@/components/PopupSearchPrice/PopupSearchPrice';
+import PopupSearchPrice from '@/components/PopupSearchPrice/PopupSearchPrice';
 import SelectCheckbox from '@/components/SelectCheckbox/SelectCheckbox';
 import { NAVIGATION } from '@/data/navigation';
 import {
@@ -282,8 +282,8 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                       <span className='toggle-home-search__wrapper'>{t('HomeRealEstateSearchFormPrice')}</span>
                       <span className='toggle-home-search__icon' style={{ backgroundImage: `url(${assetsImages.commonIconArrow.src})` }}></span>
                     </div>
-                    <Form.Item className='absolute -bottom-2 left-1/2 -z-50 min-w-96 -translate-x-1/2 transform' name='rp'>
-                      <PriceSearchListing
+                    <Form.Item className='form-home-search__entry-placeholder' name='rp'>
+                      <PopupSearchPrice
                         defaultValue={
                           filterBy === listingType.sale
                             ? [500000000, 5000000000]
@@ -392,7 +392,7 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                 </Select>
               </Form.Item>
               <Form.Item name='rp' label={t('HomeRealEstateSearchFormPrice')}>
-                <PriceSearchListing
+                <PopupSearchPrice
                   className='select-common'
                   typeft={filterBy}
                   placeholder={t('HomeRealEstateSearchFormPriceFieldPlaceHolder')}
@@ -403,7 +403,6 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                   className='select-common'
                   placeholder={t('ListingSearchPlaceholderProvince')}
                   showSearch
-                  // allowClear={{ clearIcon: <>x</> }}
                   allowClear
                   filterOption={filterOptionsRemoveVietnameseTones}
                   options={provinces?.map((province) => ({

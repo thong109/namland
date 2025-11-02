@@ -3,12 +3,9 @@
 
 }
 
-.ant-select-selection-overflow-item {
-  .ant-checkbox {
-    display: none;
-  }
+.ant-select-selection-overflow-item .ant-checkbox {
+  display: none;
 }
-
 
 .ant-select-selection-overflow-item:not(:first-child):not(:last-child)::before {
   content: ', ';

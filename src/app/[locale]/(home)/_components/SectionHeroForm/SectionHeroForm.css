@@ -29,13 +29,22 @@
   @apply tablet-lg:max-w-[620px] tablet-lg:mx-[auto];
 }
 
+.form-home-search__filter-entry {
+  @apply relative;
+}
+
 .form-home-search__filter-wrapper {
   @apply ml-[14px] py-[11px] pl-[19px] border-l-[1px] border-l-[#cecece] relative flex justify-between gap-[15px] flex-1;
   @apply tablet-lg:ml-[15px] tablet-lg:py-[10px] tablet-lg:pl-[14px];
 }
 
+.form-home-search__entry-placeholder,
+.form-home-search__entry-placeholder .ant-col {
+  @apply !w-[100%] !h-[100%] !min-h-[auto] !m-[0px] !p-[0px] !absolute !inset-0 !opacity-0 !overflow-hidden;
+}
+
 .form-home-search__field .ant-input-affix-wrapper {
-  @apply !p-[2px_2px_2px_14px] !border-[#d9d9d9] !rounded-[5px];
+  @apply !m-[0px] !p-[2px_2px_2px_14px] !border-[#d9d9d9] !rounded-[5px];
 }
 
 .form-home-search__field .button-common-core {

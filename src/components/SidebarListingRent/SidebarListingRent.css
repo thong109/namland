@@ -49,7 +49,7 @@
 }
 
 .form-common-listing__entry--wrapping .form-common-listing__entry-label,
-.form-common-listing__entry--range .form-common-listing__entry-label{
+.form-common-listing__entry--range .form-common-listing__entry-label {
   @apply w-[30%] m-[0] flex-grow-0 flex-shrink-0;
   @apply tablet-md:w-[35%];
   @apply mobile:w-[35%];

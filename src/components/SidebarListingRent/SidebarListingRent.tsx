@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { FC, useEffect, useState } from 'react';
 
 import ButtonCore from '@/components/ButtonCore/ButtonCore';
-import PriceSearchListing from '@/components/PopupSearchPrice/PopupSearchPrice';
+import PopupSearchPrice from '@/components/PopupSearchPrice/PopupSearchPrice';
 import SelectCheckbox from '@/components/SelectCheckbox/SelectCheckbox';
 import { NAVIGATION } from '@/data/navigation';
 import {
@@ -362,7 +362,7 @@ const SidebarListingRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
                   name="rp"
                   className="w-[22%]"
                 >
-                  <PriceSearchListing
+                  <PopupSearchPrice
                     typeft={filterBy}
                     defaultValue={
                       filterBy === listingType.sale
@@ -452,7 +452,7 @@ const SidebarListingRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
               </Form.Item>
 
               <Form.Item name="rp" label={t('HomeRealEstateSearchFormPrice')}>
-                <PriceSearchListing
+                <PopupSearchPrice
                   className="no-raidus-selector"
                   typeft={filterBy}
                   placeholder={t('HomeRealEstateSearchFormPriceFieldPlaceHolder')}

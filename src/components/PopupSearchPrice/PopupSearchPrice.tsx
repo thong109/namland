@@ -13,7 +13,7 @@ export interface InputProps {
   className?: string;
 }
 
-const PriceSearchListing = ({
+const PopupSearchPrice = ({
   placeholder,
   onChange,
   typeft = listingType.sale,
@@ -114,7 +114,6 @@ const PriceSearchListing = ({
     setRange(price);
     setDataSelect(price);
   };
-
   const itemSales: MenuProps['items'] = [
     {
       key: 'all',
@@ -167,7 +166,6 @@ const PriceSearchListing = ({
       onClick: () => onChoosePrice([20000000000, 200000000000]),
     },
   ];
-
   const itemRents: MenuProps['items'] = [
     {
       key: 'all',
@@ -216,7 +214,6 @@ const PriceSearchListing = ({
       onClick: () => onChoosePrice([100000000, 100000000]),
     },
   ];
-
   const maxValuePriceRange = () => {
     if (typeft === listingType.sale) {
       return 20000000000;
@@ -224,7 +221,6 @@ const PriceSearchListing = ({
       return 100000000;
     }
   };
-
   return (
     <div className={className}>
       <Dropdown
@@ -256,4 +252,4 @@ const PriceSearchListing = ({
   );
 };
 
-export default PriceSearchListing;
+export default PopupSearchPrice;
