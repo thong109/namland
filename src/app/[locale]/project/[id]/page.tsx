@@ -13,6 +13,7 @@ import ButtonShare from '@/components/ButtonShare/ButtonShare';
 import { assetsImages } from '@/assets/images/package';
 import "./style.css"
 import dynamic from 'next/dynamic';
+import ProjectNewInquiry from '../../du-an-mo-ban/[id]/_components/ProjectNewInquiry';
 
 export interface PagePropertyDetailProps {
   params: any;
@@ -92,7 +93,7 @@ const PageDetailProject: FC<PagePropertyDetailProps> = async ({ params, searchPa
           </div>
 
           <div className='section-chitiet__sidebar'>
-            
+            <ProjectNewInquiry projectDetail={projectDetail} />
           </div>
         </div>
         <RecentPropertiesForSale />
