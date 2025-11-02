@@ -20,7 +20,8 @@ const RecentPropertiesClient: React.FC = () => {
       setData((response as any).data?.data || []);
       setTotal((response as any).data?.total || 0);
     } finally {
-      setLoading(false);
+      // delay nhẹ để mượt hơn
+      setTimeout(() => setLoading(false), 300);
     }
   };
 
@@ -29,24 +30,25 @@ const RecentPropertiesClient: React.FC = () => {
   }, [currentPage]);
 
   return (
-    <div className="mt-8">
-      {loading ? (
-        <div className="flex justify-center py-8">
-          <Spin />
-        </div>
-      ) : (
-        <div className="grid grid-cols-12 gap-4 md:gap-[30px]">
+    <>
+      <div className="relative">
+        <div
+          className={`grid grid-cols-12 gap-4 md:gap-[30px] transition-opacity duration-200`}
+        >
           {data.map((item, idx) => (
-            <div
-              key={idx}
-              className="col-span-12 sm:col-span-6 lg:col-span-4"
-            >
+            <div key={idx} className="col-span-12 sm:col-span-6 lg:col-span-4">
               <ProjectCardItem data={item} />
             </div>
           ))}
         </div>
-      )}
 
+        {loading && (
+          <div className="absolute inset-0 flex justify-center items-center bg-white/30 rounded-lg">
+            <Spin />
+          </div>
+        )}
+
+      </div>
       <div className="pagination-common mt-8 md:mt-[38px] text-center">
         <Pagination
           current={currentPage}
@@ -56,7 +58,7 @@ const RecentPropertiesClient: React.FC = () => {
           onChange={(page) => setCurrentPage(page)}
         />
       </div>
-    </div>
+    </>
   );
 };
 

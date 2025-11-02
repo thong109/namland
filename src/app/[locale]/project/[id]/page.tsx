@@ -8,6 +8,11 @@ import ProjectInfo from './_components/ProjectInfo';
 import RecentPropertiesForLease from './_components/RecentPropertiesForLease';
 import RecentPropertiesForSale from './_components/RecentPropertiesForSale';
 import GallerySwiperPrimary from '@/components/GallerySwiperPrimary/GallerySwiperPrimary';
+import ButtonFavorite from '@/components/ButtonFavorite/ButtonFavorite';
+import ButtonShare from '@/components/ButtonShare/ButtonShare';
+import { assetsImages } from '@/assets/images/package';
+import "./style.css"
+import dynamic from 'next/dynamic';
 
 export interface PagePropertyDetailProps {
   params: any;
@@ -58,13 +63,39 @@ const PageDetailProject: FC<PagePropertyDetailProps> = async ({ params, searchPa
   return (
     <>
       <GallerySwiperPrimary images={projectDetail.images ?? []} />
-      <div className="container flex flex-col gap-10 pb-20">
-
-        <div className="flex flex-col gap-10">
-          <ProjectInfo projectDetail={projectDetail} locale={params.locale} />
-          {/* <RecentPropertiesForLease projectDetail={projectDetail} locale={params.locale} /> */}
-          <RecentPropertiesForSale />
+      <div className='section-chitiet'>
+        <div className='navigation-common-page'>
+          <div className='container'>
+            <ul className='navigation-common-page__wrapper'>
+              <li className='navigation-common-page__entry'>
+                <a className='navigation-common-page__entry-wrapper' href='#overview'><span className='navigation-common-page__entry-icon' style={{ backgroundImage: `url(${assetsImages.commonIconNavigation.src})`, backgroundSize: `calc(20 / 24 * 100%) auto` }}></span>Tổng quan</a>
+              </li>
+              <li className='navigation-common-page__entry'>
+                <a className='navigation-common-page__entry-wrapper' href='#area'><span className='navigation-common-page__entry-icon' style={{ backgroundImage: `url(${assetsImages.commonIconNavigation02.src})`, backgroundSize: `calc(24 / 24 * 100%) auto` }}></span>Vị trí</a>
+              </li>
+              <li className='navigation-common-page__entry'>
+                <a className='navigation-common-page__entry-wrapper' href='#amenities'><span className='navigation-common-page__entry-icon' style={{ backgroundImage: `url(${assetsImages.commonIconNavigation03.src})`, backgroundSize: `calc(24 / 24 * 100%) auto` }}></span>Tiện ích cảnh quan</a>
+              </li>
+              <li className='navigation-common-page__entry'>
+                <a className='navigation-common-page__entry-wrapper' href='#partner'><span className='navigation-common-page__entry-icon' style={{ backgroundImage: `url(${assetsImages.commonIconNavigation04.src})`, backgroundSize: `calc(24 / 24 * 100%) auto` }}></span>Đối tác</a>
+              </li>
+            </ul>
+            <ul className='navigation-common-page__additional'>
+              <li className='navigation-common-page__additional-entry'><ButtonFavorite listingDetail={projectDetail} locale={locale} /></li>
+              <li className='navigation-common-page__additional-entry'><ButtonShare listingDetail={projectDetail} locale={locale} /></li>
+            </ul>
+          </div>
         </div>
+        <div className="container">
+          <div className='section-chitiet__wrapper'>
+            <ProjectInfo projectDetail={projectDetail} locale={params.locale} />
+          </div>
+
+          <div className='section-chitiet__sidebar'>
+            
+          </div>
+        </div>
+        <RecentPropertiesForSale />
       </div>
     </>
   );

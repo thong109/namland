@@ -48,6 +48,10 @@ import commonIconNavigation03 from "./common/icon_navigation_03.svg";
 import commonIconNavigation04 from "./common/icon_navigation_04.svg";
 import commonIconNavigation05 from "./common/icon_navigation_05.svg";
 import homeBackgroundHero from "./home/background_hero_01.jpg";
+import articleImage1 from "./article/project_img_01.jpg";
+import articleImage2 from "./article/project_img_02.jpg";
+import articleImage3 from "./article/project_img_03.jpg";
+import articleImage4 from "./article/project_img_04.jpg";
 
 export const assetsImages = {
   commonIconArrow,
@@ -101,4 +105,8 @@ export const assetsImages = {
   commonIconNavigation04,
   commonIconNavigation05,
   homeBackgroundHero,
+  articleImage1,
+  articleImage2,
+  articleImage3,
+  articleImage4,
 }

@@ -9,12 +9,13 @@ import ListingDetailedOutdoorAmenity from './ListingDetailed.OutdoorAmenity';
 import { YouTubeComponent } from './YoutubeEmbed';
 import { assetsImages } from '@/assets/images/package';
 import './ArticleInformationDetails.css';
+import { ProjectDetailModel } from '@/models/projectModel/projectDetailModel';
 
 const ArticleInformationDetailsLocation = dynamic(() => import('./ArticleInformationDetailsLocation'), { ssr: false });
 
 interface ArticleInformationDetailsProps {
   locale: string;
-  listingDetail: listingPropertyModel;
+  listingDetail: listingPropertyModel | ProjectDetailModel;
 }
 
 const ArticleInformationDetails: React.FC<ArticleInformationDetailsProps> = ({ locale, listingDetail }) => {

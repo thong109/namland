@@ -2,11 +2,12 @@
 
 import GoogleMap from '@/components/GoogleMap';
 import listingPropertyModel from '@/models/listingModel/listingPropertyModel';
+import { ProjectDetailModel } from '@/models/projectModel/projectDetailModel';
 import React from 'react';
 
 interface ArticleInformationDetailsLocationProps {
   locale: string;
-  listingDetail: listingPropertyModel;
+  listingDetail: listingPropertyModel | ProjectDetailModel;
 }
 
 const ArticleInformationDetailsLocation: React.FC<ArticleInformationDetailsLocationProps> = ({
