@@ -34,6 +34,7 @@ import dynamic from 'next/dynamic';
 import * as NProgress from 'nprogress';
 import './SectionHeroForm.css';
 import PropertySelectionField from './_components/PropertySelectionField';
+import { assetsImages } from '@/assets/images/package';
 
 const AdvanceSearchListing = dynamic(() => import('@/components/FormInput/advanceSearchListing'), {
   ssr: false,
@@ -209,7 +210,7 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
       </div>
     );
   };
-  const popupFilter = (
+  const popupHomeSearch = (
     title: string,
     component: React.ReactNode,
     hasOKButton?: boolean,
@@ -217,7 +218,7 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
   ) => {
     return (
       <Popconfirm
-        className='cursor-pointer'
+        className='toggle-home-search'
         title={component}
         icon={false}
         arrow={false}
@@ -231,9 +232,8 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
           onClick: resetAction,
         }}
       >
-        <div className='flex items-center justify-center gap-1 overflow-hidden font-semibold'>
-          <span>{title}</span> <ChevronDownIcon className='size-4' />{' '}
-        </div>
+        <span className='toggle-home-search__wrapper'>{title}</span>
+        <span className='toggle-home-search__icon' style={{ backgroundImage: `url(${assetsImages.commonIconArrow.src})` }}></span>
       </Popconfirm>
     );
   };
@@ -255,8 +255,8 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
             <div className='form-home-search__filter'>
               {selectHomeSaleRent()}
               <div className='form-home-search__filter-wrapper'>
-                <div className={clsx('w-[21%] rounded-xl px-2 py-2 text-center', propertyType && propertyType.length > 0 && 'bg-portal-yellow-1')}>
-                  {popupFilter(
+                <div className={clsx('form-home-search__filter-entry', propertyType && propertyType.length > 0 && 'bg-portal-yellow-1')}>
+                  {popupHomeSearch(
                     t('HomeRealEstateSearchFormType'),
                     <Form.Item name='c'>
                       <PropertySelectionField
@@ -268,18 +268,15 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                     () => form.resetFields(['c']),
                   )}
                 </div>
-                <div
-                  className={clsx(
-                    'price-filter relative w-[21%] rounded-xl px-2 py-2 text-center',
-                    ((priceRangeVnd &&
-                      priceRangeVnd.length > 0 &&
-                      priceRangeVnd.find((x) => !!x)) ||
-                      (priceRangeUsd &&
-                        priceRangeUsd.length > 0 &&
-                        priceRangeUsd.find((x) => !!x))) &&
-                    'bg-portal-yellow-1',
-                  )}
-                >
+                <div className={clsx('form-home-search__filter-entry price-filter',
+                  ((priceRangeVnd &&
+                    priceRangeVnd.length > 0 &&
+                    priceRangeVnd.find((x) => !!x)) ||
+                    (priceRangeUsd &&
+                      priceRangeUsd.length > 0 &&
+                      priceRangeUsd.find((x) => !!x))) &&
+                  'bg-portal-yellow-1',
+                )}>
                   <div
                     className='flex cursor-pointer items-center justify-center gap-1 overflow-hidden font-semibold'
                     onClick={onPriceFilterClick}
@@ -301,7 +298,7 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                       placeholder={t('HomeRealEstateSearchFormPriceFieldPlaceHolder')}
                     />
                   </Form.Item>
-                  {/* {popupFilter(
+                  {/* {popupHomeSearch(
                     t('HomeRealEstateSearchFormPrice'),
                     <Form.Item name='rp' className='min-w-96'>
                       <PriceSearchListing
@@ -311,12 +308,7 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                     </Form.Item>,
                   )} */}
                 </div>
-                <div
-                  className={clsx(
-                    'location-filter relative w-[21%] rounded-xl px-2 py-2 text-center',
-                    locationArea && 'bg-portal-yellow-1',
-                  )}
-                >
+                <div className={clsx('location-filter relative form-home-search__filter-entry', locationArea && 'bg-portal-yellow-1')}>
                   <div
                     className='flex cursor-pointer items-center justify-center gap-1 overflow-hidden font-semibold'
                     onClick={onLocationFilterClick}
@@ -351,11 +343,11 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                 </div>
                 <div
                   className={clsx(
-                    'w-[21%] rounded-xl px-2 py-2 text-center',
+                    'form-home-search__filter-entry',
                     advanSearchValue && 'bg-portal-yellow-1',
                   )}
                 >
-                  {popupFilter(
+                  {popupHomeSearch(
                     t('HomeRealEstateSearchFormMoreFilter'),
                     <AdvanceSearchListing
                       filterBy={filterBy}

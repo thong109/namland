@@ -3,7 +3,7 @@
 }
 
 .section-home-hero .container {
-  @apply flex gap-[31px];
+  @apply flex gap-[31px] items-start;
 }
 
 .section-home-hero__wrapper {
