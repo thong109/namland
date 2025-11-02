@@ -224,7 +224,7 @@ input,select,textarea {
 }
 
 .form-common-listing__entry-item {
-  @apply m-[0px];
+  @apply !m-[0px];
 }
 
 .form-common-listing__entry-item .ant-form-item-control-input {
