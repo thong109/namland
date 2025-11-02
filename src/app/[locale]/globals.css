@@ -161,6 +161,86 @@ input,select,textarea {
   @apply w-[100%] h-[100%] absolute inset-0;
 }
 
+/* Form */
+
+.form-common-listing {
+  @apply font-mona;
+}
+
+.form-common-listing__wrapper {
+  @apply flex flex-col gap-[15px];
+}
+
+.form-common-listing__entry {
+  @apply min-h-[40px] pb-[15px] border-b-[1px] border-b-[#555];
+}
+
+.form-common-listing__entry--basic {
+  @apply py-[0] border-b-[0px];
+}
+
+.form-common-listing__entry--end {
+  @apply pb-[0] border-b-[0px];
+}
+
+.form-common-listing__entry--end .form-common-listing__entry-wrapper {
+  @apply w-[100%] flex flex-col gap-[10px];
+  @apply tablet-lg:gap-[5px];
+  @apply mobile:gap-[5px];
+}
+
+.form-common-listing__entry--basic .form-common-listing__entry-wrapper {
+  @apply w-[100%] flex flex-col gap-[15px];
+  @apply tablet-lg:gap-[5px];
+  @apply mobile:gap-[5px];
+}
+
+.form-common-listing__entry--stacked .form-common-listing__entry-wrapper {
+  @apply w-[100%] flex flex-col gap-[10px];
+  @apply tablet-lg:gap-[5px];
+  @apply mobile:gap-[5px];
+}
+
+.form-common-listing__entry--wrapping,
+.form-common-listing__entry--range {
+  @apply flex flex-row gap-[10px] justify-between items-center;
+}
+
+.form-common-listing__entry--wrapping .form-common-listing__entry-label,
+.form-common-listing__entry--range .form-common-listing__entry-label{
+  @apply w-[30%] m-[0] flex-grow-0 flex-shrink-0;
+  @apply tablet-md:w-[35%];
+  @apply mobile:w-[35%];
+}
+
+.form-common-listing__entry--range .form-common-listing__entry-wrapper {
+  @apply max-w-[240px] flex-1;
+}
+
+.form-common-listing__entry-label {
+  @apply mb-[3px] block text-[16px] leading-[calc(25/16)] font-[700];
+  @apply tablet-lg:mb-[5px] tablet-lg:text-[14px] tablet-lg:leading-[calc(25/14)];
+  @apply mobile:mb-[5px] mobile:text-[14px] mobile:leading-[calc(25/14)];
+}
+
+.form-common-listing__entry-item {
+  @apply m-[0px];
+}
+
+.form-common-listing__entry-item .ant-form-item-control-input {
+  @apply !min-h-[auto];
+}
+
+.form-common-listing__controller {
+  @apply mt-[26px] flex flex-wrap justify-center gap-[10px_24px];
+  @apply tablet-lg:mt-[30px] gap-[5px_20px];
+  @apply mobile:mt-[30px] gap-[5px_15px];
+}
+
+.form-common-listing__controller .button-common-core {
+  @apply mobile:max-w-[none];
+}
+
 /* Input */
 
 .input-common {

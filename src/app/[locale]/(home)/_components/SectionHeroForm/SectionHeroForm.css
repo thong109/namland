@@ -70,7 +70,7 @@
 }
 
 .toggle-home-search {
-  @apply flex text-[16px] leading-[calc(25/16)] font-[600] cursor-pointer;
+  @apply flex relative z-[1] text-[16px] leading-[calc(25/16)] font-[600] cursor-pointer;
   @apply tablet-lg:text-[14px] tablet-lg:leading-[calc(25/14)];
   @apply mobile:text-[14px] mobile:leading-[calc(25/14)];
 }

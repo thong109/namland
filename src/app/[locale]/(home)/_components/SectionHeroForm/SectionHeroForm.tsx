@@ -36,7 +36,7 @@ import './SectionHeroForm.css';
 import PropertySelectionField from './_components/PropertySelectionField';
 import { assetsImages } from '@/assets/images/package';
 
-const AdvanceSearchListing = dynamic(() => import('@/components/FormInput/advanceSearchListing'), {
+const AdvanceSearchListing = dynamic(() => import('@/components/PopupSearchAdvanced/PopupSearchAdvanced'), {
   ssr: false,
 });
 
@@ -299,30 +299,28 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                       <span className='toggle-home-search__wrapper'>{t('HomeRealEstateSearchFormLocation')}</span>
                       <span className='toggle-home-search__icon' style={{ backgroundImage: `url(${assetsImages.commonIconArrow.src})` }}></span>
                     </div>
-                    <div className='absolute -bottom-2 left-1/2 -z-50 -translate-x-1/2 transform'>
-                      <Form.Item name='p'>
-                        <Select
-                          placeholder={t('ListingSearchPlaceholderProvince')}
-                          allowClear
-                          showSearch
-                          filterOption={filterOptionsRemoveVietnameseTones}
-                          className={clsx('min-w-60 opacity-0')}
-                          options={provinces?.map((province) => ({
-                            value: province.provinceID,
-                            label: province.listProvinceName,
-                            id: province.provinceID,
-                          }))}
-                          onSelect={(e) => {
-                            if (e === currentLocation) {
-                              form.resetFields(['p']);
-                              setCurrentLocation(null);
-                            } else {
-                              setCurrentLocation(e);
-                            }
-                          }}
-                        />
-                      </Form.Item>
-                    </div>
+                    <Form.Item className='form-home-search__entry-placeholder' name='p'>
+                      <Select
+                        className={clsx('min-w-60 opacity-0')}
+                        placeholder={t('ListingSearchPlaceholderProvince')}
+                        allowClear
+                        showSearch
+                        filterOption={filterOptionsRemoveVietnameseTones}
+                        options={provinces?.map((province) => ({
+                          value: province.provinceID,
+                          label: province.listProvinceName,
+                          id: province.provinceID,
+                        }))}
+                        onSelect={(e) => {
+                          if (e === currentLocation) {
+                            form.resetFields(['p']);
+                            setCurrentLocation(null);
+                          } else {
+                            setCurrentLocation(e);
+                          }
+                        }}
+                      />
+                    </Form.Item>
                   </div>
                   <div className={clsx('form-home-search__filter-entry', advanSearchValue && 'is-state-active')}>
                     {popupHomeSearch(
