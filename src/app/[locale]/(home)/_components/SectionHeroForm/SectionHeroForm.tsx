@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { FC, useEffect, useState } from 'react';
 
 import ButtonCore from '@/components/ButtonCore/ButtonCore';
-import PriceSearchListing from '@/components/FormInput/priceSearchListing';
+import PriceSearchListing from '@/components/PopupSearchPrice/PopupSearchPrice';
 import MultiSelectWithCheckbox from '@/components/MultiSelectWithCheckbox/Index';
 import { NAVIGATION } from '@/data/navigation';
 import {
@@ -256,7 +256,7 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
               <div className='form-home-search__filter'>
                 {selectHomeSaleRent()}
                 <div className='form-home-search__filter-wrapper'>
-                  <div className={clsx('form-home-search__filter-entry', propertyType && propertyType.length > 0 && 'bg-portal-yellow-1')}>
+                  <div className={clsx('form-home-search__filter-entry', propertyType && propertyType.length > 0 && 'is-state-active')}>
                     {popupHomeSearch(
                       t('HomeRealEstateSearchFormType'),
                       <Form.Item name='c'>
@@ -276,16 +276,13 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                       (priceRangeUsd &&
                         priceRangeUsd.length > 0 &&
                         priceRangeUsd.find((x) => !!x))) &&
-                    'bg-portal-yellow-1',
+                    'is-state-active',
                   )}>
                     <div className='toggle-home-search' onClick={onPriceFilterClick}>
                       <span className='toggle-home-search__wrapper'>{t('HomeRealEstateSearchFormPrice')}</span>
                       <span className='toggle-home-search__icon' style={{ backgroundImage: `url(${assetsImages.commonIconArrow.src})` }}></span>
                     </div>
-                    <Form.Item
-                      name='rp'
-                      className='absolute -bottom-2 left-1/2 -z-50 min-w-96 -translate-x-1/2 transform'
-                    >
+                    <Form.Item className='absolute -bottom-2 left-1/2 -z-50 min-w-96 -translate-x-1/2 transform' name='rp'>
                       <PriceSearchListing
                         defaultValue={
                           filterBy === listingType.sale
@@ -297,7 +294,7 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                       />
                     </Form.Item>
                   </div>
-                  <div className={clsx('form-home-search__filter-entry location-filter', locationArea && 'bg-portal-yellow-1')}>
+                  <div className={clsx('form-home-search__filter-entry location-filter', locationArea && 'is-state-active')}>
                     <div className='toggle-home-search' onClick={onLocationFilterClick}>
                       <span className='toggle-home-search__wrapper'>{t('HomeRealEstateSearchFormLocation')}</span>
                       <span className='toggle-home-search__icon' style={{ backgroundImage: `url(${assetsImages.commonIconArrow.src})` }}></span>
@@ -327,7 +324,7 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                       </Form.Item>
                     </div>
                   </div>
-                  <div className={clsx('form-home-search__filter-entry', advanSearchValue && 'bg-portal-yellow-1')}>
+                  <div className={clsx('form-home-search__filter-entry', advanSearchValue && 'is-state-active')}>
                     {popupHomeSearch(
                       t('HomeRealEstateSearchFormMoreFilter'),
                       <AdvanceSearchListing

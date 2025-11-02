@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { FC, useEffect, useState } from 'react';
 
 import ButtonCore from '@/components/ButtonCore/ButtonCore';
-import PriceSearchListing from '@/components/FormInput/priceSearchListing';
+import PriceSearchListing from '@/components/PopupSearchPrice/PopupSearchPrice';
 import MultiSelectWithCheckbox from '@/components/MultiSelectWithCheckbox/Index';
 import { NAVIGATION } from '@/data/navigation';
 import {

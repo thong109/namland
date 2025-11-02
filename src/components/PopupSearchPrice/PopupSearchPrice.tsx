@@ -2,7 +2,9 @@ import { listingType } from '@/libs/appconst';
 import { Button, Divider, Dropdown, MenuProps, Select } from 'antd';
 import { useLocale, useTranslations } from 'next-intl';
 import React, { useEffect, useRef, useState } from 'react';
-import SliderFrice from './_components/sliderPrice';
+import SliderFrice from './PopupSearchPriceRange';
+import './PopupSearchPrice.css';
+
 export interface InputProps {
   typeft?: any;
   onChange?: (value: [number | undefined, number | undefined]) => void;
@@ -230,19 +232,15 @@ const PriceSearchListing = ({
         trigger={['click']}
         menu={{ items: typeft === listingType.sale ? itemSales : itemRents }}
         dropdownRender={(menu) => (
-          <div ref={popupRef} className="w-full rounded-xl bg-white p-2 shadow-lg">
-            <SliderFrice
-              range={range}
-              max={maxValue}
-              onchange={(value) => onChoosePrice(value as [number | undefined, number | undefined])}
-            />
-            <div className="overflow-scroll lg:h-40">
+          <div ref={popupRef} className='popup-common-searchprice'>
+            <SliderFrice range={range} max={maxValue} onchange={(value) => onChoosePrice(value as [number | undefined, number | undefined])} />
+            <div className='overflow-scroll lg:h-40'>
               {React.cloneElement(menu as React.ReactElement, { style: { boxShadow: 'none' } })}
             </div>
             <Divider style={{ margin: 0 }} />
-            <div className="flex w-full justify-end gap-2 p-2">
+            <div className='flex w-full justify-end gap-2 p-2'>
               <Button onClick={handleReset}>{t('HomeSearchResetButton')}</Button>
-              <Button type="primary" onClick={handleApply}>
+              <Button type='primary' onClick={handleApply}>
                 {t('HomeSearchAplyButton')}
               </Button>
             </div>
@@ -256,7 +254,6 @@ const PriceSearchListing = ({
           open={false}
         />
       </Dropdown>
-
       <></>
     </div>
   );
