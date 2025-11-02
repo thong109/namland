@@ -1,7 +1,7 @@
 .form-home-search {
   @apply min-h-[205px] p-[30px_28px] bg-[#fff] rounded-[10px] border border-[#e9e9e9] shadow-[0_4px_4px_rgba(0,0,0,0.25)];
-  @apply tablet-lg:p-[20px];
-  @apply mobile:p-[20px];
+  @apply tablet-lg:p-[30px_20px];
+  @apply mobile:p-[30px_20px];
 }
 
 .form-home-search__inner--desktop {
@@ -43,7 +43,7 @@
 }
 
 .form-home-search__controller {
-  @apply mobile:mt-[10px] mobile:flex mobile:justify-center mobile:items-center mobile:gap-[15px];
+  @apply mobile:mt-[10px] mobile:flex mobile:justify-center mobile:items-center mobile:gap-[20px];
 }
 
 .select-home-salerent {
