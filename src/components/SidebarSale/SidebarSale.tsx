@@ -22,7 +22,6 @@ import * as NProgress from 'nprogress';
 import { FC, useEffect, useState } from 'react';
 import * as pixel from '@/utils/pixel';
 import './SidebarSale.css';
-import { assetsImages } from '@/assets/images/package';
 
 export interface IProps {
   saleCategories?: any;

@@ -233,12 +233,16 @@ input,select,textarea {
 
 .form-common-listing__controller {
   @apply mt-[26px] flex flex-wrap justify-center gap-[10px_24px];
-  @apply tablet-lg:mt-[30px] gap-[5px_20px];
-  @apply mobile:mt-[30px] gap-[5px_15px];
+  @apply tablet-lg:mt-[30px] tablet-lg:gap-[5px_20px] tablet-lg:items-center;
+  @apply mobile:mt-[30px] mobile:gap-[5px_15px] mobile:items-center;
+}
+
+.form-common-listing__controller .button-common-resetfilters {
+  @apply mobile:mb-[10px]
 }
 
 .form-common-listing__controller .button-common-core {
-  @apply mobile:max-w-[none];
+  @apply mobile:w-[100%] mobile:max-w-[none];
 }
 
 /* Input */

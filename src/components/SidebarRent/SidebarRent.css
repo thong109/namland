@@ -1,0 +1,7 @@
+.sidebar-common-rent__wrapper--desktop {
+  @apply mobile:!hidden;
+}
+
+.sidebar-common-rent__wrapper--mobile {
+  @apply desktop:!hidden;
+}

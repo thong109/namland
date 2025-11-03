@@ -32,6 +32,7 @@ import dayjs from 'dayjs';
 import { useRouter } from 'next-intl/client';
 import dynamic from 'next/dynamic';
 import * as NProgress from 'nprogress';
+import './SidebarRent.css';
 
 const AdvanceSearchListing = dynamic(() => import('@/components/PopupSearchAdvanced/PopupSearchAdvanced'), {
   ssr: false,
@@ -276,181 +277,195 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
   return (
     <>
       <Form className='sidebar-common-rent' form={form} layout='vertical' onFinish={onSubmit} size='large'>
-        <Form.Item className='sidebar-common-rent__entry' name='k'>
-          <Input
-            className='input-common-search'
-            placeholder={t('HomeRealEstateSearchFormSearchFieldPlaceHolder')}
-            prefix={<MagnifyingGlassIcon className='size-4' />}
-            allowClear
-            suffix={
-              <ButtonCore type='submit' buttonType='search'/>
-            }
-          />
-        </Form.Item>
-        <SelectCommonType filterBy={filterBy} setFilterBy={seFilterBy} t={t}/>
-        <Form.Item className='sidebar-common-rent__entry' name='c'>
-          <Select
-            className='select-common'
-            placeholder={t('HomeRealEstateSearchFormType')}
-            allowClear
-            showSearch
-            optionFilterProp='label'
-            filterOption={(input, option) =>
-              String(option?.label ?? '').toLowerCase().includes(String(input).toLowerCase())
-            }
-            options={
-              (filterBy === listingType.sale ? saleCategories : rentCategories)?.map(
-                (item) => ({
-                  label: item.name,
-                  value: item.id,
-                })
-              )
-            }
-          />
-        </Form.Item>
-        <Form.Item className='sidebar-common-rent__entry' name='rp'>
-          <PopupSearchPrice
-            className='select-common'
-            typeft={filterBy}
-            defaultValue={
-              filterBy === listingType.sale
-                ? [500000000, 5000000000]
-                : [10000000, 35000000]
-            }
-            placeholder={t('HomeRealEstateSearchFormPriceFieldPlaceHolder')}
-          />
-        </Form.Item>
-        <div className={clsx('sidebar-common-rent__entry', buttonCommonSearchAdvancedValue)}>
-          {buttonCommonSearchAdvanced(
-            t('HomeRealEstateSearchFormMoreFilter'),
-            <AdvanceSearchListing
-              filterBy={filterBy}
-              formref={formAdvanceSearch}
-              funitureStatus={funitureStatus}
-              inAmenities={inAmenities}
-              outAmenities={outAmenities}
-              views={views}
-              onFormChange={(changedValues, allValues) =>
-                onFormAvChange(changedValues, allValues)
-              }
-              notActionButton={true}
-            />,
-            true,
-            () => formAdvanceSearch.resetFields(),
-          )}
-        </div>
-        {/* mobile */}
-        <div className='flex flex-col lg:hidden'>
-          <div className='mb-4'>
-            <SelectCommonType
-              filterBy={filterBy}
-              setFilterBy={seFilterBy}
-              t={t}
-            />
-          </div>
-          <Form.Item
-            name='k'
-            className='[&_.ant-input-affix-wrapper]:!rounded-none'
-            label={t('HomeRealEstateSearchFormSearch')}
-          >
+        <div className='sidebar-common-rent__wrapper sidebar-common-rent__wrapper--desktop'>
+          <Form.Item className='sidebar-common-rent__entry' name='k'>
             <Input
-              allowClear
+              className='input-common-search'
               placeholder={t('HomeRealEstateSearchFormSearchFieldPlaceHolder')}
-              suffix={<MagnifyingGlassIcon className='size-4' />}
+              prefix={<MagnifyingGlassIcon className='size-4' />}
+              allowClear
+              suffix={
+                <ButtonCore type='submit' buttonType='search'/>
+              }
             />
           </Form.Item>
-          <Form.Item
-            label={t('HomeRealEstateSearchProject')}
-            name='prjs'
-            className='lg:hidden [&_.ant-select-selector]:!rounded-none'
-          >
-            <SelectCheckbox
-              placeholder={t('HomeRealEstateSearchFormSearchFieldProject')}
-              showSearch
-              options={projects?.map((prj) => ({
-                value: prj.id,
-                label: prj.name,
-                id: prj.id,
-              }))}
-            />
-          </Form.Item>
-
-          <Form.Item name='c' label={t('HomeRealEstateSearchFormType')}>
+          <SelectCommonType filterBy={filterBy} setFilterBy={seFilterBy} t={t} />
+          <Form.Item className='sidebar-common-rent__entry' name='c'>
             <Select
+              className='select-common'
               placeholder={t('HomeRealEstateSearchFormType')}
               allowClear
-              className='no-raidus-selector'
-              mode='multiple'
-            >
-              {(filterBy === listingType.sale ? saleCategories : rentCategories)?.map(
-                (category) => (
-                  <Select.Option key={category.id} value={category.id}>
-                    {category.name}
-                  </Select.Option>
-                ),
-              )}
-            </Select>
+              showSearch
+              optionFilterProp='label'
+              filterOption={(input, option) =>
+                String(option?.label ?? '').toLowerCase().includes(String(input).toLowerCase())
+              }
+              options={
+                (filterBy === listingType.sale ? saleCategories : rentCategories)?.map(
+                  (item) => ({
+                    label: item.name,
+                    value: item.id,
+                  })
+                )
+              }
+            />
           </Form.Item>
-
-          <Form.Item name='rp' label={t('HomeRealEstateSearchFormPrice')}>
+          <Form.Item className='sidebar-common-rent__entry' name='rp'>
             <PopupSearchPrice
-              className='no-raidus-selector'
+              className='select-common'
               typeft={filterBy}
+              defaultValue={
+                filterBy === listingType.sale
+                  ? [500000000, 5000000000]
+                  : [10000000, 35000000]
+              }
               placeholder={t('HomeRealEstateSearchFormPriceFieldPlaceHolder')}
             />
           </Form.Item>
-
-          <Form.Item name='p' label={t('HomeRealEstateSearchFormLocation')}>
-            <Select
-              placeholder={t('ListingSearchPlaceholderProvince')}
-              showSearch
-              // allowClear={{ clearIcon: <>x</> }}
-              allowClear
-              filterOption={filterOptionsRemoveVietnameseTones}
-              className='no-raidus-selector'
-              options={provinces?.map((province) => ({
-                value: province.provinceID,
-                label: province.listProvinceName,
-                id: province.provinceID,
-              }))}
-            />
-          </Form.Item>
-
-          <Form.Item label={t('HomeRealEstateSearchFormMoreFilter')}>
-            <div onClick={() => setIsMobileMoreFilterModalOpen(!isMobileMoreFilterModalOpen)}>
-              <Select
-                placeholder={t('HomeRealEstateSearchFormMoreFilterFieldPlaceHolder')}
-                value={selectedMoreFilterArea}
-                className='no-raidus-selector w-full'
-                open={false}
-              />
-            </div>
-          </Form.Item>
-
-          <Modal open={isMobileMoreFilterModalOpen} footer={null} centered closable={false}>
-            <AdvanceSearchListing
-              filterBy={filterBy}
-              formref={formAdvanceSearch}
-              funitureStatus={funitureStatus}
-              inAmenities={inAmenities}
-              outAmenities={outAmenities}
-              views={views}
-              onFormChange={(changedValues, allValues) =>
-                onFormAvChange(changedValues, allValues)
-              }
-              onChangePopup={setIsMobileMoreFilterModalOpen}
-            />
-          </Modal>
-
-          <div className='mb-4 cursor-pointer text-center underline' onClick={resetFilter}>
-            {t('HomeRealEstateSearchFormClearFilter')}
+          <div className={clsx('sidebar-common-rent__entry', buttonCommonSearchAdvancedValue)}>
+            {buttonCommonSearchAdvanced(
+              t('HomeRealEstateSearchFormMoreFilter'),
+              <AdvanceSearchListing
+                filterBy={filterBy}
+                formref={formAdvanceSearch}
+                funitureStatus={funitureStatus}
+                inAmenities={inAmenities}
+                outAmenities={outAmenities}
+                views={views}
+                onFormChange={(changedValues, allValues) =>
+                  onFormAvChange(changedValues, allValues)
+                }
+                notActionButton={true}
+              />,
+              true,
+              () => formAdvanceSearch.resetFields(),
+            )}
           </div>
-
-          <ButtonCore
-            type='submit'
-            className='!rounded-none border border-neutral-500 px-6 !text-pmh-text'
-            label={`${t('HomeRealEstateSearchFormSearch')}!`}
-          />
+        </div>
+        <div className='sidebar-common-rent__wrapper sidebar-common-rent__wrapper--mobile'>
+          <div className='form-common-listing'>
+            <div className='form-common-listing__wrapper'>
+              <div className='form-common-listing__entry form-common-listing__entry--stacked'>
+                <div className='form-common-listing__entry-wrapper'>
+                  <SelectCommonType filterBy={filterBy} setFilterBy={seFilterBy} t={t} />
+                </div>
+              </div>
+              <div className='form-common-listing__entry form-common-listing__entry--stacked'>
+                <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormSearch')}</span>
+                <div className='form-common-listing__entry-wrapper'>
+                  <Form.Item className='form-common-listing__entry-item' name='k'>
+                    <Input
+                      className='input-common input-common--search'
+                      placeholder={t('HomeRealEstateSearchFormSearchFieldPlaceHolder')}
+                      allowClear
+                      />
+                  </Form.Item>
+                </div>
+              </div>
+              <div className='form-common-listing__entry form-common-listing__entry--stacked'>
+                <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchProject')}</span>
+                <div className='form-common-listing__entry-wrapper'>
+                  <Form.Item className='form-common-listing__entry-item'>
+                    <SelectCheckbox
+                      placeholder={t('HomeRealEstateSearchFormSearchFieldProject')}
+                      showSearch
+                      options={projects?.map((prj) => ({
+                        value: prj.id,
+                        label: prj.name,
+                        id: prj.id,
+                      }))}
+                    />
+                  </Form.Item>
+                </div>
+              </div>
+              <div className='form-common-listing__entry form-common-listing__entry--stacked'>
+                <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormType')}</span>
+                <div className='form-common-listing__entry-wrapper'>
+                  <Form.Item className='form-common-listing__entry-item' name='c'>
+                    <Select
+                      placeholder={t('HomeRealEstateSearchFormType')}
+                      allowClear
+                      className='no-raidus-selector'
+                      mode='multiple'
+                    >
+                      {(filterBy === listingType.sale ? saleCategories : rentCategories)?.map(
+                        (category) => (
+                          <Select.Option key={category.id} value={category.id}>
+                            {category.name}
+                          </Select.Option>
+                        ),
+                      )}
+                    </Select>
+                  </Form.Item>
+                </div>
+              </div>
+              <div className='form-common-listing__entry form-common-listing__entry--stacked'>
+                <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormPrice')}</span>
+                <div className='form-common-listing__entry-wrapper'>
+                  <Form.Item className='form-common-listing__entry-item' name='rp'>
+                    <PopupSearchPrice
+                      className='no-raidus-selector'
+                      typeft={filterBy}
+                      placeholder={t('HomeRealEstateSearchFormPriceFieldPlaceHolder')}
+                    />
+                  </Form.Item>
+                </div>
+              </div>
+              <div className='form-common-listing__entry form-common-listing__entry--stacked'>
+                <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormLocation')}</span>
+                <div className='form-common-listing__entry-wrapper'>
+                  <Form.Item className='form-common-listing__entry-item' name='p'>
+                    <Select
+                      placeholder={t('ListingSearchPlaceholderProvince')}
+                      showSearch
+                      // allowClear={{ clearIcon: <>x</> }}
+                      allowClear
+                      filterOption={filterOptionsRemoveVietnameseTones}
+                      className='no-raidus-selector'
+                      options={provinces?.map((province) => ({
+                        value: province.provinceID,
+                        label: province.listProvinceName,
+                        id: province.provinceID,
+                      }))}
+                    />
+                  </Form.Item>
+                </div>
+              </div>
+              <div className='form-common-listing__entry form-common-listing__entry--stacked'>
+                <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormMoreFilter')}</span>
+                <div className='form-common-listing__entry-wrapper'>
+                  <Form.Item className='form-common-listing__entry-item'>
+                    <div onClick={() => setIsMobileMoreFilterModalOpen(!isMobileMoreFilterModalOpen)}>
+                      <Select
+                        placeholder={t('HomeRealEstateSearchFormMoreFilterFieldPlaceHolder')}
+                        value={selectedMoreFilterArea}
+                        className='no-raidus-selector w-full'
+                        open={false}
+                      />
+                    </div>
+                  </Form.Item>
+                </div>
+              </div>
+            </div>
+            <Modal open={isMobileMoreFilterModalOpen} footer={null} centered closable={false}>
+              <AdvanceSearchListing
+                filterBy={filterBy}
+                formref={formAdvanceSearch}
+                funitureStatus={funitureStatus}
+                inAmenities={inAmenities}
+                outAmenities={outAmenities}
+                views={views}
+                onFormChange={(changedValues, allValues) =>
+                  onFormAvChange(changedValues, allValues)
+                }
+                onChangePopup={setIsMobileMoreFilterModalOpen}
+              />
+            </Modal>
+            <div className='form-common-listing__controller'>
+              <div className='button-common-resetfilters' onClick={resetFilter}>{t('HomeRealEstateSearchFormClearFilter')}</div>
+              <ButtonCore type='submit' label={`${t('HomeRealEstateSearchFormSearch')}!`} />
+            </div>
+          </div>
         </div>
       </Form>
     </>
