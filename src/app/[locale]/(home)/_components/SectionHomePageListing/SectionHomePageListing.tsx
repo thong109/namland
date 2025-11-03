@@ -1,6 +1,6 @@
 'use client';
 
-import CardListingHomePage from '@/components/CardListing/CardListing.HomePage';
+import CardListingHomePage from '@/components/CardListing/CardListingHomePage';
 import SelectorChip from '@/components/SelectorChip/SelectorChip';
 import { NAVIGATION } from '@/data/navigation';
 import {

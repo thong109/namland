@@ -12,7 +12,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next-intl/link';
 import { FC, useState } from 'react';
 import './BlockListingRent.css';
-import TableResult from '../TableResult/TableResult';
+import CardListing from '@/components/CardListing/CardListing';
 import SidebarRent from '../SidebarRent/SidebarRent';
 
 export interface IProps {
@@ -119,7 +119,13 @@ const BlockListingRent: FC<IProps> = ({
           <div className={`block-common-listingrent__map ${showingMap ? `is-state-active` : ``}`}>{renderMaps()}</div>
           {!showingMap && (
             <>
-              <TableResult className='table-common-result--rent' listings={listing} />
+              <div className='table-common-result table-common-result--rent'>
+                {listing.map((item: any) => (
+                  <div key={item.id} className='table-common-result__cell'>
+                    <CardListing listing={item} />
+                  </div>
+                ))}
+              </div>
               {totalResult > 0 && (
                 <div className='pagination-common'>
                   <Pagination

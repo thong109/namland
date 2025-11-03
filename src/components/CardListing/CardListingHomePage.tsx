@@ -21,7 +21,7 @@ const CardListingHomePage: React.FC<CardListingHomePageProps> = ({ className, li
   const { project } = listing;
   const listingUrl = getListingUrl(listingDetail.id, listingDetail.title);
   return (
-    <Link href={listingUrl} className={clsx('card-common-listing group', className)}>
+    <Link href={listingUrl} className={clsx('card-common-listing card-common-listing--homepage group', className)}>
       <div className='card-common-listing__visual'>
         {listingDetail.type === 1 && (<CardListingRibbon variant="new" />)}
         <div className='card-common-listing__visual-wrapper'>
