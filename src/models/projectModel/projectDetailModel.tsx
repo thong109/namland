@@ -54,6 +54,7 @@ export interface ProjectDetailModel {
   locationType?: string;
   logoFile?: string;
   logoUrl?: string;
+  title: string;
   name: string;
   nameEn?: string;
   nameKr?: string;

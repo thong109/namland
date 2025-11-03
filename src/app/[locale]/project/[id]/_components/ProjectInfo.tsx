@@ -3,13 +3,6 @@ import { ProjectDetailModel } from '@/models/projectModel/projectDetailModel';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 import React, { useMemo, useState } from 'react';
-import ProjectInfoIndoorAmenity from './ProjectInfo.IndoorAmenity';
-// import ProjectInfoLocation from './ProjectInfo.Location';
-import ProjectInfoNearby from './ProjectInfo.Nearby';
-import ProjectInfoOutdoorAmenity from './ProjectInfo.OutdoorAmenity';
-import ProjectInfoPriceRange from './ProjectInfo.PriceRange';
-import ProjectInfoProjectDetails from './ProjectInfo.ProjectDetails';
-import ArticleInformationDetails from '@/components/ArticleInformation/ArticleInformationDetails';
 import ArticleInformationDetailsLocation from '@/components/ArticleInformation/ArticleInformationDetailsLocation';
 import '@/components/ArticleInformation/ArticleInformationDetails.css';
 import { formatArea } from '@/utils/convertUtil';
@@ -41,8 +34,6 @@ const ProjectInfo: React.FC<ProjectInfoProps> = ({ locale, projectDetail }) => {
   const t = useTranslations('webLabel');
   const [slidesPerRow, setSlidesPerRow] = useState(3);
 
-  console.log(projectDetail);
-
   const items = useMemo(() => {
     return imagesProject.map((item: any, index) => (
       <div className={clsx('w-[212px] mobile:w-full px-[5px]')} key={index}>
@@ -62,39 +53,39 @@ const ProjectInfo: React.FC<ProjectInfoProps> = ({ locale, projectDetail }) => {
   return (
     <>
       <div className='article-common-information article-common-information--details article-common-information--details-custom'>
-        <div className='article-common-information__wrapper' id='details'>
-          <h1 className='article-common-information__title'>Tổng quan dự án {projectDetail?.name}</h1>
+        <div className='article-common-information__wrapper' id='overview'>
+          <h1 className='article-common-information__title'>{t('EcomPropertyDetailPageLocationOverview', { name: projectDetail?.name })}</h1>
           <div className='article-common-information__block'>
-            <span className='md:col-span-2 article-common-information__title article-common-information__title-small'>Thông tin chi tiết</span>
+            <span className='md:col-span-2 article-common-information__title article-common-information__title-small'>{t('EcomProjectDetailProjectDetail')}</span>
             <div className='article-common-information__block-column'>
               <dl className='article-common-information__block-row'>
-                <dt className='article-common-information__block-title'>Tên dự án</dt>
+                <dt className='article-common-information__block-title'>{t('EcomProjectDetailProjectName')}</dt>
                 <dd className='article-common-information__block-description'>{projectDetail?.name}</dd>
               </dl>
               <dl className='article-common-information__block-row'>
-                <dt className='article-common-information__block-title'>Hình thức sở hữu</dt>
+                <dt className='article-common-information__block-title'>{t('EcomProjectDetailOwnership')}</dt>
                 <dd className='article-common-information__block-description'>{projectDetail?.unitTypeRent?.length ? projectDetail?.unitTypeRent.map(i => i.name).join(', ') : '—'}</dd>
               </dl>
               <dl className='article-common-information__block-row'>
-                <dt className='article-common-information__block-title'>Mật độ xây dựng</dt>
-                <dd className='article-common-information__block-description'></dd>
+                <dt className='article-common-information__block-title'>{t('EcomProjectManagementPageNewHomeConstructionDensity')}</dt>
+                <dd className='article-common-information__block-description'>60ha</dd>
               </dl>
               <dl className='article-common-information__block-row'>
-                <dt className='article-common-information__block-title'>Quy mô dự án</dt>
+                <dt className='article-common-information__block-title'>{t('EcomProjectDetailProjectType')}</dt>
                 <dd className='article-common-information__block-description'>{formatArea(projectDetail?.totalArea)}</dd>
               </dl>
             </div>
             <div className='article-common-information__block-column'>
               <dl className='article-common-information__block-row'>
-                <dt className='article-common-information__block-title'>Chủ đầu tư</dt>
-                <dd className='article-common-information__block-description'>{projectDetail?.managedBy}</dd>
+                <dt className='article-common-information__block-title'>{t('EcomProjectManagementPageNewHomeInvestor')}</dt>
+                <dd className='article-common-information__block-description'>{projectDetail?.investor}</dd>
               </dl>
               <dl className='article-common-information__block-row'>
-                <dt className='article-common-information__block-title'>Vịnh Cảng nước ngọt</dt>
+                <dt className='article-common-information__block-title'>{t('EcomProjectDetailProjectLocationBay')}</dt>
                 <dd className='article-common-information__block-description'>8,6ha</dd>
               </dl>
               <dl className='article-common-information__block-row'>
-                <dt className='article-common-information__block-title'>Công viên ven sông</dt>
+                <dt className='article-common-information__block-title'>{t('EcomProjectDetailProjectLocationSea')}</dt>
                 <dd className='article-common-information__block-description'>3,5ha</dd>
               </dl>
               <dl className='article-common-information__block-row'>
@@ -106,7 +97,7 @@ const ProjectInfo: React.FC<ProjectInfoProps> = ({ locale, projectDetail }) => {
                 <dd className='article-common-information__block-description'>
                   {Number(projectDetail?.handOverYear)
                     ? projectDetail.handOverYear
-                    : 'Đang triển khai'}
+                    : t('EcomProjectDetailProjectLocationUnderConstruction')}
                 </dd>
               </dl>
             </div>
@@ -117,7 +108,7 @@ const ProjectInfo: React.FC<ProjectInfoProps> = ({ locale, projectDetail }) => {
         </div>
         <div className='article-common-information__wrapper' id='area'>
           <span className='article-common-information__title'>{t('EcomPropertyDetailPageLocation')}</span>
-          {/* <ArticleInformationDetailsLocation locale={locale} listingDetail={projectDetail} /> */}
+          <ArticleInformationDetailsLocation locale={locale} listingDetail={projectDetail} />
         </div>
         <div className='article-common-information__wrapper' id='amenities'>
           <span className='article-common-information__title'>{t('EcomPropertyDetailPageLocationAmenities', { name: projectDetail?.name })}</span>
@@ -131,7 +122,34 @@ const ProjectInfo: React.FC<ProjectInfoProps> = ({ locale, projectDetail }) => {
           <span className='article-common-information__title'>{t('EcomPropertyDetailPageLocationPartner', { name: projectDetail?.name })}</span>
           <div className="article-common-information__block-partner">
             <div className="article-common-information__block-partner--wrapper">
-              
+              <div className="article-common-information__block-partner--inner">
+                <div className="article-common-information__block-partner--thumbnail">
+                  <Image src={assetsImages.logoImage1} width={109} height={140} loading='eager' alt="BEST HOUSE" className='w-auto h-full' />
+                </div>
+                <div className="article-common-information__block-partner--content">
+                  <span className="article-common-information__block-partner--title">BEST HOUSE</span>
+                  <span className="article-common-information__block-partner--phone">+84-909 197 412</span>
+                  <span className="article-common-information__block-partner--email">
+                    <strong>Email:</strong>
+                    <a href="mailto:jenny.besthouse@gmail.com">jenny.besthouse@gmail.com</a>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="article-common-information__block-partner--wrapper">
+              <div className="article-common-information__block-partner--inner">
+                <div className="article-common-information__block-partner--thumbnail">
+                  <Image src={assetsImages.logoImage2} width={132} height={140} loading='eager' alt="DAI PHAT GROUP" className='w-auto h-full' />
+                </div>
+                <div className="article-common-information__block-partner--content">
+                  <span className="article-common-information__block-partner--title">DAI PHAT GROUP</span>
+                  <span className="article-common-information__block-partner--phone">+84-909 197 412</span>
+                  <span className="article-common-information__block-partner--email">
+                    <strong>Email:</strong>
+                    <a href="mailto:congtambds@gmail.com">congtambds@gmail.com</a>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

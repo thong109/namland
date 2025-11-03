@@ -1,21 +1,17 @@
 import listingPropertyModel from '@/models/listingModel/listingPropertyModel';
-import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
 import React from 'react';
-import ListingDetailedIndoorAmenity from './ListingDetailed.IndoorAmenity';
-import ListingDetailedNearby from './ListingDetailed.Nearby';
-import ListingDetailedOutdoorAmenity from './ListingDetailed.OutdoorAmenity';
-import { YouTubeComponent } from './YoutubeEmbed';
 import { assetsImages } from '@/assets/images/package';
 import './ArticleInformationDetails.css';
 import { ProjectDetailModel } from '@/models/projectModel/projectDetailModel';
+import { NewHomeLandingPageModel } from '@/models/newHomeModel/newHomeModelLandingPage';
 
 const ArticleInformationDetailsLocation = dynamic(() => import('./ArticleInformationDetailsLocation'), { ssr: false });
 
 interface ArticleInformationDetailsProps {
   locale: string;
-  listingDetail: listingPropertyModel | ProjectDetailModel;
+  listingDetail: listingPropertyModel | ProjectDetailModel | NewHomeLandingPageModel;
 }
 
 const ArticleInformationDetails: React.FC<ArticleInformationDetailsProps> = ({ locale, listingDetail }) => {

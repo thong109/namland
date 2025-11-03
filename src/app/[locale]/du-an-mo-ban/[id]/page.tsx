@@ -1,14 +1,19 @@
 import newHomeApiService from '@/apiServices/externalApiServices/apiNewHomeService';
 import { NewHomeLandingPageModel } from '@/models/newHomeModel/newHomeModelLandingPage';
 import { getTranslator } from 'next-intl/server';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { FC } from 'react';
-import LayoutImage from './_components/LayoutImage';
-import PorjectNewNews from './_components/PorjectNewNews';
-import ProjectNewDetailInfo from './_components/ProjectNewDetailInfo';
+import GallerySwiperPrimary from '@/components/GallerySwiperPrimary/GallerySwiperPrimary';
+import ButtonFavorite from '@/components/ButtonFavorite/ButtonFavorite';
+import ButtonShare from '@/components/ButtonShare/ButtonShare';
+import RecentPropertiesForSale from '../../project/[id]/_components/RecentPropertiesForSale';
+import { useLocale } from 'next-intl';
+import { assetsImages } from '@/assets/images/package';
+import PageSectionNavigation from '@/components/PageSectionNavigation/PageSectionNavigation';
+import './style.css';
 import ProjectNewInfo from './_components/ProjectNewInfo';
-import ProjectNewInquiry from './_components/ProjectNewInquiry';
+import ProjectNewInquiry from '@/components/Projects/ProjectNewInquiry';
+
 export interface PagePropertyDetailProps {
   params: any;
   searchParams: { [key: string]: string | string[] | undefined };
@@ -51,33 +56,54 @@ const PageDetailNewHome: FC<PagePropertyDetailProps> = async ({ params }) => {
   const lastIndex = params.id.lastIndexOf('-');
   const listingId = params.id.substring(lastIndex + 1);
   const projectDetail = await getNewHomeDetail(listingId);
+  const locale = useLocale();
 
   if (!projectDetail) {
     notFound();
   }
   return (
     <>
-      <div className="container flex h-full flex-col gap-2">
-        {/* <Image
-          src={projectDetail?.thumbnail?.thumbUrl}
-          alt="thumbnail"
-          layout="responsive"
-          width={100}
-          height={20} // This is a placeholder, the real height is controlled by CSS
-          className="!max-h-[240px] w-screen object-cover lg:!max-h-[600px]"
-          priority
-        /> */}
-        <div className="flex flex-col">
-          <ProjectNewInfo projectDetail={projectDetail} locale={params.locale} />
+      <GallerySwiperPrimary images={projectDetail.images ?? []} />
+      <div className='section-chitiet'>
+        <PageSectionNavigation
+          items={[
+            {
+              id: 'overview',
+              label: 'Tổng quan',
+              icon: assetsImages.commonIconNavigation.src,
+              iconSize: 'calc(20 / 24 * 100%) auto',
+            },
+            {
+              id: 'area',
+              label: 'Vị trí',
+              icon: assetsImages.commonIconNavigation06.src,
+            },
+            {
+              id: 'amenities',
+              label: 'Tiện ích cảnh quan',
+              icon: assetsImages.commonIconNavigation07.src,
+            },
+            {
+              id: 'partner',
+              label: 'Đối tác',
+              icon: assetsImages.commonIconNavigation08.src,
+            },
+          ]}
+          additional={[
+            <li key="fav"><ButtonFavorite listingDetail={projectDetail} locale={locale} /></li>,
+            <li key="share"><ButtonShare listingDetail={projectDetail} locale={locale} /></li>,
+          ]}
+        />
+        <div className="container">
+          <div className='section-chitiet__wrapper'>
+            <ProjectNewInfo projectDetail={projectDetail} locale={params.locale} />
+          </div>
 
-          <LayoutImage layouts={projectDetail?.layouts} locale={params.locale} />
-
-          <PorjectNewNews projectDetail={projectDetail} />
-
-          <ProjectNewDetailInfo projectDetail={projectDetail} locale={params.locale} />
-
-          <ProjectNewInquiry projectDetail={projectDetail} />
+          <div className='section-chitiet__sidebar'>
+            <ProjectNewInquiry projectDetail={projectDetail} />
+          </div>
         </div>
+        <RecentPropertiesForSale />
       </div>
     </>
   );

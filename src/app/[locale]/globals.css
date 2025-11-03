@@ -122,6 +122,23 @@ input,select,textarea {
   @apply !rounded-full hover:!bg-transparent;
 }
 
+:where(.css-dev-only-do-not-override-xte9v4).ant-pagination .ant-pagination-item {
+  @apply mobile:!min-w-[24px] mobile:!h-[24px];
+}
+
+:where(.css-dev-only-do-not-override-xte9v4).ant-pagination .ant-pagination-item a {
+  @apply mobile:!text-[14px] mobile:!leading-[calc(20/14)];
+}
+
+.pagination-common .ant-pagination-next,
+.pagination-common .ant-pagination-prev {
+  @apply mobile:!min-w-[24px] mobile:!h-[24px];
+}
+
+.pagination-common .ant-pagination-item-link {
+  @apply mobile:!flex mobile:justify-center mobile:items-center;
+}
+
 /* Navigation */
 
 .navigation-common-page {
