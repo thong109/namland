@@ -374,22 +374,6 @@ const SectionHeroForm: FC<SectionHeroFormProps> = () => {
                     </div>
                   </div>
                   <div className='form-common-listing__entry form-common-listing__entry--stacked'>
-                    <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchProject')}</span>
-                    <div className='form-common-listing__entry-wrapper'>
-                      <Form.Item className='form-common-listing__entry-item' name='prjs'>
-                        <SelectCheckbox
-                          placeholder={t('HomeRealEstateSearchFormSearchFieldProject')}
-                          showSearch
-                          options={projects?.map((prj) => ({
-                            value: prj.id,
-                            label: prj.name,
-                            id: prj.id,
-                          }))}
-                        />
-                      </Form.Item>
-                    </div>
-                  </div>
-                  <div className='form-common-listing__entry form-common-listing__entry--stacked'>
                     <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormType')}</span>
                     <div className='form-common-listing__entry-wrapper'>
                       <Form.Item className='form-common-listing__entry-item' name='c'>
