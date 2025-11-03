@@ -129,7 +129,6 @@ const ProjectNewInquiry: React.FC<Props> = ({ projectDetail }) => {
             try {
               response = await newHomeApiService.createInquiryChat({
                 inquiryId: projectDetail?.inquiryId,
-                message: formContactData.message,
               });
               notify('success', comm('sentSuccess'));
             } catch (e) {
@@ -143,7 +142,6 @@ const ProjectNewInquiry: React.FC<Props> = ({ projectDetail }) => {
             try {
               response = await newHomeApiService.createInquiryChat({
                 newHomesId: projectDetail?.id,
-                message: formContactData.message,
               });
               notify('success', comm('sentSuccess'));
             } catch (e) {
