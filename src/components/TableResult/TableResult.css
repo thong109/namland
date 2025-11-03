@@ -10,4 +10,5 @@
 
 .table-common-result--rent {
   @apply desktop:grid-cols-4 desktop:gap-[15px_30px];
+  @apply tablet-lg:grid-cols-2 tablet-lg:gap-[20px];
 }

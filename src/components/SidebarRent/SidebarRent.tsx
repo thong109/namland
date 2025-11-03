@@ -232,9 +232,9 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
       <Select
         value={filterBy}
         onChange={(value) => setFilterBy(value)}
-        className="w-full max-w-xs"
-        size="large"
-        popupClassName="rounded-xl"
+        className='w-full max-w-xs'
+        size='large'
+        popupClassName='rounded-xl'
       >
         <Select.Option value={listingType.rent}>
           {t('EcomHomePageBannerRent')}
@@ -254,13 +254,13 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
   ) => {
     return (
       <Popconfirm
-        className="cursor-pointer"
+        className='cursor-pointer'
         title={component}
         icon={false}
         arrow={false}
         okText={t('HomeSearchAplyButton')}
         cancelText={t('HomeSearchResetButton')}
-        placement="bottom"
+        placement='bottom'
         okButtonProps={{ hidden: hasOKButton ? false : true, size: 'middle' }}
         cancelButtonProps={{
           hidden: hasOKButton ? false : true,
@@ -268,82 +268,55 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
           onClick: resetAction,
         }}
       >
-        <div className="flex items-center justify-center gap-1 overflow-hidden font-semibold">
-          <span>{title}</span> <ChevronDownIcon className="size-4" />{' '}
+        <div className='flex items-center justify-center gap-1 overflow-hidden font-semibold'>
+          <span>{title}</span> <ChevronDownIcon className='size-4' />{' '}
         </div>
       </Popconfirm>
     );
   };
 
-  const onLocationFilterClick = () => {
-    const select = document.querySelector('.location-filter .ant-select-selector');
-    const clickEvent = new Event('mousedown', { bubbles: true, cancelable: true });
-    select?.dispatchEvent(clickEvent);
-  };
-
-  const onPriceFilterClick = () => {
-    const select = document.querySelector('.price-filter .ant-select-selector');
-    const clickEvent = new Event('click', { bubbles: true, cancelable: true });
-    select?.dispatchEvent(clickEvent);
-  };
-
   return (
     <>
-      <div
-        className={clsx(
-          'container flex h-full flex-col content-center items-center justify-center',
-        )}
-      >
-        <div
-          className={clsx(
-            'relative w-full px-8 py-6 lg:px-20',
-            filterBy === listingType.sale && 'rounded-tl-none',
-          )}
-        >
-          <Form
-            form={form}
-            className="search-form flex flex-col gap-4"
-            layout="vertical"
-            onFinish={onSubmit}
-            size="large"
-          >
-            <div className="hidden flex-row divide-neutral-500 lg:flex">
-              <div className="col-span-5">
+      <div className={clsx('sidebar-common-rent')}>
+        <div className={clsx('container', filterBy === listingType.sale && 'rounded-tl-none')}>
+          <Form className='form-common-rent' form={form} layout='vertical' onFinish={onSubmit} size='large'>
+            <div className='hidden flex-row divide-neutral-500 lg:flex'>
+              <div className='col-span-5'>
                 <Form.Item
-                  name="k"
-                  className="hidden lg:block [&_.ant-input-affix-wrapper]:!rounded-none [&_.ant-input-affix-wrapper]:border-neutral-500 [&_.ant-input-affix-wrapper]:!py-0 [&_.ant-input-affix-wrapper]:!pr-0"
+                  name='k'
+                  className='hidden lg:block [&_.ant-input-affix-wrapper]:!rounded-none [&_.ant-input-affix-wrapper]:border-neutral-500 [&_.ant-input-affix-wrapper]:!py-0 [&_.ant-input-affix-wrapper]:!pr-0'
                 >
                   <Input
                     placeholder={t('HomeRealEstateSearchFormSearchFieldPlaceHolder')}
-                    prefix={<MagnifyingGlassIcon className="size-4" />}
+                    prefix={<MagnifyingGlassIcon className='size-4' />}
                     allowClear
                     suffix={
                       <ButtonCore
-                        type="submit"
-                        className="!rounded-none border-l border-l-neutral-500 px-6 !text-pmh-text"
+                        type='submit'
+                        className='!rounded-none border-l border-l-neutral-500 px-6 !text-pmh-text'
                         label={`${t('HomeRealEstateSearchFormSearch')}!`}
                       />
                     }
                   />
                 </Form.Item>
               </div>
-              <div className="pr-8">
+              <div className='pr-8'>
                 <SaleOrRentSelect
                   filterBy={filterBy}
                   setFilterBy={seFilterBy}
                   t={t}
                 />
               </div>
-              <div className="flex flex-grow flex-row items-center gap-2 pl-8">
+              <div className='flex flex-grow flex-row items-center gap-2 pl-8'>
                 <Form.Item
-                  name="c"
-                  className="w-[22%]"
+                  name='c'
+                  className='w-[22%]'
                 >
                   <Select
                     placeholder={t('HomeRealEstateSearchFormType')}
                     allowClear
                     showSearch
-                    optionFilterProp="label"
+                    optionFilterProp='label'
                     filterOption={(input, option) =>
                       String(option?.label ?? '').toLowerCase().includes(String(input).toLowerCase())
                     }
@@ -358,8 +331,8 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
                   />
                 </Form.Item>
                 <Form.Item
-                  name="rp"
-                  className="w-[22%]"
+                  name='rp'
+                  className='w-[22%]'
                 >
                   <PopupSearchPrice
                     typeft={filterBy}
@@ -398,8 +371,8 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
               </div>
             </div>
             {/* mobile */}
-            <div className="flex flex-col lg:hidden">
-              <div className="mb-4">
+            <div className='flex flex-col lg:hidden'>
+              <div className='mb-4'>
                 <SaleOrRentSelect
                   filterBy={filterBy}
                   setFilterBy={seFilterBy}
@@ -407,20 +380,20 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
                 />
               </div>
               <Form.Item
-                name="k"
-                className="[&_.ant-input-affix-wrapper]:!rounded-none"
+                name='k'
+                className='[&_.ant-input-affix-wrapper]:!rounded-none'
                 label={t('HomeRealEstateSearchFormSearch')}
               >
                 <Input
                   allowClear
                   placeholder={t('HomeRealEstateSearchFormSearchFieldPlaceHolder')}
-                  suffix={<MagnifyingGlassIcon className="size-4" />}
+                  suffix={<MagnifyingGlassIcon className='size-4' />}
                 />
               </Form.Item>
               <Form.Item
                 label={t('HomeRealEstateSearchProject')}
-                name="prjs"
-                className="lg:hidden [&_.ant-select-selector]:!rounded-none"
+                name='prjs'
+                className='lg:hidden [&_.ant-select-selector]:!rounded-none'
               >
                 <SelectCheckbox
                   placeholder={t('HomeRealEstateSearchFormSearchFieldProject')}
@@ -433,12 +406,12 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
                 />
               </Form.Item>
 
-              <Form.Item name="c" label={t('HomeRealEstateSearchFormType')}>
+              <Form.Item name='c' label={t('HomeRealEstateSearchFormType')}>
                 <Select
                   placeholder={t('HomeRealEstateSearchFormType')}
                   allowClear
-                  className="no-raidus-selector"
-                  mode="multiple"
+                  className='no-raidus-selector'
+                  mode='multiple'
                 >
                   {(filterBy === listingType.sale ? saleCategories : rentCategories)?.map(
                     (category) => (
@@ -450,22 +423,22 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
                 </Select>
               </Form.Item>
 
-              <Form.Item name="rp" label={t('HomeRealEstateSearchFormPrice')}>
+              <Form.Item name='rp' label={t('HomeRealEstateSearchFormPrice')}>
                 <PopupSearchPrice
-                  className="no-raidus-selector"
+                  className='no-raidus-selector'
                   typeft={filterBy}
                   placeholder={t('HomeRealEstateSearchFormPriceFieldPlaceHolder')}
                 />
               </Form.Item>
 
-              <Form.Item name="p" label={t('HomeRealEstateSearchFormLocation')}>
+              <Form.Item name='p' label={t('HomeRealEstateSearchFormLocation')}>
                 <Select
                   placeholder={t('ListingSearchPlaceholderProvince')}
                   showSearch
                   // allowClear={{ clearIcon: <>x</> }}
                   allowClear
                   filterOption={filterOptionsRemoveVietnameseTones}
-                  className="no-raidus-selector"
+                  className='no-raidus-selector'
                   options={provinces?.map((province) => ({
                     value: province.provinceID,
                     label: province.listProvinceName,
@@ -479,7 +452,7 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
                   <Select
                     placeholder={t('HomeRealEstateSearchFormMoreFilterFieldPlaceHolder')}
                     value={selectedMoreFilterArea}
-                    className="no-raidus-selector w-full"
+                    className='no-raidus-selector w-full'
                     open={false}
                   />
                 </div>
@@ -500,13 +473,13 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
                 />
               </Modal>
 
-              <div className="mb-4 cursor-pointer text-center underline" onClick={resetFilter}>
+              <div className='mb-4 cursor-pointer text-center underline' onClick={resetFilter}>
                 {t('HomeRealEstateSearchFormClearFilter')}
               </div>
 
               <ButtonCore
-                type="submit"
-                className="!rounded-none border border-neutral-500 px-6 !text-pmh-text"
+                type='submit'
+                className='!rounded-none border border-neutral-500 px-6 !text-pmh-text'
                 label={`${t('HomeRealEstateSearchFormSearch')}!`}
               />
             </div>
