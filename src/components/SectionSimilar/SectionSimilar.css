@@ -21,3 +21,7 @@
   @apply tablet-lg:mt-[30px];
   @apply mobile:mt-[30px];
 }
+
+.section-common-similar--rent .section-common-similar__title {
+  @apply text-center;
+}

@@ -53,13 +53,13 @@ const SectionSimilar: React.FC<SectionSimilarProps> = async ({ listingDetail, lo
     },
   });
   return (
-    <div className={`section-common-similar ${listingDetail?.priorityStatus==0 ? 'section-common-similar--rent' : 'section-common-similar--sale'}`}>
+    <div className={`section-common-similar ${listingDetail?.type==1 ? 'section-common-similar--rent' : 'section-common-similar--sale'}`}>
       <div className='container'>
-        <div className='section-common-similar__title'>{listingDetail?.priorityStatus==0 ? `Tin đăng bán khác` : `Tin cho thuê khác`}</div>
+        <div className='section-common-similar__title'>{listingDetail?.type==1 ? `Tin đăng bán khác` : `Tin cho thuê khác`}</div>
         <div className='section-common-similar__wrapper'>
           {basicListing?.data?.data?.map((item) => (
             <div className='section-common-similar__entry'>
-              {listingDetail?.priorityStatus==0 ? <CardListing key={item.id} listing={item} /> : <CardListingRent key={item.id} listing={item} />}
+              {listingDetail?.type==1 ? <CardListing key={item.id} listing={item} /> : <CardListingRent key={item.id} listing={item} />}
             </div>
           ))}
         </div>
