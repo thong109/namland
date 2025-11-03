@@ -14,3 +14,9 @@
   @apply tablet-lg:mt-[0] tablet-lg:mb-[20px] tablet-lg:text-[24px] tablet-lg:leading-[calc(32/24)];
   @apply mobile:mt-[0] mobile:mb-[20px] mobile:text-[20px] mobile:leading-[calc(30/20)];
 }
+
+.block-common-listingsale .pagination-common {
+  @apply mt-[44px];
+  @apply tablet-lg:mt-[30px];
+  @apply mobile:mt-[30px];
+}

@@ -14,9 +14,3 @@
 .section-ban__title strong {
   @apply font-[600] text-[#982220];
 }
-
-.section-ban .pagination-common {
-  @apply mt-[44px];
-  @apply tablet-lg:mt-[30px];
-  @apply mobile:mt-[30px];
-}

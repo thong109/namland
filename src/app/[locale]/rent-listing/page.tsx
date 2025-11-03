@@ -70,7 +70,7 @@ const PageRentListing: React.FC<PageRentListingProps> = async ({ searchParams })
         ]}
         hasBanner={false}
       />
-      <div className="container">
+      <div className='section-thue'>
         <BlockListingRent
           allPropertyCoordinates={allPropertyCoordinates}
           paramsString={paramsString}
@@ -88,8 +88,8 @@ const PageRentListing: React.FC<PageRentListingProps> = async ({ searchParams })
           outAmenities={outAmenities}
           funitureStatus={funitureStatus}
         />
-        <SectionContact />
       </div>
+      <SectionContact />
     </>
   );
 };

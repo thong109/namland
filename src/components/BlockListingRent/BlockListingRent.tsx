@@ -82,21 +82,22 @@ const BlockListingRent: FC<IProps> = ({
     <div className='block-common-listingrent'>
       <SidebarRent />
       <div className="block-common-listingrent__wrapper">
-        <span className='block-common-listingrent__title'>{t('EcomHomePagePropertyForSale')}</span>
-        <TableResult listings={listing} />
-        {totalResult > 0 && (
-          <div className="pagination-common">
-            <Pagination
-              current={currentPage}
-              total={totalResult}
-              pageSize={pageSize}
-              showSizeChanger={false}
-              itemRender={(page, itemtype, originalElement) => (
-                <Link href={`${type === listingType.sale ? NAVIGATION.saleListing.href : NAVIGATION.rentListing.href}?${paramsString}&page=${page}`} legacyBehavior>{originalElement}</Link>
-              )}
-            />
-          </div>
-        )}
+        <div className='container'>
+          <TableResult className='table-common-result--rent' listings={listing} />
+          {totalResult > 0 && (
+            <div className="pagination-common">
+              <Pagination
+                current={currentPage}
+                total={totalResult}
+                pageSize={pageSize}
+                showSizeChanger={false}
+                itemRender={(page, itemtype, originalElement) => (
+                  <Link href={`${type === listingType.sale ? NAVIGATION.saleListing.href : NAVIGATION.rentListing.href}?${paramsString}&page=${page}`} legacyBehavior>{originalElement}</Link>
+                )}
+              />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

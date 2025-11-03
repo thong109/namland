@@ -94,7 +94,7 @@ const BlockListingSale: FC<IProps> = ({
       />
       <div className="block-common-listingsale__wrapper">
         <span className='block-common-listingsale__title'>{t('EcomHomePagePropertyForSale')}</span>
-        <TableResult listings={listing} />
+        <TableResult className='table-common-result--sale' listings={listing} />
         {totalResult > 0 && (
           <div className="pagination-common">
             <Pagination
