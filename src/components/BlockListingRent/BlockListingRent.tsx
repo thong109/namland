@@ -97,21 +97,30 @@ const BlockListingRent: FC<IProps> = ({
   return (
     <div className='block-common-listingrent'>
       <div className='block-common-listingrent__filter'>
-        <SidebarRent />
-        <Switch
-          className="bg-portal-gray-3"
-          checked={showingMap}
-          onChange={(e) => changeViewMode(e)}
-        ></Switch>
+        <div className='container'>
+          <div className='block-common-listingrent__filter-wrapper'>
+            <SidebarRent />
+            <div className='switch-common-map'>
+              <span className='switch-common-map__label'>Hiển thị bản đồ</span>
+              <Switch className='switch-common-map__control' checked={showingMap} onChange={(e) => changeViewMode(e)}></Switch>
+            </div>
+          </div>
+          <div className='block-common-listingrent__filter-analyze'>
+            <span className='block-common-listingrent__filter-analyze'>Có 79 kết quả</span>
+            <div className='select-common-sortby'>
+              <span className='select-common-sortby__label'>Sắp xếp:</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="block-common-listingrent__wrapper">
+      <div className='block-common-listingrent__wrapper'>
         <div className='container'>
             <div className='block-common-listingrent__map'>{renderMaps()}</div>
             {!showingMap && (
             <>
               <TableResult className='table-common-result--rent' listings={listing} />
               {totalResult > 0 && (
-                <div className="pagination-common">
+                <div className='pagination-common'>
                   <Pagination
                     current={currentPage}
                     total={totalResult}
