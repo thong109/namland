@@ -9,6 +9,7 @@ import React from 'react';
 import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import { formatNumber } from '@/libs/helper';
 import './CardListing.css';
+import CardListingRibbon from './_component/CardListingRibbon';
 
 interface CardListingRentProps {
   className?: string;
@@ -19,10 +20,12 @@ const CardListingRent: React.FC<CardListingRentProps> = ({ className, listing })
   const t = useTranslations('webLabel');
   const listingDetail: any = listing;
   const listingUrl = getListingUrl(listingDetail.id, listingDetail.title);
+  console.log(listingDetail);
+  
   return (
     <Link className={clsx('card-common-listing card-common-listing--rent group', className)} href={listingUrl}>
       <div className='card-common-listing__visual'>
-        <span className='card-common-listing__visual-status'>Khuyễn mãi</span>
+        <CardListingRibbon variant="sale" />
         <div className='card-common-listing__visual-wrapper'>
           <Image src={listingDetail?.imageThumbnailUrl} className='group-hover:scale-105' width={415} height={271} alt={'Image'} />
         </div>
@@ -36,18 +39,18 @@ const CardListingRent: React.FC<CardListingRentProps> = ({ className, listing })
           <ul className='list-common-properties'>
             <li className='list-common-properties__item'>
               <span className='list-common-properties__item-icon list-common-properties__item-icon--bedroom'></span>
-              <span className='list-common-properties__item-label'>4</span>
+              <span className='list-common-properties__item-label'>{listingDetail?.bedrooms}</span>
             </li>
             <li className='list-common-properties__item'>
               <span className='list-common-properties__item-icon list-common-properties__item-icon--bathroom'></span>
-              <span className='list-common-properties__item-label'>3</span>
+              <span className='list-common-properties__item-label'>{listingDetail?.bathrooms}</span>
             </li>
             <li className='list-common-properties__item'>
               <span className='list-common-properties__item-icon list-common-properties__item-icon--area'></span>
-              <span className='list-common-properties__item-label'>192 m²</span>
+              <span className='list-common-properties__item-label'>{listingDetail?.size} m²</span>
             </li>
           </ul>
-          <div className='card-common-listing__detail'>Cho Thuê Biệt Thự 3 Tầng 5PN - Full Nội Thất Châu Âu Cao Cấp</div>
+          <div className='card-common-listing__detail line-clamp-2'>{listingDetail?.shortDescription}</div>
         </div>
       </div>
     </Link>
