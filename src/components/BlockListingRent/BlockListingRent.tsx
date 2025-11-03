@@ -116,8 +116,8 @@ const BlockListingRent: FC<IProps> = ({
       </div>
       <div className='block-common-listingrent__wrapper'>
         <div className='container'>
-            <div className='block-common-listingrent__map'>{renderMaps()}</div>
-            {!showingMap && (
+          <div className={`block-common-listingrent__map ${showingMap ? `is-state-active` : ``}`}>{renderMaps()}</div>
+          {!showingMap && (
             <>
               <TableResult className='table-common-result--rent' listings={listing} />
               {totalResult > 0 && (

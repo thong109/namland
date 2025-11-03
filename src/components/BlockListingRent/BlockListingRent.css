@@ -44,3 +44,15 @@
   @apply tablet-lg:mt-[30px];
   @apply mobile:mt-[30px];
 }
+
+.block-common-listingrent__map {
+  @apply w-[100%] pt-[calc(900/1420*100%)] hidden relative;
+}
+
+.block-common-listingrent__map>*{
+  @apply !absolute !inset-0;
+}
+
+.block-common-listingrent__map.is-state-active {
+  @apply block;
+}
