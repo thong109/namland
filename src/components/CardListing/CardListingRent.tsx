@@ -20,12 +20,11 @@ const CardListingRent: React.FC<CardListingRentProps> = ({ className, listing })
   const t = useTranslations('webLabel');
   const listingDetail: any = listing;
   const listingUrl = getListingUrl(listingDetail.id, listingDetail.title);
-  console.log(listingDetail);
   
   return (
     <Link className={clsx('card-common-listing card-common-listing--rent group', className)} href={listingUrl}>
       <div className='card-common-listing__visual'>
-        <CardListingRibbon variant="sale" />
+        <CardListingRibbon variant='sale' />
         <div className='card-common-listing__visual-wrapper'>
           <Image src={listingDetail?.imageThumbnailUrl} className='group-hover:scale-105' width={415} height={271} alt={'Image'} />
         </div>

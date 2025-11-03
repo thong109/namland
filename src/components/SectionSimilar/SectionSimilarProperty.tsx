@@ -1,4 +1,5 @@
 import CardListing from '@/components/CardListing/CardListing';
+import CardListingRent from '@/components/CardListing/CardListingRent';
 import {
   postEcomListingGetForSellByQuery,
   postEcomListingGetSimilarInProjectQuery,
@@ -44,19 +45,6 @@ const basedQuery = (listingId: string, projectId: string) => ({
 
 const SectionSimilar: React.FC<SectionSimilarProps> = async ({ listingDetail, locale }) => {
   const t = await getTranslator(locale, 'webLabel');
-  const platinumListing: any = await postEcomListingGetSimilarInProjectQuery({
-    requestBody: {
-      ...basedQuery(listingDetail.id, listingDetail.project.id),
-      priorityStatus: ListPropertyStatusEnum.Platinum,
-    },
-    listingId: listingDetail.id,
-  });
-  const goldListing: any = await postEcomListingGetForSellByQuery({
-    requestBody: {
-      ...basedQuery(listingDetail.id, listingDetail.project.id),
-      priorityStatus: ListPropertyStatusEnum.Gold,
-    },
-  });
   const basicListing: any = await postEcomListingGetForSellByQuery({
     requestBody: {
       ...basedQuery(listingDetail.id, listingDetail.project.id),
@@ -65,13 +53,13 @@ const SectionSimilar: React.FC<SectionSimilarProps> = async ({ listingDetail, lo
     },
   });
   return (
-    <div className='section-common-similar'>
+    <div className={`section-common-similar ${listingDetail?.priorityStatus==0 ? 'section-common-similar--rent' : 'section-common-similar--sale'}`}>
       <div className='container'>
-        <div className='section-common-similar__title'>Tin đăng bán khác</div>
+        <div className='section-common-similar__title'>{listingDetail?.priorityStatus==0 ? `Tin đăng bán khác` : `Tin cho thuê khác`}</div>
         <div className='section-common-similar__wrapper'>
           {basicListing?.data?.data?.map((item) => (
             <div className='section-common-similar__entry'>
-              <CardListing key={item.id} listing={item} />
+              {listingDetail?.priorityStatus==0 ? <CardListing key={item.id} listing={item} /> : <CardListingRent key={item.id} listing={item} />}
             </div>
           ))}
         </div>
