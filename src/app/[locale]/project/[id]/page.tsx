@@ -5,15 +5,14 @@ import { getTranslator } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { FC } from 'react';
 import ProjectInfo from './_components/ProjectInfo';
-import RecentPropertiesForLease from './_components/RecentPropertiesForLease';
 import RecentPropertiesForSale from './_components/RecentPropertiesForSale';
 import GallerySwiperPrimary from '@/components/GallerySwiperPrimary/GallerySwiperPrimary';
 import ButtonFavorite from '@/components/ButtonFavorite/ButtonFavorite';
 import ButtonShare from '@/components/ButtonShare/ButtonShare';
 import { assetsImages } from '@/assets/images/package';
 import "./style.css"
-import dynamic from 'next/dynamic';
-import ProjectNewInquiry from '../../du-an-mo-ban/[id]/_components/ProjectNewInquiry';
+import PageSectionNavigation from '@/components/PageSectionNavigation/PageSectionNavigation';
+import ProjectNewInquiry from '@/components/Projects/ProjectNewInquiry';
 
 export interface PagePropertyDetailProps {
   params: any;
@@ -65,28 +64,35 @@ const PageDetailProject: FC<PagePropertyDetailProps> = async ({ params, searchPa
     <>
       <GallerySwiperPrimary images={projectDetail.images ?? []} />
       <div className='section-chitiet'>
-        <div className='navigation-common-page'>
-          <div className='container'>
-            <ul className='navigation-common-page__wrapper'>
-              <li className='navigation-common-page__entry'>
-                <a className='navigation-common-page__entry-wrapper' href='#overview'><span className='navigation-common-page__entry-icon' style={{ backgroundImage: `url(${assetsImages.commonIconNavigation.src})`, backgroundSize: `calc(20 / 24 * 100%) auto` }}></span>Tổng quan</a>
-              </li>
-              <li className='navigation-common-page__entry'>
-                <a className='navigation-common-page__entry-wrapper' href='#area'><span className='navigation-common-page__entry-icon' style={{ backgroundImage: `url(${assetsImages.commonIconNavigation02.src})`, backgroundSize: `calc(24 / 24 * 100%) auto` }}></span>Vị trí</a>
-              </li>
-              <li className='navigation-common-page__entry'>
-                <a className='navigation-common-page__entry-wrapper' href='#amenities'><span className='navigation-common-page__entry-icon' style={{ backgroundImage: `url(${assetsImages.commonIconNavigation03.src})`, backgroundSize: `calc(24 / 24 * 100%) auto` }}></span>Tiện ích cảnh quan</a>
-              </li>
-              <li className='navigation-common-page__entry'>
-                <a className='navigation-common-page__entry-wrapper' href='#partner'><span className='navigation-common-page__entry-icon' style={{ backgroundImage: `url(${assetsImages.commonIconNavigation04.src})`, backgroundSize: `calc(24 / 24 * 100%) auto` }}></span>Đối tác</a>
-              </li>
-            </ul>
-            <ul className='navigation-common-page__additional'>
-              <li className='navigation-common-page__additional-entry'><ButtonFavorite listingDetail={projectDetail} locale={locale} /></li>
-              <li className='navigation-common-page__additional-entry'><ButtonShare listingDetail={projectDetail} locale={locale} /></li>
-            </ul>
-          </div>
-        </div>
+        <PageSectionNavigation
+          items={[
+            {
+              id: 'overview',
+              label: 'Tổng quan',
+              icon: assetsImages.commonIconNavigation.src,
+              iconSize: 'calc(20 / 24 * 100%) auto',
+            },
+            {
+              id: 'area',
+              label: 'Vị trí',
+              icon: assetsImages.commonIconNavigation06.src,
+            },
+            {
+              id: 'amenities',
+              label: 'Tiện ích cảnh quan',
+              icon: assetsImages.commonIconNavigation07.src,
+            },
+            {
+              id: 'partner',
+              label: 'Đối tác',
+              icon: assetsImages.commonIconNavigation08.src,
+            },
+          ]}
+          additional={[
+            <li key="fav"><ButtonFavorite listingDetail={projectDetail} locale={locale} /></li>,
+            <li key="share"><ButtonShare listingDetail={projectDetail} locale={locale} /></li>,
+          ]}
+        />
         <div className="container">
           <div className='section-chitiet__wrapper'>
             <ProjectInfo projectDetail={projectDetail} locale={params.locale} />

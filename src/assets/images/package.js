@@ -10,6 +10,8 @@ import commonIconLanguage from './common/icon_language_01.svg';
 import commonIconLocation from "./common/icon_location_01.svg";
 import commonIconLetter from "./common/icon_letter_01.svg";
 import commonIconPhone from "./common/icon_phone_01.svg";
+import commonIconPhone2 from "./common/icon_phone_02.svg";
+import commonIconZalo from "./common/icon_zalo_01.svg";
 import commonIconSNS from "./common/icon_sns_01.svg";
 import commonIconSNS02 from "./common/icon_sns_02.svg";
 import commonIconSNS03 from "./common/icon_sns_03.svg";
@@ -47,11 +49,16 @@ import commonIconNavigation02 from "./common/icon_navigation_02.svg";
 import commonIconNavigation03 from "./common/icon_navigation_03.svg";
 import commonIconNavigation04 from "./common/icon_navigation_04.svg";
 import commonIconNavigation05 from "./common/icon_navigation_05.svg";
+import commonIconNavigation06 from "./common/icon_navigation_06.svg";
+import commonIconNavigation07 from "./common/icon_navigation_07.svg";
+import commonIconNavigation08 from "./common/icon_navigation_08.svg";
 import homeBackgroundHero from "./home/background_hero_01.jpg";
 import articleImage1 from "./article/project_img_01.jpg";
 import articleImage2 from "./article/project_img_02.jpg";
 import articleImage3 from "./article/project_img_03.jpg";
 import articleImage4 from "./article/project_img_04.jpg";
+import logoImage1 from "./article/logo_img_01.png";
+import logoImage2 from "./article/logo_img_02.png";
 
 export const assetsImages = {
   commonIconArrow,
@@ -66,6 +73,7 @@ export const assetsImages = {
   commonIconLocation,
   commonIconLetter,
   commonIconPhone,
+  commonIconPhone2,
   commonIconSNS,
   commonIconSNS02,
   commonIconSNS03,
@@ -104,9 +112,15 @@ export const assetsImages = {
   commonIconNavigation03,
   commonIconNavigation04,
   commonIconNavigation05,
+  commonIconNavigation06,
+  commonIconNavigation07,
+  commonIconNavigation08,
   homeBackgroundHero,
   articleImage1,
   articleImage2,
   articleImage3,
   articleImage4,
+  logoImage1,
+  logoImage2,
+  commonIconZalo,
 }

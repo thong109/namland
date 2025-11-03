@@ -16,6 +16,7 @@ import ButtonFavorite from '@/components/ButtonFavorite/ButtonFavorite';
 import ButtonShare from '@/components/ButtonShare/ButtonShare';
 import GalleryPrimary from '@/components/GalleryPrimary/GalleryPrimary';
 import SectionContact from '@/components/SectionContact/SectionContact';
+import PageSectionNavigation from '@/components/PageSectionNavigation/PageSectionNavigation';
 
 const SectionSimilar = dynamic(() => import('@/components/SectionSimilar/SectionSimilarProperty'), { ssr: true });
 
@@ -82,38 +83,47 @@ const PageDetailProperty: FC<PagePropertyDetailProps> = async ({ params, searchP
           <link key={index} rel='preload' href={image.url} as='image' />
         ))}
         <GalleryPrimary images={listingDetail?.imageUrls ?? []} />
-        <div className='navigation-common-page'>
-          <div className='container'>
-            <ul className='navigation-common-page__wrapper'>
-              <li className='navigation-common-page__entry'>
-                <a className='navigation-common-page__entry-wrapper' href='#overview'><span className='navigation-common-page__entry-icon' style={{ backgroundImage: `url(${assetsImages.commonIconNavigation.src})`, backgroundSize: `calc(20 / 24 * 100%) auto` }}></span>Tổng quan</a>
-              </li>
-              <li className='navigation-common-page__entry'>
-                <a className='navigation-common-page__entry-wrapper' href='#details'><span className='navigation-common-page__entry-icon' style={{ backgroundImage: `url(${assetsImages.commonIconNavigation02.src})`, backgroundSize: `calc(24 / 24 * 100%) auto` }}></span>Chi tiết căn hộ</a>
-              </li>
-              <li className='navigation-common-page__entry'>
-                <a className='navigation-common-page__entry-wrapper' href='#furniture'><span className='navigation-common-page__entry-icon' style={{ backgroundImage: `url(${assetsImages.commonIconNavigation03.src})`, backgroundSize: `calc(24 / 24 * 100%) auto` }}></span>Nội thất </a>
-              </li>
-              <li className='navigation-common-page__entry'>
-                <a className='navigation-common-page__entry-wrapper' href='#utilities'><span className='navigation-common-page__entry-icon' style={{ backgroundImage: `url(${assetsImages.commonIconNavigation04.src})`, backgroundSize: `calc(24 / 24 * 100%) auto` }}></span>Tiện ích</a>
-              </li>
-              <li className='navigation-common-page__entry'>
-                <a className='navigation-common-page__entry-wrapper' href='#location'><span className='navigation-common-page__entry-icon' style={{ backgroundImage: `url(${assetsImages.commonIconNavigation05.src})`, backgroundSize: `calc(18 / 24 * 100%) auto` }}></span>Bản đồ khu vực</a>
-              </li>
-            </ul>
-            <ul className='navigation-common-page__additional'>
-              <li className='navigation-common-page__additional-entry'><ButtonFavorite listingDetail={listingDetail} locale={locale} /></li>
-              <li className='navigation-common-page__additional-entry'><ButtonShare listingDetail={listingDetail} locale={locale} /></li>
-            </ul>
-          </div>
-        </div>
+        <PageSectionNavigation
+          items={[
+            {
+              id: 'overview',
+              label: 'Tổng quan',
+              icon: assetsImages.commonIconNavigation.src,
+              iconSize: 'calc(20 / 24 * 100%) auto',
+            },
+            {
+              id: 'details',
+              label: 'Chi tiết căn hộ',
+              icon: assetsImages.commonIconNavigation02.src,
+            },
+            {
+              id: 'furniture',
+              label: 'Nội thất',
+              icon: assetsImages.commonIconNavigation03.src,
+            },
+            {
+              id: 'utilities',
+              label: 'Tiện ích',
+              icon: assetsImages.commonIconNavigation04.src,
+            },
+            {
+              id: 'location',
+              label: 'Bản đồ khu vực',
+              icon: assetsImages.commonIconNavigation05.src,
+            },
+          ]}
+          additional={[
+            <li key="fav"><ButtonFavorite listingDetail={listingDetail} locale={locale} /></li>,
+            <li key="share"><ButtonShare listingDetail={listingDetail} locale={locale} /></li>,
+          ]}
+        />
         <div className='container'>
           <div className='section-chitiet__wrapper'>
             <ArticleInformationOverview listingDetail={listingDetail} locale={params.locale} />
             <ArticleInformationDetails listingDetail={listingDetail} locale={params.locale} />
           </div>
           <div className='section-chitiet__sidebar'>
-            <ArticleInformationRatings listingDetail={listingDetail} locale={params.locale}/>
+            <ArticleInformationRatings listingDetail={listingDetail} locale={params.locale} />
           </div>
         </div>
       </div>

@@ -4,14 +4,13 @@ import Label from '@/components/Label';
 import useKeywordBaned from '@/hooks/useKeywordBaned';
 import { checkValidText } from '@/libs/appconst';
 import { convertPhoneNumber84To0 } from '@/libs/helper';
-import InputBorder from '@/shared/InputBoder';
 import useGlobalStore from '@/stores/useGlobalStore';
 import { Button, Form, Input, Modal, Spin } from 'antd';
 import { useLocale, useTranslations } from 'next-intl';
 import React, { useEffect, useState, useTransition } from 'react';
 import { TypeOptions, toast } from 'react-toastify';
 import './style.css';
-const { TextArea } = Input;
+import { assetsImages } from '@/assets/images/package';
 
 interface Props {
   projectDetail: any;
@@ -177,14 +176,14 @@ const ProjectNewInquiry: React.FC<Props> = ({ projectDetail }) => {
 
   return (
     <>
-      <div className="mb-8 mt-4 lg:sticky lg:top-[130px]">
-        <div className="rounded-lg border border-portal-gray-border px-[30px] py-5 shadow-soft">
-          <div className="text-center text-lg font-bold text-portal-primaryLiving">
+      <div className="article-common-contact__container">
+        <div className="article-common-contact__wrapper">
+          <div className="article-common-contact__wrapper-title">
             {t('EcomPropertyDetailPageNewHomeInquiryRequest')}
           </div>
-          <ul className=''>
-            <li className=''>Giải đáp mọi thắc mắc của khách hàng.</li>
-            <li className=''>Tuyệt đối bảo mật thông tin cá nhân.</li>
+          <ul className='article-common-contact__wrapper-note'>
+            <li className='article-common-contact__wrapper-note-item'>Giải đáp mọi thắc mắc của khách hàng.</li>
+            <li className='article-common-contact__wrapper-note-item'>Tuyệt đối bảo mật thông tin cá nhân.</li>
           </ul>
           <Form
             autoComplete="off"
@@ -212,15 +211,15 @@ const ProjectNewInquiry: React.FC<Props> = ({ projectDetail }) => {
                 ]}
                 name={'name'}
               >
-                <InputBorder
-                  label={t('EcomPropertyDetailPageTicketName')}
+                <Input
+                  placeholder={t('EcomPropertyDetailPageReviewName')}
                   type={'text'}
                   name={'name'}
                   value={formContactData.name}
                   onChange={(text) => {
                     handleChangeValueContact('name', text);
                   }}
-                ></InputBorder>
+                ></Input>
               </Form.Item>
             </div>
             <div>
@@ -243,15 +242,15 @@ const ProjectNewInquiry: React.FC<Props> = ({ projectDetail }) => {
                 ]}
                 name={'email'}
               >
-                <InputBorder
-                  label={t('EcomPropertyDetailPageTicketEmail')}
+                <Input
+                  placeholder={t('EcomPropertyDetailPageReviewEmail')}
                   type={'text'}
                   name={'email'}
                   value={formContactData.email}
                   onChange={(text) => {
                     handleChangeValueContact('email', text);
                   }}
-                ></InputBorder>
+                ></Input>
               </Form.Item>
             </div>
             <div>
@@ -268,18 +267,18 @@ const ProjectNewInquiry: React.FC<Props> = ({ projectDetail }) => {
                 ]}
                 name={'phone'}
               >
-                <InputBorder
-                  label={t('EcomPropertyDetailPageTicketPhone')}
+                <Input
+                  placeholder={t('EcomPropertyDetailPageTicketPhone')}
                   type={'tel'}
                   name={'phone'}
                   value={formContactData.phone}
                   onChange={(text) => {
                     handleChangeValueContact('phone', text);
                   }}
-                ></InputBorder>
+                ></Input>
               </Form.Item>
             </div>
-            <div className="mt-3">
+            <div className="mt-[18px]">
               <div className="mb-4 flex">
                 <input
                   id="policy-checkbox"
@@ -291,21 +290,21 @@ const ProjectNewInquiry: React.FC<Props> = ({ projectDetail }) => {
                   //   formContactData?.valueCheckBox
                   // }
                   checked={formContactData?.valueCheckBox}
-                  className="checkbox-primary mt-[2px] focus:ring-0 focus:ring-offset-0"
+                  className="article-common-contact__checkbox"
                 />
                 <label
                   htmlFor="policy-checkbox"
-                  className="ml-2 text-sm font-medium dark:text-gray-300"
+                  className="article-common-contact__checkbox-label"
                 >
                   <span>
                     {t.rich('AgreeWithTermsAndConditions', {
                       quychehoatdong: (chunks) => (
-                        <span className="underline" onClick={openLink}>
+                        <span className="article-common-contact__checkbox-link" onClick={openLink}>
                           {chunks}
                         </span>
                       ),
                       dieukhoandieukien: (chunks) => (
-                        <span className="underline" onClick={openLinkDieukhoandieukien}>
+                        <span className="article-common-contact__checkbox-link" onClick={openLinkDieukhoandieukien}>
                           {chunks}
                         </span>
                       ),
@@ -314,17 +313,39 @@ const ProjectNewInquiry: React.FC<Props> = ({ projectDetail }) => {
                 </label>
               </div>
             </div>
-            <div className="mt-[30px]">
+            {/* <div className="mt-[30px]">
               <button
                 type="submit"
                 disabled={isPending}
-                className={`btn-primary focus:shadow-outline ] mr-2 uppercase focus:outline-none disabled:!opacity-70 ${!formContactData.valueCheckBox ? '!bg-gray-400' : ''
+                className={`btn-primary focus:shadow-outline ] mr-2 uppercase focus:outline-none disabled:!opacity-70 ${!formContactData.valueCheckBox ? '!bg-gray-400' : '!bg-portal-primaryLiving'
                   }`}
               >
                 {isPending ? <Spin></Spin> : t('EcomPropertyDetailPageTicketLeaveAnInquiry')}
               </button>
-            </div>
+            </div> */}
           </Form>
+          <div className="article-common-contact__wrapper-line">
+            <div></div>
+            <span>Hoặc</span>
+            <div></div>
+          </div>
+          <div className="article-common-contact__social">
+            <a href="tel:19002698">
+              <div className="article-common-contact__social-icon" style={{ backgroundImage: `url(${assetsImages.commonIconPhone2.src})` }}>
+              </div>
+              <div className="text-left text-sm">
+                <div className="article-common-contact__social-icon-title">Gọi trực tiếp</div>
+                <div className="article-common-contact__social-icon-phone">1900 2698</div>
+              </div>
+            </a>
+            <a
+              href="https://zalo.me/19002698"
+              target="_blank"
+              rel="noopener noreferrer">
+              <div className="article-common-contact__social-icon" style={{ backgroundImage: `url(${assetsImages.commonIconZalo.src})` }}></div>
+              <div className="article-common-contact__social-icon-title">Chat qua Zalo</div>
+            </a>
+          </div>
         </div>
       </div>
     </>

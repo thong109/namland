@@ -94,14 +94,19 @@
 
 .article-common-information--details-custom .article-common-information__description {
   @apply m-[24px_0_0] leading-[calc(28/18)] text-lg;
+  @apply mobile:text-base;
 }
 
 .article-common-information__block-partner {
-  @apply grid grid-cols-2 gap-[10px_40px];
+  @apply desktop:grid grid-cols-2 gap-[10px_40px] mt-[20px];
+  @apply tablet-md:gap-[10px_30px];
+  @apply mobile:flex flex-col gap-[20px];
 }
 
 .article-common-information__block-partner--wrapper {
-  @apply border border-portal-gray-border rounded-[10px]
+  @apply border border-portal-gray-border rounded-[10px] p-[20px_22px_32px];
+  @apply laptop-sm:p-[15px_10px_20px];
+  @apply mobile:p-6 mobile:pt-[20px];
 }
 
 .article-common-information--details-custom .slick-list {
@@ -129,7 +134,7 @@
 .article-common-information--details-custom .slick-arrow {
   @apply !w-[30px] !h-[30px] !border border-portal-gray-border z-10 opacity-100 !shadow-none;
   background: #fff url(../../assets/images/common/icon_arrow_04.svg) center center / contain no-repeat;
-  @apply mobile:hidden
+  @apply mobile:!hidden
 }
 
 .article-common-information--details-custom .slick-slide {
@@ -146,4 +151,42 @@
 
 .article-common-information--details-custom .slick-arrow.slick-prev {
   @apply rotate-180 -translate-y-1/2 !left-1;
+}
+
+.article-common-information__block-partner--content {
+  @apply ml-[22px] pt-[10px] break-all;
+  @apply laptop-sm:ml-[10px];
+  @apply mobile:ml-0;
+}
+
+.article-common-information__block-partner--title {
+  @apply block text-xl leading-[calc(25/20)] font-semibold mb-[14px];
+  @apply mobile:text-lg mobile:leading-[calc(25/18)];
+}
+
+.article-common-information__block-partner--phone {
+  @apply block text-lg leading-[calc(25/18)] font-semibold mb-[14px];
+  @apply mobile:text-base mobile:leading-[calc(24/16)];
+}
+
+.article-common-information__block-partner--email {
+  @apply block text-base leading-[calc(24/16)];
+  @apply mobile:text-sm mobile:leading-[calc(20/14)];
+}
+
+.article-common-information__block-partner--email strong {
+  @apply block text-portal-gray-border;
+}
+
+.article-common-information__block-partner--email a {
+  @apply block line-clamp-1 -mr-[10px];
+}
+
+.article-common-information__block-partner--thumbnail {
+  @apply block flex-[0_0_auto] h-[140px];
+}
+
+.article-common-information__block-partner--inner {
+  @apply desktop:flex desktop:items-center;
+  @apply tablet-md:flex-col tablet-md:items-start;
 }
