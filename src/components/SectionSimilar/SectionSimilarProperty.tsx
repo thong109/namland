@@ -53,7 +53,7 @@ const SectionSimilar: React.FC<SectionSimilarProps> = async ({ listingDetail, lo
     },
   });
   return (
-    <div className={`section-common-similar ${listingDetail?.type==1 ? 'section-common-similar--rent' : 'section-common-similar--sale'}`}>
+    <div className={`section-common-similar ${listingDetail?.type==1 ? 'section-common-similar--sale' : 'section-common-similar--rent'}`}>
       <div className='container'>
         <div className='section-common-similar__title'>{listingDetail?.type==1 ? `Tin đăng bán khác` : `Tin cho thuê khác`}</div>
         <div className='section-common-similar__wrapper'>
