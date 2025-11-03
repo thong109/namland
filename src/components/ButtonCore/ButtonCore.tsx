@@ -9,7 +9,7 @@ interface ButtonCoreProps {
   preset?: 'primary' | 'secondary' | 'secondary-reversed' | 'neutral' | 'more' | 'directing';
   className?: string;
   onClick?: () => void;
-  label: string;
+  label?: string;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
   buttonType?: 'search' | 'destroy' | 'default';

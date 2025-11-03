@@ -57,7 +57,7 @@
 }
 
 .navigation-header-outside__item:hover .menu-header {
-  @apply opacity-100;
+  @apply opacity-100 pointer-events-auto;
 }
 
 .navigation-header-outside__item-label {
@@ -81,7 +81,7 @@
 }
 
 .menu-header {
-  @apply w-[235px] absolute top-[100%] left-[-16px] opacity-0 transition-opacity ease-in-out duration-300;
+  @apply w-[235px] absolute top-[100%] left-[-16px] opacity-0 pointer-events-none transition-opacity ease-in-out duration-300;
 }
 
 .menu-header__wrapper {

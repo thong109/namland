@@ -18,7 +18,7 @@ import {
 } from '@/models/homeRealEstateSearchModel/homeRealEstateSearchModel';
 import './style.css';
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
-import BlockListing from '@/components/BlockListing/BlockListing';
+import BlockListingSale from '@/components/BlockListingSale/BlockListingSale';
 import SectionContact from '@/components/SectionContact/SectionContact';
 interface PageSaleListingProps {
   searchParams: ShortHomeRealEstateSearchModel;
@@ -75,7 +75,7 @@ const PageSaleListing: React.FC<PageSaleListingProps> = async ({ searchParams })
       <div className='section-ban'>
         <div className='container'>
           <h1 className='section-ban__title'>Gửi bán Bất động sản Nam Long<br /><strong>Nhanh chóng, Bảo mật & Uy tín</strong></h1>
-          <BlockListing
+          <BlockListingSale
             allPropertyCoordinates={allPropertyCoordinates}
             totalResult={totalResult}
             paramsString={paramsString}

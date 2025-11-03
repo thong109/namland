@@ -21,8 +21,7 @@ import { useRouter } from 'next-intl/client';
 import * as NProgress from 'nprogress';
 import { FC, useEffect, useState } from 'react';
 import * as pixel from '@/utils/pixel';
-import './SidebarListing.css';
-import { assetsImages } from '@/assets/images/package';
+import './SidebarSale.css';
 
 export interface IProps {
   saleCategories?: any;
@@ -39,7 +38,7 @@ export interface IProps {
   className?: any;
 }
 
-const SidebarListing: FC<IProps> = ({
+const SidebarSale: FC<IProps> = ({
   properties = [],
   provinces = [],
   projects = [],
@@ -113,8 +112,8 @@ const SidebarListing: FC<IProps> = ({
     push(window.location.pathname);
   };
   return (
-    <div className={`sidebar-common-listing ${className}`}>
-      <div className='sidebar-common-listing__wrapper'>
+    <div className={`sidebar-common-sale ${className}`}>
+      <div className='sidebar-common-sale__wrapper'>
         <Form className='form-common-listing' form={formRef} size='large' layout='vertical' onFinish={onSubmit}>
           <div className='form-common-listing__wrapper'>
             <div className='form-common-listing__entry form-common-listing__entry--basic'>
@@ -389,4 +388,4 @@ const SidebarListing: FC<IProps> = ({
   );
 };
 
-export default SidebarListing;
+export default SidebarSale;

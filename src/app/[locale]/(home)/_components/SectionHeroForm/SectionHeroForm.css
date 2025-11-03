@@ -9,19 +9,7 @@
 }
 
 .form-home-search__inner--mobile {
-  @apply desktop:hidden mobile:flex mobile:flex-col mobile:gap-[10px];
-}
-
-.form-home-search__inner--mobile .ant-form-item {
-  @apply mobile:!mb-[0px];
-}
-
-.form-home-search__inner--mobile .ant-form-item-label {
-  @apply mobile:!pb-[5px];
-}
-
-.form-home-search__inner--mobile .ant-form-item-label>label {
-  @apply mobile:!text-[14px] mobile:!leading-[calc(25/14)] !font-[700];
+  @apply desktop:hidden;
 }
 
 .form-home-search__filter {
@@ -51,10 +39,6 @@
   @apply w-[135px];
 }
 
-.form-home-search__controller {
-  @apply mobile:mt-[10px] mobile:flex mobile:justify-center mobile:items-center mobile:gap-[20px];
-}
-
 .select-home-salerent {
   @apply w-[166px] min-h-[45px] p-[3px] rounded-[22.5px] border-[1px] border-[#cecece] bg-[#f5f5f5] flex flex-grow-0 flex-shrink-0 gap-[14px] text-[18px] leading-[calc(25/18)] font-[600] text-center;
   @apply tablet-lg:w-[150px] tablet-lg:gap-[10px] tablet-lg:text-[16px] tablet-lg:leading-[calc(25/16)];
@@ -82,18 +66,3 @@
 .toggle-home-search__icon {
   @apply w-[12px] h-[25px] ml-[6px] relative bg-[length:100%_auto] bg-[position:50%_50%] bg-no-repeat flex-grow-0 flex-shrink-0;
 }
-
-/* 
-.home-real-estate-search-form {
-  :global {
-    .search-form {
-      .ant-form-item-label {
-        font-weight: bold;
-      }
-    }
-
-    .scrollbar-hidden::-webkit-scrollbar {
-      display: none;
-    }
-  }
-} */

@@ -2,16 +2,18 @@
 import propertyApiService from '@/apiServices/externalApiServices/propertyApiService';
 import { NAVIGATION } from '@/data/navigation';
 import { listingType, removeDiacritics } from '@/libs/appconst';
+import GoogleMap from '@/components/GoogleMap';
+import LocationConstant from '@/libs/constants/locationConstant';
 import CoordinateModel from '@/models/commonModel/coordinateModel';
 import { ShortHomeRealEstateSearchModel } from '@/models/homeRealEstateSearchModel/homeRealEstateSearchModel';
 import Componentutil from '@/utils/componentUtil';
-import { Pagination } from 'antd';
+import { Pagination, Switch } from 'antd';
 import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next-intl/link';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import './BlockListingRent.css';
 import TableResult from '../TableResult/TableResult';
-import SidebarListingRent from '../SidebarListingRent/SidebarListingRent';
+import SidebarRent from '../SidebarRent/SidebarRent';
 
 export interface IProps {
   totalResult: number;
@@ -50,7 +52,7 @@ const BlockListingRent: FC<IProps> = ({
 }) => {
   const locale = useLocale();
   const t = useTranslations('webLabel');
-
+  const [showingMap, setShowingMap] = useState<boolean>(false);
   const getPropertyLink = (property) => {
     if (property) {
       let stringNotUniCode = removeDiacritics(property.title);
@@ -77,26 +79,62 @@ const BlockListingRent: FC<IProps> = ({
       )
       : '';
   };
-
+  const changeViewMode = (e) => {
+    setShowingMap(e);
+  };
+  const renderMaps = () => {
+    return (
+      <GoogleMap
+        zoom={12}
+        initCenter={LocationConstant.PMHCoordinate}
+        isMarker={true}
+        listMarker={allPropertyCoordinates}
+        useMarkerCluster
+        markerClickedContent={handleMarkerClick}
+      />
+    );
+  };
   return (
-    <div className='block-common-listing'>
-      <SidebarListingRent />
-      <div className="block-common-listing__wrapper">
-        <span className='block-common-listing__title'>{t('EcomHomePagePropertyForSale')}</span>
-        <TableResult listings={listing} />
-        {totalResult > 0 && (
-          <div className="pagination-common">
-            <Pagination
-              current={currentPage}
-              total={totalResult}
-              pageSize={pageSize}
-              showSizeChanger={false}
-              itemRender={(page, itemtype, originalElement) => (
-                <Link href={`${type === listingType.sale ? NAVIGATION.saleListing.href : NAVIGATION.rentListing.href}?${paramsString}&page=${page}`} legacyBehavior>{originalElement}</Link>
-              )}
-            />
+    <div className='block-common-listingrent'>
+      <div className='block-common-listingrent__filter'>
+        <div className='container'>
+          <div className='block-common-listingrent__filter-wrapper'>
+            <SidebarRent />
+            <div className='switch-common-map'>
+              <span className='switch-common-map__label'>Hiển thị bản đồ</span>
+              <Switch className='switch-common-map__control' checked={showingMap} onChange={(e) => changeViewMode(e)}></Switch>
+            </div>
           </div>
-        )}
+          <div className='block-common-listingrent__filter-analyze'>
+            <span className='block-common-listingrent__filter-analyze'>Có 79 kết quả</span>
+            <div className='select-common-sortby'>
+              <span className='select-common-sortby__label'>Sắp xếp:</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className='block-common-listingrent__wrapper'>
+        <div className='container'>
+            <div className='block-common-listingrent__map'>{renderMaps()}</div>
+            {!showingMap && (
+            <>
+              <TableResult className='table-common-result--rent' listings={listing} />
+              {totalResult > 0 && (
+                <div className='pagination-common'>
+                  <Pagination
+                    current={currentPage}
+                    total={totalResult}
+                    pageSize={pageSize}
+                    showSizeChanger={false}
+                    itemRender={(page, itemtype, originalElement) => (
+                      <Link href={`${type === listingType.sale ? NAVIGATION.saleListing.href : NAVIGATION.rentListing.href}?${paramsString}&page=${page}`} legacyBehavior>{originalElement}</Link>
+                    )}
+                  />
+                </div>
+              )}
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

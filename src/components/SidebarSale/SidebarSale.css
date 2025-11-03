@@ -1,4 +1,4 @@
-.sidebar-common-listing {
+.sidebar-common-sale {
   @apply w-[calc(452/1420*100%)] p-[22px_26px_25px] bg-[#fff] rounded-[10px] flex-grow-0 flex-shrink-0 font-mona;
   @apply tablet-lg:w-[400px] tablet-lg:p-[20px];
   @apply tablet-md:w-[100%];
