@@ -1,6 +1,0 @@
-.sidebar-common-listing {
-  @apply w-full p-[22px_26px_25px] bg-[#fff] rounded-[10px] flex-grow-0 flex-shrink-0 font-mona;
-  @apply tablet-lg:w-[400px] tablet-lg:p-[20px];
-  @apply tablet-md:w-[100%];
-  @apply mobile:w-[100%] mobile:p-[20px];
-}

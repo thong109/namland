@@ -9,9 +9,9 @@ import { Pagination } from 'antd';
 import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next-intl/link';
 import { FC } from 'react';
-import './BlockListing.css';
+import './BlockListingSale.css';
 import TableResult from '../TableResult/TableResult';
-import SidebarListing from '@/components/SidebarListing/SidebarListing';
+import SidebarSale from '@/components/SidebarSale/SidebarSale';
 
 export interface IProps {
   totalResult: number;
@@ -31,7 +31,7 @@ export interface IProps {
   allPropertyCoordinates: any;
 }
 
-const BlockListing: FC<IProps> = ({
+const BlockListingSale: FC<IProps> = ({
   type,
   listing,
   properties = [],
@@ -79,8 +79,8 @@ const BlockListing: FC<IProps> = ({
   };
 
   return (
-    <div className='block-common-listing'>
-      <SidebarListing
+    <div className='block-common-listingsale'>
+      <SidebarSale
         searchParams={searchParams}
         type={type}
         properties={properties}
@@ -92,8 +92,8 @@ const BlockListing: FC<IProps> = ({
         funitureStatus={funitureStatus}
         className={''}
       />
-      <div className="block-common-listing__wrapper">
-        <span className='block-common-listing__title'>{t('EcomHomePagePropertyForSale')}</span>
+      <div className="block-common-listingsale__wrapper">
+        <span className='block-common-listingsale__title'>{t('EcomHomePagePropertyForSale')}</span>
         <TableResult listings={listing} />
         {totalResult > 0 && (
           <div className="pagination-common">
@@ -113,4 +113,4 @@ const BlockListing: FC<IProps> = ({
   );
 };
 
-export default BlockListing;
+export default BlockListingSale;

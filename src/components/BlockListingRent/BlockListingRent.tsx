@@ -11,7 +11,7 @@ import Link from 'next-intl/link';
 import { FC } from 'react';
 import './BlockListingRent.css';
 import TableResult from '../TableResult/TableResult';
-import SidebarListingRent from '../SidebarListingRent/SidebarListingRent';
+import SidebarRent from '../SidebarRent/SidebarRent';
 
 export interface IProps {
   totalResult: number;
@@ -79,10 +79,10 @@ const BlockListingRent: FC<IProps> = ({
   };
 
   return (
-    <div className='block-common-listing'>
-      <SidebarListingRent />
-      <div className="block-common-listing__wrapper">
-        <span className='block-common-listing__title'>{t('EcomHomePagePropertyForSale')}</span>
+    <div className='block-common-listingrent'>
+      <SidebarRent />
+      <div className="block-common-listingrent__wrapper">
+        <span className='block-common-listingrent__title'>{t('EcomHomePagePropertyForSale')}</span>
         <TableResult listings={listing} />
         {totalResult > 0 && (
           <div className="pagination-common">

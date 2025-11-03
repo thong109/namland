@@ -39,7 +39,7 @@ const AdvanceSearchListing = dynamic(() => import('@/components/PopupSearchAdvan
 
 export interface HomeRealEstateSearchFormProps { }
 
-const SidebarListingRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
+const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
   const t = useTranslations('webLabel');
   const { push } = useRouter();
   const comm = useTranslations('Common');
@@ -517,4 +517,4 @@ const SidebarListingRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
   );
 };
 
-export default SidebarListingRent;
+export default SidebarRent;
