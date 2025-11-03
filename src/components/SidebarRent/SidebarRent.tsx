@@ -282,7 +282,6 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
             <Input
               className='input-common-search'
               placeholder={t('HomeRealEstateSearchFormSearchFieldPlaceHolder')}
-              prefix={<MagnifyingGlassIcon className='size-4' />}
               allowClear
               suffix={
                 <ButtonCore type='submit' buttonType='search'/>
