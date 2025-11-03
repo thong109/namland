@@ -346,11 +346,6 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
           <div className='form-common-listing'>
             <div className='form-common-listing__wrapper'>
               <div className='form-common-listing__entry form-common-listing__entry--stacked'>
-                <div className='form-common-listing__entry-wrapper'>
-                  <SelectCommonType filterBy={filterBy} setFilterBy={seFilterBy} t={t} />
-                </div>
-              </div>
-              <div className='form-common-listing__entry form-common-listing__entry--stacked'>
                 <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormSearch')}</span>
                 <div className='form-common-listing__entry-wrapper'>
                   <Form.Item className='form-common-listing__entry-item' name='k'>
@@ -360,22 +355,9 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
                       allowClear
                       />
                   </Form.Item>
-                </div>
-              </div>
-              <div className='form-common-listing__entry form-common-listing__entry--stacked'>
-                <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchProject')}</span>
-                <div className='form-common-listing__entry-wrapper'>
-                  <Form.Item className='form-common-listing__entry-item'>
-                    <SelectCheckbox
-                      placeholder={t('HomeRealEstateSearchFormSearchFieldProject')}
-                      showSearch
-                      options={projects?.map((prj) => ({
-                        value: prj.id,
-                        label: prj.name,
-                        id: prj.id,
-                      }))}
-                    />
-                  </Form.Item>
+                  <div className='form-common-listing__entry-item'>
+                    <SelectCommonType filterBy={filterBy} setFilterBy={seFilterBy} t={t} />
+                  </div>
                 </div>
               </div>
               <div className='form-common-listing__entry form-common-listing__entry--stacked'>
@@ -411,27 +393,7 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
                   </Form.Item>
                 </div>
               </div>
-              <div className='form-common-listing__entry form-common-listing__entry--stacked'>
-                <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormLocation')}</span>
-                <div className='form-common-listing__entry-wrapper'>
-                  <Form.Item className='form-common-listing__entry-item' name='p'>
-                    <Select
-                      placeholder={t('ListingSearchPlaceholderProvince')}
-                      showSearch
-                      // allowClear={{ clearIcon: <>x</> }}
-                      allowClear
-                      filterOption={filterOptionsRemoveVietnameseTones}
-                      className='no-raidus-selector'
-                      options={provinces?.map((province) => ({
-                        value: province.provinceID,
-                        label: province.listProvinceName,
-                        id: province.provinceID,
-                      }))}
-                    />
-                  </Form.Item>
-                </div>
-              </div>
-              <div className='form-common-listing__entry form-common-listing__entry--stacked'>
+              <div className='form-common-listing__entry form-common-listing__entry--end'>
                 <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormMoreFilter')}</span>
                 <div className='form-common-listing__entry-wrapper'>
                   <Form.Item className='form-common-listing__entry-item'>
@@ -462,7 +424,6 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
               />
             </Modal>
             <div className='form-common-listing__controller'>
-              <div className='button-common-resetfilters' onClick={resetFilter}>{t('HomeRealEstateSearchFormClearFilter')}</div>
               <ButtonCore type='submit' label={`${t('HomeRealEstateSearchFormSearch')}!`} />
             </div>
           </div>
