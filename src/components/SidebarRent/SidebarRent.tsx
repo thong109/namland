@@ -280,7 +280,7 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
         <div className='sidebar-common-rent__wrapper sidebar-common-rent__wrapper--desktop'>
           <Form.Item className='sidebar-common-rent__entry' name='k'>
             <Input
-              className='input-common-search'
+              className='input-common'
               placeholder={t('HomeRealEstateSearchFormSearchFieldPlaceHolder')}
               allowClear
               suffix={
@@ -288,7 +288,9 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
               }
             />
           </Form.Item>
-          <SelectCommonType filterBy={filterBy} setFilterBy={seFilterBy} t={t} />
+          <div className='sidebar-common-rent__entry'>
+            <SelectCommonType filterBy={filterBy} setFilterBy={seFilterBy} t={t} />
+          </div>
           <Form.Item className='sidebar-common-rent__entry' name='c'>
             <Select
               className='select-common'
@@ -364,9 +366,9 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
                 <div className='form-common-listing__entry-wrapper'>
                   <Form.Item className='form-common-listing__entry-item' name='c'>
                     <Select
+                      className='select-common'
                       placeholder={t('HomeRealEstateSearchFormType')}
                       allowClear
-                      className='no-raidus-selector'
                       mode='multiple'
                     >
                       {(filterBy === listingType.sale ? saleCategories : rentCategories)?.map(
@@ -385,7 +387,7 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
                 <div className='form-common-listing__entry-wrapper'>
                   <Form.Item className='form-common-listing__entry-item' name='rp'>
                     <PopupSearchPrice
-                      className='no-raidus-selector'
+                      className='select-common'
                       typeft={filterBy}
                       placeholder={t('HomeRealEstateSearchFormPriceFieldPlaceHolder')}
                     />
@@ -398,9 +400,9 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
                   <Form.Item className='form-common-listing__entry-item'>
                     <div onClick={() => setIsMobileMoreFilterModalOpen(!isMobileMoreFilterModalOpen)}>
                       <Select
+                        className='select-common'
                         placeholder={t('HomeRealEstateSearchFormMoreFilterFieldPlaceHolder')}
                         value={selectedMoreFilterArea}
-                        className='no-raidus-selector w-full'
                         open={false}
                       />
                     </div>

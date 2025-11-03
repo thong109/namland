@@ -17,6 +17,14 @@
   @apply mobile:p-[10px_0];
 }
 
+.block-common-listingrent__filter-wrapper {
+  @apply flex items-center gap-[50px];
+}
+
+.block-common-listingrent__filter-wrapper .sidebar-common-rent {
+  @apply max-w-[1210px] flex-1;
+}
+
 .block-common-listingrent .pagination-common {
   @apply mt-[36px];
   @apply tablet-lg:mt-[30px];

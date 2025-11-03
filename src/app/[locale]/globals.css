@@ -80,6 +80,17 @@ input,select,textarea {
   @apply mobile:text-[14px] mobile:leading-[calc(25/14)] mobile:decoration-[1px];
 }
 
+.button-common-searchadvanced {
+  @apply w-[100%] min-h-[40px] flex justify-between items-center p-[6.5px_9px_6.5px_14px] border-[1px] border-[#97282b] bg-[#f6cac9] rounded-[5px] font-mona text-[16px] leading-[calc(25/16)];
+  @apply tablet-lg:p-[4px_13px] tablet-lg:text-[14px] tablet-lg:leading-[calc(20/14)];
+  @apply mobile:p-[4px_9px] mobile:text-[14px] mobile:leading-[calc(20/14)];
+}
+
+.button-common-searchadvanced::after {
+  content: "";
+  @apply w-[12px] h-[12px] ml-[5px] bg-[url('../../assets/images/common/icon_arrow_01.svg')] bg-[length:100%_auto] bg-center bg-no-repeat block flex-grow-0 flex-shrink-0;
+}
+
 /* Pagination */
 
 .pagination-common {
@@ -305,6 +316,45 @@ input,select,textarea {
 
 .select-common .anticon.anticon-down.ant-select-suffix > svg {
   @apply !opacity-0;
+}
+
+.select-common--type .ant-select-selector {
+  @apply !border-[#97282b] !bg-[#f6cac9];
+}
+
+.switch-common-map {
+  @apply min-h-[40px] flex justify-between items-center p-[6.5px_14px_6.5px_16px] border-[1px] border-[#d9d9d9] bg-[#fff] rounded-[5px] font-mona text-[16px] leading-[calc(25/16)];
+  @apply tablet-lg:p-[4px_13px] tablet-lg:text-[14px] tablet-lg:leading-[calc(20/14)];
+  @apply mobile:p-[4px_9px] mobile:text-[14px] mobile:leading-[calc(20/14)];
+}
+
+.switch-common-map__label {
+  @apply mr-[12px];
+}
+
+.switch-common-map__control {
+  @apply !w-[32px] !min-w-[auto] !h-[15px] !min-h-[auto] !m-[0] !p-[0] !border-[1px] !border-[#c2c2c2] !rounded-[99999px];
+}
+
+.switch-common-map__control .ant-switch-handle {
+  @apply !w-[13px] !h-[13px] !top-[1px];
+  inset-inline-start: 1px !important;
+}
+
+.switch-common-map__control .ant-switch-handle::before {
+  @apply !bg-[#982220] !shadow-none;
+}
+
+.switch-common-map__control .ant-switch-inner {
+  @apply !w-[100%] !min-w-[auto] !h-[100%] !min-h-[auto] !border-none !bg-[#d9d9d9] !m-[0] !p-[0] !rounded-[99999px];
+}
+
+.switch-common-map__control .ant-switch-inner * {
+  @apply !w-[100%] !min-w-[auto] !h-[100%] !min-h-[auto] !m-[0] !p-[0] !hidden;
+}
+
+.switch-common-map__control.ant-switch-checked .ant-switch-handle {
+  inset-inline-start: calc(100% - 14px) !important;
 }
 
 .radio-common {
