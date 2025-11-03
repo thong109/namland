@@ -42,10 +42,9 @@ const getAllPropertyCoordinates = async (filter) => {
 };
 
 const PageRentListing: React.FC<PageRentListingProps> = async ({ searchParams }) => {
-  const size = 10;
+  const size = 24;
   const curentPage = Number(searchParams.page) || 1;
   const filter = convertToHomeRealEstateSearchModel({ ...searchParams, s: size, page: curentPage });
-
   const rentCategories = ((await getEcomListingCategoryGetList({ type: listingType.rent })) as any)
     .data.data;
   const provinces = ((await getEcomEcomPlaceGetProvince()) as any).data?.data;
@@ -59,7 +58,6 @@ const PageRentListing: React.FC<PageRentListingProps> = async ({ searchParams })
   const { page, ...paramOtherPage } = searchParams;
   const paramsString = getParamsStringFromObj(paramOtherPage);
   const allPropertyCoordinates = await getAllPropertyCoordinates(filter);
-
   return (
     <>
       <Breadcrumb
