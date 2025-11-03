@@ -21,3 +21,13 @@
   @apply tablet-lg:mt-[30px];
   @apply mobile:mt-[30px];
 }
+
+.section-common-similar--rent .section-common-similar__title {
+  @apply text-center;
+}
+
+.section-common-similar--rent .section-common-similar__wrapper {
+  @apply grid-cols-4 gap-[30px];
+  @apply tablet-lg:gap-[20px];
+  @apply mobile:grid-cols-1 mobile:gap-[20px];
+}

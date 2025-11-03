@@ -29,7 +29,7 @@ const CardListingHomePage: React.FC<CardListingHomePageProps> = ({ className, li
         </div>
       </div>
       <div className='card-common-listing__wrapper'>
-        <div>
+        <div className='card-common-listing__inner'>
           <span className='card-common-listing__title line-clamp-2'>{listingDetail?.title}</span>
           <ul className='card-common-listing__info'>
             <li className='card-common-listing__info-entry'>
