@@ -49,3 +49,65 @@
 .card-common-listing__wrapper {
   @apply flex flex-col justify-between flex-1;
 }
+
+.card-common-listing--rent {
+  @apply p-[21px_18px_18px];
+  @apply tablet-lg:p-[19px];
+  @apply mobile:p-[19px];
+}
+
+.card-common-listing--rent .card-common-listing__visual {
+  @apply mb-[14px];
+  @apply tablet-lg:mb-[15px];
+  @apply mobile:mb-[15px];
+}
+
+.card-common-listing--rent .card-common-listing__price {
+  @apply mb-[5px];
+  @apply tablet-lg:mb-[10px];
+  @apply mobile:mb-[10px];
+}
+
+.card-common-listing--rent .card-common-listing__price-main {
+  @apply text-[18px] leading-[calc(24/18)] font-[600];
+  @apply mobile:text-[16px] mobile:leading-[calc(24/16)];
+}
+
+.card-common-listing--rent .card-common-listing__price-original {
+  @apply ml-[15px] text-[16px] leading-[calc(24/16)] line-through text-[#982220];
+  @apply mobile:text-[14px] mobile:leading-[calc(24/14)];
+}
+
+.card-common-listing--rent .card-common-listing__detail {
+  @apply mt-[12px] text-[16px] leading-[calc(24/16)];
+  @apply tablet-lg:mt-[10px] tablet-lg:text-[14px] tablet-lg:leading-[calc(24/14)];
+  @apply mobile:mt-[10px] mobile:text-[14px] mobile:leading-[calc(24/14)];
+}
+
+.list-common-properties {
+  @apply flex flex-wrap gap-[10px_47px] text-[16px] leading-[calc(24/16)];
+  @apply tablet-lg:gap-[10px_30px] tablet-lg:text-[14px] tablet-lg:leading-[calc(24/14)];
+  @apply mobile:gap-[10px_30px] mobile:text-[14px] mobile:leading-[calc(24/14)];
+}
+
+.list-common-properties__item {
+  @apply flex items-start;
+}
+
+.list-common-properties__item-icon {
+  @apply h-[24px] mr-[6px] bg-[length:100%_auto] bg-[position:50%_50%] bg-no-repeat flex-grow-0 flex-shrink-0;
+  @apply tablet-lg:mr-[5px];
+  @apply mobile:mr-[5px];
+}
+
+.list-common-properties__item-icon--bedroom {
+  @apply w-[15px] bg-[url(../../assets/images/common/icon_properties_01.svg)];
+}
+
+.list-common-properties__item-icon--bathroom {
+  @apply w-[22px] bg-[url(../../assets/images/common/icon_properties_02.svg)];
+}
+
+.list-common-properties__item-icon--area {
+  @apply w-[27px] bg-[url(../../assets/images/common/icon_properties_03.svg)];
+}

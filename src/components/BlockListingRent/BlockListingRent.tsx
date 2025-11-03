@@ -12,7 +12,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next-intl/link';
 import { FC, useState } from 'react';
 import './BlockListingRent.css';
-import CardListing from '@/components/CardListing/CardListing';
+import CardListingRent from '@/components/CardListing/CardListingRent';
 import SidebarRent from '../SidebarRent/SidebarRent';
 
 export interface IProps {
@@ -122,7 +122,7 @@ const BlockListingRent: FC<IProps> = ({
               <div className='table-common-result table-common-result--rent'>
                 {listing.map((item: any) => (
                   <div key={item.id} className='table-common-result__cell'>
-                    <CardListing listing={item} />
+                    <CardListingRent listing={item} />
                   </div>
                 ))}
               </div>
