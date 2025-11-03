@@ -38,3 +38,7 @@
 .popup-common-searchadvanced .form-common-listing__entry--stacked:nth-child(3) {
   @apply !border-b-[0px] !pb-[0px];
 }
+
+.popup-common-searchadvanced__controller {
+  @apply mt-[20px] flex justify-end gap-[10px];
+}

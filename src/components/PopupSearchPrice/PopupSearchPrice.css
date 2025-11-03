@@ -45,4 +45,6 @@
 
 .popup-common-searchprice__controller {
   @apply mt-[11px] flex justify-end gap-[10px];
+  @apply tablet-lg:mt-[20px];
+  @apply mobile:mt-[20px];
 }
