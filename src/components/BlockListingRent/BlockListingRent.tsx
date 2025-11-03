@@ -109,6 +109,7 @@ const BlockListingRent: FC<IProps> = ({
             <div className='block-common-listingrent__analyze-label'>Có 79 kết quả</div>
             <div className='select-common-sortby'>
               <span className='select-common-sortby__label'>Sắp xếp:</span>
+              <div className='select-common-sortby__control'></div>
             </div>
           </div>
         </div>

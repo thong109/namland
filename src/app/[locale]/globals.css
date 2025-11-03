@@ -339,6 +339,23 @@ input,select,textarea {
   @apply !border-[#97282b] !bg-[#f6cac9];
 }
 
+.select-common-sortby {
+
+}
+
+.select-common-sortby__label {
+  @apply mr-[23px] py-[7.5px] flex items-start relative text-[16px] leading-[calc(25/16)];
+  @apply tablet-lg:mr-[10px] tablet-lg:py-[10px] tablet-lg:text-[14px] tablet-lg:leading-[calc(20/14)];
+  @apply mobile:mr-[10px] mobile:py-[10px] mobile:text-[14px] mobile:leading-[calc(20/14)];
+}
+
+.select-common-sortby__label::before {
+  content: "";
+  @apply w-[7px] h-[7px] my-[9px] mr-[9px] bg-[#9a9a9a] rounded-[50%] flex-grow-0 flex-shrink-0;
+  @apply tablet-lg:w-[5px] tablet-lg:h-[5px] tablet-lg:my-[7.5px] tablet-lg:mr-[10px];
+  @apply mobile:w-[5px] mobile:h-[5px] mobile:my-[7.5px] mobile:mr-[10px];
+}
+
 .switch-common-map {
   @apply min-h-[40px] flex justify-between items-center p-[6.5px_14px_6.5px_16px] border-[1px] border-[#d9d9d9] bg-[#fff] rounded-[5px] font-mona text-[16px] leading-[calc(25/16)];
   @apply tablet-lg:p-[4px_13px] tablet-lg:text-[14px] tablet-lg:leading-[calc(20/14)];
