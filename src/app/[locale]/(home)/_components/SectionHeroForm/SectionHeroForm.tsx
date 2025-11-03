@@ -2,7 +2,7 @@
 
 import { Form, Input, Modal, Popconfirm, Select } from 'antd';
 import { useTranslations } from 'next-intl';
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 
 import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import PopupSearchPrice from '@/components/PopupSearchPrice/PopupSearchPrice';
@@ -26,7 +26,6 @@ import {
 import { filterOptionsRemoveVietnameseTones } from '@/libs/helper';
 import { ShortHomeRealEstateSearchModel } from '@/models/homeRealEstateSearchModel/homeRealEstateSearchModel';
 import * as pixel from '@/utils/pixel';
-import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 import clsx from 'clsx';
 import dayjs from 'dayjs';
 import { useRouter } from 'next-intl/client';
@@ -42,7 +41,7 @@ const AdvanceSearchListing = dynamic(() => import('@/components/PopupSearchAdvan
 
 export interface SectionHeroFormProps { }
 
-const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
+const SectionHeroForm: FC<SectionHeroFormProps> = () => {
   const t = useTranslations('webLabel');
   const { push } = useRouter();
   const comm = useTranslations('Common');
@@ -76,6 +75,8 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
     (value) => value !== undefined && value?.length !== 0 && value !== null && value !== '',
   );
   const [currentLocation, setCurrentLocation] = useState<any>(null);
+  const hasInit = useRef(false);
+
   const initFilters = async () => {
     const project = ((await getEcomEcomProjectGetListProjectSearch()) as any).data;
     setProjects(project);
@@ -98,15 +99,20 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
     const funitureStatus = ((await getEcomInteriorGetList()) as any).data;
     setFunitureStatus(funitureStatus);
   };
+
   useEffect(() => {
+    if (hasInit.current) return;
+    hasInit.current = true;
     initFilters();
   }, []);
+
   useEffect(() => {
     const keywordValue = form.getFieldValue('k');
     form.resetFields();
     formAdvanceSearch.resetFields();
     form.setFieldsValue({ k: keywordValue });
   }, [filterBy]);
+
   const addStringByArr = (str: string, arrParent: any[], arrResult: any[]) => {
     if (arrResult && arrResult.length > 0) {
       const viewStr = arrParent
@@ -121,6 +127,7 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
     }
     return str;
   };
+
   const addStringByBoolean = (str: string, value: any, title: string) => {
     if (!str) {
       str = str + title + ': ' + comm(value ? 'Yes' : 'No');
@@ -327,8 +334,8 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                       t('HomeRealEstateSearchFormMoreFilter'),
                       <AdvanceSearchListing
                         filterBy={filterBy}
-                        formref={formAdvanceSearch}
-                        funitureStatus={funitureStatus}
+                        formRef={formAdvanceSearch}
+                        furnitureStatus={funitureStatus}
                         inAmenities={inAmenities}
                         outAmenities={outAmenities}
                         views={views}
@@ -348,7 +355,7 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                 <Form.Item className='form-home-search__field-wrapper' name='k'>
                   <Input
                     allowClear
-                    suffix={ <ButtonCore type='submit' buttonType='search' label={`${t('HomeRealEstateSearchFormSearch')}`} /> }
+                    suffix={<ButtonCore type='submit' buttonType='search' label={`${t('HomeRealEstateSearchFormSearch')}`} />}
                   />
                 </Form.Item>
               </div>
@@ -458,8 +465,8 @@ const SectionHeroForm: FC<SectionHeroFormProps> = ({ }) => {
                 <Modal open={isMobileMoreFilterModalOpen} footer={null} centered closable={false}>
                   <AdvanceSearchListing
                     filterBy={filterBy}
-                    formref={formAdvanceSearch}
-                    funitureStatus={funitureStatus}
+                    formRef={formAdvanceSearch}
+                    furnitureStatus={funitureStatus}
                     inAmenities={inAmenities}
                     outAmenities={outAmenities}
                     views={views}

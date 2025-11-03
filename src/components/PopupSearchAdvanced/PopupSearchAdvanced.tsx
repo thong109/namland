@@ -1,28 +1,22 @@
 'use client';
-import SelectorChip from '@/components/SelectorChip/SelectorChip';
-import ButtonCore from '@/components/ButtonCore/ButtonCore';
-import {
-  getParamsStringFromObj,
-  handOverStatuses,
-  legalStatuses,
-  listLangue,
-  listingRentLeaseTerm,
-  listingType,
-} from '@/libs/appconst';
-import { filterOptionsRemoveVietnameseTones, formatDate } from '@/libs/helper';
-import { useTranslations } from 'next-intl';
+
 import { useRef } from 'react';
-import { Button, Checkbox, DatePicker, Form, Input, Radio, Select } from 'antd';
+import { useTranslations } from 'next-intl';
+import { Button, Checkbox, Form, Select } from 'antd';
+import type { FormInstance } from 'antd';
+
+import ButtonCore from '@/components/ButtonCore/ButtonCore';
+import { handOverStatuses, legalStatuses, listingRentLeaseTerm, listingType } from '@/libs/appconst';
+import { filterOptionsRemoveVietnameseTones, formatDate } from '@/libs/helper';
 
 export interface IProps {
-  formref: any;
-  filterBy: number;
-  views?: any;
-  inAmenities?: any;
-  outAmenities?: any;
-  funitureStatus?: any;
+  formRef: FormInstance<any>;
+  filterBy?: number;
+  views?: { id: number | string; name: string }[];
+  inAmenities?: { id: number | string; name: string; imageUrl?: string }[];
+  outAmenities?: { id: number | string; name: string; imageUrl?: string }[];
+  furnitureStatus?: { id: number | string; interiorName: string }[];
   onFormChange?: (changedValues: any, allValues: any) => void;
-
   onChangePopup?: (value: boolean) => void;
   notActionButton?: boolean;
 }
@@ -31,100 +25,234 @@ const AdvanceSearchListing = ({
   views = [],
   inAmenities = [],
   outAmenities = [],
-  funitureStatus = [],
-  formref,
+  furnitureStatus = [],
+  formRef,
   filterBy = listingType.sale,
   onFormChange,
   onChangePopup,
   notActionButton = false,
 }: IProps) => {
-  const comm = useTranslations('Common');
   const t = useTranslations('webLabel');
+  const comm = useTranslations('Common');
   const popupRef = useRef<HTMLDivElement>(null);
 
+  // ✅ Close popup after apply
   const handleApply = () => {
     onChangePopup?.(false);
   };
 
+  // ✅ Reset and notify parent
   const handleReset = () => {
-    formref?.resetFields();
+    formRef?.resetFields();
+    onFormChange?.({}, formRef?.getFieldsValue());
   };
 
   return (
-    <div className='popup-common-searchadvanced' ref={popupRef}>
-      <Form className='form-common-listing' form={formref} onValuesChange={onFormChange} layout='vertical'>
-        <div className='form-common-listing__wrapper'>
-          <div className='form-common-listing__entry form-common-listing__entry--stacked'>
-            <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormView')}</span>
-            <div className='form-common-listing__entry-wrapper'>
-              <Form.Item name='v' className='!mb-0'>
+    <div className="popup-common-searchadvanced" ref={popupRef}>
+      <Form
+        className="form-common-listing"
+        form={formRef}
+        onValuesChange={onFormChange}
+        layout="vertical"
+      >
+        <div className="form-common-listing__wrapper">
+          {/* === Hướng === */}
+          <div className="form-common-listing__entry form-common-listing__entry--stacked">
+            <span className="form-common-listing__entry-label">
+              {t('HomeRealEstateSearchFormView')}
+            </span>
+            <div className="form-common-listing__entry-wrapper">
+              <Form.Item name="v" className="!mb-0">
                 <Select
-                  className='select-common'
+                  className="select-common"
                   placeholder={t('HomeRealEstateSearchFormView')}
                   allowClear
                   filterOption={filterOptionsRemoveVietnameseTones}
-                >
-                  {views?.map((view) => (
-                    <Select.Option key={view.id} value={view.id}>
-                      {view.name}
-                    </Select.Option>
-                  ))}
-                </Select>
+                  getPopupContainer={(trigger) => trigger.parentElement!}
+                  options={views.map((view) => ({
+                    label: view.name,
+                    value: view.id,
+                  }))}
+                />
               </Form.Item>
             </div>
           </div>
-          <div className='form-common-listing__entry form-common-listing__entry--stacked'>
-            <span className='form-common-listing__entry-label'>{t('HomeRealEstateSearchFormFurnitureStatus')}</span>
-            <div className='form-common-listing__entry-wrapper'>
-              <Form.Item className='form-common-listing__entry-item' name='i'>
+
+          {filterBy === listingType.sale && (
+            <>
+              {/* Pháp lý */}
+              <div className="form-common-listing__entry form-common-listing__entry--stacked">
+                <span className="form-common-listing__entry-label">
+                  {t('HomeRealEstateSearchFormLegalStatus')}
+                </span>
+                <div className="form-common-listing__entry-wrapper">
+                  <Form.Item name="lS" className="!mb-0">
+                    <Select
+                      className="select-common"
+                      placeholder={t('HomeRealEstateSearchFormLegalStatus')}
+                      allowClear
+                      getPopupContainer={(trigger) => trigger.parentElement!}
+                      options={legalStatuses.map((term) => ({
+                        label: comm(term.name),
+                        value: term.id,
+                      }))}
+                    />
+                  </Form.Item>
+                </div>
+              </div>
+            </>
+          )}
+
+          {filterBy === listingType.rent && (
+            <>
+              {/* Thời hạn thuê */}
+              <div className="form-common-listing__entry form-common-listing__entry--stacked">
+                <span className="form-common-listing__entry-label">
+                  {t('HomeRealEstateSearchFormLeaseTerm')}
+                </span>
+                <div className="form-common-listing__entry-wrapper">
+                  <Form.Item name="lt" className="!mb-0">
+                    <Select
+                      className="select-common"
+                      placeholder={t('HomeRealEstateSearchFormLeaseTerm') || 'Chọn thời hạn thuê'}
+                      allowClear
+                      getPopupContainer={(trigger) => trigger.parentElement!}
+                      options={listingRentLeaseTerm.map((term) => ({
+                        label: comm(term.name),
+                        value: term.id,
+                      }))}
+                    />
+                  </Form.Item>
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* === Tình trạng nội thất === */}
+          <div className="form-common-listing__entry form-common-listing__entry--stacked">
+            <span className="form-common-listing__entry-label">
+              {t('HomeRealEstateSearchFormFurnitureStatus')}
+            </span>
+            <div className="form-common-listing__entry-wrapper">
+              <Form.Item name="i" className="!mb-0">
                 <Select
-                  className='select-common'
+                  className="select-common"
                   placeholder={t('HomeRealEstateSearchFormFurnitureStatus')}
-                  options={funitureStatus?.map((item) => ({
-                    id: item.id,
-                    name: item.interiorName,
+                  allowClear
+                  getPopupContainer={(trigger) => trigger.parentElement!}
+                  options={furnitureStatus.map((item) => ({
+                    label: item.interiorName,
+                    value: item.id,
                   }))}
                 />
               </Form.Item>
             </div>
           </div>
-          <div className='form-common-listing__entry form-common-listing__entry--stacked'>
-            <span className='form-common-listing__entry-label'>{t('inDoorAmenities')}</span>
-            <div className='form-common-listing__entry-wrapper'>
-              <Form.Item className='form-common-listing__entry-item' name='inA' valuePropName='checked'>
-                <Checkbox.Group
-                  className='checkbox-common'
-                  name='inA'
-                  options={inAmenities?.map((p) => ({
-                    name: p.name,
-                    value: p.id,
-                    imageUrl: p.imageUrl,
-                  }))}
-                />
+
+          {filterBy === listingType.sale && (
+            <>
+              {/* Tình trạng bàn giao */}
+              <div className="form-common-listing__entry form-common-listing__entry--stacked">
+                <span className="form-common-listing__entry-label">
+                  {t('HomeRealEstateSearchFormHandoverStatus')}
+                </span>
+                <div className="form-common-listing__entry-wrapper">
+                  <Form.Item name="hS" className="!mb-0">
+                    <Select
+                      className="select-common"
+                      placeholder={t('HomeRealEstateSearchFormHandoverStatus')}
+                      allowClear
+                      getPopupContainer={(trigger) => trigger.parentElement!}
+                      options={handOverStatuses.map((term) => ({
+                        label: comm(term.name),
+                        value: term.id,
+                      }))}
+                    />
+                  </Form.Item>
+                </div>
+              </div>
+            </>
+          )}
+
+          {filterBy === listingType.rent && (
+            <>
+              {/* Cho phép vật nuôi */}
+              <div className="form-common-listing__entry form-common-listing__entry--stacked">
+                <span className="form-common-listing__entry-label">
+                  {t('HomeRealEstateSearchFormPetAllowance')}
+                </span>
+                <div className="form-common-listing__entry-wrapper">
+                  <Form.Item name="iPA" className="!mb-0">
+                    <Select
+                      className="select-common"
+                      placeholder={t('HomeRealEstateSearchFormPetAllowance') || 'Chọn thời hạn thuê'}
+                      allowClear
+                      getPopupContainer={(trigger) => trigger.parentElement!}
+                      options={[
+                        { id: true, name: 'Yes' },
+                        { id: false, name: 'No' },
+                      ].map((item) => ({
+                        label: comm(item.name),
+                        value: item.id,
+                      }))}
+                    />
+                  </Form.Item>
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* === INDOOR AMENITIES === */}
+          <div className="form-common-listing__entry form-common-listing__entry--stacked">
+            <span className="form-common-listing__entry-label">
+              {t('inDoorAmenities')}
+            </span>
+            <div className="form-common-listing__entry-wrapper">
+              <Form.Item name="indoorAmenities" className="!mb-0">
+                <Checkbox.Group className="checkbox-common">
+                  {inAmenities.map((a) => (
+                    <Checkbox key={a.id} value={a.id}>
+                      {a.name}
+                    </Checkbox>
+                  ))}
+                </Checkbox.Group>
               </Form.Item>
             </div>
           </div>
-          <div className='form-common-listing__entry form-common-listing__entry--stacked'>
-            <span className='form-common-listing__entry-label'>{t('outDoorAmenities')}</span>
-            <div className='form-common-listing__entry-wrapper'>
-              <Form.Item className='form-common-listing__entry-item' name='outA' valuePropName='checked'>
-                <Checkbox.Group
-                  className='checkbox-common'
-                  name='outA'
-                  options={outAmenities?.map((p) => ({
-                    name: p.name,
-                    value: p.id,
-                    imageUrl: p.imageUrl,
-                  }))}
-                />
+
+          {/* === OUTDOOR AMENITIES === */}
+          <div className="form-common-listing__entry form-common-listing__entry--stacked">
+            <span className="form-common-listing__entry-label">
+              {t('outDoorAmenities')}
+            </span>
+            <div className="form-common-listing__entry-wrapper">
+              <Form.Item name="outdoorAmenities" className="!mb-0">
+                <Checkbox.Group className="checkbox-common">
+                  {outAmenities.map((a) => (
+                    <Checkbox key={a.id} value={a.id}>
+                      {a.name}
+                    </Checkbox>
+                  ))}
+                </Checkbox.Group>
               </Form.Item>
             </div>
           </div>
         </div>
+
+        {/* === ACTION BUTTONS === */}
         {!notActionButton && (
-          <div className='form-common-listing__controller'>
-            <ButtonCore onClick={handleReset} preset='neutral' label={t('HomeSearchResetButton')} />
-            <ButtonCore type='submit' onClick={handleApply} label={t('HomeSearchAplyButton')} />
+          <div className="form-common-listing__controller">
+            <ButtonCore
+              type="reset"
+              onClick={handleReset}
+              preset="neutral"
+              label={t('HomeSearchResetButton')}
+            />
+            <ButtonCore
+              type="submit"
+              onClick={handleApply}
+              label={t('HomeSearchAplyButton')}
+            />
           </div>
         )}
       </Form>

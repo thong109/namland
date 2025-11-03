@@ -1,34 +1,22 @@
-'use client';
-import { NAVIGATION } from '@/data/navigation';
 import { postEcomEcomProjectGetListProject } from '@/ecom-sadec-api-client';
 import { ProjectDetailModel } from '@/models/projectModel/projectDetailModel';
 import ApiResponseModel from '@/models/reponseModel/apiResponseModel';
 import PageResultModel from '@/models/reponseModel/pageResultModel';
-import clsx from 'clsx';
-import Link from 'next-intl/link';
-import React from 'react';
-import ExploreProjectCard from './ExploreProjectCard';
-import './ExploreProjectCard.scss';
-import { Typography } from 'antd';
-import { useTranslations } from 'next-intl';
 import ProjectCardItem from '@/app/[locale]/project/_components/projectCardItem';
-
+import { getTranslations } from 'next-intl/server';
 interface Props {
   locale: string;
 }
 
 const getProjects = async () => {
-  const projects = (await postEcomEcomProjectGetListProject({
-    requestBody: {
-      from: 0,
-      size: 6,
-    },
+  const res = (await postEcomEcomProjectGetListProject({
+    requestBody: { from: 0, size: 6 },
   })) as ApiResponseModel<PageResultModel<ProjectDetailModel>>;
-  return projects?.data?.data ?? [];
+  return res?.data?.data ?? [];
 };
 
-const SectionExploreProjects: React.FC<Props> = async ({ locale }) => {
-  const t = useTranslations('webLabel');
+const SectionExploreProjects = async ({ locale }: Props) => {
+  const t = await getTranslations('webLabel');
   const projects = await getProjects();
 
   return (

@@ -1,4 +1,5 @@
-import BgHome from '@/assets/images/bg-home-2.webp';
+'use client';
+
 import Image from 'next/image';
 import { FC } from 'react';
 import { assetsImages } from '@/assets/images/package';
@@ -16,12 +17,16 @@ const SectionHero: FC<SectionHeroProps> = ({ className = '' }) => {
     <div className='section-home-hero'>
       <div className='container'>
         <div className='section-home-hero__wrapper'>
-          <span className='section-home-hero__title'>Giải pháp giao dịch bất động sản từ trực tuyến đến trực tiếp của Nam Long O2O</span>
+          <span className='section-home-hero__title'>
+            Giải pháp giao dịch bất động sản từ trực tuyến đến trực tiếp của Nam Long Living
+          </span>
           <SectionHeroForm />
         </div>
         <div className='section-home-hero__visual'>
           <ButtonCore preset='directing' label='Xem chi tiết' />
-          <div className='section-home-hero__visual-wrapper'><Image src={ assetsImages.homeBackgroundHero } alt='Visual' /></div>
+          <div className='section-home-hero__visual-wrapper'>
+            <Image src={assetsImages.homeBackgroundHero} alt='Visual' />
+          </div>
         </div>
       </div>
     </div>
