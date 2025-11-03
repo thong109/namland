@@ -4,10 +4,9 @@ import { useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { Button, Checkbox, Form, Select } from 'antd';
 import type { FormInstance } from 'antd';
-
-import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import { handOverStatuses, legalStatuses, listingRentLeaseTerm, listingType } from '@/libs/appconst';
 import { filterOptionsRemoveVietnameseTones, formatDate } from '@/libs/helper';
+import './PopupSearchAdvanced.css';
 
 export interface IProps {
   formRef: FormInstance<any>;
@@ -36,12 +35,10 @@ const AdvanceSearchListing = ({
   const comm = useTranslations('Common');
   const popupRef = useRef<HTMLDivElement>(null);
 
-  // ✅ Close popup after apply
   const handleApply = () => {
     onChangePopup?.(false);
   };
 
-  // ✅ Reset and notify parent
   const handleReset = () => {
     formRef?.resetFields();
     onFormChange?.({}, formRef?.getFieldsValue());
@@ -49,14 +46,8 @@ const AdvanceSearchListing = ({
 
   return (
     <div className="popup-common-searchadvanced" ref={popupRef}>
-      <Form
-        className="form-common-listing"
-        form={formRef}
-        onValuesChange={onFormChange}
-        layout="vertical"
-      >
+      <Form className="form-common-listing" form={formRef} onValuesChange={onFormChange} layout="vertical">
         <div className="form-common-listing__wrapper">
-          {/* === Hướng === */}
           <div className="form-common-listing__entry form-common-listing__entry--stacked">
             <span className="form-common-listing__entry-label">
               {t('HomeRealEstateSearchFormView')}
@@ -77,10 +68,8 @@ const AdvanceSearchListing = ({
               </Form.Item>
             </div>
           </div>
-
           {filterBy === listingType.sale && (
             <>
-              {/* Pháp lý */}
               <div className="form-common-listing__entry form-common-listing__entry--stacked">
                 <span className="form-common-listing__entry-label">
                   {t('HomeRealEstateSearchFormLegalStatus')}
@@ -93,7 +82,7 @@ const AdvanceSearchListing = ({
                       allowClear
                       getPopupContainer={(trigger) => trigger.parentElement!}
                       options={legalStatuses.map((term) => ({
-                        label: comm(term.name),
+                        label: t(term.name),
                         value: term.id,
                       }))}
                     />
@@ -102,10 +91,8 @@ const AdvanceSearchListing = ({
               </div>
             </>
           )}
-
           {filterBy === listingType.rent && (
             <>
-              {/* Thời hạn thuê */}
               <div className="form-common-listing__entry form-common-listing__entry--stacked">
                 <span className="form-common-listing__entry-label">
                   {t('HomeRealEstateSearchFormLeaseTerm')}
@@ -127,8 +114,6 @@ const AdvanceSearchListing = ({
               </div>
             </>
           )}
-
-          {/* === Tình trạng nội thất === */}
           <div className="form-common-listing__entry form-common-listing__entry--stacked">
             <span className="form-common-listing__entry-label">
               {t('HomeRealEstateSearchFormFurnitureStatus')}
@@ -148,10 +133,8 @@ const AdvanceSearchListing = ({
               </Form.Item>
             </div>
           </div>
-
           {filterBy === listingType.sale && (
             <>
-              {/* Tình trạng bàn giao */}
               <div className="form-common-listing__entry form-common-listing__entry--stacked">
                 <span className="form-common-listing__entry-label">
                   {t('HomeRealEstateSearchFormHandoverStatus')}
@@ -164,7 +147,7 @@ const AdvanceSearchListing = ({
                       allowClear
                       getPopupContainer={(trigger) => trigger.parentElement!}
                       options={handOverStatuses.map((term) => ({
-                        label: comm(term.name),
+                        label: t(term.name),
                         value: term.id,
                       }))}
                     />
@@ -173,10 +156,8 @@ const AdvanceSearchListing = ({
               </div>
             </>
           )}
-
           {filterBy === listingType.rent && (
             <>
-              {/* Cho phép vật nuôi */}
               <div className="form-common-listing__entry form-common-listing__entry--stacked">
                 <span className="form-common-listing__entry-label">
                   {t('HomeRealEstateSearchFormPetAllowance')}
@@ -201,8 +182,6 @@ const AdvanceSearchListing = ({
               </div>
             </>
           )}
-
-          {/* === INDOOR AMENITIES === */}
           <div className="form-common-listing__entry form-common-listing__entry--stacked">
             <span className="form-common-listing__entry-label">
               {t('inDoorAmenities')}
@@ -219,8 +198,6 @@ const AdvanceSearchListing = ({
               </Form.Item>
             </div>
           </div>
-
-          {/* === OUTDOOR AMENITIES === */}
           <div className="form-common-listing__entry form-common-listing__entry--stacked">
             <span className="form-common-listing__entry-label">
               {t('outDoorAmenities')}
@@ -238,23 +215,6 @@ const AdvanceSearchListing = ({
             </div>
           </div>
         </div>
-
-        {/* === ACTION BUTTONS === */}
-        {!notActionButton && (
-          <div className="form-common-listing__controller">
-            <ButtonCore
-              type="reset"
-              onClick={handleReset}
-              preset="neutral"
-              label={t('HomeSearchResetButton')}
-            />
-            <ButtonCore
-              type="submit"
-              onClick={handleApply}
-              label={t('HomeSearchAplyButton')}
-            />
-          </div>
-        )}
       </Form>
     </div>
   );

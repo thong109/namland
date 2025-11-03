@@ -423,7 +423,7 @@ input,select,textarea {
 }
 
 .radio-common .ant-radio {
-  @apply !w-[15px] !h-[15px] !my-[5px] !mr-[6px] !p-[0] !block !border-[1px] !border-[#d9d9d9] relative flex-grow-0 flex-shrink-0 !self-start;
+  @apply !w-[15px] !h-[15px] !my-[5px] !mr-[6px] !p-[0] !block !border-[1px] !border-[#d9d9d9] !bg-[#fff] relative flex-grow-0 flex-shrink-0 !self-start;
   transition: border 0.3s ease, background 0.3s ease;
 }
 
@@ -463,7 +463,7 @@ input,select,textarea {
 }
 
 .checkbox-common .ant-checkbox {
-  @apply !w-[15px] !h-[15px] !my-[5px] !mr-[6px] !p-[0] !block !border-[1px] !border-[#d9d9d9] relative flex-grow-0 flex-shrink-0 !self-start;
+  @apply !w-[15px] !h-[15px] !my-[5px] !mr-[6px] !p-[0] !block !border-[1px] !border-[#d9d9d9] !bg-[#fff] relative flex-grow-0 flex-shrink-0 !self-start;
   transition: border 0.3s ease, background 0.3s ease;
 }
 

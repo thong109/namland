@@ -35,7 +35,7 @@ import './SectionHeroForm.css';
 import PropertySelectionField from './_components/PropertySelectionField';
 import { assetsImages } from '@/assets/images/package';
 
-const AdvanceSearchListing = dynamic(() => import('@/components/PopupSearchAdvanced/PopupSearchAdvanced'), {
+const PopupSearchAdvanced = dynamic(() => import('@/components/PopupSearchAdvanced/PopupSearchAdvanced'), {
   ssr: false,
 });
 
@@ -76,7 +76,6 @@ const SectionHeroForm: FC<SectionHeroFormProps> = () => {
   );
   const [currentLocation, setCurrentLocation] = useState<any>(null);
   const hasInit = useRef(false);
-
   const initFilters = async () => {
     const project = ((await getEcomEcomProjectGetListProjectSearch()) as any).data;
     setProjects(project);
@@ -99,20 +98,17 @@ const SectionHeroForm: FC<SectionHeroFormProps> = () => {
     const funitureStatus = ((await getEcomInteriorGetList()) as any).data;
     setFunitureStatus(funitureStatus);
   };
-
   useEffect(() => {
     if (hasInit.current) return;
     hasInit.current = true;
     initFilters();
   }, []);
-
   useEffect(() => {
     const keywordValue = form.getFieldValue('k');
     form.resetFields();
     formAdvanceSearch.resetFields();
     form.setFieldsValue({ k: keywordValue });
   }, [filterBy]);
-
   const addStringByArr = (str: string, arrParent: any[], arrResult: any[]) => {
     if (arrResult && arrResult.length > 0) {
       const viewStr = arrParent
@@ -127,7 +123,6 @@ const SectionHeroForm: FC<SectionHeroFormProps> = () => {
     }
     return str;
   };
-
   const addStringByBoolean = (str: string, value: any, title: string) => {
     if (!str) {
       str = str + title + ': ' + comm(value ? 'Yes' : 'No');
@@ -332,7 +327,7 @@ const SectionHeroForm: FC<SectionHeroFormProps> = () => {
                   <div className={clsx('form-home-search__filter-entry', advanSearchValue && 'is-state-active')}>
                     {popupHomeSearch(
                       t('HomeRealEstateSearchFormMoreFilter'),
-                      <AdvanceSearchListing
+                      <PopupSearchAdvanced
                         filterBy={filterBy}
                         formRef={formAdvanceSearch}
                         furnitureStatus={funitureStatus}
@@ -463,7 +458,7 @@ const SectionHeroForm: FC<SectionHeroFormProps> = () => {
                   </div>
                 </div>
                 <Modal open={isMobileMoreFilterModalOpen} footer={null} centered closable={false}>
-                  <AdvanceSearchListing
+                  <PopupSearchAdvanced
                     filterBy={filterBy}
                     formRef={formAdvanceSearch}
                     furnitureStatus={funitureStatus}

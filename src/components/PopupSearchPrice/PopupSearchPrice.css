@@ -1,5 +1,5 @@
 .popup-common-searchprice {
-  @apply w-[325px] p-[22px_13px_18px] bg-[#fbf8f8] rounded-[10px] border border-[#d9d9d9] shadow-[0_4px_4px_rgba(0,0,0,0.25)];
+  @apply w-[325px] p-[22px_13px_18px] bg-[#fbf8f8] rounded-[10px] border border-[#d9d9d9] shadow-[0_4px_4px_rgba(0,0,0,0.25)] font-mona;
   @apply mobile:w-[100%];
 }
 

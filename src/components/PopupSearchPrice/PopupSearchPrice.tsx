@@ -1,7 +1,7 @@
+import React, { useEffect, useRef, useState } from 'react';
 import { listingType } from '@/libs/appconst';
 import { Button, Divider, Dropdown, MenuProps, Select } from 'antd';
 import { useLocale, useTranslations } from 'next-intl';
-import React, { useEffect, useRef, useState } from 'react';
 import SliderFrice from './PopupSearchPriceRange';
 import './PopupSearchPrice.css';
 
@@ -247,7 +247,6 @@ const PopupSearchPrice = ({
           open={false}
         />
       </Dropdown>
-      <></>
     </div>
   );
 };
