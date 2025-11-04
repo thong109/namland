@@ -70,9 +70,9 @@ input,select,textarea {
 }
 
 .ant-select-dropdown {
-  @apply !w-[325px] !p-[19px_22px] !bg-[#fbf8f8] !rounded-[10px] !border border-[#d9d9d9] !shadow-[0_4px_4px_rgba(0,0,0,0.25)];
+  @apply !p-[19px_22px] !bg-[#fbf8f8] !rounded-[10px] !border border-[#d9d9d9] !shadow-[0_4px_4px_rgba(0,0,0,0.25)];
   @apply tablet-lg:!p-[19px];
-  @apply mobile:!w-[100%] mobile:!p-[19px];
+  @apply mobile:!p-[19px];
 }
 
 .ant-select-dropdown .rc-virtual-list {
