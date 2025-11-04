@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { assetsImages } from '@/assets/images/package';
 import './Footer.css';
-import { useState } from 'react';
 
 const Footer = () => {
   return (
@@ -11,7 +10,7 @@ const Footer = () => {
         <div className='container'>
           <div className='navigation-footer__wrapper'>
             <div className='navigation-footer__block'>
-              <span className='navigation-footer__block-label'>CÔNG TY TNHH Nam Long Living</span>
+              <span className='navigation-footer__block-label'>CÔNG TY TNHH NAM LONG LIVING</span>
               <ul className='list-footer-address'>
                 <li className='list-footer-address__entry'>
                   <span className='list-footer-address__entry-title'><span className='list-footer-address__title-icon' style={{ maskImage: `url(${assetsImages.commonIconLocation.src})` }}></span>ĐỊA CHỈ</span>
@@ -27,7 +26,7 @@ const Footer = () => {
                 </li>
               </ul>
               <div className='list-footer-sns'>
-                <span className='list-footer-sns__label'>THEO DÕI Nam Long Living</span>
+                <span className='list-footer-sns__label'>THEO DÕI NAM LONG LIVING</span>
                 <ul className='list-footer-sns__wrapper'>
                   <li className='list-footer-sns__entry'>
                     <Link className='list-footer-sns__entry-link' href='#' style={{ backgroundImage: `url(${assetsImages.commonIconSNS.src})` }}></Link>

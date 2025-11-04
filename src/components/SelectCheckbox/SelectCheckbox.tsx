@@ -75,7 +75,7 @@ const SelectCheckbox = ({
       style={{ width: '100%' }}
       open={dropdownVisible}
       onDropdownVisibleChange={(visible) => setDropdownVisible(visible)}
-      dropdownRender={(menu) => (
+      popupRender={(menu) => (
         <div>
           {menu}
           <Divider style={{ margin: '8px 0' }} />

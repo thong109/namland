@@ -1,4 +1,4 @@
-import logoHT from '@/assets/icon/logo-domdom.svg';
+import logoHT from '@/assets/images/common/favicon.ico';
 import Footer from '@/components/Footer/Footer';
 import SiteHeader from '@/components/Header/SiteHeader';
 import AcceptCookies from '@/components/PopupAcceptCookies';

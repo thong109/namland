@@ -227,7 +227,7 @@ const PopupSearchPrice = ({
         open={visible}
         trigger={['click']}
         menu={{ items: typeft === listingType.sale ? itemSales : itemRents }}
-        dropdownRender={(menu) => (
+        popupRender={(menu) => (
           <div ref={popupRef} className='popup-common-searchprice'>
             <SliderFrice range={range} max={maxValue} onchange={(value) => onChoosePrice(value as [number | undefined, number | undefined])} />
             <div className='popup-common-searchprice__menu'>

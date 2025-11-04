@@ -57,14 +57,11 @@ const EntrustAgent: FC<IProps> = () => {
       <p className="mb-1 text-xl md:text-[30px] font-semibold text-black leading-1">
         {t('EcomHomePageEntrustAgent')}
       </p>
-
       <CarouselWithArrow
         items={items}
         className="block"
         slidesPerRow={slidesPerRow}
       >{items}</CarouselWithArrow>
-
-      <div className={clsx('flex overflow-x-auto max-lg:gap-4 lg:hidden')}>{items}</div>
     </div>
   );
 };

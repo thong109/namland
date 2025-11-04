@@ -126,7 +126,7 @@ const SizeSearchListing = ({ placeholder, onChange }: InputProps) => {
         open={visible}
         trigger={['click']}
         menu={{ items }}
-        dropdownRender={(menu) => (
+        popupRender={(menu) => (
           <div ref={popupRef} className="w-full rounded-xl bg-white p-2 shadow-lg">
             <SliderSize
               range={range}

@@ -3,7 +3,8 @@ import { ProjectDetailModel } from '@/models/projectModel/projectDetailModel';
 import ApiResponseModel from '@/models/reponseModel/apiResponseModel';
 import PageResultModel from '@/models/reponseModel/pageResultModel';
 import ProjectCardItem from '@/app/[locale]/project/_components/projectCardItem';
-import { getTranslations } from 'next-intl/server';
+import { getTranslator } from 'next-intl/server';
+
 interface Props {
   locale: string;
 }
@@ -16,7 +17,7 @@ const getProjects = async () => {
 };
 
 const SectionExploreProjects = async ({ locale }: Props) => {
-  const t = await getTranslations('webLabel');
+  const t = await getTranslator(locale, 'webLabel');
   const projects = await getProjects();
 
   return (
