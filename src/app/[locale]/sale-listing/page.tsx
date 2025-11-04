@@ -20,6 +20,8 @@ import './style.css';
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
 import BlockListingSale from '@/components/BlockListingSale/BlockListingSale';
 import SectionContact from '@/components/SectionContact/SectionContact';
+import { useLocale } from 'next-intl';
+import { getTranslator } from 'next-intl/server';
 interface PageSaleListingProps {
   searchParams: ShortHomeRealEstateSearchModel;
 }
@@ -62,19 +64,21 @@ const PageSaleListing: React.FC<PageSaleListingProps> = async ({ searchParams })
   const paramsvalue = convertTypeOfShortFilterListingParams(searchParams);
   const { page, ...paramOtherPage } = searchParams;
   const paramsString = getParamsStringFromObj(paramOtherPage);
+  const locale = useLocale();
+  const t = await getTranslator(locale, 'webLabel');
 
   return (
     <>
       <Breadcrumb
         breadcrumbItems={[
-          { path: '/', title: 'Trang chủ' },
-          { path: '', title: 'Bán' },
+          { path: '/', title: t('EcomMenuBarHome') },
+          { path: '', title: t('EcomTicketManagementInforPageListViewForSale') },
         ]}
         hasBanner={false}
       />
       <div className='section-ban'>
         <div className='container'>
-          <h1 className='section-ban__title'>Gửi bán Bất động sản Nam Long<br /><strong>Nhanh chóng, Bảo mật & Uy tín</strong></h1>
+          <h1 className='section-ban__title'>{t('EcomCreateAPropertyPageDetailForSaleNamLong')}<br /><strong>{t('EcomCreateAPropertyPageDetailForSaleFast')}</strong></h1>
           <BlockListingSale
             allPropertyCoordinates={allPropertyCoordinates}
             totalResult={totalResult}

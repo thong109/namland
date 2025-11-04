@@ -64,17 +64,17 @@ const PageClient = () => {
         <Breadcrumb
           additionalClass='breadcrumb-common--style-transparent'
           breadcrumbItems={[
-            { path: '/', title: 'Trang chủ' },
-            { path: '/nhu-cau-cua-toi', title: 'Tìm môi giới' },
-            { path: '', title: 'Tìm nhà' },
+            { path: '/', title: t('EcomMenuBarHome') },
+            { path: '/nhu-cau-cua-toi', title: t('EcomEntrustFindAgents') },
+            { path: '', title: t('FIND_A_HOUSE') },
           ]}
           hasBanner={true}
         />
         <div className='container pb-12 md:pb-[88px]'>
           <div className="contact__banner" style={{ backgroundImage: `url(${assetsImages.commonImageContact.src})` }}>
             <div className="grid grid-col">
-              <h2>Bắt đầu tìm nhà một cách dễ dàng</h2>
-              <p>Hãy Cho Chúng Tôi Biết Những Gì Bạn Đang Tìm Kiếm — <br className='hidden md:block'/>Chúng Tôi Sẽ Kết Nối Bạn Với Đúng Đại Lý Bất Động Sản Hoặc Nhà Phát Triển.</p>
+              <h2>{t('FindHomeTitle')}</h2>
+              <p>{t('FindHomecontent')}</p>
             </div>
           </div>
           <div className="contact__form">

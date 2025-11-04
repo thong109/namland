@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import { assetsImages } from '@/assets/images/package';
 import './Breadcrumb.css';
 import { useRouter } from 'next-intl/client';
+import { useTranslations } from 'next-intl';
 
 export interface BreadCrumbItem {
   path: string;
@@ -17,6 +18,7 @@ export interface BreadCrumbProps {
 
 const Breadcrumb: FC<BreadCrumbProps> = ({ additionalClass, breadcrumbItems, hasBanner = false }) => {
   const { push } = useRouter();
+  const t = useTranslations('webLabel');
   return (
     <nav className={`breadcrumb-common ${additionalClass} ${hasBanner ? 'breadcrumb-common--has-banner' : ''}`}>
       <div className='container'>
@@ -39,7 +41,7 @@ const Breadcrumb: FC<BreadCrumbProps> = ({ additionalClass, breadcrumbItems, has
         <div className="min-h-[138px] breadcrumb-common__banner" style={{ backgroundImage: `url(${assetsImages.commonBannerContact.src})` }}>
           <div className="container">
             <div className="breadcrumb-common__banner-wrapper">
-              <h1 className='breadcrumb-common__banner-title'>Tư vấn cùng Nam Long Living</h1>
+              <h1 className='breadcrumb-common__banner-title'>{t('FindHomeTitle2')}</h1>
             </div>
           </div>
         </div>

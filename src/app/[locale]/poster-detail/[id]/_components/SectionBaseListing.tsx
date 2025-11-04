@@ -3,7 +3,8 @@ import CardListing from '@/components/CardListing/CardListing';
 import { NAVIGATION } from '@/data/navigation';
 import { getParamsStringFromObj } from '@/libs/appconst';
 import clsx from 'clsx';
-import { Link, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import { FC, useMemo } from 'react';
 
 type SectionType = 'sale' | 'lease';
@@ -50,31 +51,17 @@ const SectionBaseListing: FC<SectionBaseListingProps> = ({
       <div className={`relative flex flex-col gap-2 lg:flex-row`}>
         <div className={clsx('flex flex-col gap-4 lg:mx-auto lg:w-full')}>
           <div>
-            <h1 className="text-center text-4xl font-bold text-portal-primaryLiving">{title}</h1>
+            <h1 className="text-center text-2xl md:text-4xl font-bold text-portal-primaryLiving">{title}</h1>
           </div>
-          <div className="hidden flex-col gap-4 lg:flex">
-            {platinumListing?.data?.data?.map((item) => (
-              <CardListing key={item.id} listing={item} />
-            ))}
-          </div>
-          <div className="hidden flex-col gap-4 lg:flex">
-            {goldListing?.data?.data?.map((item) => (
-              <CardListing key={item.id} listing={item} />
-            ))}
-          </div>
-          <div className="hidden auto-rows-fr grid-cols-3 gap-4 lg:grid">
-            {basicListing?.data?.data?.map((item) => (
-              <div className="col-span-1">
-                <CardListing key={item.id} listing={item} />
-              </div>
-            ))}
-          </div>
-          <div className="flex gap-4 overflow-x-auto lg:hidden">
-            {(platinumListing?.data?.data ?? [])
-              .concat(goldListing?.data?.data ?? [])
-              .concat(basicListing?.data?.data ?? [])
+          <div className="auto-rows-fr md:grid-cols-3 lg:grid-cols-4 gap-4 grid-col md:grid-flow-row grid">
+            {[
+              platinumListing?.data?.data ?? [],
+              goldListing?.data?.data ?? [],
+              basicListing?.data?.data ?? [],
+            ]
+              .flat()
               .map((item) => (
-                <div key={item.id} className="min-w-60 grow">
+                <div className="col-span-1" key={item.id}>
                   <CardListing listing={item} />
                 </div>
               ))}

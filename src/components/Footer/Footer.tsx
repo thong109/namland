@@ -2,31 +2,53 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { assetsImages } from '@/assets/images/package';
 import './Footer.css';
+import { useTranslations } from 'next-intl';
+import { NAVIGATION } from '@/data/navigation';
 
 const Footer = () => {
+  const t = useTranslations('webLabel');
+
+  const menu1 = [
+    { href: NAVIGATION.saleListing.href, label: t('EcomHomePageMenuSale') },
+    { href: NAVIGATION.rentListing.href, label: t('EcomHomePageMenuRent') },
+    { href: NAVIGATION.projectList.href, label: t('EcomHomePageMenuProjects') },
+    { href: "#", label: t('EcomEntrustFindAgents') },
+    { href: NAVIGATION.contactUs.href, label: t('EcomEntrustContactUs') },
+    { href: "#", label: t('EcomEntrustJoinUs') },
+    { href: "#", label: t('EcomEntrustJoinUsList') },
+    { href: "#", label: t('EcomEntrustPrivacy') },
+  ];
+
+  const menu2 = [
+    { href: "#", label: t('EcomPageTsAnhCsTitlePageTitle') },
+    { href: "#", label: t('EcomEntrustAgreement') },
+    { href: "#", label: t('EcomLeftMenuBarPrivacyPolicy') },
+    { href: "#", label: t('EcomLeftMenuBarRegulationSettlement') },
+  ];
+
   return (
     <footer className='footer-common'>
       <div className='navigation-footer'>
         <div className='container'>
           <div className='navigation-footer__wrapper'>
             <div className='navigation-footer__block'>
-              <span className='navigation-footer__block-label'>CÔNG TY TNHH NAM LONG LIVING</span>
+              <span className='navigation-footer__block-label'>{t('EcomEntrustCompany')}</span>
               <ul className='list-footer-address'>
                 <li className='list-footer-address__entry'>
-                  <span className='list-footer-address__entry-title'><span className='list-footer-address__title-icon' style={{ maskImage: `url(${assetsImages.commonIconLocation.src})` }}></span>ĐỊA CHỈ</span>
-                  <address className='list-footer-address__entry-description'>Số 6 Nguyễn Khắc Viện, P. Tân Mỹ, TP. Hồ Chí Minh</address>
+                  <span className='list-footer-address__entry-title uppercase'><span className='list-footer-address__title-icon' style={{ maskImage: `url(${assetsImages.commonIconLocation.src})` }}></span>{t('IamOwnerPageAddress')}</span>
+                  <address className='list-footer-address__entry-description'>{t('EcomContactUsPageDetailAddressLocation')}</address>
                 </li>
                 <li className='list-footer-address__entry'>
-                  <span className='list-footer-address__entry-title'><span className='list-footer-address__title-icon' style={{ maskImage: `url(${assetsImages.commonIconLetter.src})` }}></span>CHĂM SÓC KHÁCH HÀNG</span>
-                  <Link className='list-footer-address__entry-description' href='mailto:info@namlongvn.com'>info@namlongvn.com</Link>
+                  <span className='list-footer-address__entry-title uppercase'><span className='list-footer-address__title-icon' style={{ maskImage: `url(${assetsImages.commonIconLetter.src})` }}></span>{t('FooterCustomerSupport')}</span>
+                  <Link className='list-footer-address__entry-description' href='mailto:info@namlongvn.com'>{t('MAIL_CONTACT')}</Link>
                 </li>
                 <li className='list-footer-address__entry'>
-                  <span className='list-footer-address__entry-title'><span className='list-footer-address__title-icon' style={{ maskImage: `url(${assetsImages.commonIconPhone.src})` }}></span>HOTLINE</span>
-                  <Link className='list-footer-address__entry-description' href='tel:19002698'>1900 2698</Link>
+                  <span className='list-footer-address__entry-title uppercase'><span className='list-footer-address__title-icon' style={{ maskImage: `url(${assetsImages.commonIconPhone.src})` }}></span>{t('Hotline')}</span>
+                  <Link className='list-footer-address__entry-description' href='tel:19002698'>{t('EcomContactUsPageDetailPagePhone')}</Link>
                 </li>
               </ul>
               <div className='list-footer-sns'>
-                <span className='list-footer-sns__label'>THEO DÕI NAM LONG LIVING</span>
+                <span className='list-footer-sns__label'>{t('EcomEntrustCompany2')}</span>
                 <ul className='list-footer-sns__wrapper'>
                   <li className='list-footer-sns__entry'>
                     <Link className='list-footer-sns__entry-link' href='#' style={{ backgroundImage: `url(${assetsImages.commonIconSNS.src})` }}></Link>
@@ -41,25 +63,20 @@ const Footer = () => {
               </div>
             </div>
             <div className='navigation-footer__block'>
-              <span className='navigation-footer__block-label'>DANH MỤC</span>
+              <span className='navigation-footer__block-label uppercase'>{t('FooterMenu')}</span>
               <ul className='menu-footer'>
-                <li className='menu-footer__entry'><Link className='menu-footer__entry-link' href='#'>Bán</Link></li>
-                <li className='menu-footer__entry'><Link className='menu-footer__entry-link' href='#'>Cho thuê</Link></li>
-                <li className='menu-footer__entry'><Link className='menu-footer__entry-link' href='#'>Dự án</Link></li>
-                <li className='menu-footer__entry'><Link className='menu-footer__entry-link' href='#'>Tìm Môi Giới</Link></li>
-                <li className='menu-footer__entry'><Link className='menu-footer__entry-link' href='#'>Liên hệ</Link></li>
-                <li className='menu-footer__entry'><Link className='menu-footer__entry-link' href='#'>Tiếp nhận phản ánh của Tổ chức xã hội</Link></li>
-                <li className='menu-footer__entry'><Link className='menu-footer__entry-link' href='#'>Danh sách phản ánh của Tổ chức xã hội</Link></li>
-                <li className='menu-footer__entry'><Link className='menu-footer__entry-link' href='#'>Chính sách bảo mật dữ liệu cá nhân</Link></li>
+                {menu1?.map((item, index) => (
+                  <li className='menu-footer__entry' key={index}><Link className='menu-footer__entry-link' href={item.href}>{item.label}</Link></li>
+                ))}
               </ul>
             </div>
             <div className='navigation-footer__block'>
-              <span className='navigation-footer__block-label'>QUY ĐỊNH</span>
+              <span className='navigation-footer__block-label uppercase'>{t('FooterRules')}</span>
               <ul className='menu-footer'>
-                <li className='menu-footer__entry'><Link className='menu-footer__entry-link' href='#'>Quy chế hoạt động</Link></li>
-                <li className='menu-footer__entry'><Link className='menu-footer__entry-link' href='#'>Điều khoản thoả thuận</Link></li>
-                <li className='menu-footer__entry'><Link className='menu-footer__entry-link' href='#'>Chính sách bảo mật</Link></li>
-                <li className='menu-footer__entry'><Link className='menu-footer__entry-link' href='#'>Cơ chế giải quyết tranh chấp</Link></li>
+                {menu2?.map((item, index) => (
+                  <li className='menu-footer__entry' key={index}><Link className='menu-footer__entry-link' href={item.href}>{item.label}</Link></li>
+                ))}
+
               </ul>
               <div className='navigation-footer__block-stamp'><Image src={assetsImages.commonStampVerify} width={206} height={70} alt='Stamp' /></div>
             </div>

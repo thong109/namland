@@ -36,8 +36,8 @@ const PageProjectClient: FC<IProps> = ({ projectList, total, currentPage, pageSi
       <Breadcrumb
         additionalClass=''
         breadcrumbItems={[
-          { path: '/', title: 'Trang chủ' },
-          { path: '', title: 'Dự án' },
+          { path: '/', title: t('EcomMenuBarHome') },
+          { path: '', title: t('EcomPropertyListingPageSearchProjectName') },
         ]}
         hasBanner={false}
       />

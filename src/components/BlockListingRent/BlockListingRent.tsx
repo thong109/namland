@@ -101,14 +101,14 @@ const BlockListingRent: FC<IProps> = ({
           <div className='block-common-listingrent__filter-wrapper'>
             <SidebarRent />
             <div className='switch-common-map'>
-              <span className='switch-common-map__label'>Hiển thị bản đồ</span>
+              <span className='switch-common-map__label'>{t('EcomSearchPageSearchFilterMapViewShow')}</span>
               <Switch className='switch-common-map__control' checked={showingMap} onChange={(e) => changeViewMode(e)}></Switch>
             </div>
           </div>
           <div className='block-common-listingrent__filter-analyze'>
-            <div className='block-common-listingrent__analyze-label'>Có 79 kết quả</div>
+            <div className='block-common-listingrent__analyze-label'>{t('EcomSearchPageSearchFilterResult', { number: totalResult })}</div>
             <div className='select-common-sortby'>
-              <span className='select-common-sortby__label'>Sắp xếp:</span>
+              <span className='select-common-sortby__label'>{t('EcomSearchPageSearchFilterSort')}:</span>
               <div className='select-common-sortby__control'></div>
             </div>
           </div>

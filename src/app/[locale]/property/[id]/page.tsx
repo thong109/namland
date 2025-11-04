@@ -1,12 +1,10 @@
 import propertyApiService from '@/apiServices/externalApiServices/propertyApiService';
 import listingPropertyModel from '@/models/listingModel/listingPropertyModel';
 import type { Metadata } from 'next';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
 import { FC } from 'react';
-import LinkedProject from '@/components/ArticleInformation/LinkedProject';
-import ArticleInformationDetails from '@/components/ArticleInformation/ArticleInformationDetails';
 import ArticleInformationOverview from '@/components/ArticleInformation/ArticleInformationOverview';
 import { ArticleInformationRatings } from '@/components/ArticleInformation/ArticleInformationRatings';
 import { assetsImages } from '@/assets/images/package';
@@ -17,6 +15,8 @@ import ButtonShare from '@/components/ButtonShare/ButtonShare';
 import GalleryPrimary from '@/components/GalleryPrimary/GalleryPrimary';
 import SectionContact from '@/components/SectionContact/SectionContact';
 import PageSectionNavigation from '@/components/PageSectionNavigation/PageSectionNavigation';
+import { getTranslator } from 'next-intl/server';
+import ArticleInformationDetails from '@/components/ArticleInformation/ArticleInformationDetails';
 
 const SectionSimilar = dynamic(() => import('@/components/SectionSimilar/SectionSimilarProperty'), { ssr: true });
 
@@ -63,6 +63,7 @@ const PageDetailProperty: FC<PagePropertyDetailProps> = async ({ params, searchP
   const lastIndex = params.id.lastIndexOf('-');
   const listingId = params.id.substring(lastIndex + 1);
   const locale = useLocale();
+  const t = await getTranslator(locale, 'webLabel');
   const listingDetail = await getListingDetail(listingId, locale);
   if (!listingDetail) {
     notFound();
@@ -72,8 +73,8 @@ const PageDetailProperty: FC<PagePropertyDetailProps> = async ({ params, searchP
       <Breadcrumb
         additionalClass='breadcrumb-common--style-transparent'
         breadcrumbItems={[
-          { path: '/', title: 'Trang chủ' },
-          { path: '/sale-listing/', title: 'Bán' },
+          { path: '/', title: t('EcomMenuBarHome') },
+          { path: '/sale-listing/', title: t('EcomCreateAPropertyPageDetailForSale') },
           { path: '', title: listingDetail?.title || '' },
         ]}
         hasBanner={false}
@@ -87,28 +88,28 @@ const PageDetailProperty: FC<PagePropertyDetailProps> = async ({ params, searchP
           items={[
             {
               id: 'overview',
-              label: 'Tổng quan',
+              label: t('EcomPropertyListingApprovePropertyOverview'),
               icon: assetsImages.commonIconNavigation.src,
               iconSize: 'calc(20 / 24 * 100%) auto',
             },
             {
               id: 'details',
-              label: 'Chi tiết căn hộ',
+              label: t('EcomPropertyListingApprovePropertyDetails'),
               icon: assetsImages.commonIconNavigation02.src,
             },
             {
               id: 'furniture',
-              label: 'Nội thất',
+              label: t('EcomPropertyListingApprovePropertyInterior'),
               icon: assetsImages.commonIconNavigation03.src,
             },
             {
               id: 'utilities',
-              label: 'Tiện ích',
+              label: t('EcomPropertyListingApprovePropertyFacilities'),
               icon: assetsImages.commonIconNavigation04.src,
             },
             {
               id: 'location',
-              label: 'Bản đồ khu vực',
+              label: t('EcomPropertyListingApprovePropertyLocation'),
               icon: assetsImages.commonIconNavigation05.src,
             },
           ]}

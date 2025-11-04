@@ -1,3 +1,7 @@
+.ratings-common-information {
+  @apply lg:sticky lg:top-[130px];
+}
+
 .ratings-common-information__profile {
   @apply mb-[37px] p-[28px_63px_28px_76px] bg-[#982220] rounded-[10px] flex items-center gap-[72px];
   @apply tablet-lg:mb-[30px] tablet-lg:p-[30px_50px] tablet-lg:gap-[50px];

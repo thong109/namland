@@ -496,3 +496,7 @@ input,select,textarea {
 .checkbox-common .ant-checkbox-label {
   @apply !m-[0] !p-[0] !text-sm !leading-[calc(25/14)] !text-portal-gray-7;
 }
+
+.ant-modal-close {
+  @apply !top-[32px] !right-[32px];
+}

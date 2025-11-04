@@ -203,33 +203,35 @@ const ArticleInformationRatingsInquiryComponent = ({ props }) => {
           closable={true}
           footer={null}
         >
-          <div className='flex justify-center gap-4'>
-            <div className='relative size-[4.5rem] overflow-hidden rounded-full border-4 border-neutral-0 bg-portal-yellow shadow-xl'>
-              <Image
-                src={listingUserInfo.avatarUrl ?? AvatarDefault?.src}
-                alt='avatar'
-                fill
-                className={`${listingUserInfo.avatarUrl ? '' : 'scale-75'}object-cover`}
-              />
-            </div>
-            <div className='flex flex-col'>
-              <div className='text-base font-medium'>{listingUserInfo.fullName}</div>
-              <div className='text-sm text-neutral-500'>
-                {listingUserInfo.contactNumber ?? listingUserInfo.userName}
+          <div className="bg-white p-6 rounded-[10px]">
+            <div className='flex justify-center gap-4'>
+              <div className='relative size-[4.5rem] overflow-hidden rounded-full border-4 border-neutral-0 bg-portal-yellow shadow-xl'>
+                <Image
+                  src={listingUserInfo.avatarUrl ?? AvatarDefault?.src}
+                  alt='avatar'
+                  fill
+                  className={`${listingUserInfo.avatarUrl ? '' : 'scale-75'}object-cover`}
+                />
               </div>
-              <Link
-                href={getPosterDetailUrl(listingUserInfo.id, null)}
-                className='cursor-pointer text-sm text-neutral-500 underline'
-              >
-                {t('EcomPropertyDetailPageViewListings')}
-              </Link>
+              <div className='flex flex-col'>
+                <div className='text-base font-medium'>{listingUserInfo.fullName}</div>
+                <div className='text-sm text-neutral-500'>
+                  {listingUserInfo.contactNumber ?? listingUserInfo.userName}
+                </div>
+                <Link
+                  href={getPosterDetailUrl(listingUserInfo.id, null)}
+                  className='cursor-pointer text-sm text-neutral-500 underline'
+                >
+                  {t('EcomPropertyDetailPageViewListings')}
+                </Link>
+              </div>
             </div>
+            <BookATourForm
+              listingDetail={props.listingDetail}
+              locale={props.locale}
+              closeModal={() => setBookATourVisible(false)}
+            />
           </div>
-          <BookATourForm
-            listingDetail={props.listingDetail}
-            locale={props.locale}
-            closeModal={() => setBookATourVisible(false)}
-          />
         </Modal>
       )}
     </>

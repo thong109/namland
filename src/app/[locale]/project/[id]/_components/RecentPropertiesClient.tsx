@@ -20,7 +20,6 @@ const RecentPropertiesClient: React.FC = () => {
       setData((response as any).data?.data || []);
       setTotal((response as any).data?.total || 0);
     } finally {
-      // delay nhẹ để mượt hơn
       setTimeout(() => setLoading(false), 300);
     }
   };

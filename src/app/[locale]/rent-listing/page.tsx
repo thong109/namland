@@ -19,6 +19,8 @@ import {
 import SectionContact from '@/components/SectionContact/SectionContact';
 import BlockListingRent from '@/components/BlockListingRent/BlockListingRent';
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
+import { getTranslator } from 'next-intl/server';
+import { useLocale } from 'next-intl';
 interface PageRentListingProps {
   searchParams: ShortHomeRealEstateSearchModel;
 }
@@ -58,13 +60,16 @@ const PageRentListing: React.FC<PageRentListingProps> = async ({ searchParams })
   const { page, ...paramOtherPage } = searchParams;
   const paramsString = getParamsStringFromObj(paramOtherPage);
   const allPropertyCoordinates = await getAllPropertyCoordinates(filter);
+  const locale = useLocale();
+  const t = await getTranslator(locale, 'webLabel');
+
   return (
     <>
       <Breadcrumb
         additionalClass=''
         breadcrumbItems={[
-          { path: '/', title: 'Trang chủ' },
-          { path: '', title: 'Cho thuê' },
+          { path: '/', title: t('EcomMenuBarHome') },
+          { path: '', title: t('EcomTicketManagementInforPageListViewForLease') },
         ]}
         hasBanner={false}
       />

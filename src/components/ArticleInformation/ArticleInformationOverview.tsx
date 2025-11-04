@@ -1,7 +1,6 @@
 import listingPropertyModel from '@/models/listingModel/listingPropertyModel';
 import { useTranslations } from 'next-intl';
 import React from 'react';
-import PropertyInfoBox from '@/components/CardListing/_component/PropertyInfoBox';
 import { formatNumber } from '@/libs/helper';
 import { listingType } from '@/libs/appconst';
 import { assetsImages } from '@/assets/images/package';
@@ -22,19 +21,19 @@ const ArticleInformationOverview: React.FC<ArticleInformationOverviewProps> = ({
       <div className='article-common-information__about'>
         <div className='article-common-information__about-price'>
           <div className='article-common-information__price-wrapper'>{formatNumber(locale === 'vi' ? listingDetail?.priceVnd : listingDetail?.priceUsd)}{' '}{listingDetail?.type === listingType.rent && t('/mo')}</div>
-          <span className='article-common-information__price-note'>(Giá chưa bao gồm VAT và phí dịch vụ)</span>
+          <span className='article-common-information__price-note'>{t('EcomPropertyDetailPageDetailPriceNote')}</span>
         </div>
         <div className='article-common-information__about-entry'>
           <div className='article-common-information__entry-wrapper'>{listingDetail?.bedrooms ?? 'ー'}</div>
-          <span className='article-common-information__entry-label'>Phòng ngủ</span>
+          <span className='article-common-information__entry-label'>{t('EcomCreateAPropertyPageDetailBeds')}</span>
         </div>
         <div className='article-common-information__about-entry'>
           <div className='article-common-information__entry-wrapper'>{listingDetail?.bathrooms ?? 'ー'}</div>
-          <span className='article-common-information__entry-label'>Toilet</span>
+          <span className='article-common-information__entry-label'>{t('EcomPropertyDetailPageDetailToilets')}</span>
         </div>
         <div className='article-common-information__about-entry'>
           <div className='article-common-information__entry-wrapper'>{listingDetail?.size ?? 'ー'}</div>
-          <span className='article-common-information__entry-label'>Diện tích</span>
+          <span className='article-common-information__entry-label'>{t('EcomPropertyDetailPageDetailHomeArea')}</span>
         </div>
       </div>
       <div className='article-common-information__description'>

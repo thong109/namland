@@ -127,12 +127,8 @@ const BookATourForm: React.FC<Props> = (props) => {
   };
 
   return (
-    <div className="w-full rounded-3xl border border-neutral-200 bg-neutral-0 p-4">
-      <div className="my-2 font-bold">{t('EcomPropertyDetailPageLeaveAnInquiryBookATour')}</div>
-      <div className="my-2 text-neutral-500">
-        {t('EcomPropertyDetailPageLeaveAnInquiryBookATourDesc')}
-      </div>
-
+    <>
+      <div className="my-2 font-semibold text-center text-xl mobile:text-lg">{t('EcomIAmOwnerPageSendUsYourInquiry')}</div>
       <Form
         form={formRef}
         className="flex w-full flex-col items-center justify-center"
@@ -214,22 +210,14 @@ const BookATourForm: React.FC<Props> = (props) => {
         </Checkbox>
         <div className="flex w-full gap-4">
           <ButtonCore
-            disabled={isPending}
-            className="mt-4 w-full border border-neutral-500"
-            type="button"
-            preset="secondary"
-            label={t('EcomPropertyDetailPageLeaveAnInquiryGoBack')}
-            onClick={props.closeModal}
-          />
-          <ButtonCore
             disabled={!didAceeptTerms || isPending}
-            className="mt-4 w-full"
+            className="mt-4 !w-full !min-w-full"
             type="submit"
             label={t('EcomPropertyDetailPageLeaveAnInquiryLeaveInquiry')}
           />
         </div>
       </Form>
-    </div>
+    </>
   );
 };
 

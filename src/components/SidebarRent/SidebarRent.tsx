@@ -284,7 +284,7 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
               placeholder={t('HomeRealEstateSearchFormSearchFieldPlaceHolder')}
               allowClear
               suffix={
-                <ButtonCore type='submit' buttonType='search'/>
+                <ButtonCore type='submit' buttonType='search' />
               }
             />
           </Form.Item>
@@ -354,7 +354,7 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
                       className='input-common input-common--search'
                       placeholder={t('HomeRealEstateSearchFormSearchFieldPlaceHolder')}
                       allowClear
-                      />
+                    />
                   </Form.Item>
                   <div className='form-common-listing__entry-item'>
                     <SelectCommonType filterBy={filterBy} setFilterBy={seFilterBy} t={t} />

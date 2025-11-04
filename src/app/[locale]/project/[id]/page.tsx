@@ -54,6 +54,7 @@ const PageDetailProject: FC<PagePropertyDetailProps> = async ({ params, searchPa
   const lastIndex = params.id.lastIndexOf('-');
   const listingId = params.id.substring(lastIndex + 1);
   const locale = useLocale();
+  const t = await getTranslator(locale, 'webLabel');
   const projectDetail = await getProjectDetail(listingId, locale);
 
   if (!projectDetail) {
@@ -68,23 +69,23 @@ const PageDetailProject: FC<PagePropertyDetailProps> = async ({ params, searchPa
           items={[
             {
               id: 'overview',
-              label: 'Tổng quan',
+              label: t('EcomPropertyListingApprovePropertyOverview'),
               icon: assetsImages.commonIconNavigation.src,
               iconSize: 'calc(20 / 24 * 100%) auto',
             },
             {
               id: 'area',
-              label: 'Vị trí',
+              label: t('EcomProjectDetailLocation'),
               icon: assetsImages.commonIconNavigation06.src,
             },
             {
               id: 'amenities',
-              label: 'Tiện ích cảnh quan',
+              label: t('EcomPropertyDetailPageLocationAmenities', { name: '' }),
               icon: assetsImages.commonIconNavigation07.src,
             },
             {
               id: 'partner',
-              label: 'Đối tác',
+              label: t('EcomPropertyDetailPageLocationPartner', { name: '' }),
               icon: assetsImages.commonIconNavigation08.src,
             },
           ]}

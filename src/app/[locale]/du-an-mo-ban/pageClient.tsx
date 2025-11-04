@@ -41,8 +41,8 @@ const NewHomePageClient: FC<IProps> = ({ newHomeList, total, currentPage, pageSi
       <Breadcrumb
         additionalClass=''
         breadcrumbItems={[
-          { path: '/', title: 'Trang chủ' },
-          { path: '', title: 'Dự án mới' },
+          { path: '/', title: t('EcomMenuBarHome') },
+          { path: '', title: t('EcomLeftMenuBarNewHomeManagement') },
         ]}
         hasBanner={false}
       />

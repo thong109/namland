@@ -36,8 +36,8 @@ export default function PageContactUs() {
         <Breadcrumb
           additionalClass=''
           breadcrumbItems={[
-            { path: '/', title: 'Trang chủ' },
-            { path: '', title: 'Liên hệ' },
+            { path: '/', title: t('EcomMenuBarHome') },
+            { path: '', title: t('EcomEntrustContactUs') },
           ]}
           hasBanner={false}
         />

@@ -1,74 +1,40 @@
-import CardListing from '@/components/CardListing/CardListing';
-import CardListingRent from '@/components/CardListing/CardListingRent';
-import {
-  postEcomListingGetForSellByQuery,
-  postEcomListingGetSimilarInProjectQuery,
-} from '@/ecom-sadec-api-client/services.gen';
-import { ListPropertyStatusEnum } from '@/libs/enums/ListPropertyStatusEnum';
+import { postEcomListingGetForSellByQuery } from '@/ecom-sadec-api-client/services.gen';
 import listingPropertyModel from '@/models/listingModel/listingPropertyModel';
-import { getTranslator } from 'next-intl/server';
-import { Pagination } from 'antd';
-import React from 'react';
-import './SectionSimilar.css'
+import SectionSimilarPropertyClient from './SectionSimilarPropertyClient';
+import "./SectionSimilar.css";
 
 interface SectionSimilarProps {
   locale: string;
   listingDetail: listingPropertyModel;
 }
 
-const basedQuery = (listingId: string, projectId: string) => ({
-  from: 0,
-  size: 2,
-  sort: {
-    field: 'createdAt',
-    sortOrder: 1,
-  },
+const basedQuery = (listingId: string, projectId: string, from: number, size: number) => ({
+  from,
+  size,
+  sort: { field: 'createdAt', sortOrder: 1 },
   query: {
     bool: {
-      must: [
-        {
-          term: {
-            projectId: projectId,
-          },
-        },
-      ],
-      must_not: [
-        {
-          term: {
-            id: listingId,
-          },
-        },
-      ],
+      must: [{ term: { projectId } }],
+      must_not: [{ term: { id: listingId } }],
     },
   },
 });
 
-const SectionSimilar: React.FC<SectionSimilarProps> = async ({ listingDetail, locale }) => {
-  const t = await getTranslator(locale, 'webLabel');
-  const basicListing: any = await postEcomListingGetForSellByQuery({
-    requestBody: {
-      ...basedQuery(listingDetail.id, listingDetail.project.id),
-      size: 3,
-      priorityStatus: ListPropertyStatusEnum.Basic,
-    },
+export default async function SectionSimilar({ listingDetail, locale }: SectionSimilarProps) {
+  const size = 4;
+  const res: any = await postEcomListingGetForSellByQuery({
+    requestBody: basedQuery(listingDetail.id, listingDetail.project.id, 0, size),
   });
-  return (
-    <div className={`section-common-similar ${listingDetail?.type==1 ? 'section-common-similar--sale' : 'section-common-similar--rent'}`}>
-      <div className='container'>
-        <div className='section-common-similar__title'>{listingDetail?.type==1 ? `Tin đăng bán khác` : `Tin cho thuê khác`}</div>
-        <div className='section-common-similar__wrapper'>
-          {basicListing?.data?.data?.map((item) => (
-            <div className='section-common-similar__entry'>
-              {listingDetail?.type==1 ? <CardListing key={item.id} listing={item} /> : <CardListingRent key={item.id} listing={item} />}
-            </div>
-          ))}
-        </div>
-        <div className="pagination-common">
-          <Pagination />
-        </div>
-      </div>
-    </div>
-  );
-};
 
-export default React.memo(SectionSimilar);
+  const Client: any = SectionSimilarPropertyClient;
+
+  return (
+    <Client
+      listingDetail={listingDetail}
+      initialData={res?.data?.data ?? []}
+      total={res?.data?.total ?? 0}
+      pageSize={size}
+      locale={locale}
+    />
+  );
+}

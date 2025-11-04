@@ -25,39 +25,22 @@ const PageEntrust: FC<IProps> = async ({ params: { locale } }) => {
   );
 
   return (
-    // <div className="container pb-5 pt-5">
-    //   <div>
-    //     <EntrustBannerHeader />
-    //     
-    //     <ContactUs data={contactUsContent} />
-    //     <div className="relative mt-6 h-40 w-full lg:h-96">
-    //       <Image
-    //         className="h-full w-full object-cover"
-    //         src={Bg.src}
-    //         alt={`banner`}
-    //         loading="lazy"
-    //         fill
-    //       />
-    //     </div>
-    //     <EntrustAgent />
-    //   </div>
-    // </div>
     <>
       <section>
         <Breadcrumb
           additionalClass='breadcrumb-common--style-transparent'
           breadcrumbItems={[
-            { path: '/', title: 'Trang chủ' },
-            { path: '/nhu-cau-cua-toi', title: 'Tìm môi giới' },
-            { path: '', title: 'Bán/ Cho thuê nhà của tôi' },
+            { path: '/', title: t('EcomMenuBarHome') },
+            { path: '/nhu-cau-cua-toi', title: t('EcomEntrustFindAgents') },
+            { path: '', title: t('EcomEntrustSellMyHouse') },
           ]}
           hasBanner={true}
         />
         <div className='container pb-12 md:pb-[82px]'>
           <div className="contact__banner" style={{ backgroundImage: `url(${assetsImages.commonImageContact.src})` }}>
             <div className="grid grid-col">
-              <h2>Tìm và so sánh các đơn vị môi giới uy tín</h2>
-              <p>Bạn luôn có thể so sánh các đơn vị môi giới để được tư vấn trước khi đưa ra quyết định</p>
+              <h2>{t('EcomEntrustSearchAndCompareTheQualifiedRealEastateAgents')}</h2>
+              <p>{t('EcomEntrustWhetherYouAreStartingYourSearchOrNeedAReferralYouCanCompareAgenciesBeforeMakingYourDecision')}</p>
             </div>
           </div>
           <ServiceContent data={serviceContents} />

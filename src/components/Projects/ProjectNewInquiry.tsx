@@ -182,8 +182,8 @@ const ProjectNewInquiry: React.FC<Props> = ({ projectDetail }) => {
             {t('EcomPropertyDetailPageNewHomeInquiryRequest')}
           </div>
           <ul className='article-common-contact__wrapper-note'>
-            <li className='article-common-contact__wrapper-note-item'>Giải đáp mọi thắc mắc của khách hàng.</li>
-            <li className='article-common-contact__wrapper-note-item'>Tuyệt đối bảo mật thông tin cá nhân.</li>
+            <li className='article-common-contact__wrapper-note-item'>{t('EcomPropertyDetailPageTourFAQ')}</li>
+            <li className='article-common-contact__wrapper-note-item'>{t('EcomPropertyDetailPageTourPrivacy')}</li>
           </ul>
           <Form
             autoComplete="off"
@@ -326,7 +326,7 @@ const ProjectNewInquiry: React.FC<Props> = ({ projectDetail }) => {
           </Form>
           <div className="article-common-contact__wrapper-line">
             <div></div>
-            <span>Hoặc</span>
+            <span>{t('EcomPropertyDetailPageTourOr')}</span>
             <div></div>
           </div>
           <div className="article-common-contact__social">
@@ -334,7 +334,7 @@ const ProjectNewInquiry: React.FC<Props> = ({ projectDetail }) => {
               <div className="article-common-contact__social-icon" style={{ backgroundImage: `url(${assetsImages.commonIconPhone2.src})` }}>
               </div>
               <div className="text-left text-sm">
-                <div className="article-common-contact__social-icon-title">Gọi trực tiếp</div>
+                <div className="article-common-contact__social-icon-title">{t('EcomPropertyDetailPageTourCall')}</div>
                 <div className="article-common-contact__social-icon-phone">1900 2698</div>
               </div>
             </a>
@@ -343,7 +343,7 @@ const ProjectNewInquiry: React.FC<Props> = ({ projectDetail }) => {
               target="_blank"
               rel="noopener noreferrer">
               <div className="article-common-contact__social-icon" style={{ backgroundImage: `url(${assetsImages.commonIconZalo.src})` }}></div>
-              <div className="article-common-contact__social-icon-title">Chat qua Zalo</div>
+              <div className="article-common-contact__social-icon-title">{t('EcomPropertyDetailPageTourChatZalo')}</div>
             </a>
           </div>
         </div>

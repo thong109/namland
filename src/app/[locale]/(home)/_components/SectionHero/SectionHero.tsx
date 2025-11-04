@@ -6,6 +6,7 @@ import { assetsImages } from '@/assets/images/package';
 import SectionHeroForm from '../SectionHeroForm/SectionHeroForm';
 import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import './SectionHero.css'
+import { useTranslations } from 'next-intl';
 
 export interface SectionHeroProps {
   className?: string;
@@ -13,17 +14,19 @@ export interface SectionHeroProps {
 }
 
 const SectionHero: FC<SectionHeroProps> = ({ className = '' }) => {
+  const t = useTranslations('webLabel');
+  
   return (
     <div className='section-home-hero'>
       <div className='container'>
         <div className='section-home-hero__wrapper'>
           <span className='section-home-hero__title'>
-            Giải pháp giao dịch bất động sản từ trực tuyến đến trực tiếp của Nam Long Living
+            {t('EcomEntrustSolution')}
           </span>
           <SectionHeroForm />
         </div>
         <div className='section-home-hero__visual'>
-          <ButtonCore preset='directing' label='Xem chi tiết' />
+          <ButtonCore preset='directing' label={t('EcomPropertyListingDetailPageLocationDetail')} />
           <div className='section-home-hero__visual-wrapper'>
             <Image src={assetsImages.homeBackgroundHero} alt='Visual' />
           </div>
