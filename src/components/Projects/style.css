@@ -26,11 +26,12 @@
 
 .article-common-contact__wrapper-note {
   @apply px-[10px] mb-4;
+  @apply mobile:px-0;
 }
 
 .article-common-contact__wrapper-note-item {
   @apply text-lg leading-1.3 relative before:content-['•'] before:mr-[12px];
-  @apply mobile:text-base;
+  @apply mobile:text-sm;
 }
 
 .article-common-contact__container .ant-form-item-control-input {
@@ -39,10 +40,12 @@
 
 .article-common-contact__container .ant-form-item-control-input input {
   @apply h-[40px] text-xl rounded-[5px] border border-portal-gray-border bg-[#FBFBFB] p-[5px_14px_6px];
+  @apply mobile:text-sm;
 }
 
 .article-common-contact__checkbox-label {
   @apply font-mona text-portal-gray-7 text-base leading-[calc(25/16)];
+  @apply mobile:text-sm leading-[calc(24/14)];
 }
 
 .article-common-contact__checkbox-link {
@@ -71,16 +74,20 @@
 
 .article-common-contact__social > a {
   @apply flex items-center w-1/2 gap-2 rounded-md border border-gray-300 px-4 py-2 shadow-sm hover:bg-gray-50 transition;
+  @apply mobile:block;
 }
 
 .article-common-contact__social-icon {
   @apply block w-[47px] h-[47px] bg-center bg-no-repeat bg-cover flex-shrink-0;
+  @apply mobile:w-[30px] h-[30px];
 }
 
 .article-common-contact__social-icon-title {
   @apply text-xl leading-[calc(29/20)];
+  @apply mobile:text-sm leading-[calc(24/14)];
 }
 
 .article-common-contact__social-icon-phone {
   @apply text-xl leading-[calc(29/20)] text-portal-primaryLiving font-semibold;
+  @apply mobile:text-sm leading-[calc(24/14)];
 }

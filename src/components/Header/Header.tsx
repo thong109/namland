@@ -13,9 +13,11 @@ import AvatarDropdown from './AvatarDropdown';
 import { ModalLoginOpen } from './ultil/ModalLoginOpen';
 import LoginModal from '../LoginModal/LoginModal';
 import NotifyDropdown from './NotifyDropdown';
-import { useRouter } from 'next-intl/client';
+import { usePathname, useRouter } from 'next-intl/client';
+import clsx from 'clsx';
 
 const Header = ({ className, navType }: { className: string; navType: string }) => {
+  const pathname = usePathname();
   const [stateNavigation, toggleNavigation] = useState(false);
   const t = useTranslations('webLabel');
   const { userInfo } = useGlobalStore();
@@ -96,6 +98,18 @@ const Header = ({ className, navType }: { className: string; navType: string }) 
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+  const isActive = (item: any) => {
+    if (item.href === NAVIGATION.entrust.href) {
+      const subPaths = [
+        NAVIGATION.entrust.href,
+        NAVIGATION.findHouse.href,
+        NAVIGATION.findAgent.href,
+      ];
+      return subPaths.some(path => pathname.startsWith(path));
+    }
+
+    return pathname.startsWith(item.href);
+  };
   return (
     <header className='header-common'>
       <div className='notification-header'>
@@ -110,7 +124,12 @@ const Header = ({ className, navType }: { className: string; navType: string }) 
         <div className='navigation-header-outside'>
           <ul className='navigation-header-outside__wrapper'>
             {navigationHeaderData.map((item) => (
-              <li key={item.id} className='navigation-header-outside__item'>
+              <li key={item.id}
+                className={clsx(
+                  'navigation-header-outside__item',
+                  isActive(item) && 'active'
+                )}
+              >
                 <span className='navigation-header-outside__item-label' onClick={() => push(item.href)}>{t(item.name)}</span>
                 {item.subMenu && <div className='menu-header'>{item.subMenu}</div>}
               </li>

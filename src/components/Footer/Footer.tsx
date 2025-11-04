@@ -3,12 +3,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { assetsImages } from '@/assets/images/package';
-import './Footer.css';
 import { useTranslations } from 'next-intl';
 import { NAVIGATION } from '@/data/navigation';
+import ScrollToTopButton from './ScrollToTopButton';
+import { useEffect, useState } from 'react';
+import './Footer.css';
 
 const Footer = () => {
   const t = useTranslations('webLabel');
+  const [position, setPosition] = useState(0);
+
   const menu1 = [
     { href: NAVIGATION.saleListing.href, label: t('EcomHomePageMenuSale') },
     { href: NAVIGATION.rentListing.href, label: t('EcomHomePageMenuRent') },
@@ -25,15 +29,26 @@ const Footer = () => {
     { href: "#", label: t('EcomLeftMenuBarPrivacyPolicy') },
     { href: "#", label: t('EcomLeftMenuBarRegulationSettlement') },
   ];
-  const buttonToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', handleEvent);
+    }
+  }, []);
+
+  const handleEvent = () => {
+    if (typeof window !== 'undefined') {
+      window.requestAnimationFrame(showHideHeaderMenu);
+    }
   };
+  const showHideHeaderMenu = () => {
+    let curEcomHomePageFooterRentScrollPos = window.pageYOffset;
+    setPosition(curEcomHomePageFooterRentScrollPos);
+  };
+
   return (
     <footer className='footer-common'>
-      <button className='button-common-totop' onClick={buttonToTop}></button>
+      <>{position > 0 ? <ScrollToTopButton /> : ''}</>
       <div className='navigation-footer'>
         <div className='container'>
           <div className='navigation-footer__wrapper'>
