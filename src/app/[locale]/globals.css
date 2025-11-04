@@ -111,9 +111,13 @@ input,select,textarea {
 }
 
 .slick-arrow {
-  @apply !w-[54px] !h-[54px] !border-[1px] border-[#d7e0e7] z-10 opacity-100 !shadow-none bg-[url('../../assets/images/common/icon_arrow_05.svg')] bg-[length:calc(100%+2px)_auto] bg-[position:50%_50%] bg-no-repeat;
+  @apply !w-[54px] !h-[54px] !border-[2px] !border-solid !border-[rgba(215,224,231,0.5)] !rounded-[50%] z-10 !opacity-100 !shadow-none !filter-none !bg-[#fff] !bg-[url('../../assets/images/common/icon_arrow_05.svg')] !bg-[length:calc(100%+4px)_auto] !bg-[position:50%_50%] !bg-no-repeat !transition-[border] !duration-300 !ease-in-out;
   @apply tablet-md:!hidden;
   @apply mobile:!hidden;
+}
+
+.slick-arrow:hover {
+  @apply !border-[rgba(215,224,231,1)];
 }
 
 .slick-arrow::after {
