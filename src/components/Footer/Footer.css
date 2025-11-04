@@ -109,7 +109,7 @@
 }
 
 .button-common-totop {
-  @apply w-[54px] h-[54px] fixed right-[83px] bottom-[83px] z-[10000] border-[2px] border-solid border-[rgba(215,224,231,0.5)] rounded-[50%] z-10 opacity-100 shadow-none filter-none bg-[#fff] bg-[url('../../assets/images/common/icon_arrow_05.svg')] bg-[length:calc(100%+4px)_auto] bg-[position:50%_50%] bg-no-repeat transition-[border] duration-300 ease-in-out rotate-[-90deg];
+  @apply w-[54px] h-[54px] fixed right-[83px] bottom-[83px] z-[10000] border-[2px] border-solid border-[rgba(215,224,231,0.5)] rounded-[50%] z-10 opacity-100 shadow-none filter-none bg-[rgba(255,255,255,0.5)] bg-[url('../../assets/images/common/icon_arrow_05.svg')] bg-[length:calc(100%+4px)_auto] bg-[position:50%_50%] bg-no-repeat transition-[border] duration-300 ease-in-out rotate-[-90deg];
   @apply tablet-md:right-[30px] tablet-md:bottom-[30px];
   @apply mobile:w-[40px] mobile:h-[40px] mobile:right-[20px] mobile:bottom-[20px];
 }
