@@ -328,8 +328,8 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
               t('HomeRealEstateSearchFormMoreFilter'),
               <AdvanceSearchListing
                 filterBy={filterBy}
-                formref={formAdvanceSearch}
-                funitureStatus={funitureStatus}
+                formRef={formAdvanceSearch}
+                furnitureStatus={funitureStatus}
                 inAmenities={inAmenities}
                 outAmenities={outAmenities}
                 views={views}
@@ -413,8 +413,8 @@ const SidebarRent: FC<HomeRealEstateSearchFormProps> = ({ }) => {
             <Modal open={isMobileMoreFilterModalOpen} footer={null} centered closable={false}>
               <AdvanceSearchListing
                 filterBy={filterBy}
-                formref={formAdvanceSearch}
-                funitureStatus={funitureStatus}
+                formRef={formAdvanceSearch}
+                furnitureStatus={funitureStatus}
                 inAmenities={inAmenities}
                 outAmenities={outAmenities}
                 views={views}
