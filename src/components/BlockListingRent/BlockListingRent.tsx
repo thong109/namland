@@ -14,6 +14,7 @@ import { FC, useState } from 'react';
 import './BlockListingRent.css';
 import CardListingRent from '@/components/CardListing/CardListingRent';
 import SidebarRent from '../SidebarRent/SidebarRent';
+import Select from 'antd';
 
 export interface IProps {
   totalResult: number;
@@ -109,7 +110,8 @@ const BlockListingRent: FC<IProps> = ({
             <div className='block-common-listingrent__analyze-label'>{t('EcomSearchPageSearchFilterResult', { number: totalResult })}</div>
             <div className='select-common-sortby'>
               <span className='select-common-sortby__label'>{t('EcomSearchPageSearchFilterSort')}:</span>
-              <div className='select-common-sortby__control'></div>
+              <div className='select-common-sortby__control'>
+              </div>
             </div>
           </div>
         </div>

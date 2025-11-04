@@ -23,8 +23,15 @@ const Footer = () => {
     { href: "#", label: t('EcomLeftMenuBarPrivacyPolicy') },
     { href: "#", label: t('EcomLeftMenuBarRegulationSettlement') },
   ];
+  const buttonToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
   return (
     <footer className='footer-common'>
+      <button className='button-common-totop' onClick={buttonToTop}></button>
       <div className='navigation-footer'>
         <div className='container'>
           <div className='navigation-footer__wrapper'>
