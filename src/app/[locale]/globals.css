@@ -436,10 +436,40 @@ input,select,textarea {
   @apply !border-[#97282b] !bg-[#f6cac9];
 }
 
+.select-common-sortby {
+  @apply flex gap-[23px];
+  @apply tablet-lg:gap-[10px];
+  @apply mobile:gap-[10px];
+}
+
+.select-common-sortby__control .ant-select-selector,
+.select-common-sortby__control.ant-select-outlined:not(.ant-select-customize-input) .ant-select-selector {
+  @apply w-[100%] !min-h-[40px] !p-[0px] !border-[0px] !bg-transparent !rounded-none;
+}
+
+.select-common-sortby__control .ant-select-selection-item {
+  @apply !pr-[20px] font-mona text-[16px] leading-[calc(25/16)] font-[600] text-[#982220];
+  @apply tablet-lg:text-[14px] tablet-lg:leading-[calc(20/14)];
+  @apply mobile:text-[14px] mobile:leading-[calc(20/14)];
+}
+
+.select-common-sortby__control  .ant-select-arrow {
+  @apply !right-[0];
+}
+
+.select-common-sortby__control .anticon.anticon-down.ant-select-suffix {
+  @apply !bg-[#982220];
+  mask: url('../../assets/images/common/icon_arrow_01.svg') 50% 50% / 100% auto no-repeat;
+}
+
+.select-common-sortby__control .anticon.anticon-down.ant-select-suffix > svg {
+  @apply !opacity-0;
+}
+
 .select-common-sortby__label {
-  @apply mr-[23px] py-[7.5px] flex items-start relative text-base leading-[calc(25/16)];
-  @apply tablet-lg:mr-[10px] tablet-lg:py-[10px] tablet-lg:text-sm tablet-lg:leading-[calc(20/14)];
-  @apply mobile:mr-[10px] mobile:py-[10px] mobile:text-sm mobile:leading-[calc(20/14)];
+  @apply py-[7.5px] flex items-start relative text-base leading-[calc(25/16)];
+  @apply tablet-lg:py-[10px] tablet-lg:text-sm tablet-lg:leading-[calc(20/14)];
+  @apply mobile:py-[10px] mobile:text-sm mobile:leading-[calc(20/14)];
 }
 
 .select-common-sortby__label::before {

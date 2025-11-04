@@ -1,4 +1,5 @@
 'use client';
+
 import propertyApiService from '@/apiServices/externalApiServices/propertyApiService';
 import { NAVIGATION } from '@/data/navigation';
 import { listingType, removeDiacritics } from '@/libs/appconst';
@@ -7,14 +8,13 @@ import LocationConstant from '@/libs/constants/locationConstant';
 import CoordinateModel from '@/models/commonModel/coordinateModel';
 import { ShortHomeRealEstateSearchModel } from '@/models/homeRealEstateSearchModel/homeRealEstateSearchModel';
 import Componentutil from '@/utils/componentUtil';
-import { Pagination, Switch } from 'antd';
+import { Pagination, Switch, Select } from 'antd';
 import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next-intl/link';
 import { FC, useState } from 'react';
 import './BlockListingRent.css';
 import CardListingRent from '@/components/CardListing/CardListingRent';
 import SidebarRent from '../SidebarRent/SidebarRent';
-import Select from 'antd';
 
 export interface IProps {
   totalResult: number;
@@ -110,8 +110,10 @@ const BlockListingRent: FC<IProps> = ({
             <div className='block-common-listingrent__analyze-label'>{t('EcomSearchPageSearchFilterResult', { number: totalResult })}</div>
             <div className='select-common-sortby'>
               <span className='select-common-sortby__label'>{t('EcomSearchPageSearchFilterSort')}:</span>
-              <div className='select-common-sortby__control'>
-              </div>
+              <Select className='select-common-sortby__control' value='sort-1' size='large'>
+                <Select.Option value='sort-1'>Giá tăng dần</Select.Option>
+                <Select.Option value='sort-2'>Giá giảm dần</Select.Option>
+              </Select>
             </div>
           </div>
         </div>
