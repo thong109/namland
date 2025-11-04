@@ -7,7 +7,6 @@ import { NAVIGATION } from '@/data/navigation';
 
 const Footer = () => {
   const t = useTranslations('webLabel');
-
   const menu1 = [
     { href: NAVIGATION.saleListing.href, label: t('EcomHomePageMenuSale') },
     { href: NAVIGATION.rentListing.href, label: t('EcomHomePageMenuRent') },
@@ -18,14 +17,12 @@ const Footer = () => {
     { href: "#", label: t('EcomEntrustJoinUsList') },
     { href: "#", label: t('EcomEntrustPrivacy') },
   ];
-
   const menu2 = [
     { href: "#", label: t('EcomPageTsAnhCsTitlePageTitle') },
     { href: "#", label: t('EcomEntrustAgreement') },
     { href: "#", label: t('EcomLeftMenuBarPrivacyPolicy') },
     { href: "#", label: t('EcomLeftMenuBarRegulationSettlement') },
   ];
-
   return (
     <footer className='footer-common'>
       <div className='navigation-footer'>

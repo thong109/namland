@@ -10,24 +10,3 @@
 .listing_viewport {
   @apply flex flex-col gap-[10px] w-full;
 }
-
-.listing_container .slick-arrow {
-  @apply !w-[54px] !h-[54px] !border border-portal-gray-border z-10 opacity-100 !shadow-none;
-  background: #fff url(../../../../../assets/images/common/icon_arrow_05.svg) center center / contain no-repeat;
-  @apply tablet-md:!hidden;
-  @apply mobile:!hidden;
-}
-
-.listing_container .slick-arrow::after {
-  @apply hidden;
-}
-
-.listing_container .slick-arrow.slick-next {
-  @apply !right-[-70px];
-  @apply laptop-md:!right-[-10px];
-}
-
-.listing_container .slick-arrow.slick-prev {
-  @apply rotate-180 -translate-y-1/2 !left-[-70px];
-  @apply laptop-md:!left-[-10px];
-}

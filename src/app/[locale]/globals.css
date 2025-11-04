@@ -31,12 +31,64 @@ input,select,textarea {
 .ant-popover,
 .ant-dropdown,
 .ant-modal-root .ant-modal-mask {
-  @apply !z-[11000];
+  @apply !z-[11000] !font-mona;
+
 }
 
 .ant-modal-root .ant-modal-wrap {
   @apply !z-[11100];
 }
+
+.ant-popover .ant-popover-inner {
+  @apply !max-w-[824px] !p-[20px_25px_25px] !bg-[#fbf8f8] !rounded-[10px] !border !border-[#d9d9d9] !shadow-[0_4px_4px_rgba(0,0,0,0.25)];
+  @apply tablet-lg:!w-[100%] tablet-lg:!p-[19px];
+  @apply mobile:!w-[100%] mobile:!p-[19px];
+}
+
+.ant-popover .ant-popconfirm-buttons {
+  @apply !mt-[27px] !flex !justify-end !gap-[10px];
+  @apply tablet-lg:!mt-[20px];
+  @apply mobile:!mt-[20px];
+}
+
+.ant-popover .ant-btn {
+  @apply !h-[auto] !min-h-[40px] !m-[0px] !p-[6.5px_18px] !bg-[#982220] !border-[1px] !border-[#982220] !rounded-[5px] flex justify-center items-center !text-[16px] !leading-[calc(25/16)] !font-[600] !text-[#fff] transition-[background_color] duration-300 ease-in-out;
+  @apply tablet-lg:!text-[14px] tablet-lg:!leading-[calc(25/14)];
+  @apply mobile:!text-[14px] mobile:!leading-[calc(25/14)];
+}
+
+.ant-popover .ant-btn:not(:disabled):hover {
+  @apply !bg-[#fff] !border-[#982220] !text-[#982220];
+}
+
+.ant-popover .ant-btn.ant-btn-color-default {
+  @apply !bg-[#fff] !text-[#982220];
+}
+
+.ant-popover .ant-btn.:not(:disabled):hover {
+  @apply !bg-[#982220] !border-[#982220] !text-[#fff];
+}
+
+.ant-select-dropdown {
+  @apply !w-[325px] !p-[19px_22px] !bg-[#fbf8f8] !rounded-[10px] !border border-[#d9d9d9] !shadow-[0_4px_4px_rgba(0,0,0,0.25)];
+  @apply tablet-lg:!p-[19px];
+  @apply mobile:!w-[100%] mobile:!p-[19px];
+}
+
+.ant-select-dropdown .rc-virtual-list {
+  @apply mx-[-10px];
+}
+
+.ant-select-dropdown .rc-virtual-list .rc-virtual-list-holder-inner {
+  @apply gap-[0px];
+}
+
+.ant-select-dropdown .rc-virtual-list .ant-select-item {
+  @apply !p-[5px_10px] !text-[16px] !leading-[calc(25/16)];
+  @apply tablet-lg:text-[14px] tablet-lg:leading-[calc(25/14)];
+  @apply mobile:text-[14px] mobile:leading-[calc(25/14)];
+}
+
 
 /* Plugin: Form */
 
@@ -56,6 +108,26 @@ input,select,textarea {
 
 .slick-track {
   @apply !flex;
+}
+
+.slick-arrow {
+  @apply !w-[54px] !h-[54px] !border-[1px] border-[#d7e0e7] z-10 opacity-100 !shadow-none bg-[url('../../assets/images/common/icon_arrow_05.svg')] bg-[length:calc(100%+2px)_auto] bg-[position:50%_50%] bg-no-repeat;
+  @apply tablet-md:!hidden;
+  @apply mobile:!hidden;
+}
+
+.slick-arrow::after {
+  @apply !hidden;
+}
+
+.slick-arrow.slick-next {
+  @apply !right-[-70px];
+  @apply laptop-md:!right-[-10px];
+}
+
+.slick-arrow.slick-prev {
+  @apply rotate-180 -translate-y-1/2 !left-[-70px];
+  @apply laptop-md:!left-[-10px];
 }
 
 /* Button */
@@ -358,10 +430,6 @@ input,select,textarea {
 
 .select-common--type .ant-select-selector {
   @apply !border-[#97282b] !bg-[#f6cac9];
-}
-
-.select-common-sortby {
-
 }
 
 .select-common-sortby__label {

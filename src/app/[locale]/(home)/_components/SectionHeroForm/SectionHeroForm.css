@@ -14,7 +14,7 @@
 
 .form-home-search__filter {
   @apply mb-[26px] flex items-center;
-  @apply tablet-lg:max-w-[620px] tablet-lg:mx-[auto];
+  @apply tablet-lg:max-w-[720px] tablet-lg:mx-[auto];
 }
 
 .form-home-search__filter-entry {

@@ -1,32 +1,11 @@
-.ant-popover:has(.popup-common-searchadvanced) {
-  @apply !font-mona;
-}
-
 .ant-popover:has(.popup-common-searchadvanced) .ant-popover-inner {
-  @apply !w-[452px] !p-[20px_25px_25px] !bg-[#fbf8f8] !rounded-[10px] !border !border-[#d9d9d9] !shadow-[0_4px_4px_rgba(0,0,0,0.25)];
-  @apply mobile:!w-[100%];
+  @apply !w-[452px] !p-[20px_25px_25px];
+  @apply tablet-lg:!w-[100%] tablet-lg:!p-[19px];
+  @apply mobile:!w-[100%] mobile:!p-[19px];
 }
 
 .ant-popover:has(.popup-common-searchadvanced) .ant-popconfirm-buttons {
-  @apply !mt-[27px] !flex !justify-end !gap-[10px];
-}
-
-.ant-popover:has(.popup-common-searchadvanced) .ant-btn {
-  @apply !h-[auto] !min-h-[40px] !m-[0px] !p-[6.5px_18px] !bg-[#982220] !border-[1px] !border-[#982220] !rounded-[5px] flex justify-center items-center !text-[16px] !leading-[calc(25/16)] !font-[600] !text-[#fff] transition-[background_color] duration-300 ease-in-out;
-  @apply tablet-lg:!text-[14px] tablet-lg:!leading-[calc(25/14)];
-  @apply mobile:!text-[14px] mobile:!leading-[calc(25/14)];
-}
-
-.ant-popover:has(.popup-common-searchadvanced) .ant-btn:not(:disabled):hover {
-  @apply !bg-[#fff] !border-[#982220] !text-[#982220];
-}
-
-.ant-popover:has(.popup-common-searchadvanced) .ant-btn.ant-btn-color-default {
-  @apply !bg-[#fff] !text-[#982220];
-}
-
-.ant-popover:has(.popup-common-searchadvanced) .ant-btn.:not(:disabled):hover {
-  @apply !bg-[#982220] !border-[#982220] !text-[#fff];
+  @apply !mt-[27px];
 }
 
 .popup-common-searchadvanced {

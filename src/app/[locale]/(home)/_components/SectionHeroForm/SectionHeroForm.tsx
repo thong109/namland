@@ -236,12 +236,10 @@ const SectionHeroForm: FC<SectionHeroFormProps> = () => {
         okButtonProps={{
           hidden: !hasOKButton,
           size: 'middle',
-          className: 'button-common',
         }}
         cancelButtonProps={{
           hidden: !hasOKButton,
           size: 'middle',
-          className: 'button-common button-common--reset',
           onClick: resetAction,
         }}
       >
