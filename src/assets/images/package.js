@@ -59,6 +59,11 @@ import articleImage3 from "./article/project_img_03.jpg";
 import articleImage4 from "./article/project_img_04.jpg";
 import logoImage1 from "./article/logo_img_01.png";
 import logoImage2 from "./article/logo_img_02.png";
+import topLogo1 from "./home/top_logo_01.png";
+import topLogo2 from "./home/top_logo_02.png";
+import topLogo3 from "./home/top_logo_03.png";
+import topLogo4 from "./home/top_logo_04.png";
+
 
 export const assetsImages = {
   commonIconArrow,
@@ -123,4 +128,8 @@ export const assetsImages = {
   logoImage1,
   logoImage2,
   commonIconZalo,
+  topLogo1,
+  topLogo2,
+  topLogo3,
+  topLogo4
 }

@@ -1,0 +1,62 @@
+.agent__container {
+  @apply md:p-[29px_0_43px] flex w-full flex-col gap-[10px];
+  @apply tablet-lg:p-[30px_0_40px];
+  @apply mobile:p-[20px_0_30px];
+}
+
+.agent__container .slick-list {
+  @apply -mx-[15px];
+  @apply mobile:-mx-[5px];
+}
+
+.agent__container .slick-arrow {
+  @apply mobile:!hidden;
+}
+
+.agent__viewport {
+  @apply font-mona mobile:px-2 laptop-sm:px-[6px] desktop:px-[15px];
+}
+
+.agent__wrapper {
+  @apply bg-white border border-portal-gray-border rounded-[10px] p-[20px] pb-[40px];
+  @apply tablet-lg:pb-[30px];
+  @apply mobile:pb-[20px];
+}
+
+.agent__image {
+  @apply flex justify-center mb-[28px] h-[170px];
+  @apply tablet-lg:mb-[20px];
+  @apply mobile:mb-[15px];
+}
+
+.agent__content-name {
+  @apply block font-semibold text-xl leading-[calc(25/20)] mb-[10px];
+  @apply tablet-lg:text-lg tablet-lg:leading-[calc(25/18)];
+  @apply mobile:text-base mobile:leading-[calc(25/16)];
+}
+
+.agent__content-phone {
+  @apply block font-semibold text-lg leading-1.3 mb-[14px];
+  @apply tablet-lg:text-base tablet-lg:leading-1.3;
+  @apply mobile:text-sm mobile:leading-1.3;
+}
+
+.agent__content-email {
+  @apply block text-base leading-[calc(24/16)] mb-[16px];
+  @apply tablet-lg:text-sm tablet-lg:leading-[calc(24/14)];
+  @apply mobile:text-sm mobile:leading-[calc(24/14)];
+}
+
+.agent__content-email strong {
+  @apply block font-normal text-portal-gray-border;
+}
+
+.agent__content-address {
+  @apply block text-base leading-[calc(24/16)];
+  @apply tablet-lg:text-sm tablet-lg:leading-[calc(24/14)];
+  @apply mobile:text-sm mobile:leading-[calc(24/14)];
+}
+
+.agent__content-address strong {
+  @apply block font-normal text-portal-gray-border;
+}

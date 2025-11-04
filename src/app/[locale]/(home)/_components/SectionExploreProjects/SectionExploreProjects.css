@@ -1,0 +1,17 @@
+.explore__container {
+  @apply relative flex flex-col gap-[10px] p-[50px_0_80px];
+  @apply tablet-lg:p-[30px_0_40px];
+  @apply mobile:p-[20px_0];
+}
+
+.explore__title {
+  @apply mb-1 text-xl md:text-[30px] font-semibold text-black leading-[1.7];
+}
+
+.explore__list {
+  @apply grid grid-cols-12 gap-4 md:gap-[30px];
+}
+
+.explore__item {
+  @apply col-span-12 sm:col-span-6 lg:col-span-4;
+}

@@ -1,23 +1,17 @@
 import logoHT from '@/assets/images/common/favicon.ico';
 import {
-  getEcomAdBannerGetAdBannerByPosition,
   postEcomListingGetForRentByQuery,
   postEcomListingGetForSellByQuery,
 } from '@/ecom-sadec-api-client';
-import { AdBannerPositionEnum } from '@/libs/enums/AdBannerPositionEnum';
 import { ListPropertyStatusEnum } from '@/libs/enums/ListPropertyStatusEnum';
-import Banner from '@/models/masterDataModel/bannerModel';
-import ApiResponseModel from '@/models/reponseModel/apiResponseModel';
 import { createTranslator } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import EntrustAgent from '../find-agent/_components/EntrustAgent';
-import MiddleBanner from './_components/MiddleBanner/MiddleBanner';
 import SectionHero from './_components/SectionHero/SectionHero';
 import SectionListingForRent from './_components/SectionListingForRent/SectionListingForRent';
 import SectionListingForSale from './_components/SectionListingForSale/SectionListingForSale';
-import TopBanner from './_components/TopBanner/TopBanner';
 import SectionContact from '@/components/SectionContact/SectionContact';
 import './style.css';
 
@@ -45,7 +39,7 @@ export async function generateMetadata({ params: { locale } }: Props) {
 
 const basedQuery = (propertyStatus: ListPropertyStatusEnum) => ({
   from: 0,
-  size: 10,
+  size: 12,
   sort: {
     field: 'createdAt',
     sortOrder: 1 as 0 | 1,
@@ -64,11 +58,6 @@ const basedQuery = (propertyStatus: ListPropertyStatusEnum) => ({
 });
 
 const PageHome: FC<Props> = async ({ params: { locale } }) => {
-  const aboveSaleBanner = (
-    (await getEcomAdBannerGetAdBannerByPosition({
-      position: AdBannerPositionEnum.AboveSale,
-    })) as ApiResponseModel<Banner>
-  )?.data;
   const salePlatinumListing: any = await postEcomListingGetForSellByQuery({
     requestBody: { ...basedQuery(ListPropertyStatusEnum.Platinum) },
   });
@@ -76,12 +65,14 @@ const PageHome: FC<Props> = async ({ params: { locale } }) => {
     requestBody: { ...basedQuery(ListPropertyStatusEnum.Platinum) },
   });
   return (
-    <main className="nc-PageHome relative flex flex-col gap-16 pb-0">
+    <main className="nc-PageHome relative">
       <SectionHero locale={locale} />
       <SectionListingForSale locale={locale} platinumListing={salePlatinumListing} />
       <SectionListingForRent locale={locale} platinumListing={rentPlatinumListing} />
-      <div className="container">
-        <EntrustAgent />
+      <div className="section__agent">
+        <div className="container">
+          <EntrustAgent />
+        </div>
       </div>
       <SectionExploreProjects locale={locale} />
       <SectionContact />

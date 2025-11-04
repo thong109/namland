@@ -1,8 +1,5 @@
 'use client';
 
-import CardListingHomePage from '@/components/CardListing/CardListingHomePage';
-import SelectorChip from '@/components/SelectorChip/SelectorChip';
-import { NAVIGATION } from '@/data/navigation';
 import {
   ElasticSearchQuery,
   ListingTypeEnum,
@@ -12,14 +9,11 @@ import {
 import { listingType } from '@/libs/appconst';
 import { ListPropertyStatusEnum } from '@/libs/enums/ListPropertyStatusEnum';
 import Banner from '@/models/masterDataModel/bannerModel';
-import { ArrowRightCircleIcon } from '@heroicons/react/24/outline';
 import { useQuery } from '@tanstack/react-query';
-import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
-import Link from 'next-intl/link';
 import dynamic from 'next/dynamic';
-import Image from 'next/image';
 import { FC, useEffect, useMemo, useState } from 'react';
+import "./SectionHomePageListing.css";
 
 const SectionHomePageListingCarouselClient = dynamic(
   () => import('./SectionHomePageListingCarouselClient'),
@@ -28,7 +22,7 @@ const SectionHomePageListingCarouselClient = dynamic(
 
 const basedQuery = (): ElasticSearchQuery => ({
   from: 0,
-  size: 10,
+  size: 12,
   sort: {
     field: 'createdAt',
     sortOrder: 1,
@@ -143,28 +137,14 @@ const SectionHomePageListing: FC<SectionHomePageListingProps> = ({
     enabled: isFilterChanged,
   });
   return (
-    <div>
-      <div className="container relative flex flex-col gap-6 lg:flex-row">
-        <div
-          className={clsx(
-            'flex flex-col gap-4 lg:w-3/4',
-            !behindBanner || !behindBanner.attachments || behindBanner.attachments.length <= 0
-              ? 'lg:w-full'
-              : 'lg:w-3/4',
-          )}
-        >
+    <div className='container'>
+      <div className="listing_container relative">
+        <div className='listing_viewport'>
           <p className="mb-1 text-xl md:text-[30px] font-semibold text-black leading-1">
             {title}
           </p>
 
           <div className="w-full overflow-visible">
-            <div className="homepage-listing-to-hide flex w-full flex-row overflow-x-auto overflow-y-hidden">
-              {platinumListing?.data?.data?.map((item) => (
-                <div key={item.id} className="h-full shrink-0 grow basis-1/4">
-                  <CardListingHomePage listing={item} className="px-2" />
-                </div>
-              ))}
-            </div>
             {delayedRenderCarousel && (
               <SectionHomePageListingCarouselClient
                 isLoading={isLoading}

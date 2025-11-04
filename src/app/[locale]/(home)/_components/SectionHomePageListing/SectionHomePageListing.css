@@ -1,0 +1,12 @@
+.listing_container {
+  @apply mb-[15px];
+}
+
+.listing_container .slick-list {
+  @apply -mx-[15px];
+  @apply mobile:-mx-[5px];
+}
+
+.listing_viewport {
+  @apply flex flex-col gap-[10px] w-full;
+}

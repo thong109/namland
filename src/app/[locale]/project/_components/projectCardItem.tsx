@@ -29,7 +29,7 @@ const ProjectCardItem: React.FC<IProps> = ({ data, className = '', ...props }) =
               alt="image"
               src={imageUrl}
               loading="lazy"
-              className='group-hover:scale-105 transition-transform duration-500 ease-in-out'
+              className='group-hover:scale-[1.3] transition-transform duration-[3s] ease-in-out'
               fill
             />
           </div>

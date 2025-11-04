@@ -227,10 +227,21 @@ const SectionHeroForm: FC<SectionHeroFormProps> = () => {
         okText={t('HomeSearchAplyButton')}
         cancelText={t('HomeSearchResetButton')}
         placement='bottom'
-        okButtonProps={{ hidden: hasOKButton ? false : true, size: 'middle' }}
-        cancelButtonProps={{
-          hidden: hasOKButton ? false : true,
+        // okButtonProps={{ hidden: hasOKButton ? false : true, size: 'middle' }}
+        // cancelButtonProps={{
+        //   hidden: hasOKButton ? false : true,
+        //   size: 'middle',
+        //   onClick: resetAction,
+        // }}
+        okButtonProps={{
+          hidden: !hasOKButton,
           size: 'middle',
+          className: 'button-common',
+        }}
+        cancelButtonProps={{
+          hidden: !hasOKButton,
+          size: 'middle',
+          className: 'button-common button-common--reset',
           onClick: resetAction,
         }}
       >

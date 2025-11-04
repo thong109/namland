@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 import React, { FC, useMemo } from 'react';
-import ribbonStyle from './Ribbon.module.scss';
+import "./Card.css";
 
 export interface IProps {
   variant?: 'new' | 'sale' | '';
@@ -21,7 +21,7 @@ const CardListingRibbon: FC<IProps> = ({ variant = '' }) => {
   }, [variant, t]);
 
   return (
-    <span className={clsx('card-common-listing__visual-status')}>
+    <span className={clsx('card-common-listing__visual-status is-effect')}>
       {label}
     </span>
   );

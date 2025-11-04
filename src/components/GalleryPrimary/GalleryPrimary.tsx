@@ -110,9 +110,17 @@ const GalleryPrimary: React.FC<GalleryPrimaryProps> = ({ images: initImages = []
                         }}
                       >
                         +{images.length - imageIndexLast}
-                        {images.slice(imageIndexLast).map((imageFinal, imageIndexFinal) => (
-                          <AntImage className='hidden' key={`${imageFinal?.id || 'img'}-${imageIndexFinal}`} src={imageFinal.url} alt={imageFinal.id} />
-                        ))}
+                        {images.slice(imageIndexLast).map((imageFinal, imageIndexFinal) => {
+                          const globalIndex = imageIndexLast + imageIndexFinal;
+                          return (
+                            <AntImage
+                              className='hidden'
+                              key={`${imageFinal?.id || 'img'}-${globalIndex}`}
+                              src={imageFinal.url}
+                              alt={imageFinal.id}
+                            />
+                          );
+                        })}
                       </div>
                     )}
                   </div>

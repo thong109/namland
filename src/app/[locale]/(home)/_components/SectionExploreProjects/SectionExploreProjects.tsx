@@ -4,6 +4,7 @@ import ApiResponseModel from '@/models/reponseModel/apiResponseModel';
 import PageResultModel from '@/models/reponseModel/pageResultModel';
 import ProjectCardItem from '@/app/[locale]/project/_components/projectCardItem';
 import { getTranslator } from 'next-intl/server';
+import "./SectionExploreProjects.css";
 
 interface Props {
   locale: string;
@@ -21,16 +22,18 @@ const SectionExploreProjects = async ({ locale }: Props) => {
   const projects = await getProjects();
 
   return (
-    <div className="container relative flex flex-col gap-4">
-      <p className="mb-1 text-xl md:text-[30px] font-semibold text-black leading-1">
-        {t('EcomHomePageExploreProject')}
-      </p>
-      <div className="grid grid-cols-12 gap-4 md:gap-[30px]">
-        {projects.map((item, index) => (
-          <div className="col-span-12 sm:col-span-6 lg:col-span-4" key={`prj-${index}`}>
-            <ProjectCardItem data={item} />
-          </div>
-        ))}
+    <div className="container">
+      <div className="explore__container">
+        <p className="explore__title">
+          {t('EcomHomePageExploreProject')}
+        </p>
+        <div className="explore__list">
+          {projects.map((item, index) => (
+            <div className="explore__item" key={`prj-${index}`}>
+              <ProjectCardItem data={item} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

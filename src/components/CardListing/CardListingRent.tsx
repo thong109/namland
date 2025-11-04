@@ -26,7 +26,7 @@ const CardListingRent: React.FC<CardListingRentProps> = ({ className, listing })
       <div className='card-common-listing__visual'>
         <CardListingRibbon variant='sale' />
         <div className='card-common-listing__visual-wrapper'>
-          <Image src={listingDetail?.imageThumbnailUrl} className='group-hover:scale-105' width={415} height={271} alt={'Image'} />
+          <Image src={listingDetail?.imageThumbnailUrl} className='group-hover:scale-[1.3] transition-transform duration-[3s] ease-in-out' width={415} height={271} alt={'Image'} />
         </div>
       </div>
       <div className='card-common-listing__wrapper'>

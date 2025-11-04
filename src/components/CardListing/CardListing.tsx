@@ -9,6 +9,7 @@ import React from 'react';
 import ButtonCore from '@/components/ButtonCore/ButtonCore';
 import { formatNumber } from '@/libs/helper';
 import './CardListing.css';
+import CardListingRibbon from './_component/CardListingRibbon';
 
 interface CardListingProps {
   className?: string;
@@ -22,9 +23,9 @@ const CardListing: React.FC<CardListingProps> = ({ className, listing }) => {
   return (
     <Link className={clsx('card-common-listing group', className)} href={listingUrl}>
       <div className='card-common-listing__visual'>
-        <span className='card-common-listing__visual-status'>{t('EcomPropertyListingDetailPageLocationStatus')}</span>
+        <CardListingRibbon variant='new' />
         <div className='card-common-listing__visual-wrapper'>
-          <Image src={listingDetail?.imageThumbnailUrl} className='group-hover:scale-105' width={415} height={271} alt={'Image'} />
+          <Image src={listingDetail?.imageThumbnailUrl} className='group-hover:scale-[1.3] transition-transform duration-[3s] ease-in-out' width={415} height={271} alt={'Image'} />
         </div>
       </div>
       <div className='card-common-listing__wrapper'>

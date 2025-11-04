@@ -25,7 +25,7 @@ const CardListingHomePage: React.FC<CardListingHomePageProps> = ({ className, li
       <div className='card-common-listing__visual'>
         {listingDetail.type === 1 && (<CardListingRibbon variant="new" />)}
         <div className='card-common-listing__visual-wrapper'>
-          <Image src={listingDetail?.imageThumbnailUrl} className='group-hover:scale-105' width={415} height={271} alt={'Image'} />
+          <Image src={listingDetail?.imageThumbnailUrl} className='group-hover:scale-[1.3] transition-transform duration-[3s] ease-in-out' width={415} height={271} alt={'Image'} />
         </div>
       </div>
       <div className='card-common-listing__wrapper'>
@@ -34,7 +34,7 @@ const CardListingHomePage: React.FC<CardListingHomePageProps> = ({ className, li
           <ul className='card-common-listing__info'>
             <li className='card-common-listing__info-entry'>
               <span className='card-common-listing__entry-label'>{t('EcomPropertyListingDetailPageLocationLocation')}</span>
-              <div className='card-common-listing__entry-detail line-clamp-3'>{listingDetail?.location?.address}</div>
+              <div className='card-common-listing__entry-detail line-clamp-2'>{listingDetail?.location?.address}</div>
             </li>
             <li className='card-common-listing__info-entry'>
               {listingDetail.type === 1 ? (

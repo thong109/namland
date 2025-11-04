@@ -1,0 +1,12 @@
+.card-common-listing__visual-status.is-effect {
+  @apply after:absolute after:top-[-12px] after:left-0 after:w-[32px] after:h-[64px] after:bg-white after:opacity-15 after:rotate-[335deg] after:blur-[6px] after:content-[''] after:pointer-events-none after:z-0;
+}
+
+.card-common-listing__visual-status.is-effect::after {
+  animation: 2s cubic-bezier(.19,1,.22,1) infinite g;
+}
+
+@keyframes g {
+  0% { left: -10%; }
+  100% { left: 110%; }
+}

@@ -1,0 +1,5 @@
+.section__agent {
+  @apply bg-[#F5F5F5] md:mt-[62px];
+  @apply tablet-lg:mt-[50px];
+  @apply mobile:mt-[40px];
+}
