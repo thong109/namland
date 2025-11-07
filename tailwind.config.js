@@ -133,7 +133,7 @@ module.exports = {
         },
         'property-item-background': {
           DEFAULT: customColors('--c-cyan')({ opacityValue: 0.4 }),
-          selected: customColors('--c-yellow'),
+          selected: '#982220',
         },
 
         'header-bg': {

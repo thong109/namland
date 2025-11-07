@@ -5,11 +5,12 @@
 .ratings-common-information__profile {
   @apply mb-[37px] p-[28px_63px_28px_76px] bg-[#982220] rounded-[10px] flex items-center gap-[72px];
   @apply tablet-lg:mb-[30px] tablet-lg:p-[30px_50px] tablet-lg:gap-[50px];
-  @apply mobile:mb-[30px] mobile:p-[30px] mobile:gap-[30px];
+  @apply mobile:mb-[30px] mobile:p-[30px] mobile:gap-[30px] mobile:flex-col;
 }
 
 .ratings-common-information__profile-avatar {
   @apply w-[131px] pt-[3px] flex-grow-0 flex-shrink-0;
+  @apply mobile:mx-auto;
 }
 
 .ratings-common-information__avatar-wrapper {

@@ -26,6 +26,30 @@ input,select,textarea {
   @apply desktop:!w-[calc(100%-60px)] desktop:!max-w-[1420px] desktop:!px-[0px] mobile:!px-[20px];
 }
 
+.scrollbar-hidden {
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* Edge */
+}
+
+.rc-virtual-list-scrollbar.rc-virtual-list-scrollbar-vertical {
+  @apply bg-portal-gray-border !w-[3px];
+}
+
+.rc-virtual-list-scrollbar-thumb {
+  @apply !bg-portal-primaryLiving !w-[7px] !left-[-2.5px];
+}
+
+.Modal-Portal .datepicker-modal {
+  @apply !z-[999999];
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari */
+}
+
 /* Plugin: Ant */
 
 .ant-popover,

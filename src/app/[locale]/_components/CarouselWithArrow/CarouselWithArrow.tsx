@@ -6,6 +6,8 @@ import styles from './CarouselWithArrow.module.scss';
 export interface IProps {
   items: React.JSX.Element[];
   slidesPerRow?: number;
+  autoplaySpeed?: number;
+  autoplay?: boolean;
 }
 
 function SamplePrevArrow(props) {
@@ -35,13 +37,15 @@ const generatePages = (items: React.JSX.Element[], slidesPerRow: number) => {
   return pages;
 };
 
-const ListingCarousel: FC<IProps & CarouselProps> = ({ items, slidesPerRow = 5, ...props }) => {
+const ListingCarousel: FC<IProps & CarouselProps> = ({ items, slidesPerRow = 5, autoplaySpeed = 5000, autoplay = true, ...props }) => {
   const pages = generatePages(items, slidesPerRow);
   return (
     <div className={clsx('', styles.customCarousel)}>
       <Carousel
         arrows
         dots={false}
+        autoplay={autoplay}
+        autoplaySpeed={autoplaySpeed}
         slidesPerRow={slidesPerRow}
         nextArrow={<SampleNextArrow />}
         prevArrow={<SamplePrevArrow />}

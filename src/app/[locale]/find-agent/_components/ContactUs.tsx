@@ -135,7 +135,7 @@ const ContactUs: React.FC<IProps> = ({ data, ...props }) => {
                   { validator: validatorCustom, message: messageError('validText') },
                 ]}
               >
-                <Input placeholder={t('EcomPropertyDetailPageTicketName')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+                <Input placeholder={t('EcomPropertyDetailPageTicketName')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:border-b-portal-primaryLiving' />
               </Form.Item>
             </div>
             <div className="col-span-12 md:col-span-6">
@@ -153,7 +153,7 @@ const ContactUs: React.FC<IProps> = ({ data, ...props }) => {
                 ]}
                 name={'phone'}
               >
-                <Input placeholder={t('EcomPropertyDetailPageTicketPhoneNumber')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+                <Input placeholder={t('EcomPropertyDetailPageTicketPhoneNumber')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:border-b-portal-primaryLiving' />
               </Form.Item>
             </div>
             <div className="col-span-12 md:col-span-6">
@@ -165,7 +165,7 @@ const ContactUs: React.FC<IProps> = ({ data, ...props }) => {
                 ]}
                 name={'email'}
               >
-                <Input placeholder={t('EcomPropertyDetailPageReviewEmail')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+                <Input placeholder={t('EcomPropertyDetailPageReviewEmail')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:border-b-portal-primaryLiving' />
               </Form.Item>
             </div>
             <div className="col-span-12 md:col-span-6">
@@ -174,7 +174,7 @@ const ContactUs: React.FC<IProps> = ({ data, ...props }) => {
                 rules={[{ message: `${messageError('validText')}`, validator: validatorCustom }]}
                 name={'address'}
               >
-                <Input placeholder={t('EcomContactUsPageDetailPageAddress')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+                <Input placeholder={t('EcomContactUsPageDetailPageAddress')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:border-b-portal-primaryLiving' />
               </Form.Item>
             </div>
             <div className="col-span-12">
@@ -190,7 +190,7 @@ const ContactUs: React.FC<IProps> = ({ data, ...props }) => {
                   placeholder={t('EcomPropertyDetailPageTicketLeaveATicket')}
                   size="large"
                   rows={1}
-                  className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0'
+                  className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:border-b-portal-primaryLiving'
                 />
               </Form.Item>
             </div>

@@ -114,6 +114,7 @@ const ProjectNewInfo: React.FC<ProjectInfoProps> = ({ locale, projectDetail }) =
           <span className='article-common-information__title'>{t('EcomPropertyDetailPageLocationAmenities', { name: projectDetail?.title })}</span>
           <CarouselWithArrow
             items={items}
+            autoplay={false}
             className="block"
             slidesPerRow={slidesPerRow}
           ></CarouselWithArrow>

@@ -84,7 +84,7 @@ export default function SectionContact() {
                   { validator: validatorCustom, message: messageError('validText') },
                 ]}
               >
-                <Input placeholder={t('EcomPropertyDetailPageTicketName')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+                <Input placeholder={t('EcomPropertyDetailPageTicketName')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:border-b-portal-primaryLiving' />
               </Form.Item>
               <Form.Item
                 className="input-common-contact"
@@ -97,7 +97,7 @@ export default function SectionContact() {
                   },
                 ]}
               >
-                <Input placeholder={t('EcomPropertyDetailPageTicketPhone')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+                <Input placeholder={t('EcomPropertyDetailPageTicketPhone')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:border-b-portal-primaryLiving' />
               </Form.Item>
               <Form.Item
                 className="input-common-contact"
@@ -107,7 +107,7 @@ export default function SectionContact() {
                   { max: 256, message: `${messageError('maxlength', { number: 256 })}` },
                 ]}
               >
-                <Input placeholder={t('EcomPropertyDetailPageTicketEmail')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+                <Input placeholder={t('EcomPropertyDetailPageTicketEmail')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:border-b-portal-primaryLiving' />
               </Form.Item>
               <Form.Item
                 className="input-common-contact"
@@ -117,7 +117,7 @@ export default function SectionContact() {
                   { validator: validatorCustom, message: messageError('validText') },
                 ]}
               >
-                <Input placeholder={t('EcomPropertyDetailPageTicketMessage')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0' />
+                <Input placeholder={t('EcomPropertyDetailPageTicketMessage')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:border-b-portal-primaryLiving' />
               </Form.Item>
             </div>
             <div className="form-common-contact__controller">

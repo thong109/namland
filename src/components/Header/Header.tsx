@@ -19,6 +19,7 @@ import clsx from 'clsx';
 const Header = ({ className, navType }: { className: string; navType: string }) => {
   const pathname = usePathname();
   const [stateNavigation, toggleNavigation] = useState(false);
+  const [notify, setNotify] = useState(true);
   const t = useTranslations('webLabel');
   const { userInfo } = useGlobalStore();
   const [isModalOpen, setIsModalOpen] = ModalLoginOpen();
@@ -110,12 +111,15 @@ const Header = ({ className, navType }: { className: string; navType: string }) 
 
     return pathname.startsWith(item.href);
   };
+  const handleCloseNotify = () => setNotify(!notify);
   return (
     <header className='header-common'>
-      <div className='notification-header'>
-        <div className='notification-header__label'>Cơ hội đầu tư Giai đoạn 1 Hồng Hạc City (Hà Nội) từ chính CĐT</div>
-        <Link className='notification-header__link' href='#'>Đăng ký ngay</Link>
-        <button className='notification-header__toggle' style={{ backgroundImage: `url(${assetsImages.commonIconClose.src})` }} type='button'></button>
+      <div className={clsx('notification-header__wrapper', !notify && 'hidden')}>
+        <div className='notification-header'>
+          <div className='notification-header__label'>Cơ hội đầu tư Giai đoạn 1 Hồng Hạc City (Hà Nội) từ chính CĐT</div>
+          <Link className='notification-header__link' href='#'>Đăng ký ngay</Link>
+          <button className='notification-header__toggle' onClick={handleCloseNotify} style={{ backgroundImage: `url(${assetsImages.commonIconClose.src})` }} type='button'></button>
+        </div>
       </div>
       <div className='header-common__wrapper'>
         <span className='logo-header cursor-pointer' onClick={() => push(NAVIGATION.home.href)}>

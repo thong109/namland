@@ -168,7 +168,7 @@ const BookATourForm: React.FC<Props> = (props) => {
           className="w-full"
           label={t('EcomPropertyDetailPageLeaveAnInquiryName')}
         >
-          <Input />
+          <Input className='hover:border-portal-primaryLiving'/>
         </Form.Item>
         <Form.Item
           name="phone"
@@ -176,7 +176,7 @@ const BookATourForm: React.FC<Props> = (props) => {
           className="w-full"
           label={t('EcomPropertyDetailPageLeaveAnInquiryPhone')}
         >
-          <Input />
+          <Input className='hover:border-portal-primaryLiving'/>
         </Form.Item>
         <Form.Item
           name="email"
@@ -184,7 +184,7 @@ const BookATourForm: React.FC<Props> = (props) => {
           className="w-full"
           label={t('EcomPropertyDetailPageLeaveAnInquiryEmail')}
         >
-          <Input />
+          <Input className='hover:border-portal-primaryLiving'/>
         </Form.Item>
         <Form.Item
           name="message"
@@ -192,7 +192,7 @@ const BookATourForm: React.FC<Props> = (props) => {
           className="w-full"
           label={t('EcomPropertyDetailPageLeaveAnInquiryMessage')}
         >
-          <Input.TextArea rows={3} />
+          <Input.TextArea rows={3} className='hover:border-portal-primaryLiving'/>
         </Form.Item>
         <Checkbox className="self-start" onChange={(e) => setDidAceeptTerms(e.target.checked)}>
           {t.rich('AgreeWithTermsAndConditions', {

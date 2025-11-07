@@ -35,7 +35,7 @@
 }
 
 .popup-common-searchprice__menu {
-  @apply max-h-[315px] mx-[-10px] overflow-y-auto;
+  @apply mx-[-10px];
 }
 
 .popup-common-searchprice__menu .ant-dropdown-menu {

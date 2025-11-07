@@ -78,8 +78,8 @@
 }
 
 .article-common-contact__social-icon {
-  @apply block w-[47px] h-[47px] bg-center bg-no-repeat bg-cover flex-shrink-0;
-  @apply mobile:w-[30px] h-[30px];
+  @apply block w-[47px] h-[47px] bg-cover bg-no-repeat flex-shrink-0;
+  @apply mobile:w-[30px] mobile:h-[30px];
 }
 
 .article-common-contact__social-icon-title {

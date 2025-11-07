@@ -20,13 +20,13 @@ const PropertyItem: React.FC<PropertyItemProps> = ({
   return (
     <div className={clsx('flex cursor-pointer flex-col items-center', className)} onClick={onClick}>
       <div
-        className={clsx('relative size-16 rounded-full border border-property-item-border', {
+        className={clsx('relative size-16 rounded-full border border-portal-primaryLiving', {
           'border-property-item-background-selected bg-property-item-background-selected':
             selected === true,
         })}
       >
         <div className="absolute left-1/2 top-1/2 size-1/2 -translate-x-1/2 -translate-y-1/2 transform">
-          <Image src={image} alt="property-image" fill />
+          <Image src={image} className={clsx('', { 'filter invert brightness-100': selected === true })} alt="property-image" fill />
         </div>
       </div>
       <div

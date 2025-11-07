@@ -45,7 +45,7 @@ const AdvanceSearchListing = ({
   };
 
   return (
-    <div className="popup-common-searchadvanced" ref={popupRef}>
+    <div className="popup-common-searchadvanced scrollbar-hidden" ref={popupRef}>
       <Form className="form-common-listing" form={formRef} onValuesChange={onFormChange} layout="vertical">
         <div className="form-common-listing__wrapper">
           <div className="form-common-listing__entry form-common-listing__entry--stacked">
