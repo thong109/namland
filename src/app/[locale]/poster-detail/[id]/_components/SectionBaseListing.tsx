@@ -66,14 +66,19 @@ const SectionBaseListing: FC<SectionBaseListingProps> = ({
                 </div>
               ))}
           </div>
-
-          {/* TODO: where to go? */}
-          <Link
-            href={showMoreLink}
-            className="mb-4 cursor-pointer self-center text-portal-primaryLiving underline"
-          >
-            {t('Common.ShowMore')}
-          </Link>
+          {[
+            platinumListing?.data?.data ?? [],
+            goldListing?.data?.data ?? [],
+            basicListing?.data?.data ?? [],
+          ]
+            .flat().length >= 4 && (
+            <Link
+              href={showMoreLink}
+              className="mb-4 cursor-pointer self-center text-portal-primaryLiving underline"
+            >
+              {t('Common.ShowMore')}
+            </Link>
+          )}
         </div>
       </div>
     </>

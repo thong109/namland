@@ -113,6 +113,10 @@ input,select,textarea {
   @apply mobile:text-[14px] mobile:leading-[calc(25/14)];
 }
 
+.ant-select-item.ant-select-item-option.ant-select-item-option-selected {
+  @apply !bg-[#982220] !text-[#fff];
+}
+
 
 /* Plugin: Form */
 

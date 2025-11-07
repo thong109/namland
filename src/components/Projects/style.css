@@ -78,7 +78,7 @@
 }
 
 .article-common-contact__social-icon {
-  @apply block w-[47px] h-[47px] bg-cover bg-no-repeat flex-shrink-0;
+  @apply block w-[47px] h-[47px] bg-contain bg-no-repeat flex-shrink-0;
   @apply mobile:w-[30px] mobile:h-[30px];
 }
 
