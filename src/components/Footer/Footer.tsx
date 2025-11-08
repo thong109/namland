@@ -72,7 +72,7 @@ const Footer = () => {
                 <span className='list-footer-sns__label'>{t('EcomEntrustCompany2')}</span>
                 <ul className='list-footer-sns__wrapper'>
                   <li className='list-footer-sns__entry'>
-                    <Link className='list-footer-sns__entry-link' href='#' style={{ backgroundImage: `url(${assetsImages.commonIconSNS.src})` }}></Link>
+                    <Link className='list-footer-sns__entry-link' href='#' style={{ backgroundImage: `url(${assetsImages.commonIconSNS01.src})` }}></Link>
                   </li>
                   <li className='list-footer-sns__entry'>
                     <Link className='list-footer-sns__entry-link' href='#' style={{ backgroundImage: `url(${assetsImages.commonIconSNS02.src})` }}></Link>

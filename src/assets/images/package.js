@@ -13,6 +13,7 @@ import commonIconPhone from "./common/icon_phone_01.svg";
 import commonIconPhone2 from "./common/icon_phone_02.svg";
 import commonIconZalo from "./common/icon_zalo_01.svg";
 import commonIconSNS from "./common/icon_sns_01.svg";
+import commonIconSNS01 from "./common/icon_sns_01.png";
 import commonIconSNS02 from "./common/icon_sns_02.svg";
 import commonIconSNS03 from "./common/icon_sns_03.svg";
 import commonLogoPrinmary from './common/logo_primary_01.svg';
@@ -80,6 +81,7 @@ export const assetsImages = {
   commonIconPhone,
   commonIconPhone2,
   commonIconSNS,
+  commonIconSNS01,
   commonIconSNS02,
   commonIconSNS03,
   commonLogoPrinmary,
