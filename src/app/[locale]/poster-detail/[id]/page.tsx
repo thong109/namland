@@ -46,7 +46,7 @@ const PosterDetail: FC<IProps> = async ({ params }) => {
     notFound();
   }
   return (
-    <div className="container flex flex-col gap-4 pb-20 pt-5">
+    <div className="container flex flex-col gap-6 pb-20 pt-5">
       <BrokerBlock broker={broker.data} locale={locale} />
       <SectionListingForSale brokerId={brokerId} locale={locale} />
       <SectionListingForRent brokerId={brokerId} locale={locale} />

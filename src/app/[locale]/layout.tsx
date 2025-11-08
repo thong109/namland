@@ -118,7 +118,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
               <ClientCommons />
 
               <SiteHeader />
-              <main>
+              <main className='overflow-hidden'>
                 <NextTopLoader crawl={true} showSpinner={false} />
                 <ClientPageContainer coreAppConfig={coreAppConfig}>
                   <AntdRegistry>{children}</AntdRegistry>

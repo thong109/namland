@@ -100,16 +100,19 @@ const Header = ({ className, navType }: { className: string; navType: string }) 
     setIsModalOpen(false);
   };
   const isActive = (item: any) => {
-    if (item.href === NAVIGATION.entrust.href) {
+    const cleanHref = item.href.split('?')[0];
+    const cleanPath = pathname.split('?')[0];
+
+    if (cleanHref === NAVIGATION.entrust.href) {
       const subPaths = [
         NAVIGATION.entrust.href,
         NAVIGATION.findHouse.href,
         NAVIGATION.findAgent.href,
       ];
-      return subPaths.some(path => pathname.startsWith(path));
+      return subPaths.some(path => cleanPath.startsWith(path));
     }
 
-    return pathname.startsWith(item.href);
+    return cleanPath.startsWith(cleanHref);
   };
   const handleCloseNotify = () => setNotify(!notify);
   return (

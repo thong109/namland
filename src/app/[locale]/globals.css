@@ -33,6 +33,23 @@ input,select,textarea {
   /* Edge */
 }
 
+.ant-checkbox-input {
+  @apply hover:!border-portal-primaryLiving;
+}
+
+.ant-select-outlined .ant-select-selector {
+  @apply hover:!border-portal-primaryLiving focus:!border-portal-primaryLiving focus:!ring-0 focus-within:!border-portal-primaryLiving;
+}
+
+.ant-checkbox:hover .ant-checkbox-inner,
+.ant-checkbox-wrapper:hover .ant-checkbox-inner {
+  @apply !border-portal-primaryLiving;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  @apply !bg-portal-primaryLiving !border-portal-primaryLiving;
+}
+
 .rc-virtual-list-scrollbar.rc-virtual-list-scrollbar-vertical {
   @apply bg-portal-gray-border !w-[3px];
 }

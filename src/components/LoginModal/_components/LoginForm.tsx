@@ -130,7 +130,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ ...props }) => {
             </div>
           </div>
         </div>
-        <div className="w-1/2 border-b border-b-portal-yellow"></div>
+        <div className="w-1/2 border-b border-b-portal-primaryLiving"></div>
         <div className="text-lg font-medium">{t('LoginModalUsingPhoneNumber')}</div>
 
         <Form
@@ -150,7 +150,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ ...props }) => {
               ref={inputTagRef}
               autoFocus
               maxLength={11}
-              className="h-12 pt-4 text-portal-primaryLiving"
+              className="h-12 pt-4 text-portal-primaryLiving hover:border-portal-primaryLiving focus:border-portal-primaryLiving focus:ring-0 focus-within:border-portal-primaryLiving"
             />
           </FloatLabel>
           <Spin spinning={isLoading}>

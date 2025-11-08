@@ -39,7 +39,7 @@ const MobiDatePicker = ({ value, onChange }: MobiDatePickerProps) => {
           showTime
           showSecond={false}
           inputReadOnly
-          className="w-full cursor-pointer"
+          className="w-full cursor-pointer border-portal-primaryLiving focus:border-portal-primaryLiving focus-within:border-portal-primaryLiving"
           open={false}
           onChange={() => {}}
         />

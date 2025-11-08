@@ -53,7 +53,7 @@
 }
 
 .article-common-contact__checkbox {
-  @apply mr-[10px] h-[23px] w-[23px] bg-[#F6F6F6] border-[#CDCDCD] cursor-pointer accent-primary focus:ring-0 focus:ring-offset-0 flex-[0_0_auto];
+  @apply mr-[10px] h-[23px] w-[23px] bg-[#F6F6F6] border-[#CDCDCD] cursor-pointer accent-portal-primaryLiving focus:ring-0 focus:ring-offset-0 flex-[0_0_auto];
 }
 
 .article-common-contact__wrapper-line {

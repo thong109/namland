@@ -11,7 +11,7 @@
 }
 
 .card-common-listing__visual-status {
-  @apply overflow-hidden max-w-[calc(100%-22px)] max-h-[calc(100%-18px)] p-[3px_8px] bg-[#982220] rounded-[3px] absolute top-[9px] left-[11px] z-[1] text-[14px] leading-[calc(19/14)] font-[600] text-white;
+  @apply overflow-hidden max-w-[calc(100%-22px)] max-h-[calc(100%-18px)] p-[3px_8px] bg-[#982220] rounded-[3px] absolute top-[9px] left-[11px] z-[1] text-sm leading-[calc(19/14)] font-semibold text-white;
   @apply tablet-lg:max-w-[calc(100%-20px)] tablet-lg:max-h-[calc(100%-20px)] tablet-lg:p-[3px_6px] tablet-lg:top-[10px] tablet-lg:left-[10px];
   @apply mobile:max-w-[calc(100%-20px)] mobile:max-h-[calc(100%-20px)] mobile:p-[3px_6px] mobile:top-[10px] mobile:left-[10px];
 } 
@@ -25,15 +25,15 @@
 }
 
 .card-common-listing__title {
-  @apply mb-[11px] text-[18px] leading-[calc(25/18)] font-[600] text-[#444] line-clamp-2;
-  @apply tablet-lg:mb-[10px] tablet-lg:text-[16px] tablet-lg:leading-[calc(24/16)];
-  @apply mobile:mb-[10px] mobile:text-[16px] mobile:leading-[calc(24/16)];
+  @apply mb-[11px] text-lg leading-[calc(25/18)] font-semibold text-[#444] line-clamp-2;
+  @apply tablet-lg:mb-[10px] tablet-lg:text-base tablet-lg:leading-[calc(24/16)];
+  @apply mobile:mb-[10px] mobile:text-base mobile:leading-[calc(24/16)];
 }
 
 .card-common-listing__info {
-  @apply flex flex-col gap-[13px] text-[16px] leading-[calc(24/16)] text-[#444];
-  @apply tablet-lg:gap-[10px] tablet-lg:text-[14px] tablet-lg:leading-[calc(24/14)];
-  @apply mobile:gap-[10px] mobile:text-[14px] mobile:leading-[calc(24/14)];
+  @apply flex flex-col gap-[13px] text-base leading-[calc(24/16)] text-[#444];
+  @apply tablet-lg:gap-[10px] tablet-lg:text-sm tablet-lg:leading-[calc(24/14)];
+  @apply mobile:gap-[10px] mobile:text-sm mobile:leading-[calc(24/14)];
 }
 
 .card-common-listing__entry-label {
@@ -69,25 +69,29 @@
 }
 
 .card-common-listing--rent .card-common-listing__price-main {
-  @apply text-[18px] leading-[calc(24/18)] font-[600];
-  @apply mobile:text-[16px] mobile:leading-[calc(24/16)];
+  @apply text-lg leading-[calc(24/18)] font-semibold;
+  @apply laptop-md:text-base laptop-md:leading-[calc(24/16)];
+  @apply laptop-sm:text-lg laptop-sm:leading-[calc(24/18)];
+  @apply mobile:text-base mobile:leading-[calc(24/16)];
 }
 
 .card-common-listing--rent .card-common-listing__price-original {
-  @apply ml-[15px] text-[16px] leading-[calc(24/16)] line-through text-[#982220];
-  @apply mobile:text-[14px] mobile:leading-[calc(24/14)];
+  @apply ml-[15px] text-base leading-[calc(24/16)] line-through text-[#982220];
+  @apply laptop-md:ml-[10px] laptop-md:text-sm laptop-md:leading-[calc(24/14)];
+  @apply laptop-sm:ml-[15px] laptop-sm:text-base;
+  @apply mobile:text-sm mobile:leading-[calc(24/14)];
 }
 
 .card-common-listing--rent .card-common-listing__detail {
-  @apply mt-[12px] text-[16px] leading-[calc(24/16)];
-  @apply tablet-lg:mt-[10px] tablet-lg:text-[14px] tablet-lg:leading-[calc(24/14)];
-  @apply mobile:mt-[10px] mobile:text-[14px] mobile:leading-[calc(24/14)];
+  @apply mt-[12px] text-base leading-[calc(24/16)];
+  @apply tablet-lg:mt-[10px] tablet-lg:text-sm tablet-lg:leading-[calc(24/14)];
+  @apply mobile:mt-[10px] mobile:text-sm mobile:leading-[calc(24/14)];
 }
 
 .list-common-properties {
-  @apply flex flex-wrap gap-[10px_47px] text-[16px] leading-[calc(24/16)];
-  @apply tablet-lg:gap-[10px_30px] tablet-lg:text-[14px] tablet-lg:leading-[calc(24/14)];
-  @apply mobile:gap-[10px_30px] mobile:text-[14px] mobile:leading-[calc(24/14)];
+  @apply flex flex-wrap gap-[10px_47px] text-base leading-[calc(24/16)];
+  @apply tablet-lg:gap-[10px_30px] tablet-lg:text-sm tablet-lg:leading-[calc(24/14)];
+  @apply mobile:gap-[10px_30px] mobile:text-sm mobile:leading-[calc(24/14)];
 }
 
 .list-common-properties__item {

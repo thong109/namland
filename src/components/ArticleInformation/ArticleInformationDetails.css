@@ -76,6 +76,18 @@
   @apply gap-[10px_13px]
 }
 
+.article-common-information--details-custom .article-common-information__block-row {
+  @apply border-b border-b-[#CFCFCF];
+}
+
+.article-common-information--details-custom .article-common-information__block-row:last-child {
+  @apply border-b-0;
+}
+
+.article-common-information--details-custom .article-common-information__block-description {
+  @apply line-clamp-1;
+}
+
 .article-common-information--details .article-common-information__title-small {
   @apply mb-[10px] block text-lg leading-[calc(28/18)] font-semibold text-[#000];
   @apply tablet-lg:text-[20px] tablet-lg:leading-[calc(30/20)];

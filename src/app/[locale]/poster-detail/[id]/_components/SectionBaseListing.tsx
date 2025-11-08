@@ -48,7 +48,7 @@ const SectionBaseListing: FC<SectionBaseListingProps> = ({
 
   return (
     <>
-      <div className={`relative flex flex-col gap-2 lg:flex-row`}>
+      <div className={`relative flex flex-col gap-2 lg:flex-row mb-5`}>
         <div className={clsx('flex flex-col gap-4 lg:mx-auto lg:w-full')}>
           <div>
             <h1 className="text-center text-2xl md:text-4xl font-bold text-portal-primaryLiving">{title}</h1>

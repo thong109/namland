@@ -361,7 +361,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ isVisible, closeModal, handleOk
       onCancel={onCloseModel}
       closable={false}
       footer={null}
-      width={'420px'}
+      width={'450px'}
     >
       <div className="relative rounded-3xl bg-neutral-0 p-5">
         {/* allowRegister == false => k cho hiện đăng ký */}

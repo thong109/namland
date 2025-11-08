@@ -139,7 +139,7 @@ const BookATourForm: React.FC<Props> = (props) => {
         {isMobile ? (
           <Form.Item
             name="visitDate"
-            className="w-full"
+            className="w-full hover:border-portal-primaryLiving"
             rules={rules.visitDate}
             label={t('EcomPropertyDetailPageLeaveAnInquirySelectDateAndTime')}
           >
@@ -153,11 +153,12 @@ const BookATourForm: React.FC<Props> = (props) => {
             label={t('EcomPropertyDetailPageLeaveAnInquirySelectDateAndTime')}
           >
             <DatePicker
-              minDate={dayjs()}
+              disabledDate={(current) => current && current < dayjs().startOf('day')}
               showTime
               showSecond={false}
-              className="w-full"
+              className="w-full hover:border-portal-primaryLiving focus:border-portal-primaryLiving focus-within:border-portal-primaryLiving"
               needConfirm={false}
+              getPopupContainer={(trigger) => trigger.parentElement!}
             />
           </Form.Item>
         )}
@@ -168,7 +169,7 @@ const BookATourForm: React.FC<Props> = (props) => {
           className="w-full"
           label={t('EcomPropertyDetailPageLeaveAnInquiryName')}
         >
-          <Input className='hover:border-portal-primaryLiving'/>
+          <Input className='hover:border-portal-primaryLiving focus:border-portal-primaryLiving focus-within:border-portal-primaryLiving' />
         </Form.Item>
         <Form.Item
           name="phone"
@@ -176,7 +177,7 @@ const BookATourForm: React.FC<Props> = (props) => {
           className="w-full"
           label={t('EcomPropertyDetailPageLeaveAnInquiryPhone')}
         >
-          <Input className='hover:border-portal-primaryLiving'/>
+          <Input className='hover:border-portal-primaryLiving focus:border-portal-primaryLiving focus-within:border-portal-primaryLiving' />
         </Form.Item>
         <Form.Item
           name="email"
@@ -184,7 +185,7 @@ const BookATourForm: React.FC<Props> = (props) => {
           className="w-full"
           label={t('EcomPropertyDetailPageLeaveAnInquiryEmail')}
         >
-          <Input className='hover:border-portal-primaryLiving'/>
+          <Input className='hover:border-portal-primaryLiving focus:border-portal-primaryLiving focus-within:border-portal-primaryLiving' />
         </Form.Item>
         <Form.Item
           name="message"
@@ -192,9 +193,9 @@ const BookATourForm: React.FC<Props> = (props) => {
           className="w-full"
           label={t('EcomPropertyDetailPageLeaveAnInquiryMessage')}
         >
-          <Input.TextArea rows={3} className='hover:border-portal-primaryLiving'/>
+          <Input.TextArea rows={3} className='hover:border-portal-primaryLiving focus:border-portal-primaryLiving focus-within:border-portal-primaryLiving' />
         </Form.Item>
-        <Checkbox className="self-start" onChange={(e) => setDidAceeptTerms(e.target.checked)}>
+        <Checkbox className="self-start hover:border-portal-primaryLiving" onChange={(e) => setDidAceeptTerms(e.target.checked)}>
           {t.rich('AgreeWithTermsAndConditions', {
             quychehoatdong: (chunks) => (
               <span className="underline" onClick={openLink}>

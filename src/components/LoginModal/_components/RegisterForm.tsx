@@ -201,7 +201,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
                 </div>
               </div>
             </div>
-            <div className="w-1/2 border-b border-b-portal-yellow"></div>
+            <div className="w-1/2 border-b border-b-portal-primaryLiving"></div>
           </>
         )}
         <Form
@@ -222,7 +222,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
             <Input
               ref={inputTagRef}
               maxLength={NAME_MAX_LENGTH}
-              className="h-12 pt-4 text-portal-primaryLiving"
+              className="h-12 pt-4 text-portal-primaryLiving hover:border-portal-primaryLiving focus:border-portal-primaryLiving focus:ring-0 focus-within:border-portal-primaryLiving"
             />
           </FloatLabel>
           <FloatLabel
@@ -232,7 +232,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
             rules={rules.lastName}
             form={registerFormRef}
           >
-            <Input maxLength={NAME_MAX_LENGTH} className="h-12 pt-4 text-portal-primaryLiving" />
+            <Input maxLength={NAME_MAX_LENGTH} className="h-12 pt-4 text-portal-primaryLiving hover:border-portal-primaryLiving focus:border-portal-primaryLiving focus:ring-0 focus-within:border-portal-primaryLiving" />
           </FloatLabel>
           <FloatLabel
             label={t('LoginModalPhone')}
@@ -241,7 +241,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
             rules={rules.phone}
             form={registerFormRef}
           >
-            <Input maxLength={11} className="h-12 pt-4 text-portal-primaryLiving" />
+            <Input maxLength={11} className="h-12 pt-4 text-portal-primaryLiving hover:border-portal-primaryLiving focus:border-portal-primaryLiving focus:ring-0 focus-within:border-portal-primaryLiving" />
           </FloatLabel>
           <FloatLabel
             label={t('LoginModalEmail')}
@@ -250,7 +250,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
             rules={rules.email}
             form={registerFormRef}
           >
-            <Input className="h-12 pt-4 text-portal-primaryLiving" />
+            <Input className="h-12 pt-4 text-portal-primaryLiving hover:border-portal-primaryLiving focus:border-portal-primaryLiving focus:ring-0 focus-within:border-portal-primaryLiving" />
           </FloatLabel>
           <FloatLabel
             label={t('LoginModalAccountType')}
@@ -260,8 +260,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
             form={registerFormRef}
           >
             <Select
-              dropdownStyle={{ zIndex: 9999 }}
-              className="h-12 text-portal-primaryLiving"
+              dropdownStyle={{ zIndex: 9999999 }}
+              className="h-12 text-portal-primaryLiving hover:!border-portal-primaryLiving focus:border-portal-primaryLiving focus:ring-0 focus-within:border-portal-primaryLiving"
               options={accountTypes.map((item) => ({ label: item.label, value: item.value }))}
             />
           </FloatLabel>
@@ -276,7 +276,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
                 rules={rules.address}
                 form={registerFormRef}
               >
-                <Input className="h-12 pt-4 text-portal-primaryLiving" />
+                <Input className="h-12 pt-4 text-portal-primaryLiving hover:border-portal-primaryLiving focus:border-portal-primaryLiving focus:ring-0 focus-within:border-portal-primaryLiving" />
               </FloatLabel>
               <FloatLabel
                 label={t('LoginModalTaxCode')}
@@ -285,7 +285,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
                 rules={rules.taxCode}
                 form={registerFormRef}
               >
-                <Input className="h-12 pt-4 text-portal-primaryLiving" />
+                <Input className="h-12 pt-4 text-portal-primaryLiving hover:border-portal-primaryLiving focus:border-portal-primaryLiving focus:ring-0 focus-within:border-portal-primaryLiving" />
               </FloatLabel>
               <FloatLabel
                 label={t('LoginModalDateOfIssuance')}
@@ -294,7 +294,10 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
                 rules={rules.taxCodeDateOfIssue}
                 form={registerFormRef}
               >
-                <DatePicker className="h-12 w-full pt-4 text-portal-primaryLiving" placeholder="" />
+                <DatePicker
+                  className="h-12 w-full pt-4 text-portal-primaryLiving hover:border-portal-primaryLiving focus:border-portal-primaryLiving focus:ring-0 focus-within:border-portal-primaryLiving"
+                  getPopupContainer={(trigger) => trigger.parentElement!}
+                  placeholder="" />
               </FloatLabel>
               <FloatLabel
                 label={t('LoginModalPlaceOfIssuance')}
@@ -303,7 +306,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
                 rules={rules.taxCodePlaceOfIssue}
                 form={registerFormRef}
               >
-                <Input className="h-12 pt-4 text-portal-primaryLiving" />
+                <Input className="h-12 pt-4 text-portal-primaryLiving hover:border-portal-primaryLiving focus:border-portal-primaryLiving focus:ring-0 focus-within:border-portal-primaryLiving" />
               </FloatLabel>
             </>
           )}
@@ -366,7 +369,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
               onCloseBlock();
             }}
             type="primary"
-            className="w-[80%] rounded-none border-black font-semibold text-black"
+            className="w-[80%] rounded-none bg-portal-primaryLiving border-black font-semibold text-white hover:!bg-white hover:border-portal-primaryLiving hover:!text-portal-primaryLiving"
             size="large"
           >
             {t('goBack')}

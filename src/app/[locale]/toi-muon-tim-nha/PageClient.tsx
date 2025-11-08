@@ -90,35 +90,35 @@ const PageClient = () => {
                     name="name"
                     rules={[{ required: true, max: 250 }]}
                   >
-                    <Input placeholder={t('FindHoneRequestName')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:border-b-portal-primaryLiving' />
+                    <Input placeholder={t('FindHoneRequestName') + ' *'} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:!border-b-portal-primaryLiving' />
                   </Form.Item>
                   <Form.Item
                     className='!mb-[22px]'
                     rules={[{ max: 250 }]}
                     name="numberOfOccupants"
                   >
-                    <Input placeholder={t('FindHoneRequestMemberOfOcc')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:border-b-portal-primaryLiving' />
+                    <Input placeholder={t('FindHoneRequestMemberOfOcc')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:!border-b-portal-primaryLiving' />
                   </Form.Item>
                   <Form.Item
                     className='!mb-[22px]'
                     name="preferredLocation"
                     rules={[{ required: true, max: 250 }]}
                   >
-                    <Input placeholder={t('FindHoneRequestPreferredLocation')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:border-b-portal-primaryLiving' />
+                    <Input placeholder={t('FindHoneRequestPreferredLocation') + ' *'} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:!border-b-portal-primaryLiving' />
                   </Form.Item>
                   <Form.Item
                     className='!mb-[22px]'
                     rules={[{ max: 250 }]}
                     name="layoutPreference"
                   >
-                    <Input placeholder={t('FindHoneRequestLayoutPreferrence')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:border-b-portal-primaryLiving' />
+                    <Input placeholder={t('FindHoneRequestLayoutPreferrence')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:!border-b-portal-primaryLiving' />
                   </Form.Item>
                   <Form.Item
                     className='!mb-[22px]'
                     rules={[{ max: 250 }]}
                     name="leaseTerm"
                   >
-                    <Input placeholder={t('FindHoneRequesLeaseTerm')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:border-b-portal-primaryLiving' />
+                    <Input placeholder={t('FindHoneRequesLeaseTerm')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:!border-b-portal-primaryLiving' />
                   </Form.Item>
                 </div>
                 <div className="col-span-2 lg:col-span-1 lg:px-5">
@@ -127,35 +127,35 @@ const PageClient = () => {
                     name="contactInfomation"
                     rules={[{ required: true, max: 250 }]}
                   >
-                    <Input placeholder={t('FindHoneRequestContactInfoMation')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:border-b-portal-primaryLiving' />
+                    <Input placeholder={t('FindHoneRequestContactInfoMation') + ' *'} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:!border-b-portal-primaryLiving' />
                   </Form.Item>
                   <Form.Item
                     className='!mb-[22px]'
                     name="typeOfProperty"
                     rules={[{ required: true, max: 250 }]}
                   >
-                    <Input placeholder={t('FindHoneRequestTypeOfProperty')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:border-b-portal-primaryLiving' />
+                    <Input placeholder={t('FindHoneRequestTypeOfProperty') + ' *'} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:!border-b-portal-primaryLiving' />
                   </Form.Item>
                   <Form.Item
                     className='!mb-[22px]'
                     name="budget"
                     rules={[{ required: true, max: 250 }]}
                   >
-                    <Input placeholder={t('FindHoneRequestBudgetRendRange')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:border-b-portal-primaryLiving' />
+                    <Input placeholder={t('FindHoneRequestBudgetRendRange') + ' *'} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:!border-b-portal-primaryLiving' />
                   </Form.Item>
                   <Form.Item
                     className='!mb-[22px]'
                     name="moveInDate"
                     rules={[{ required: true, max: 250 }]}
                   >
-                    <Input placeholder={t('FindHoneRequestMoveInDate')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:border-b-portal-primaryLiving' />
+                    <Input placeholder={t('FindHoneRequestMoveInDate') + ' *'} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:!border-b-portal-primaryLiving' />
                   </Form.Item>
                   <Form.Item
                     className='!mb-[22px]'
                     rules={[{ max: 250 }]}
                     name="aboutYou"
                   >
-                    <Input placeholder={t('FindHoneRequestAboutYou')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:border-b-portal-primaryLiving' />
+                    <Input placeholder={t('FindHoneRequestAboutYou')} className='text-sm md:text-lg border-0 border-b border-portal-gray-3 placeholder-portal-gray-7 focus:bg-transparent focus:border-portal-gray-3 bg-transparent rounded-none p-0 hover:bg-transparent hover:!border-b-portal-primaryLiving' />
                   </Form.Item>
                 </div>
 
