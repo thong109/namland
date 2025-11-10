@@ -342,7 +342,7 @@ input,select,textarea {
 }
 
 .form-common-listing__entry {
-  @apply min-h-[40px] pb-[15px] border-b-[1px] border-b-portal-gray-6;
+  @apply min-h-[40px] pb-[15px];
 }
 
 .form-common-listing__entry--basic {

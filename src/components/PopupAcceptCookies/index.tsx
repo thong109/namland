@@ -73,7 +73,7 @@ const AcceptCookies = () => {
       </div>
       <div className="col-span-6 lg:col-span-12 lg:-mb-8">
         <button
-          className="w-full rounded-lg bg-[#25793A] p-2 text-[10px] leading-[14px] text-white lg:bg-[#25793AB2] lg:text-xs"
+          className="w-full rounded-lg bg-portal-primaryLiving p-2 text-[10px] leading-[14px] text-white lg:text-xs"
           type="button"
           onClick={() => acceptCookies()}
         >
@@ -82,7 +82,7 @@ const AcceptCookies = () => {
       </div>
       <div className="col-span-6 lg:col-span-12 lg:-mb-8">
         <button
-          className="w-full rounded-lg bg-[#25793A] p-2 text-[10px] leading-[14px] text-white lg:mb-2 lg:bg-[#25793AB2] lg:text-xs"
+          className="w-full rounded-lg bg-portal-primaryLiving p-2 text-[10px] leading-[14px] text-white lg:mb-2 lg:text-xs"
           type="button"
           onClick={() => acceptCookies()}
         >
