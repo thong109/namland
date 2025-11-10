@@ -338,11 +338,11 @@ input,select,textarea {
 }
 
 .form-common-listing__wrapper {
-  @apply flex flex-col gap-[15px];
+  @apply flex flex-col gap-[10px];
 }
 
 .form-common-listing__entry {
-  @apply min-h-[40px] pb-[15px];
+  @apply min-h-[40px];
 }
 
 .form-common-listing__entry--basic {
